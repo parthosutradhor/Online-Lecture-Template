@@ -198,14 +198,17 @@
 % Modern Box Styles (with neat tabbed titles)
 % ===============================
 
-\definecolor{DefBack}{RGB}{245,255,255}
-\definecolor{DefMain}{RGB}{16,142,195}
-\definecolor{ThmBack}{RGB}{230,255,230}
-\definecolor{ThmMain}{RGB}{25,255,84}
-\definecolor{ProbBack}{RGB}{255,249,240}
-\definecolor{ProbMain}{RGB}{217,119,6}
-\definecolor{HeadL}{RGB}{30,64,175}
-\definecolor{HeadR}{RGB}{56,189,248}
+\definecolor{DefBack}{RGB}{240,248,255}   % very soft azure (background)
+\definecolor{DefMain}{RGB}{0,102,224}     % deep academic blue
+
+\definecolor{ThmBack}{RGB}{235,255,238}   % pale mint (background)
+\definecolor{ThmMain}{RGB}{0,173,76}      % strong green (not neon)
+
+\definecolor{ProbBack}{RGB}{255,250,240}  % light ivory (background)
+\definecolor{ProbMain}{RGB}{204,85,0}     % burnt orange (balanced)
+
+\definecolor{HeadL}{RGB}{25,50,120}       % dark navy
+\definecolor{HeadR}{RGB}{50,150,220}      % mid-sky blue
 
 \tcbset{ parthoBase/.style={ breakable, enhanced jigsaw, boxrule=0.6pt, arc=4pt, left=10pt, right=10pt, top=10pt, bottom=10pt, coltitle=black, fonttitle=\bfseries\sffamily, fontupper=\sffamily, drop fuzzy shadow, attach boxed title to top left={yshift=-0.5mm}, % tab overlaps border neatly
 boxed title style={ boxrule=0pt, arc=3pt, top=2pt, bottom=2pt, left=8pt, right=8pt, interior style={left color=tcbcolframe!10!white, right color=tcbcolframe!30!white} }, }, }
