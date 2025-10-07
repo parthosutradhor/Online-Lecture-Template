@@ -198,17 +198,21 @@
 % Modern Box Styles (with neat tabbed titles)
 % ===============================
 
-\definecolor{DefBack}{RGB}{225,238,250}   % deeper azure (background)
-\definecolor{DefMain}{RGB}{0,85,187}      % deeper academic blue
+% --- Definition (deep academic blue) ---
+\definecolor{DefBack}{RGB}{228,238,250}   % soft bluish background
+\definecolor{DefMain}{RGB}{0,90,190}      % deep but calm academic blue
 
-\definecolor{ThmBack}{RGB}{235,255,238}   % pale mint (background)
-\definecolor{ThmMain}{RGB}{0,173,76}      % strong green (not neon)
+% --- Theorem (balanced emerald green) ---
+\definecolor{ThmBack}{RGB}{230,248,235}   % gentle greenish background
+\definecolor{ThmMain}{RGB}{0,155,70}      % balanced rich green
 
-\definecolor{ProbBack}{RGB}{255,250,240}  % light ivory (background)
-\definecolor{ProbMain}{RGB}{204,85,0}     % burnt orange (balanced)
+% --- Problem (refined amber tone) ---
+\definecolor{ProbBack}{RGB}{255,245,232}  % warm ivory-peach background
+\definecolor{ProbMain}{RGB}{195,90,0}     % deep amber / rust-orange
 
-\definecolor{HeadL}{RGB}{25,50,120}       % dark navy
-\definecolor{HeadR}{RGB}{50,150,220}      % mid-sky blue
+% --- Headers (coordinated with Definition) ---
+\definecolor{HeadL}{RGB}{20,55,120}       % deep navy (slightly cooler, academic tone)
+\definecolor{HeadR}{RGB}{45,135,215}      % calm mid-sky blue (not too bright)
 
 \tcbset{ parthoBase/.style={ breakable, enhanced jigsaw, boxrule=0.6pt, arc=4pt, left=10pt, right=10pt, top=10pt, bottom=10pt, coltitle=black, fonttitle=\bfseries\sffamily, fontupper=\sffamily, drop fuzzy shadow, attach boxed title to top left={yshift=-0.5mm}, % tab overlaps border neatly
 boxed title style={ boxrule=0pt, arc=3pt, top=2pt, bottom=2pt, left=8pt, right=8pt, interior style={left color=tcbcolframe!10!white, right color=tcbcolframe!30!white} }, }, }
