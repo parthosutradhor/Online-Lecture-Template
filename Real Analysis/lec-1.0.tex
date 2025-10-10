@@ -348,6 +348,8 @@ enhanced, frame empty, interior style={left color=HeadL!95!black, right color=He
     \]
     \end{definition}
 
+    \vspace{10pt}
+
     \begin{problem}
         Define the equivalence relation $\sim$ on $\mathbb{Z}$ by
         \[
@@ -368,9 +370,41 @@ enhanced, frame empty, interior style={left color=HeadL!95!black, right color=He
 
     \clearpage
 
+    \begin{theorem}
+    Let $\sim$ be an equivalence relation on $A$.  
+    For any $a,b \in A$, either $[a] = [b]$ or $[a] \cap [b] = \varnothing$.
+    \end{theorem}
+
+    \clearpage
+
     \begin{heading}
-        Partitions from Equivalence Relations
+        Partition from Equivalence Relations
     \end{heading}
+
+    \begin{theorem}[Partition Theorem]
+    Every equivalence relation on $A$ partitions $A$ into disjoint equivalence classes.  
+    Conversely, every partition of $A$ defines an equivalence relation.
+    \end{theorem}
+
+    \clearpage
+
+    \begin{problem}
+        Define the equivalence relation $\sim$ on $\mathbb{Z}$ by
+        \[
+        a \sim b \iff a \equiv b \pmod{5} \iff a-b \text{ is divisible by } 5.
+        \]
+        Find the partition of $\mathbb{Z}$ by $\sim$.
+    \end{problem}
+
+    \clearpage
+
+    \begin{problem}
+        In $\mathbb{R}^2\setminus\{(0,0)\}$, define the equivalence relation $\sim$ by
+        \[
+        (x_1,y_1) \sim (x_2,y_2) \iff \exists k \neq 0 \text{ such that } (x_1,y_1)=k(x_2,y_2).
+        \]
+        Give a physical interpretation of the partition of $\mathbb{R}^2\setminus\{(0,0)\}$ by $\sim$.
+    \end{problem}
 
     \clearpage
 
@@ -382,54 +416,97 @@ enhanced, frame empty, interior style={left color=HeadL!95!black, right color=He
     \textit{``God made the integers; all else is the work of man.''} \\
     \hfill --- \textbf{Leopold Kronecker (1823--1891)}
     \end{quote}
-    
-    \clearpage
 
-    \begin{heading}
-		Rational Numbers to Reals (complete)
-	\end{heading}
-    
-    \clearpage
+    \vspace{20pt}
 
-    \begin{heading}
-		Reals to Complex (algebraically closed)
-	\end{heading}
-    
-	\clearpage
-
-    \begin{heading}
-		Basic Topology of $\mathbb{R}$
-	\end{heading}
-    
-    \clearpage
-
-    \begin{heading}
-		Sequence and Limit
-	\end{heading}
+    \begin{definition}[Fractions as Ordered Pairs]
+    Let 
+    \[
+    S = \mathbb{Z} \times (\mathbb{Z} \setminus \{0\})
+    \]
+    be the set of all ordered pairs $(a,b)$, where $a$ is any integer and $b$ is a nonzero integer.  
+    We think of $(a,b)$ as the “fraction” $\dfrac{a}{b}$.
+    \end{definition}
 
     \clearpage
 
-    \begin{heading}
-		Functional Limits and Continuity
-	\end{heading}
+    \begin{theorem}
+    Define a relation $\sim$ on $S=\mathbb{Z} \times (\mathbb{Z} \setminus \{0\})$ by
+    \[
+    (a,b) \sim (c,d) \;\Longleftrightarrow\; ad = bc.
+    \]
+    Show that the relation $\sim$ is an equivalence relation on $S$.
+    \end{theorem}
+
+    \clearpage
+
+    \begin{definition}[The Rational Numbers]
+        The set of \textbf{rational numbers} is the quotient set / partition set
+    \[
+    \mathbb{Q} = S / \sim = \{\, [(a,b)] \mid (a,b) \in S \,\}.
+    \]
+    The equivalence class $[(a,b)]$ is informally written as $\dfrac{a}{b}$.
+    \end{definition}
+
+    \vfil
+
+    \begin{problem}[Example]
+        The class $[(1,2)]$ is
+        \[
+        [(1,2)] = \{(1,2), (2,4), (3,6), \ldots, (-1,-2), (-2,-4), \ldots\}.
+        \]
+        All of these pairs represent the same rational number: $\dfrac{1}{2}$.
+    \end{problem}
+
+    \vfil
+
+    \begin{theorem}[Integers as Rationals]
+        The class $[(a,1)]$ is
+        \[
+        [(a,1)] = \{(a,1), (2a,2), (3a,3), \ldots, (-a,-1), (-2a,-2), \ldots\}.
+        \]
+        All of these pairs represent the integer $a \in \mathbb{Z}$.
+    \end{theorem}
 
     \clearpage
 
     \begin{heading}
-		The Derivative
-	\end{heading}
+        Addition and Multiplication of Rational Numbers
+    \end{heading}
+
+    \begin{definition}
+    For $[(a,b)], [(c,d)] \in \mathbb{Q}$, define:
+    \[
+    [(a,b)] + [(c,d)] := [(ad + bc,\, bd)], \qquad
+    [(a,b)] \cdot [(c,d)] := [(ac,\, bd)].
+    \]
+    \end{definition}
+
+    \begin{theorem}[Well-definedness]
+    These operations do not depend on the representatives chosen.
+    \end{theorem}
 
     \clearpage
 
     \begin{heading}
-		Sequences and Series of Functions
-	\end{heading}
-    
+        Order on the Rationals
+    \end{heading}
+
+    \begin{definition}
+        For $[(a,b)], [(c,d)] \in \mathbb{Q}$ with $b,d > 0$, define
+        \[
+        [(a,b)] < [(c,d)] \;\Longleftrightarrow\; ad < bc.\]
+    \end{definition}
+
     \clearpage
 
     \begin{heading}
-		The Riemann Integral
-	\end{heading}
+        Density of Rationals
+    \end{heading}
+
+    \begin{theorem}[Density]
+    Between any two rationals $x < y$, there exists another rational $z$ with $x < z < y$.
+    \end{theorem}
 
 	\EndPage
 \end{document}
