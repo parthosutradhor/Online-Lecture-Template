@@ -218,19 +218,19 @@
 boxed title style={ boxrule=0pt, arc=3pt, top=2pt, bottom=2pt, left=8pt, right=8pt, interior style={left color=tcbcolframe!10!white, right color=tcbcolframe!30!white} }, }, }
 
 % --- Definition Box ---
-\NewTColorBox{Definition}{ O{Definition} }{%
+\NewTColorBox{definition}{ O{Definition} }{%
 parthoBase, colback=DefBack, colframe=DefMain, title={\faBook\ \ #1}, borderline west={2.5pt}{0pt}{DefMain}, overlay unbroken and first={ \node[opacity=0.06,anchor=north east,inner sep=6pt] at (frame.north east) {\scalebox{2}{\faBookOpen}}; }, }
 
 % --- Theorem Box ---
-\NewTColorBox{Theorem}{ O{Theorem} }{%
+\NewTColorBox{theorem}{ O{Theorem} }{%
 parthoBase, colback=ThmBack, colframe=ThmMain, title={\faLightbulb[regular]\ \ #1}, borderline west={2.5pt}{0pt}{ThmMain}, overlay unbroken and first={ \node[opacity=0.06,anchor=north east,inner sep=6pt] at (frame.north east) {\scalebox{2}{\faLightbulb}}; }, }
 
 % --- Problem Box ---
-\NewTColorBox{Problem}{ O{Problem} }{%
+\NewTColorBox{problem}{ O{Problem} }{%
 parthoBase, colback=ProbBack, colframe=ProbMain, title={\faQuestionCircle[regular]\ \ #1}, borderline west={2.5pt}{0pt}{ProbMain}, overlay unbroken and first={ \node[opacity=0.07,anchor=north east,inner sep=6pt] at (frame.north east) {\scalebox{2}{\faQuestionCircle}}; }, }
 
 % --- Heading Box ---
-\NewTColorBox{Heading}{ O{Heading} }{%
+\NewTColorBox{heading}{ O{Heading} }{%
 enhanced, frame empty, interior style={left color=HeadL!95!black, right color=HeadR!90!white}, boxsep=1pt, top=10pt, bottom=10pt, left=10pt, right=10pt, coltext=white, fontupper=\sffamily\bfseries\Large }
 
 % ===============================
@@ -241,30 +241,30 @@ enhanced, frame empty, interior style={left color=HeadL!95!black, right color=He
 
 	\Large
 
-	\begin{Heading}
+	\begin{heading}
 		Introduction to Galois Theory
-	\end{Heading}
+	\end{heading}
 
-	\begin{Definition}
+	\begin{definition}
 		[Field Extension] Let $F \subseteq K$ be fields. We say that $K$ is a \emph{field
 		extension} of $F$, denoted $K/F$, if the operations of $F$ are the restrictions
 		of those of $K$.
-	\end{Definition}
+	\end{definition}
 
 	\vspace{5cm}
 
-	\begin{Definition}
+	\begin{definition}
 		[Automorphism] An \emph{automorphism} of a field $K$ is a bijective map
 		$\sigma:K \to K$ such that
 		\[
 			\sigma(a+b) = \sigma(a)+\sigma(b), \quad \sigma(ab) = \sigma(a)\sigma(b), \quad
 			\sigma(1)=1.
 		\]
-	\end{Definition}
+	\end{definition}
 
 	\clearpage
 
-	\begin{Theorem}
+	\begin{theorem}
 		[Fundamental Theorem of Galois Theory] Let $K/F$ be a finite Galois extension
 		with Galois group $G=\mathrm{Gal}(K/F)$. Then there is a one-to-one
 		correspondence between:
@@ -274,43 +274,43 @@ enhanced, frame empty, interior style={left color=HeadL!95!black, right color=He
 			\item Subgroups $H \leq G$,
 		\end{itemize}
 		given by $E \mapsto \mathrm{Gal}(K/E)$ and $H \mapsto K^{H}$.
-	\end{Theorem}
+	\end{theorem}
 
 	\vspace{6cm}
 
-	\begin{Problem}
+	\begin{problem}
 		[Example Task] Show that the extension $\mathbb{Q}(\sqrt{2})/\mathbb{Q}$ is Galois.
 		Find its Galois group explicitly.
-	\end{Problem}
+	\end{problem}
 
 	\clearpage
 
-	\begin{Heading}
+	\begin{heading}
 		Worked Example
-	\end{Heading}
+	\end{heading}
 
-	\begin{Definition}
+	\begin{definition}
 		[Splitting Field] A \emph{splitting field} of a polynomial $f(x) \in F[x]$
 		is the smallest field extension $K/F$ in which $f(x)$ factors into linear
 		terms.
-	\end{Definition}
+	\end{definition}
 
 	\vspace{6cm}
 
-	\begin{Theorem}
+	\begin{theorem}
 		[Galois Group of $x^{2}-2$] Let $f(x)=x^{2}-2$ over $\mathbb{Q}$. Then the
 		splitting field is $\mathbb{Q}(\sqrt{2})$, and
 		\[
 			\mathrm{Gal}\big(\mathbb{Q}(\sqrt{2})/\mathbb{Q}\big) \cong C_{2}.
 		\]
-	\end{Theorem}
+	\end{theorem}
 
 	\clearpage
 
-	\begin{Problem}
+	\begin{problem}
 		Compute the Galois group of $x^{3}-2$ over $\mathbb{Q}$. (Hint: It should be
 		isomorphic to a subgroup of $S_{3}$.)
-	\end{Problem}
+	\end{problem}
 
 	\EndPage
 \end{document}
