@@ -1,0 +1,634 @@
+% ===============================
+% Worksheet / Manual Template
+% ===============================
+\documentclass[12pt, a4paper]{article}
+
+% ===============================
+% Metadata
+% ===============================
+\newcommand*{\CourseCode}{MAT221}
+\newcommand*{\CourseTitle}{Real Analysis}
+\newcommand*{\Chapter}{Cardinality of Sets}
+\newcommand*{\Topics}{Countable and Uncountable Sets, Continuum Hypothesis}
+
+\newcommand{\ReferenceList}{%
+\begin{enumerate}[leftmargin=2em, label={[\arabic{*}]}]
+	\item Stephen Abbott, \textit{Understanding Analysis}, 2nd Edition, Springer, 2015.
+
+	\item Terence Tao, \textit{Analysis I}, 3rd Edition, Texts and Readings in Mathematics, Hindustan Book Agency, 2016.
+\end{enumerate}
+}
+
+\newcommand*{\University}{BRAC University}
+\newcommand*{\Department}{Department of Mathematics and Natural Sciences}
+\newcommand*{\LogoPath}{Brac_University_Logo} % logo filename (no extension)
+\newcommand*{\DocDate}{\today}
+\newcommand*{\Instructor}{Partho Sutra Dhor}
+\newcommand*{\Role}{Lecturer, BRAC University, Dhaka-1212}
+
+% ---------- Encoding & Fonts ----------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\IfFileExists{qrcode.sty}{\usepackage{qrcode}}{}
+\usepackage{enumitem}
+
+% ---------- Icons & Colors ----------
+\usepackage{fontawesome5} % icons
+\usepackage[dvipsnames, table]{xcolor}
+\definecolor{YTred}{RGB}{255,0,0}
+\definecolor{BannerLeft}{RGB}{30,64,175}
+\definecolor{BannerRight}{RGB}{56,189,248}
+\definecolor{Accent}{RGB}{20,120,200}
+
+% ---------- Page Setup ----------
+\usepackage[top=0.6in, bottom=1.0in, left=0.7in, right=0.7in]{geometry}
+\usepackage{setspace}
+\setstretch{1.2}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\pagestyle{empty}
+
+% ---------- Math & Graphics ----------
+\usepackage{amsmath, amssymb, amsfonts, mathtools, bm}
+\usepackage{graphicx}
+\usepackage{tikz, pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{calc}
+
+% ---------- Tables & Lists ----------
+\usepackage{array, booktabs, multirow, colortbl, float}
+\renewcommand{\arraystretch}{1.25}
+\usepackage{enumitem}
+\setlist{leftmargin=*,itemsep=2pt}
+
+% ---------- Boxes & Links ----------
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{breakable,skins}
+\usepackage[
+	colorlinks=true,
+	linkcolor=MidnightBlue,
+	citecolor=OliveGreen,
+	urlcolor=RoyalBlue
+]{hyperref}
+\usepackage[nameinlink, noabbrev]{cleveref}
+
+\DeclareMathOperator{\card}{card}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+
+% ===============================
+% Cover Page (styled with icons)
+% ===============================
+\newcommand{\FrontPage}{%
+\begin{titlepage}
+	\centering
+
+	% --- Gradient banner across the top ---
+	\begin{tikzpicture}[remember picture, overlay]
+		\node[anchor=north west,inner sep=0pt] at ($(current page.north west)$) {%
+		\begin{tikzpicture}\path[shade, left color=BannerLeft, right color=BannerRight] (0,0) rectangle (\paperwidth,1.8cm);\end{tikzpicture} };
+	\end{tikzpicture}
+	\vspace*{1.0cm}
+
+	% --- Logo & University Name ---
+	\includegraphics[width=0.18\textwidth]{\LogoPath}
+	\par
+	\vspace{6pt}
+	{\Large\sffamily\bfseries \University\par} {\large\sffamily \Department\par}
+
+	% --- Title block ---
+	\vspace{24pt}
+	{\normalsize\sffamily\scshape Lecture on\par}
+	\vspace{6pt}
+	{\Large\sffamily\bfseries \CourseTitle\ (\CourseCode)\par}
+
+	\vspace{18pt}
+	{\Huge\sffamily\bfseries \textcolor{Accent}{\Chapter}\par}
+	\vspace{10pt}
+	{\Large\sffamily\bfseries \textcolor{teal}{\Topics}\par}
+	\vfill
+	\vspace{14pt}
+	\rule{0.55\textwidth}{0.8pt}\par
+	\vspace{10pt}
+	\vfill
+	{\large\sffamily\scshape \DocDate\par}
+	\vfill
+	\vspace{10pt}
+	{\large\sffamily\scshape Conducted by\par}
+	{\LARGE\sffamily\bfseries \Instructor\par} {\large\sffamily \Role\par}
+
+	% --- Contact / Links with icons ---
+	\vspace{18pt}
+	\begin{tcolorbox}
+		[ colback=gray!3!white, colframe=gray!40!black, boxrule=0.6pt, arc=2pt, left=8pt,right=8pt,top=8pt,bottom=8pt,
+		width=0.82\textwidth, enhanced ]
+		\centering
+		\sffamily {\large \faEnvelope\;\href{mailto:partho.dhor@bracu.ac.bd}{partho.dhor@bracu.ac.bd} \quad\textbar\quad \faEnvelope\;\href{mailto:parthosutradhor@gmail.com}{parthosutradhor@gmail.com} \\[4pt] For updates subscribe on \quad \textcolor{YTred}{\faYoutube}\; \href{https://www.youtube.com/@ParthoSutraDhor}{@ParthoSutraDhor} }
+	\end{tcolorbox}
+
+	\vspace{10pt}
+	\begin{tikzpicture}[remember picture, overlay]
+		\node[anchor=south west,inner sep=0pt] at ($(current page.south west)$) {%
+		\begin{tikzpicture}\path[shade, left color=BannerRight, right color=BannerLeft] (0,0) rectangle (\paperwidth,0.9cm);\end{tikzpicture} };
+	\end{tikzpicture}
+\end{titlepage}%
+}
+
+% ===============================
+% End Page
+% ===============================
+\newcommand{\EndPage}{%
+\clearpage
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture, overlay]
+	\node[anchor=north west,inner sep=0pt] at ($(current page.north west)$) {%
+	\begin{tikzpicture}\path[shade, left color=BannerLeft, right color=BannerRight] (0,0) rectangle (\paperwidth,1.2cm);\end{tikzpicture} };
+\end{tikzpicture}
+
+\vspace*{0.8cm}
+\begin{center}
+	{\fontsize{38}{42}\selectfont\sffamily\bfseries Thank You!\par}
+	\vspace{0.4em}
+	{\large\sffamily We’d love your questions and feedback.\par}
+	\vspace{1.2em}
+	\rule{0.5\textwidth}{0.8pt}\par
+	\vspace{1.2em}
+
+	\begin{tcolorbox}
+		[ colback=gray!2!white, colframe=gray!35!black, boxrule=0.7pt, arc=3pt,
+		width=0.86\textwidth, left=10pt,right=10pt,top=10pt,bottom=10pt, enhanced ]
+		\centering
+		\sffamily {\fontsize{18}{22}\selectfont\bfseries \Instructor\par}
+		\vspace{2pt}
+		{\normalsize \Role\par}
+		\vspace{1.2em}
+		{\large \faEnvelope\ \href{mailto:partho.dhor@bracu.ac.bd}{partho.dhor@bracu.ac.bd}\quad \textbar\quad \faEnvelope\ \href{mailto:parthosutradhor@gmail.com}{parthosutradhor@gmail.com} \par}
+		\vspace{0.8em}
+		\begin{minipage}{0.62\textwidth}
+			\centering
+			{\Large\bfseries \textcolor{YTred}{\faYoutube}\; \href{https://www.youtube.com/@ParthoSutraDhor}{@ParthoSutraDhor}}
+			\par {\small (Lectures, walkthroughs, and course updates)}
+		\end{minipage}%
+		\hfill
+		\begin{minipage}{0.30\textwidth}
+			\centering
+			\IfFileExists{qrcode.sty}{ \qrcode[height=3cm]{https://www.youtube.com/@ParthoSutraDhor} \par\vspace{2pt}{\scriptsize Scan for the channel} }{ \vspace{2pt}\textcolor{YTred}{\faYoutube}\par }
+		\end{minipage}
+	\end{tcolorbox}
+
+	\vspace{1.6em}
+	\rule{0.64\textwidth}{0.8pt}\par
+	\vspace{1.2em}
+
+	\begin{tcolorbox}
+		[ colback=white, colframe=Accent, boxrule=0.8pt, arc=3pt, width=0.86\textwidth,
+		left=12pt,right=12pt,top=10pt,bottom=10pt, enhanced, title=\sffamily\bfseries\large
+		\faBook\ References ] \sffamily\large \ReferenceList
+	\end{tcolorbox}
+\end{center}
+
+\begin{tikzpicture}[remember picture, overlay]
+	\node[anchor=south west,inner sep=0pt] at ($(current page.south west)$) {%
+	\begin{tikzpicture}\path[shade, left color=BannerRight, right color=BannerLeft] (0,0) rectangle (\paperwidth,0.9cm);\end{tikzpicture} };
+\end{tikzpicture}
+\clearpage
+}
+
+% ===============================
+% Modern Box Styles (with neat tabbed titles)
+% ===============================
+
+% --- Definition (deep academic blue) ---
+\definecolor{DefBack}{RGB}{228,238,250}   % soft bluish background
+\definecolor{DefMain}{RGB}{0,90,190}      % deep but calm academic blue
+
+% --- Theorem (balanced emerald green) ---
+\definecolor{ThmBack}{RGB}{230,248,235}   % gentle greenish background
+\definecolor{ThmMain}{RGB}{0,155,70}      % balanced rich green
+
+% --- Problem (refined amber tone) ---
+\definecolor{ProbBack}{RGB}{255,245,232}  % warm ivory-peach background
+\definecolor{ProbMain}{RGB}{195,90,0}     % deep amber / rust-orange
+
+% --- Headers (coordinated with Definition) ---
+\definecolor{HeadL}{RGB}{20,55,120}       % deep navy (slightly cooler, academic tone)
+\definecolor{HeadR}{RGB}{45,135,215}      % calm mid-sky blue (not too bright)
+
+\tcbset{ parthoBase/.style={ breakable, enhanced jigsaw, boxrule=0.6pt, arc=4pt, left=10pt, right=10pt, top=10pt, bottom=10pt, coltitle=black, fonttitle=\bfseries\sffamily, fontupper=\sffamily, drop fuzzy shadow, attach boxed title to top left={yshift=-0.5mm}, % tab overlaps border neatly
+boxed title style={ boxrule=0pt, arc=3pt, top=2pt, bottom=2pt, left=8pt, right=8pt, interior style={left color=tcbcolframe!10!white, right color=tcbcolframe!30!white} }, }, }
+
+% --- Definition Box ---
+\NewTColorBox{definition}{ O{Definition} }{%
+parthoBase, colback=DefBack, colframe=DefMain, title={\faBook\ \ #1}, borderline west={2.5pt}{0pt}{DefMain}, overlay unbroken and first={ \node[opacity=0.06,anchor=north east,inner sep=6pt] at (frame.north east) {\scalebox{2}{\faBookOpen}}; }, }
+
+% --- Theorem Box ---
+\NewTColorBox{theorem}{ O{Theorem} }{%
+parthoBase, colback=ThmBack, colframe=ThmMain, title={\faLightbulb[regular]\ \ #1}, borderline west={2.5pt}{0pt}{ThmMain}, overlay unbroken and first={ \node[opacity=0.06,anchor=north east,inner sep=6pt] at (frame.north east) {\scalebox{2}{\faLightbulb}}; }, }
+
+% --- Problem Box ---
+\NewTColorBox{problem}{ O{Problem} }{%
+parthoBase, colback=ProbBack, colframe=ProbMain, title={\faQuestionCircle[regular]\ \ #1}, borderline west={2.5pt}{0pt}{ProbMain}, overlay unbroken and first={ \node[opacity=0.07,anchor=north east,inner sep=6pt] at (frame.north east) {\scalebox{2}{\faQuestionCircle}}; }, }
+
+% --- Heading Box ---
+\NewTColorBox{heading}{ O{Heading} }{%
+enhanced, frame empty, interior style={left color=HeadL!95!black, right color=HeadR!90!white}, boxsep=1pt, top=10pt, bottom=10pt, left=10pt, right=10pt, coltext=white, fontupper=\sffamily\bfseries\Large }
+
+% ==========================================
+% Document
+% ==========================================
+\begin{document}
+\FrontPage
+\Large
+
+\begin{heading}
+	Injective / One-to-One Functions
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Injective / One-to-One Function]
+	Let \(A\) and \(B\) be two sets. A function \(f: A \to B\) is called \textit{injective} or \textit{one-to-one} if for every \(a_1, a_2 \in A\),
+	\[f(a_1) = f(a_2) \quad \implies \quad a_1 = a_2\]
+	In other words, different elements in the domain map to different elements in the codomain.
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+	Surjective / Onto Functions
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Surjective / Onto Function]
+	Let \(A\) and \(B\) be two sets. A function \(f: A \to B\) is called \textit{surjective} or \textit{onto} if for every \(b \in B\), there exists at least one \(a \in A\) such that \(f(a) = b\). In other words, every element in the codomain is the image of at least one element from the domain.
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+	Bijective Functions
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Bijective Function]
+	Let \(A\) and \(B\) be two sets. A function \(f: A \to B\) is called \textit{bijective} if it is both injective and surjective.
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+	Idea of Cardinality and Historical Context
+\end{heading}
+
+\clearpage
+
+% \begin{heading}
+% 	How to Compare Sizes of Sets
+% \end{heading}
+
+% \vspace{10pt}
+
+% \begin{definition}[Comparing Sizes of Sets by Injective Functions]
+% 	If there exists an Injective function from set \(A\) to set \(B\), we say that the cardinality of \(A\) is less than or equal to the cardinality of \(B\), denoted as \[\card(A) \leq \card(B)\]
+% 	Often denoted as \(A \preceq B\) to indicate that the cardinality of set \(A\) is less than or equal to the cardinality of set \(B\).
+% \end{definition}
+
+% \clearpage
+
+% \begin{definition}[Comparing Sizes of Sets by Surjective Functions]
+% 	If there exists a Surjective function from set \(A\) to set \(B\), we say that the cardinality of \(A\) is greater than or equal to the cardinality of \(B\), denoted as \[\card(A) \geq \card(B)\]
+% 	Often denoted as \(B \preceq A\) to indicate that the cardinality of set \(B\) is less than or equal to the cardinality of set \(A\).
+% \end{definition}
+
+\clearpage
+
+\begin{heading}
+	Equivalent Sizes of Sets
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Comparing Sizes of Sets by Bijective Functions]
+	If there exists an Bijective function from set \(A\) to set \(B\), we say that the cardinality of \(A\) is equal to the cardinality of \(B\), denoted as \[\card(A) = \card(B)\]
+	Often denoted as \(A \sim B\) to indicate that sets \(A\) and \(B\) have the same cardinality.
+\end{definition}
+
+\clearpage
+
+\begin{problem}
+	Show that the set of natural numbers \(\mathbb{N}\) and the set of even natural numbers \(\mathbb{E} = \{2, 4, 6, 8, \ldots\}\) have the same cardinality.
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Show that the set of perfect squares \(\{1, 4, 9, 16, 25, \ldots\}\) is countable.
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+	Finite Sets
+\end{heading}
+\vspace{10pt}
+\begin{definition}[Finite Set]
+	A set \(A\) is called \textit{finite} if either \(A\) is the empty set or there exists a bijective function between the set \(N_m=\{1, 2, \ldots, m\}\) for some natural number \(m\) and the set \(A\). In this case, we say that the cardinality of \(A\) is \(m\) and write \(\card(A) = m\).
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+	Infinite Sets
+\end{heading}
+\vspace{10pt}
+\begin{definition}[Infinite Set]
+	A set \(A\) is called \textit{infinite} if it is not finite. Thus, \(A\) is not the empty set and for every natural number \(m\), there is no bijective function between the set \(N_m=\{1, 2, \ldots, m\}\) and the set \(A\).  
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+	Countable Sets
+\end{heading}
+\vspace{10pt}
+\begin{definition}[Countable Set]
+	A set \(A\) is called \textit{countable} if it is either finite or has the same cardinality as the set of natural numbers \(\N\).
+\end{definition}
+\vspace{15pt}
+\begin{tcolorbox}[colback=ThmBack, colframe=ThmMain]
+	To prove a set \(A\) is countable, we can either:
+	\begin{itemize}
+		\item Show that \(A\) is finite, or
+		\item Construct a bijective function between \(\N\) and \(A\).
+	\end{itemize}
+\end{tcolorbox}
+
+\clearpage
+
+\begin{problem}
+	Show that the set of all even integers is countable.
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Show that the set of all odd integers is countable.
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Show that the set of integers \(\Z\) is countable.	
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+	Uncountable Sets
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Uncountable Set]
+	A set \(A\) is called \textit{uncountable} if it is not countable. This means that \(A\) is infinite and there is no bijective function between \(\N\) and \(A\).
+\end{definition}
+
+\clearpage
+
+\begin{problem}
+	Show that the interval \((0, 1)\) is uncountable.	
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	The set of real numbers \(\R\) is uncountable.
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	For any real numbers \(a\) and \(b\) with \(a < b\), the open interval \((a, b)\)and the closed interval \([a, b]\) are uncountable.
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+	Theorems on Countability
+\end{heading}
+
+\begin{theorem}
+	Every subset of a countable set is countable. That is, if \(A\) is a countable set and \(B \subseteq A\), then \(B\) is countable.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}
+	The union of two countable sets is countable. That is, if \(A\) and \(B\) are countable sets, then \(A \cup B\) is countable.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}
+	The Cartesian product of two countable sets is countable. That is, if \(A\) and \(B\) are countable sets, then \(A \times B\) is countable.
+\end{theorem}
+
+\clearpage
+
+\begin{problem}[]
+	The set of rational numbers \(\Q\) is countable.
+\end{problem}
+
+\clearpage
+
+\begin{theorem}
+	The union of countably many countable sets is countable. That is, if \(\{A_n\}_{n=1}^{\infty}\) is a sequence of countable sets, then \(\bigcup_{n=1}^{\infty} A_n\) is countable.
+\end{theorem}
+
+\clearpage
+
+\begin{problem}
+	The set of rational numbers \(\Q\) is countable.
+\end{problem}
+
+
+\clearpage
+
+\begin{heading}
+	Cardinal Numbers
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Cardinal Number]
+	For every set \( X \), there exists a \emph{cardinal number}, denoted \( \card X \), which represents the size of \( X \).  
+	Two sets \( X \) and \( Y \) have the same cardinal number if and only if \( X \sim Y \):
+	\[
+	\card X = \card Y \iff \exists f : X \to Y \text{ that is bijective.}
+	\]
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+	Cantor’s Theorem
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Cantor’s Theorem]
+	For every set \( A \), the power set \( \mathcal{P}(A) \) has strictly greater cardinality than \( A \):
+	\[
+	\card A < \card \mathcal{P}(A).
+	\]
+\end{theorem}
+
+\clearpage
+
+\begin{tcolorbox}[colback=ProbBack, colframe=ProbMain]
+	Cantor’s theorem implies that there is no “largest” set, since from any set \( A \) we can always construct a larger one \( \mathcal{P}(A) \). Hence, a “set of all things” cannot exist without contradiction.
+\end{tcolorbox}
+
+\clearpage
+
+\begin{heading}
+	Ordering of Cardinal Numbers
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Ordering of Cardinal Numbers]
+	For any sets $A$ and $B$:
+	\begin{enumerate}
+		\item $\card(A) \le \card(B)$ if and only if there exists an injective function $f : A \to B$.
+		\item $\card(A) = \card(B)$ if and only if there exists a bijective function $f : A \to B$.
+		\item $\card(A) < \card(B)$ if and only if $\card(A) \le \card(B)$ but $A \not\sim B$.
+	\end{enumerate}
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+	Cardinality of Finite Sets
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Cardinality of Finite Sets]
+	If \( A \) is a finite set with \( n \) elements, then
+	\[
+	\card A = n.
+	\]
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+	Cardinality of Infinite Sets
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Countable Infinity]
+	The smallest infinite cardinal number is denoted by $\aleph_0$ (aleph-null):
+	\[
+	\aleph_0 = \card(\N).
+	\]
+	It represents the size of any countably infinite set, such as $\Z$ or $\Q$.
+\end{definition}
+
+\vfill
+
+\begin{definition}[Continuum]
+	The cardinality of the real numbers (or the power set of $\N$) is denoted by
+	\[
+	\mathfrak{c} = \card(\R) = \card(\mathcal{P}(\N)) = 2^{\aleph_0}.
+	\]
+	By Cantor’s theorem, we have $\aleph_0 < \mathfrak{c}$.
+\end{definition}
+\vfill
+
+\clearpage
+
+\begin{theorem}[Cantor’s Power Set Theorem]
+	For every set $A$,
+	\[
+	\card(\mathcal{P}(A)) = 2^{\card(A)} > \card(A).
+	\]
+\end{theorem}
+
+\vspace{20pt}
+
+\begin{definition}[Hierarchy of Infinite Cardinalities]
+	Applying Cantor’s theorem repeatedly yields an infinite sequence of strictly increasing cardinalities:
+	\[
+	\begin{aligned}
+	\aleph_0 &= \card(\N),\\[4pt]
+	2^{\aleph_0} &= \mathfrak{c} = \card(\R),\\[4pt]
+	2^{\mathfrak{c}} &= \card(\mathcal{P}(\R)),\\[4pt]
+	2^{2^{\mathfrak{c}}} &= \card(\mathcal{P}(\mathcal{P}(\R))),\\[4pt]
+	&\vdots
+	\end{aligned}
+	\]
+	Thus,
+	\[
+	\aleph_0 < \mathfrak{c} < 2^{\mathfrak{c}} < 2^{2^{\mathfrak{c}}} < \cdots
+	\]
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+	Gaps Between Cardinalities
+\end{heading}
+
+\vspace{10pt}
+
+\begin{problem}
+	Does there exist a set \( A \subseteq \R \) such that \( \aleph_0 < \card A < \mathfrak{c} \)? This question leads to the \emph{Continuum Hypothesis}.
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+	The Continuum Hypothesis (CH)
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Continuum Hypothesis]
+	The \textit{Continuum Hypothesis} asserts that there is no set \( A \subseteq \R \) such that
+	\[
+	\aleph_0 < \card A < \mathfrak{c}.
+	\]
+	In other words, the cardinality of the continuum \( \mathfrak{c} \) is the immediate successor of \( \aleph_0 \).
+\end{definition}
+
+
+\clearpage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\EndPage
+\end{document}
