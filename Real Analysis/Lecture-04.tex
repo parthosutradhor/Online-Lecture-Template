@@ -298,16 +298,10 @@ enhanced, frame empty, interior style={left color=HeadL!95!black, right color=He
     \clearpage
 
 	\begin{heading}
-		Axiom of Completeness
+		Axiom of Completeness (AoC)
 	\end{heading}
 
     \vspace{10pt}
-
-	\begin{definition}[Axiom of Completeness]
-		Every non-empty set of real numbers that is bounded above has a least upper bound (supremum) in $\mathbb{R}$.
-	\end{definition}
-
-	\vspace{10pt}
 
 	\begin{definition}[Least Upper Bound (Supremum)]
 	A real number $s$ is the \textit{least upper bound} for a set $A \subseteq \mathbb{R}$ if it meets the following two criteria:
@@ -317,15 +311,13 @@ enhanced, frame empty, interior style={left color=HeadL!95!black, right color=He
 	\end{enumerate}
 	\end{definition}
 
-    \clearpage
+	\vspace{10pt}
 
-	\begin{theorem}
-		Assume $s \in \mathbb{R}$ is an upper bound for a set $A \subseteq \mathbb{R}$. 
-		Then, $s = \sup A$ if and only if, for every choice of $\epsilon > 0$, there exists an element $a \in A$ satisfying 
-		$$s - \epsilon < a$$
-	\end{theorem}
+	\begin{definition}[Axiom of Completeness (AoC)]
+		Every non-empty set of real numbers that is bounded above has a least upper bound (supremum) in $\mathbb{R}$.
+	\end{definition}
 
-    \clearpage
+	\clearpage
 
 	\begin{definition}[Greatest Lower Bound (Infimum)]
 	A real number $t$ is the \textit{greatest lower bound} for a set $A \subseteq \mathbb{R}$ if it meets the following two criteria:
@@ -337,7 +329,21 @@ enhanced, frame empty, interior style={left color=HeadL!95!black, right color=He
 
 	\vspace{10pt}
 
-	\begin{theorem}
+	\begin{theorem}[Theorem: Existence of Infimum]
+		Show that every non-empty set of real numbers that is bounded below has a greatest lower bound (infimum) in $\mathbb{R}$.
+	\end{theorem}
+
+    \clearpage
+
+	\begin{theorem}[Theorem: Characterization of Supremum]
+		Assume $s \in \mathbb{R}$ is an upper bound for a set $A \subseteq \mathbb{R}$. 
+		Then, $s = \sup A$ if and only if, for every choice of $\epsilon > 0$, there exists an element $a \in A$ satisfying 
+		$$s - \epsilon < a$$
+	\end{theorem}
+
+    \clearpage
+
+	\begin{theorem}[Theorem: Characterization of Infimum]
 		Assume $t \in \mathbb{R}$ is a lower bound for a set $A \subseteq \mathbb{R}$. 
 		Then, $t = \inf A$ if and only if, for every choice of $\epsilon > 0$, there exists an element $a \in A$ satisfying 
 		$$a < t + \epsilon$$
@@ -346,7 +352,7 @@ enhanced, frame empty, interior style={left color=HeadL!95!black, right color=He
 	\clearpage
 
 	\begin{heading}
-		Consequences of Completeness
+		Consequences of Completeness (AoC)
 	\end{heading}
 
 	\clearpage
@@ -357,7 +363,7 @@ enhanced, frame empty, interior style={left color=HeadL!95!black, right color=He
 
 	\vspace{10pt}
 
-	\begin{theorem}[Nested Interval Property]
+	\begin{definition}[Nested Interval Property (NIP)]
 	For each $n \in \mathbb{N}$, assume we are given a closed interval 
 	$I_n = [a_n, b_n] = \{\, x \in \mathbb{R} : a_n \le x \le b_n \,\}$. 
 	Assume also that each $I_n$ contains $I_{n+1}$. Then, the resulting 
@@ -369,6 +375,12 @@ enhanced, frame empty, interior style={left color=HeadL!95!black, right color=He
 	\[
 	\bigcap_{n=1}^{\infty} I_n \neq \varnothing.
 	\]
+	\end{definition}
+
+	\vspace{10pt}
+
+	\begin{theorem}[Theorem: AoC $\implies$ NIP]
+		The Axiom of Completeness implies the Nested Interval Property.
 	\end{theorem}
 
 	\clearpage
@@ -379,12 +391,30 @@ enhanced, frame empty, interior style={left color=HeadL!95!black, right color=He
 
 	\vspace{10pt}
 	
-	\begin{theorem}[Archimedean Property]
+	\begin{definition}[Archimedean Property (AP)]
 	Given any number $x \in \mathbb{R}$ and any real number $y > 0$, the following two statements hold:
 		\begin{itemize}
 		\item[(i)] \textit{There exists an $n \in \mathbb{N}$ satisfying $n > x$.}
 		\item[(ii)] \textit{There exists an $n \in \mathbb{N}$ satisfying $1/n < y$.}
 	\end{itemize}
+	\end{definition}
+
+	\vspace{10pt}
+
+	\begin{theorem}[Theorem: AoC $\implies$ AP]
+		The Axiom of Completeness implies the Archimedean Property.
+	\end{theorem}
+
+	\clearpage
+
+	\begin{heading}
+		NIP + AP $\implies$ AoC
+	\end{heading}
+
+	\vspace{10pt}
+
+	\begin{theorem}[Theorem: NIP + AP $\implies$ AoC]
+		The Nested Interval Property and the Archimedean Property together imply the Axiom of Completeness.		
 	\end{theorem}
 
 	\clearpage
