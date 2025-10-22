@@ -9,7 +9,7 @@
 \newcommand*{\CourseCode}{MAT221}
 \newcommand*{\CourseTitle}{Complex Variables \& Laplace Transform}
 \newcommand*{\Chapter}{Complex Functions}
-\newcommand*{\Topics}{Expeonential, Logarithmic, Circular and Hyperbolic Functions}
+\newcommand*{\Topics}{Exponential, Logarithmic, Circular and Hyperbolic Functions}
 \newcommand*{\DocDate}{October 22, 2025}
 
 \include{header.tex}
@@ -48,13 +48,13 @@
 \clearpage
 
 \begin{heading}
-	The Expeonential Function
+	The Exponential Function
 \end{heading}
 
 \clearpage
 
-\begin{theorem}[Complex Expeonential Function is Periodic]
-	The complex expeonential function \( e^z \) is periodic with period \( 2\pi i \).
+\begin{theorem}[Complex Exponential Function is Periodic]
+	The complex exponential function \( e^z \) is periodic with period \( 2\pi i \).
 \end{theorem}
 
 \clearpage
@@ -123,12 +123,12 @@ Show that:
 \begin{definition}[Inverse Circular Functions]
 	The inverse circular functions for complex numbers are defined as follows:
 	\begin{align*}
-	\sin^{-1} z &= -i \log\left(iz + \sqrt{1 - z^2}\right), \\[6pt]
-	\cos^{-1} z &= -i \log\left(z + \sqrt{z^2 - 1}\right), \\[6pt]
-	\tan^{-1} z &= \frac{i}{2} \log\left(\frac{i + z}{i - z}\right), \\[6pt]
-	\cot^{-1} z &= \frac{i}{2} \log\left(\frac{z + i}{z - i}\right), \\[6pt]
-	\sec^{-1} z &= -i \log\left(\frac{1}{z} + \sqrt{\frac{1}{z^2} - 1}\right), \\[6pt]
-	\cosec^{-1} z &= -i \log\left(\frac{1}{z} + \sqrt{1 - \frac{1}{z^2}}\right),
+	\sin^{-1} z &= -i \ln\left(iz + \sqrt{1 - z^2}\right) \\[6pt]
+	\cos^{-1} z &= -i \ln\left(z + \sqrt{z^2 - 1}\right) \\[6pt]
+	\tan^{-1} z &= \frac{i}{2} \ln\left(\frac{i + z}{i - z}\right) \\[6pt]
+	\cot^{-1} z &= \frac{i}{2} \ln\left(\frac{z - i}{z + i}\right) \\[6pt]
+	\sec^{-1} z &= -i \ln\left(\frac{1 + \sqrt{1 - z^2}}{z}\right) \\[6pt]
+	\cosec^{-1} z &= -i \ln\left(\frac{i + \sqrt{z^2 - 1}}{z}\right)
 	\end{align*}
 	for all \( z \in \C \).
 \end{definition}
@@ -137,21 +137,21 @@ Show that:
 
 \begin{problem}
 	Prove that for all \( z \in \C \):
-	\[\sin^{-1} z = -i \log\left(iz + \sqrt{1 - z^2}\right)\]
+	\[\sin^{-1} z = -i \ln\left(iz + \sqrt{1 - z^2}\right)\]
 \end{problem}
 
 \clearpage
 
 \begin{problem}
 	Prove that for all \( z \in \C \):
-	\[\sec^{-1} z = -i \log\left(\frac{1}{z} + \sqrt{\frac{1}{z^2} - 1}\right)\]
+	\[\sec^{-1} z = -i \ln\left(\frac{1 + \sqrt{1 - z^2}}{z}\right)\]
 \end{problem}
 
 \clearpage
 
 \begin{problem}
 	Prove that for all \( z \in \C \):
-	\[\cot^{-1} z = \frac{i}{2} \log\left(\frac{z + i}{z - i}\right)\]
+	\[\cot^{-1} z = \frac{i}{2} \ln\left(\frac{z - i}{z + i}\right)\]
 \end{problem}
 
 \clearpage
@@ -189,12 +189,12 @@ Show that:
 The inverse hyperbolic functions for complex numbers are defined as follows:
 \[
 \begin{aligned}
-\sinh^{-1} z &= \log\left(z + \sqrt{z^2 + 1}\right) \\[6pt]
-\cosh^{-1} z &= \log\left(z + \sqrt{z^2 - 1}\right) \\[6pt]
-\tanh^{-1} z &= \frac{1}{2} \log\left(\frac{1 + z}{1 - z}\right) \\[6pt]
-\coth^{-1} z &= \frac{1}{2} \log\left(\frac{z + 1}{z - 1}\right) \\[6pt]
-\sech^{-1} z &= \log\left(\frac{1}{z} + \sqrt{\frac{1}{z^2} - 1}\right)\\[6pt]
-\cosech^{-1} z &= \log\left(\frac{1}{z} + \sqrt{\frac{1}{z^2} + 1}\right)
+\sinh^{-1} z &= \ln\left(z + \sqrt{z^2 + 1}\right) \\[6pt]
+\cosh^{-1} z &= \ln\left(z + \sqrt{z^2 - 1}\right) \\[6pt]
+\tanh^{-1} z &= \frac{1}{2} \ln\left(\frac{1 + z}{1 - z}\right) \\[6pt]
+\coth^{-1} z &= \frac{1}{2} \ln\left(\frac{z + 1}{z - 1}\right) \\[6pt]
+\sech^{-1} z &= \ln\left(\frac{1 + \sqrt{1 - z^2}}{z}\right)\\[6pt]
+\cosech^{-1} z &= \ln\left(\frac{1 + \sqrt{1 + z^2}}{z}\right)
 \end{aligned}
 \]
 for all \( z \in \C \).
@@ -211,7 +211,7 @@ for all \( z \in \C \).
 
 \begin{problem}
 	Prove that for all \( z \in \C \):
-	\[\cosech^{-1} z = \log\left(\frac{1}{z} + \sqrt{\frac{1}{z^2} + 1}\right)\]
+	\[\cosech^{-1} z = \ln\left(\frac{1 + \sqrt{1 + z^2}}{z}\right)\]
 \end{problem}
 
 \clearpage
@@ -276,26 +276,9 @@ For all \( z \in \C \):
 
 \begin{theorem}
 For all \( z \in \C \):
-\[d/dz(\sin z) = \cos z, \quad d/dz(\cos z) = -\sin z\]
-\[d/dz(\sinh z) = \cosh z, \quad d/dz(\cosh z) = \sinh z\]
+\[\frac{d}{dz}(\sin z) = \cos z, \quad \frac{d}{dz}(\cos z) = -\sin z\]
+\[\frac{d}{dz}(\sinh z) = \cosh z, \quad \frac{d}{dz}(\cosh z) = \sinh z\]
 \end{theorem}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
