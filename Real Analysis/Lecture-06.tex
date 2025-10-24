@@ -1,0 +1,306 @@
+% ===============================
+% Worksheet / Manual Template
+% ===============================
+\documentclass[12pt, a4paper]{article}
+
+\include{header}
+
+% ==========================================
+% Document
+% ==========================================
+\begin{document}
+\FrontPage
+\Large
+
+\begin{heading}
+	Definition of a Sequence
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Sequence]
+	A \textbf{sequence} is a function whose domain is the set of natural numbers $\N$ and whose codomain is a non-empty set $S$. 
+\end{definition}
+
+\vspace{10pt}
+
+\begin{definition}[Real Sequence or Sequence in $\R$]
+	A \textbf{real sequence} is a sequence whose codomain is the set of real numbers $\R$.
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+	Common Notations for Sequences
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Sequence Notation]
+	A sequence is usually denoted by $\{a_n\}_{n=1}^{\infty}$ or simply $\{a_n\}$, where $a_n$ represents the $n$-th term of the sequence. Here, $n$ is a natural number indicating the position of the term in the sequence. 
+\end{definition}
+
+\vspace{10pt}
+
+\begin{problem}[Examples]
+Each of the following are common ways to describe a sequence.
+	\begin{itemize}
+		\item $\left(1, \dfrac{1}{2}, \dfrac{1}{3}, \dfrac{1}{4}, \dots \right),$
+		
+		\item $\left( \dfrac{1 + n}{n} \right)_{n=1}^{\infty}
+		= \left( \dfrac{2}{1}, \dfrac{3}{2}, \dfrac{4}{3}, \dots \right),$
+		
+		\item $\{a_n\}$, where $a_n = 2^n$ for each $n \in \mathbb{N},$
+		
+		\item $(x_n)$, where $x_1 = 2$ and $x_{n+1} = \dfrac{x_n + 1}{2}.$
+	\end{itemize}
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+	Convergence and Limit of a Sequence
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Convergence of a Sequence]
+	A sequence $\{a_n\}$ is said to \textbf{converge} to a real number $a$ if for every real number $\varepsilon > 0,$ there exists a natural number $N \in \N$ such that for all $n \geq N,$ the terms of the sequence satisfy the inequality 
+	\[
+	|a_n - a| < \varepsilon.
+	\]
+	If such a number $a$ exists, it is called the \textbf{limit} of the sequence, and we write
+	\[
+	\lim a_n = a \quad \text{or} \quad a_n \to a \text{ as } n \to \infty.
+	\]
+\end{definition}
+
+\clearpage
+
+\begin{problem}[Example]
+	Consider the sequence $$a_n = \left\{ \dfrac{1}{\sqrt{n}} \right\}_{n=1}^{\infty}.$$ We will show that this sequence converges to $0.$	
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+	Quantifier Breakdown of the Definition
+\end{heading}
+
+\clearpage
+
+\begin{heading}
+	Template for a proof that $\lim a_n = a$
+\end{heading}
+
+\vspace{10pt}
+
+\begin{problem}[Proof Template]
+	To prove that $\lim a_n = a,$ we need to show that for every $\varepsilon > 0,$ there exists a natural number $N \in \N$ such that for all $n \geq N,$ the inequality $|a_n - a| < \varepsilon$ holds.
+
+	\vspace{15pt}
+	
+	\textbf{Step 1:} Let $\varepsilon > 0$ be given.
+	\\[10pt]
+	\textbf{Step 2:} Find a suitable $N \in \N$ (often in terms of $\varepsilon$) such that for all $n \geq N,$ the desired inequality holds.
+	\\[10pt]
+	\textbf{Step 3:} Show that for all $n \geq N,$ we have
+	\[
+	|a_n - a| < \varepsilon.
+	\]
+	\\[10pt]
+	\textbf{Conclusion:} Since we have shown that for every $\varepsilon > 0,$ there exists an $N$ such that for all $n \geq N,$ the inequality holds, we conclude that $\lim a_n = a.$
+\end{problem}
+
+\clearpage
+
+\begin{problem}[Example Proof]
+	Show that the sequence $a_n = \dfrac{n+1}{n}$ converges to $1.$ 
+\end{problem}
+
+\clearpage
+
+\begin{problem}[Example Proof]
+	Show that the sequence $a_n = \dfrac{3n+1}{2n+5}$ converges to $\dfrac{3}{2}.$ 
+\end{problem}
+
+\clearpage
+
+\begin{problem}[Example Proof]
+	Show that
+	\[\lim_{n \to \infty} \frac{1}{3^n} = 0.\]
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+	Negation of Quantifiers
+\end{heading}
+
+\clearpage
+
+\begin{heading}
+	Divergent Sequences
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Divergent Sequence]
+	A sequence that does not converge to any real number is called a \textbf{divergent sequence}.
+\end{definition}
+
+\clearpage
+
+\begin{problem}
+	Discuss why the sequence $a_n = (-1)^n$ does not converge.
+\end{problem}
+
+\clearpage
+
+\begin{problem}Consider the sequence
+\[
+\left( 1, -\frac{1}{2}, \frac{1}{3}, -\frac{1}{4}, \frac{1}{5}, -\frac{1}{5}, \frac{1}{5}, -\frac{1}{5}, \frac{1}{5}, -\frac{1}{5}, \dots \right).
+\]
+
+How can we argue that this sequence does not converge to zero?
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+Argue that the sequence
+\[
+1,\, 0,\, 1,\, 0,\, 0,\, 1,\, 0,\, 0,\, 0,\, 1,\, 0,\, 0,\, 0,\, 0,\, 1,\, \text{(5 zeros)},\, 1,\, \dots
+\]
+does not converge to zero. For what values of $\varepsilon > 0$ does there exist a response $N$? For which values of $\varepsilon > 0$ is there no suitable response?
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+	Digerge to Positive Infinity
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Divergence to positive Infinity]
+	A sequence $\{a_n\}$ is said to \textbf{diverge to positive infinity} if for every real number $M > 0,$ there exists a natural number $N \in \N$ such that for all $n \geq N,$ the terms of the sequence satisfy the inequality 
+	\[
+	a_n > M.
+	\]
+	If such a condition holds, we write
+	\[
+	\lim_{n \to \infty} a_n = \infty \quad \text{or} \quad a_n \to \infty \text{ as } n \to \infty.
+	\]
+\end{definition}
+
+\vspace{10pt}
+\begin{problem}
+	Show that the sequence $a_n = n^2$ diverges to infinity.
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+	Digerge to Negative Infinity
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Divergence to negative Infinity]
+	A sequence $\{a_n\}$ is said to \textbf{diverge to negative infinity} if for every real number $M < 0,$ there exists a natural number $N \in \N$ such that for all $n \geq N,$ the terms of the sequence satisfy the inequality 
+	\[
+	a_n < M.
+	\]
+	If such a condition holds, we write
+	\[
+	\lim_{n \to \infty} a_n = -\infty \quad \text{or} \quad a_n \to -\infty \text{ as } n \to \infty.
+	\]
+\end{definition}
+
+\vspace{10pt}
+
+\begin{problem}
+	Show that the sequence $a_n = -n^3$ diverges to negative infinity.	
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+	Oscillatory Sequences
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Oscillatory Sequence]
+	A sequence that neither converges nor diverges to infinity or negative infinity is called an \textbf{oscillatory sequence}.
+\end{definition}
+
+
+\clearpage
+
+\begin{heading}
+	Some More Examples on Convergence
+\end{heading}
+
+\begin{problem}
+	Show that the sequence $a_n = \sqrt{n+1} - \sqrt{n}$ converges to $0.$
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Show that
+	\[ \lim_{\;n \to \infty} \frac{n^2 + 1}{2n^2 + 3} = \frac{1}{2}.\]
+\end{problem}
+
+\clearpage
+
+\begin{problem}[Can you prove this?]
+	Show that
+	\[ \lim_{\;n \to \infty} \frac{3n+4}{2n - 5} = \frac{3}{2}.\]
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Show that
+	\[ \lim_{\;n \to \infty} \frac{n^2 + 1}{2n^2 - 3} = \frac{1}{2}.\]
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Show that
+	\[ \lim_{\;n \to \infty} \frac{5n^2 + 3}{2n^3 + 1} = 0.\]
+\end{problem}
+
+\clearpage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\EndPage
+\end{document}
