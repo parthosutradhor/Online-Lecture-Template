@@ -1,0 +1,373 @@
+% ===============================
+% Worksheet / Manual Template
+% ===============================
+\documentclass[12pt, a4paper]{article}
+
+% ===============================
+% Metadata
+% ===============================
+\newcommand*{\CourseCode}{MAT215}
+\newcommand*{\CourseTitle}{Complex Variables \& Laplace Transform}
+\newcommand*{\Chapter}{Limit and Continuity of Complex Functions}
+\newcommand*{\Topics}{L'Hospital's Rule and Existence of Limits}
+\newcommand*{\DocDate}{October 27, 2025}
+
+\include{header.tex}
+
+% ==========================================
+% Document
+% ==========================================
+\begin{document}
+\FrontPage
+\Large
+
+\begin{heading}
+	Undefined vs Indeterminate Forms
+\end{heading}
+
+\clearpage
+
+\begin{heading}
+	An Intuitive Approach to Limits
+\end{heading}
+
+\vspace{10pt}
+
+\begin{problem}
+	Find the limit, if it exists:
+	\[ \lim_{x \to 2} x^2 \]
+\end{problem}
+
+\vfill
+
+\begin{problem}
+	Find the limit, if it exists:
+	\[ \lim_{x \to 2} \frac{x^2-2}{x-2} \]
+\end{problem}
+
+\vfill
+
+\clearpage
+
+\begin{problem}
+	Find the limit, if it exists:
+	\[ \lim_{x \to 0} \left(1+x\right)^{\frac{1}{x}} \]
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+	Left and Right Hand Limits
+\end{heading}
+
+\vspace{10pt}
+
+\begin{problem}
+	Find the limit, if it exists:
+	\[ \lim_{x \to 5} \frac{x}{5-x} \]
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+	Limit of a Real-valued Function
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Limit of a Real-valued Function]
+	Let \( f: D \to \R \) be a function defined on a domain \( D \subseteq \R \). We say that the limit of \( f(x) \) as \( x \) approaches \( c \) is \( L \), denoted by
+	\[
+		\lim_{x \to c} f(x) = L,
+	\]
+	if for every \( \epsilon > 0 \), there exists a \( \delta > 0 \) such that for all \( x \in D \) with \( 0 < |x - c| < \delta \), it follows that \( |f(x) - L| < \epsilon \).
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+	Limit of a Complex-valued Function
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Limit of a Complex-valued Function]
+	Let \( f: D \to \C \) be a function defined on a domain \( D \subseteq \C \). We say that the limit of \( f(z) \) as \( z \) approaches \( z_0 \) is \( L \), denoted by
+	\[
+		\lim_{z \to z_0} f(z) = L,
+	\]
+	if for every \( \epsilon > 0 \), there exists a \( \delta > 0 \) such that for all \( z \in D \) with \( 0 < |z - z_0| < \delta \), it follows that \( |f(z) - L| < \epsilon \).
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+	How many ways can z approach a point \( z_0 \)?
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Limit (path approach)]
+	If in any path that \( z \) approaches \( z_0 \), the limit of \( f(z) \) is the same value \( L \), then we say that the limit of \( f(z) \) as \( z \) approaches \( z_0 \) exists and is equal to \( L \). Otherwise, we say that the limit does not exist.
+\end{definition}
+
+\clearpage
+
+\begin{problem}
+	Show that the limit
+	\[ \lim_{z \to 0} \frac{\bar{z}}{z} \]
+	does not exist.
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Show that the limit
+	\[ \lim_{z \to a} \frac{\bar{z}}{z} \]
+	does not exist for any \( a \in \C\).
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Show that the limit
+	\[ \lim_{z \to 0} \frac{xy}{|z|^2} \]
+	does not exist where \( z = x + iy \).
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+	Properties of Limits
+\end{heading}
+\vspace{10pt}
+
+\begin{theorem}
+	Let \( f(z) \) and \( g(z) \) be functions defined on a domain \( D \subseteq \C \), and let \( z_0 \) be a limit point of \( D \). If
+	\[
+		\lim_{z \to z_0} f(z) = L_1 \quad \text{and} \quad \lim_{z \to z_0} g(z) = L_2,
+	\]
+	then the following properties hold:
+	\begin{enumerate}
+		\item \( \lim_{z \to z_0} [f(z) + g(z)] = L_1 + L_2 \)
+		\item \( \lim_{z \to z_0} [f(z) - g(z)] = L_1 - L_2 \)
+		\item \( \lim_{z \to z_0} [f(z) g(z)] = L_1 L_2 \)
+		\item If \( L_2 \neq 0 \), then \( \lim_{z \to z_0} \left[\frac{f(z)}{g(z)}\right] = \frac{L_1}{L_2} \)
+	\end{enumerate}
+\end{theorem}
+
+\vfill
+
+\clearpage
+
+\begin{heading}
+	Some Important Techniques for Finding the Limit of $\frac{P(z)}{Q(z)}$
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Limit of Polynomials]
+	If $f(z)$ is a polynomials in $z$, then the limit $\lim_{z \to z_0} f(z)=f(z_0)$ for any $z_0 \in \C$.
+\end{theorem}
+
+
+\vspace{10pt}
+
+\begin{theorem}[Something / Non-zero]
+	If $f(z)=\frac{P(z)}{Q(z)}$ where $P(z)$ and $Q(z)$ are polynomials, and if $Q(z_0) \neq 0$, then the limit $\lim_{z \to z_0} f(z)=\frac{P(z_0)}{Q(z_0)}$.
+\end{theorem}
+
+
+\vspace{10pt}
+
+\begin{theorem}[Non-zero / Zero]
+	If $f(z)=\frac{P(z)}{Q(z)}$ where $P(z)$ and $Q(z)$ are polynomials, and if $Q(z_0)=0$ while $P(z_0)\neq 0$, then the limit $\lim_{z \to z_0} f(z)$ does not exist.
+\end{theorem}
+
+
+\vspace{10pt}
+
+\begin{theorem}[Zero / Zero]
+	If $f(z)=\frac{P(z)}{Q(z)}$ where $P(z)$ and $Q(z)$ are polynomials, and if $Q(z_0)=0$ also $P(z_0) = 0$, then the limit $\lim_{z \to z_0} f(z)$ may exist. In this case, we can try to simplify $f(z)$ by factoring both $P(z)$ and $Q(z)$ and then canceling out the common factors. After simplification, we can re-evaluate the limit.
+\end{theorem}
+
+\clearpage
+
+\begin{problem}
+	Find the limit, if it exists:
+	\[ \lim_{z \to 1+i} z^2 - 5z + 10 \]	
+\end{problem}
+
+\vfill
+
+\begin{problem}
+	Find the limit, if it exists:
+	\[
+	\lim_{z \to \tfrac{i}{2}} 
+	\frac{(2z - 3)(4z + i)}{(iz - 1)^2}
+	\]
+\end{problem}
+
+\vfill
+
+\clearpage
+
+\begin{problem}
+	Find the limit, if it exists:
+	\[ \lim_{z \to i} \frac{z^2-1}{z^6+1} \]	
+\end{problem}
+
+\vfill
+
+\begin{problem}
+	Find the limit, if it exists:
+	\[
+	\lim_{z \to 1 + i} 
+	\left\{
+	\frac{z - 1 - i}{z^2 - 2z + 2}
+	\right\}^2
+	\]	
+\end{problem}
+
+\vfill
+
+\clearpage
+
+\begin{problem}
+	Let \( f(z) = \frac{z^2 + 1}{z - i} \). Prove that
+	\[\lim_{h \to 0} \frac{f(z_0 + h) - f(z_0)}{h} 
+	= \frac{7}{(3z_0 + 2)^2}, \quad 
+	z_0 \ne -\tfrac{2}{3}.
+	\]
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+	L'Hospital's Rule
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[L'Hospital's Rule]
+	Let \( f(z) \) and \( g(z) \) be functions that are differentiable on an open interval containing \( z_0 \), except possibly at \( z_0 \) itself. If
+	\[
+		\lim_{z \to z_0} f(z) = 0 \quad \text{and} \quad \lim_{z \to z_0} g(z) = 0,
+	\]
+	and if \( g'(z) \neq 0 \) for all \( z \) in the interval except possibly at \( z_0 \), then
+	\[
+		\lim_{z \to z_0} \frac{f(z)}{g(z)} = \lim_{z \to z_0} \frac{f'(z)}{g'(z)},
+	\]
+	provided the limit on the right side exists or is infinite.
+\end{theorem}
+
+\clearpage
+
+\begin{problem}
+	Find the limit, if it exists:
+	\[ \lim_{z \to 0} \frac{z - \sin z}{z^3} \]
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Find the limit, if it exists:
+	\[ \lim_{z \to 0} \frac{z - \tan z z}{z^3} \]
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Find the limit, if it exists:
+	\[ \lim_{z \to e^{i\pi/3}} \left( z - e^{i\pi/3}\right) \frac{z}{z^3 + 1} \]
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Find the limit, if it exists:
+	\[ \lim_{z \to 0} \left( \frac{\sin z}{z} \right)^{\frac{1}{z^2}} \]
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Find the limit, if it exists:
+	\[ \lim_{z \to 0} \left( \frac{\sin z}{z} \right)^{\frac{\sin z}{z - \sin z}} \]
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Find the limit, if it exists:
+	\[ \lim_{z \to 0} \left( \frac{\tan z}{z} \right)^{\frac{1}{z^2}} \]
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Find the limit, if it exists:
+	\[ \lim_{z \to 0} \left( \sec z \right)^{\frac{1}{z^2}} \]
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Find the limit, if it exists:
+	\[ \lim_{z \to 0} \left( \sec z \right)^{\frac{1}{z^2}} \]
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+	Continuity of Complex Functions
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Continuity of Complex Functions]
+	A function \( f: D \to \C \) is said to be continuous at a point \( z_0 \in D \) if
+	\[
+		\lim_{z \to z_0} f(z) = f(z_0).
+	\]
+	If \( f \) is continuous at every point in its domain \( D \), then we say that \( f \) is continuous on \( D \).
+\end{definition}
+
+\vfill
+
+\begin{theorem}[Note]
+	$3$ conditions must be satisfied for a function \( f \) to be continuous at a point \( z_0 \):
+	\begin{enumerate}
+		\item \( f(z_0) \) is defined.
+		\item \( \lim_{z \to z_0} f(z) \) exists.
+		\item \( \lim_{z \to z_0} f(z) = f(z_0) \).
+	\end{enumerate}
+	If any of these conditions fail, then \( f \) is not continuous at \( z_0 \).
+\end{theorem}
+
+\clearpage
+
+\begin{problem}
+	Let
+	\[
+	f(z) = \frac{3z^4 - 2z^3 + 8z^2 - 2z + 5}{z - i}
+	\]
+
+	\begin{enumerate}
+		\item Is \( f \) continuous at \( z = i \)?
+		\item If \( f \) is not continuous at \( z = i \), redefine \( f(z) \) such that it becomes continuous at \( z = i \).
+	\end{enumerate}
+\end{problem}
+
+\clearpage
+
+
+
+
+
+
+
+
+
+\EndPage
+\end{document}
