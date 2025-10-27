@@ -284,6 +284,12 @@
 
 \clearpage
 
+\begin{heading}
+	Exponential Forms
+\end{heading}
+
+\clearpage
+
 \begin{problem}
 	Find the limit, if it exists:
 	\[ \lim_{z \to 0} \left( \frac{\sin z}{z} \right)^{\frac{1}{z^2}} \]
@@ -314,7 +320,7 @@
 
 \begin{problem}
 	Find the limit, if it exists:
-	\[ \lim_{z \to 0} \left( \sec z \right)^{\frac{1}{z^2}} \]
+	\[ \lim_{z \to 0} \left( \cos z \right)^{\frac{1}{z^3}} \]
 \end{problem}
 
 \clearpage
@@ -350,6 +356,34 @@
 \begin{problem}
 	Let
 	\[
+	f(z) =
+	\begin{cases}
+	\dfrac{z^2 - 4}{z^2 - 3z + 2}, & z \ne 2, \\[10pt]
+	kz^2 + 6, & z = 2
+	\end{cases}
+	\]
+	Find the value of \( k \) such that \( f(z) \) is continuous at \( z = 2 \).
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Let
+	\[
+	f(z) =
+	\begin{cases}
+	\dfrac{1 - \cos (az)}{z^2}, & z \ne 0, \\[10pt]
+	1, & z = 0
+	\end{cases}
+	\]
+	Find the value of \( a \) such that \( f(z) \) is continuous at \( z = 0 \).
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Let
+	\[
 	f(z) = \frac{3z^4 - 2z^3 + 8z^2 - 2z + 5}{z - i}
 	\]
 
@@ -361,12 +395,55 @@
 
 \clearpage
 
+\begin{heading}
+	Discontinuity of Complex Functions
+\end{heading}
+\vspace{10pt}
+\begin{definition}[Discontinuity of Complex Functions]
+	A function \( f: D \to \C \) is said to be discontinuous at a point \( z_0 \in D \) if it is not continuous at \( z_0 \). In other words, \( f \) is discontinuous at \( z_0 \) if
+	\[
+		\lim_{z \to z_0} f(z) \ne f(z_0),
+	\]
+	or if the limit does not exist, or if \( f(z_0) \) is not defined.
+	
+\end{definition}
 
+\clearpage
 
+\begin{problem}
+	Find all points of discontinuity for the following function
+	\[f(z) = \dfrac{2z - 3}{z^2 + 2z + 2} \]
+\end{problem}
 
+\clearpage
 
+\begin{problem}
+	Find all points of discontinuity for the following function
+	\[f(z) = \dfrac{3z^2 + 4}{z^4 - 16} \]
+\end{problem}
 
+\clearpage
 
+\begin{problem}
+	Find all points of discontinuity for the following function
+	\[f(z) = \cot z \]
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Find all points of discontinuity for the following function
+	\[f(z) = \dfrac{1}{z} - \sec z \]
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Find all points of discontinuity for the following function
+	\[f(z) = \dfrac{\tanh z}{z^2 + 1} \]
+\end{problem}
+
+\clearpage
 
 
 \EndPage
