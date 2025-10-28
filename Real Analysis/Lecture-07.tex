@@ -1,0 +1,325 @@
+% ===============================
+% Worksheet / Manual Template
+% ===============================
+\documentclass[12pt, a4paper]{article}
+
+% ===============================
+% Metadata
+% ===============================
+\newcommand*{\CourseCode}{MAT221}
+\newcommand*{\CourseTitle}{Real Analysis}
+\newcommand*{\Chapter}{Theorems on Limit of Sequences}
+\newcommand*{\Topics}{Algebraic Properties, Order Properties and Squeeze Theorem}
+\newcommand*{\DocDate}{October 28, 2025}
+
+\include{header}
+
+% ==========================================
+% Document
+% ==========================================
+\begin{document}
+\FrontPage
+\Large
+
+
+\begin{heading}
+	Convergence and Limit of a Sequence
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Convergence of a Sequence]
+	A sequence $\{a_n\}$ is said to \textbf{converge} to a real number $a$ if for every real number $\varepsilon > 0,$ there exists a natural number $N \in \N$ such that for all $n \geq N,$ the terms of the sequence satisfy the inequality 
+	\[
+	|a_n - a| < \varepsilon.
+	\]
+	If such a number $a$ exists, it is called the \textbf{limit} of the sequence, and we write
+	\[
+	\lim a_n = a \quad \text{or} \quad a_n \to a \text{ as } n \to \infty.
+	\]
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+	 Unique Limit of a Sequence
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Limit is Unique]
+	If a sequence $\{a_n\}$ converges, then its limit is unique.	
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+	Bounded and Unbounded Sequences
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Bounded Sequence]
+	A sequence $\{a_n\}$ is said to be \textbf{bounded} if there exists a real number $M > 0$ such that for all natural numbers $n \in \N,$ the terms of the sequence satisfy the inequality
+	\[
+	|a_n| \leq M.
+	\]
+	If no such $M$ exists, the sequence is said to be \textbf{unbounded}.
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+	Every Convergent Sequence is Bounded
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}
+	Every convergent sequence is bounded.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}
+	Not every bounded sequence is convergent.
+\end{theorem}
+
+\vspace{10pt}
+
+\begin{problem}[Bounded $\not\Rightarrow$ Convergent]
+	Consider the sequence $a_n = (-1)^n.$ Show that this sequence is bounded but does not converge.
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+	Algebraic Properties of Limits
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Algebraic Properties of Limits]
+	Let $\{a_n\}$ and $\{b_n\}$ be two convergent sequences with limits $a$ and $b,$ respectively. Then,
+	\begin{enumerate}
+		\item $\lim c = c$ for any constant sequence $c.$
+		\item $\lim |a_n| = |a|.$
+		\item $\lim (a_n + b_n) = a + b.$
+		\item $\lim (a_n - b_n) = a - b.$
+		\item $c,$ $\lim (c a_n) = c a,$ for any constant $c \in \R.$
+		\item $\lim (a_n b_n) = ab.$
+		\item $\lim \left(\dfrac{1}{a_n}\right) = \dfrac{1}{a},$ provided $a \neq 0$ and $a_n \neq 0$ for all $n \in \N.$
+		\item $\lim \left(\dfrac{a_n}{b_n}\right) = \dfrac{a}{b},$ provided $b \neq 0$ and $b_n \neq 0$ for all $n \in \N.$
+	\end{enumerate}
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}
+	Prove that
+	\[\lim c = c\]
+	for any constant sequence $c.$
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}
+	If $\lim a_n = a,$ then
+	\[\lim |a_n| = |a|.\]
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}
+	If $\lim a_n = a$ and $\lim b_n = b,$ then
+	\[\lim (a_n + b_n) = a + b.\]
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}
+	If $\lim a_n = a$ and $\lim b_n = b,$ then
+	\[\lim (a_n - b_n) = a - b.\]
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}
+	If $\lim a_n = a,$ then for any constant $c \in \R,$
+	\[\lim (c a_n) = c a.\]
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}
+	If $\lim a_n = a$ and $\lim b_n = b,$ then
+	\[\lim (a_n b_n) = ab.\]
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}
+	If $\lim a_n = a$ with $a \neq 0$ and $a_n \neq 0$ for all $n \in \N,$ then
+	\[\lim \left(\dfrac{1}{a_n}\right) = \dfrac{1}{a}.\]
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}
+	If $\lim a_n = a$ and $\lim b_n = b$ with $b \neq 0$ and $b_n \neq 0$ for all $n \in \N,$ then
+	\[\lim \left(\dfrac{a_n}{b_n}\right) = \dfrac{a}{b}.\]
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+	Order Properties of Limits
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Order Properties of Limits]
+	Let $\{a_n\}$ and $\{b_n\}$ be two convergent sequences with limits $a$ and $b,$ respectively. Then,
+	\begin{enumerate}
+		\item If there exists a natural number $N \in \N$ such that $a_n \geq 0$ for all $n \geq N,$ then $a \geq 0.$ In other words,
+		\[\exists N \in \N \text{ such that } a_n \geq 0 \text{ for all } n \geq N \implies a \geq 0.\]
+		\item If there exists a natural number $N \in \N$ such that $a_n \leq b_n$ for all $n \geq N,$ then $a \leq b.$ In other words,
+		\[\exists N \in \N \text{ such that } a_n \leq b_n \text{ for all } n \geq N \implies a \leq b.\]
+	\end{enumerate}
+\end{theorem}
+
+\vspace{30pt}
+
+\begin{theorem}[Squeeze Theorem]
+	Let $\{a_n\}, \{x_n\},$ and $\{b_n\}$ be three sequences such that $a_n \leq x_n \leq b_n$ for all $n$ greater than or equal to some natural number $N \in \N.$ If $\lim a_n = \lim b_n = L,$ then $\lim x_n = L.$	
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Theorem: $a_n \geq 0$ implies $a \geq 0$]
+	Let $\{a_n\}$ be a convergent sequence with limit $a$. If there exists a natural number $N \in \N$ such that $a_n \geq 0$ for all $n \geq N,$ then $a \geq 0.$ In other words,
+	\[\exists N \in \N \text{ such that } a_n \geq 0 \text{ for all } n \geq N \implies a \geq 0.\]
+\end{theorem}
+
+\clearpage
+
+\begin{problem}[Theorem: $a_n > 0$ implies $a \geq 0$]
+	Let $\{a_n\}$ be a convergent sequence with limit $a$. If there exists a natural number $N \in \N$ such that $a_n > 0$ for all $n \geq N,$ then $a \geq 0.$ In other words,
+	\[\exists N \in \N \text{ such that } a_n > 0 \text{ for all } n \geq N \implies a \geq 0.\]
+\end{problem}
+
+\clearpage
+
+\begin{theorem}[Theorem: $a_n \leq b_n$ implies $a \leq b$]
+	Let $\{a_n\}$ and $\{b_n\}$ be two convergent sequences with limits $a$ and $b,$ respectively. If there exists a natural number $N \in \N$ such that $a_n \leq b_n$ for all $n \geq N,$ then $a \leq b.$ In other words,
+	\[\exists N \in \N \text{ such that } a_n \leq b_n \text{ for all } n \geq N \implies a \leq b.\]
+\end{theorem}
+
+\clearpage
+
+\begin{problem}[Theorem: $a_n < b_n$ implies $a \leq b$]
+	Let $\{a_n\}$ and $\{b_n\}$ be two convergent sequences with limits $a$ and $b,$ respectively. If there exists a natural number $N \in \N$ such that $a_n < b_n$ for all $n \geq N,$ then $a \leq b.$ In other words,
+	\[\exists N \in \N \text{ such that } a_n < b_n \text{ for all } n \geq N \implies a \leq b.\]
+\end{problem}
+
+\clearpage
+
+\begin{theorem}[Squeeze Theorem]
+	Let $\{a_n\}, \{x_n\},$ and $\{b_n\}$ be three sequences such that $a_n \leq x_n \leq b_n$ for all $n$ greater than or equal to some natural number $N \in \N.$ If $\lim a_n = \lim b_n = L,$ then $\lim x_n = L.$
+\end{theorem}
+
+\clearpage
+
+\begin{problem}[Prove using Squeeze Theorem]
+	Prove that
+	\[\lim_{n \to \infty} \dfrac{(-1)^n}{n} = 0.\]
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+	Ratio of Sequences
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}
+	Let $\{a_n\}$ be a sequence such that $a_n \neq 0$ for any $n$. If 
+	\[
+	\lim \dfrac{a_{n+1}}{a_n} = L,
+	\]
+	then
+	\begin{enumerate}
+		\item if $|L| < 1,$ the sequence $\{a_n\}$ converges to $0,$
+		\item if $|L| > 1,$ the sequence $\{a_n\}$ diverges,
+		\item if $|L| = 1,$ the test is inconclusive.
+	\end{enumerate}
+	
+\end{theorem}
+
+\clearpage
+
+\begin{problem}
+	Prove that 
+	\[\lim_{n \to \infty} \dfrac{(n!)^{1/n}}{n} = \dfrac{1}{e}\]
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+	Root of Sequences
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}
+	If $\{a_n\}$ is a sequence of posite terms and $\lim_{n \to \infty} \dfrac{a_{n+1}}{a_n}$ exists, then
+	\[\lim_{n \to \infty} \sqrt[n]{a_n} = \lim_{n \to \infty} \dfrac{a_{n+1}}{a_n}.\]
+\end{theorem}
+
+\clearpage
+
+\begin{problem}
+	Prove that 
+	\[\lim_{n \to \infty} \sqrt[n]{n} = 1\]
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+	Cesaro Means
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}
+	If a sequence $\{a_n\}$ converges to a limit $L,$ then the sequence $\{x_n\}$ defined by
+	\[x_n = \dfrac{a_1 + a_2 + \cdots + a_n}{n}\]
+	converges to the same limit $L.$
+\end{theorem}
+
+\clearpage
+
+\begin{problem}
+	Prove that 
+	\[
+\lim_{n \to \infty} \frac{1}{n} \left( 1 + 2^{1/2} + 3^{1/3} + \cdots + n^{1/n} \right) = 1
+\]
+\end{problem}
+
+\clearpage
+
+
+
+
+
+
+
+
+
+
+
+
+
+\EndPage
+\end{document}
