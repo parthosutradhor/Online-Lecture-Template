@@ -42,7 +42,7 @@
 \clearpage
 
 \begin{heading}
-	 Unique Limit of a Sequence
+	 Uniqueness of Limit
 \end{heading}
 
 \vspace{10pt}
@@ -106,7 +106,7 @@
 		\item $\lim |a_n| = |a|.$
 		\item $\lim (a_n + b_n) = a + b.$
 		\item $\lim (a_n - b_n) = a - b.$
-		\item $c,$ $\lim (c a_n) = c a,$ for any constant $c \in \R.$
+		\item $\lim (c a_n) = c a,$ for any constant $c \in \R.$
 		\item $\lim (a_n b_n) = ab.$
 		\item $\lim \left(\dfrac{1}{a_n}\right) = \dfrac{1}{a},$ provided $a \neq 0$ and $a_n \neq 0$ for all $n \in \N.$
 		\item $\lim \left(\dfrac{a_n}{b_n}\right) = \dfrac{a}{b},$ provided $b \neq 0$ and $b_n \neq 0$ for all $n \in \N.$
@@ -244,15 +244,15 @@
 \vspace{10pt}
 
 \begin{theorem}
-	Let $\{a_n\}$ be a sequence such that $a_n \neq 0$ for any $n$. If 
+	Let $\{a_n\}$ be a sequence of positive terms. If 
 	\[
 	\lim \dfrac{a_{n+1}}{a_n} = L,
 	\]
 	then
 	\begin{enumerate}
-		\item if $|L| < 1,$ the sequence $\{a_n\}$ converges to $0,$
-		\item if $|L| > 1,$ the sequence $\{a_n\}$ diverges,
-		\item if $|L| = 1,$ the test is inconclusive.
+		\item if $L < 1,$ the sequence $\{a_n\}$ converges to $0,$
+		\item if $L > 1,$ the sequence $\{a_n\}$ diverges,
+		\item if $L = 1,$ the test is inconclusive.
 	\end{enumerate}
 	
 \end{theorem}
@@ -261,7 +261,7 @@
 
 \begin{problem}
 	Prove that 
-	\[\lim_{n \to \infty} \dfrac{(n^n)}{n!} = e\]
+	\[\lim_{n \to \infty} \dfrac{n^n}{n!} = e\]
 \end{problem}
 
 \clearpage
@@ -273,7 +273,7 @@
 \vspace{10pt}
 
 \begin{theorem}
-	If $\{a_n\}$ is a sequence of posite terms and $\lim_{n \to \infty} \dfrac{a_{n+1}}{a_n}$ exists, then
+	If $\{a_n\}$ is a sequence of positive terms and $\lim_{n \to \infty} \dfrac{a_{n+1}}{a_n}$ exists, then
 	\[\lim_{n \to \infty} \sqrt[n]{a_n} = \lim_{n \to \infty} \dfrac{a_{n+1}}{a_n}.\]
 \end{theorem}
 
