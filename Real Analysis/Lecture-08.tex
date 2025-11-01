@@ -47,6 +47,44 @@
 \clearpage
 
 \begin{heading}
+	Examples of Monotone Sequences
+\end{heading}
+
+\vspace{10pt}
+
+\begin{problem}[Example]
+	The sequence defined by
+    \[x_{n} = \frac{1}{n}\] is a monotone sequence.
+\end{problem}
+
+\vfill
+
+\begin{problem}[Example]
+	The sequence defined by $x_1 = 3$ and 
+    \[x_{n+1} = \frac{1}{4 - x_n}\] is a monotone sequence.
+\end{problem}
+
+\vfill
+
+\clearpage
+
+\begin{problem}[Example]
+	The Sequence
+	\[\sqrt{2},\ \sqrt{2\sqrt{2}},\ \sqrt{2\sqrt{2\sqrt{2}}},\ \ldots\] is a monotone sequence.
+\end{problem}
+
+\vfill
+
+\begin{problem}[Example]
+	Let $x_1 = 2$, and define
+	\[x_{n+1} = \frac{1}{2} \left( x_n + \frac{2}{x_n} \right).\] is a monotone sequence.
+\end{problem}
+
+\vfill
+
+\clearpage
+
+\begin{heading}
 	Monotone Convergence Theorem (MCT)
 \end{heading}
 
@@ -55,6 +93,13 @@
 \begin{theorem}[Monotone Convergence Theorem]
 	\textbf{If a sequence is monotone and bounded, then it converges.}
 \end{theorem}
+
+\clearpage
+
+\begin{theorem}[Aoc $\implies$ MCT]
+	Let $(a_n)$ be a monotone and bounded sequence. Using the Axiom of Completeness, show that the sequence $(a_n)$ converges.
+\end{theorem}
+
 \clearpage
 
 \begin{problem}
@@ -91,7 +136,64 @@ converges and find the limit.
 	\end{enumerate}
 \end{problem}
 
+\clearpage
 
+\begin{heading}
+	Subsequence
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Subsequence]
+	Let $(a_n)$ be a sequence of real numbers, and let 
+	\[ n_1 < n_2 < n_3 < n_4 < n_5 < \cdots \]
+	be an increasing sequence of natural numbers. Then the sequence
+	\[ a_{n_1}, a_{n_2}, a_{n_3}, a_{n_4}, a_{n_5}, \cdots \]
+	is called a \textit{subsequence} of $(a_n)$ and is denoted by $(a_{n_j})$, 
+	where $j \in \mathbb{N}$ indexes the subsequence.
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+	Examples of Subsequence
+\end{heading}
+
+\clearpage
+
+\begin{theorem}
+	Subsequences of a convergent sequence converge to the same limit as the original sequence.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+	Bolzano–Weierstrass Theorem
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Bolzano–Weierstrass Theorem]
+	\textbf{Every bounded sequence contains a convergent subsequence.}
+\end{definition}
+
+\clearpage
+
+\begin{theorem}[NIP $\implies$ BWT]
+	Let $(a_n)$ be a bounded sequence. Using the Nested Interval property, show that there exists a convergent subsequence.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Aoc $\implies$ BWT]
+	Let $(a_n)$ be a bounded sequence. Using the Axiom of Completeness, show that there exists a convergent subsequence.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}
+	Assume $(a_n)$ is a bounded sequence with the property that every convergent subsequence of $(a_n)$ converges to the same limit $a \in \R$. Show that $(a_n)$ must converge to $a$.
+\end{theorem}
 
 
 
