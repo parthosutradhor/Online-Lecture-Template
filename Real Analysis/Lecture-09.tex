@@ -8,9 +8,9 @@
 % ===============================
 \newcommand*{\CourseCode}{MAT221}
 \newcommand*{\CourseTitle}{Real Analysis}
-\newcommand*{\Chapter}{Cauchy Sequences and Completeness}
-\newcommand*{\Topics}{Cauchy Criterion (CC), Completeness Revisited}
-\newcommand*{\DocDate}{October 28, 2025}
+\newcommand*{\Chapter}{Subsequences and Limit Points}
+\newcommand*{\Topics}{Bolzano-Weierstrass Theorem (BWT)}
+\newcommand*{\DocDate}{November 02, 2025}
 
 \include{header}
 
@@ -23,135 +23,61 @@
 
 
 \begin{heading}
-	Convergence and Limit of a Sequence
+	Subsequence
 \end{heading}
 
 \vspace{10pt}
 
-\begin{definition}[Convergence of a Sequence]
-	A sequence $\{a_n\}$ is said to \textbf{converge} to a real number $a$ if for every real number $\varepsilon > 0,$ there exists a natural number $N \in \N$ such that for all $n \geq N,$ the terms of the sequence satisfy the inequality 
-	\[
-	|a_n - a| < \varepsilon.
-	\]
-	If such a number $a$ exists, it is called the \textbf{limit} of the sequence, and we write
-	\[
-	\lim a_n = a \quad \text{or} \quad a_n \to a \text{ as } n \to \infty.
-	\]
+\begin{definition}[Subsequence]
+	Let $(a_n)$ be a sequence of real numbers, and let 
+	\[ n_1 < n_2 < n_3 < n_4 < n_5 < \cdots \]
+	be an increasing sequence of natural numbers. Then the sequence
+	\[ a_{n_1}, a_{n_2}, a_{n_3}, a_{n_4}, a_{n_5}, \cdots \]
+	is called a \textit{subsequence} of $(a_n)$ and is denoted by $(a_{n_j})$, 
+	where $j \in \mathbb{N}$ indexes the subsequence.
 \end{definition}
 
 \clearpage
 
 \begin{heading}
-	Cauchy Sequence
+	Examples of Subsequence
 \end{heading}
 
-\vspace{10pt}
-
-\begin{definition}[Cauchy Sequence]
-	A sequence $\{a_n\}$ is called a \textbf{Cauchy sequence} if for every real number $\varepsilon > 0,$ there exists a natural number $N \in \N$ such that for all $m, n \geq N,$ the terms of the sequence satisfy the inequality
-	\[	|a_n - a_m| < \varepsilon. \]
-\end{definition}
-
-\clearpage
-
-\begin{problem}
-	Show that the sequence defined by $a_n = \frac{1}{n}$ is a Cauchy sequence.
-\end{problem}
-
 \clearpage
 
 \begin{theorem}
-	Every Cauchy sequence is bounded sequence.
-\end{theorem}
-
-\clearpage
-
-\begin{theorem}
-	Every Convergent sequence is a Cauchy sequence.
-\end{theorem}
-
-\clearpage
-
-\begin{theorem}
-	Every Cauchy Sequence in $\R$ converges to a real number.
+	Subsequences of a convergent sequence converge to the same limit as the original sequence.
 \end{theorem}
 
 \clearpage
 
 \begin{heading}
-	Cauchy Criterion (CC) for Sequences in $\R$
+	Bolzano–Weierstrass Theorem
 \end{heading}
 
 \vspace{10pt}
 
-\begin{theorem}
-	A sequence $\{a_n\}$ of real numbers converges if and only if it is a Cauchy sequence.
+\begin{definition}[Bolzano–Weierstrass Theorem]
+	\textbf{Every bounded sequence contains a convergent subsequence.}
+\end{definition}
+
+\clearpage
+
+\begin{theorem}[NIP $\implies$ BWT]
+	Let $(a_n)$ be a bounded sequence. Using the Nested Interval property, show that there exists a convergent subsequence.
 \end{theorem}
 
 \clearpage
 
-\begin{heading}
-	Completeness of a Metric Space
-\end{heading}
-
-\vspace{10pt}
-
-\begin{definition}[Completeness of a Metric Space]
-	A metric space is said to be \textbf{complete} if every Cauchy sequence in the space converges to a limit that is also within that space.
-\end{definition}
-
-\vspace{10pt}
-
-\begin{problem}[The incompleteness of $\Q$]
-	Not every Cauchy Sequence in $\Q$ converges to a rational number.\\[10pt]
-	Show that the sequence defined by
-	\[	a_{n+1} = \frac{a_n}{2} + \frac{1}{a_n}, \quad a_1 = 1 \]
-	is a Cauchy sequence in $\Q$ but does not converge to any rational number. 
-\end{problem}
+\begin{theorem}[Aoc $\implies$ BWT]
+	Let $(a_n)$ be a bounded sequence. Using the Axiom of Completeness, show that there exists a convergent subsequence.
+\end{theorem}
 
 \clearpage
 
-\begin{heading}
-	Completeness Revisited
-\end{heading}
-
-\vspace{10pt}
-
-\begin{definition}[Equivalence of Completeness Axioms for $\R$]
-	The following are equivalent statements of the Completeness Axiom for the real numbers:
-	\begin{enumerate}
-		\item Axiom of Completeness (AoC)
-		\item Nested Interval Property (NIP) $+$ Archimedean Property (AP)
-		\item Monotone Convergence Theorem (MCT)
-		\item Bolzano-Weierstrass Theorem (BWT)
-		\item Cauchy Criterion (CC) $+$ Archimedean Property (AP)
-	\end{enumerate}	
-\end{definition}
-
-\clearpage
-
-\begin{heading}
-	Assignment
-\end{heading}
-
-\vspace{10pt}
-
-\begin{definition}[Prove the following statements]
-	\begin{enumerate}
-		\item AoC $ \implies $ NIP
-		\item AoC $ \implies $ AP
-		\item NIP $ + $ AP $ \implies $ AoC
-		\item AoC $ \implies $ MCT
-		\item MCT $ \implies $ AoC
-		\item AoC $ \implies $ BWT
-		\item BWT $ \implies $ AoC
-		\item AoC $ \implies $ CC
-		\item CC $ + $ AP $ \implies $ AoC
-	\end{enumerate}	
-\end{definition}
-
-
-
+\begin{theorem}
+	Assume $(a_n)$ is a bounded sequence with the property that every convergent subsequence of $(a_n)$ converges to the same limit $a \in \R$. Show that $(a_n)$ must converge to $a$.
+\end{theorem}
 
 
 
