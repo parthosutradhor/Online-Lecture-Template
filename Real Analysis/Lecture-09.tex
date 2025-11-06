@@ -33,8 +33,8 @@
 	\[ n_1 < n_2 < n_3 < n_4 < n_5 < \cdots \]
 	be an increasing sequence of natural numbers. Then the sequence
 	\[ a_{n_1}, a_{n_2}, a_{n_3}, a_{n_4}, a_{n_5}, \cdots \]
-	is called a \textit{subsequence} of $(a_n)$ and is denoted by $(a_{n_j})$, 
-	where $j \in \mathbb{N}$ indexes the subsequence.
+	is called a \textit{subsequence} of $(a_n)$ and is denoted by $(a_{n_k})$, 
+	where $k \in \mathbb{N}$ indexes the subsequence.
 \end{definition}
 
 \clearpage
@@ -46,7 +46,7 @@
 \clearpage
 
 \begin{theorem}
-	Subsequences of a convergent sequence converge to the same limit as the original sequence.
+	Any subsequence of a convergent sequence converge to the same limit as the original sequence.
 \end{theorem}
 
 \clearpage
@@ -79,9 +79,68 @@
 	Assume $(a_n)$ is a bounded sequence with the property that every convergent subsequence of $(a_n)$ converges to the same limit $a \in \R$. Show that $(a_n)$ must converge to $a$.
 \end{theorem}
 
+\clearpage
 
+\begin{theorem}
+	Every sequence contains a monotonic subsequence.
+\end{theorem}
 
+\clearpage
 
+\begin{heading}
+	Limit Point or Cluster Point
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Limit Point]
+	A real number $l$ is said to be a limit point or cluster point of a sequence $(a_n)$ if for every $\varepsilon > 0$, there exists a term $a_m$ such that
+	\[
+	|a_m - a| < \varepsilon.
+	\]
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+	Examples of Limit Points
+\end{heading}
+
+\clearpage
+
+\begin{theorem}
+	 If a sequence $(a_n)$ converges to $l$, then $l$ is the only limit point of the sequence.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+	Bolzano–Weierstrass Theorem (Limit Point Vesion)
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Bolzano–Weierstrass Theorem]
+	Every hounded sequence has at least one limit point.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+	Limit Superior and Inferior
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Limit Superior]
+	The Limit Superior of a bounded sequence is the latgest limit point.
+\end{definition}
+
+\vspace{10pt}
+
+\begin{definition}[Limit Inferior]
+	The Limit Inferior of a bounded sequence is the smallest limit point.
+\end{definition}
 
 
 
