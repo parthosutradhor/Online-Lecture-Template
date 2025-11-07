@@ -40,6 +40,21 @@
 \clearpage
 
 \begin{heading}
+	Other Definition of Subsequence
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Subsequence]
+Let $(a_n)$ be a sequence, and let $f : \mathbb{N} \to \mathbb{N}$ be a strictly increasing function.
+Then the sequence $(a_{f(k)})$ is called a \textbf{subsequence} of $(a_n)$.
+In other words, a subsequence is obtained by choosing elements of $(a_n)$ in the same order,
+but possibly omitting some of them.
+\end{definition}
+
+\clearpage
+
+\begin{heading}
 	Examples of Subsequence
 \end{heading}
 
@@ -47,6 +62,12 @@
 
 \begin{theorem}
 	Any subsequence of a convergent sequence converge to the same limit as the original sequence.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}
+	Assume $(a_n)$ is a bounded sequence with the property that every convergent subsequence of $(a_n)$ converges to the same limit $a \in \R$. Show that $(a_n)$ must converge to $a$.
 \end{theorem}
 
 \clearpage
@@ -102,9 +123,32 @@
 
 \clearpage
 
+
 \begin{heading}
 	Examples of Limit Points
 \end{heading}
+
+\clearpage
+
+\begin{heading}
+	Other Definition of Limit Point or Cluster Point
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Limit Point]
+	A real number $l$ is said to be a limit point or cluster point of a sequence $(a_n)$ if for every $\varepsilon > 0$, the $\varepsilon$ neighbouhood 
+	\[(l-\varepsilon, l+\varepsilon)\]
+	contains at least one term of the sequence.
+\end{definition}
+
+\vspace{10pt}
+
+\begin{theorem}
+	If a real number $l$ is a limit point or cluster point of a sequence $(a_n)$, then for every $\varepsilon > 0$, the $\varepsilon$ neighbouhood 
+	\[(l-\varepsilon, l+\varepsilon)\]
+	contains infinitely many terms of the sequence.
+\end{theorem}
 
 \clearpage
 
