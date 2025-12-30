@@ -1,0 +1,354 @@
+% ===============================
+% Worksheet / Manual Template
+% ===============================
+\documentclass[12pt, a4paper]{article}
+
+% ===============================
+% Metadata
+% ===============================
+\newcommand*{\CourseCode}{MAT221}
+\newcommand*{\CourseTitle}{Real Analysis}
+\newcommand*{\Chapter}{Riemann Integral}
+\newcommand*{\Topics}{Upper and Lower Sums, Riemann Integrability}
+\newcommand*{\DocDate}{December 30, 2025}
+
+\include{header}
+
+\begin{document}
+\FrontPage
+\Large
+
+% ======================================================
+\begin{heading}
+Historical and Conceptual Motivation
+\end{heading}
+
+\begin{quote}
+\textit{``The integral was not born as a limit—it was born as area.''}
+\end{quote}
+
+In elementary calculus, integration is often introduced as the inverse operation of differentiation.
+That approach is historically inaccurate and mathematically insufficient.
+
+The founders of calculus—Newton and Leibniz—viewed integration primarily through antiderivatives.
+However, this immediately leads to a serious limitation:
+
+\clearpage
+
+\begin{problem}
+Show that the function
+\[
+h(x)=
+\begin{cases}
+1, & 0\le x<1,\\
+2, & 1\le x\le 2,
+\end{cases}
+\]
+has no antiderivative on $[0,2]$.
+\end{problem}
+
+\vfill
+
+Despite this, it is intuitively clear that the area under $h$ from $0$ to $2$ should be $3$.
+Thus, **area must be defined independently of derivatives**.
+
+This philosophical shift—separating integration from differentiation—was made rigorous by
+Cauchy and later refined by Riemann around 1850 :contentReference[oaicite:1]{index=1}.
+
+\clearpage
+
+% ======================================================
+\begin{heading}
+From Geometry to Approximation
+\end{heading}
+
+The geometric idea behind integration is approximation:
+
+\begin{center}
+\emph{Approximate the region under a curve by rectangles, and refine the approximation.}
+\end{center}
+
+Each approximation is crude, but refinement improves accuracy.
+The mathematical challenge is to turn this idea into a precise definition that depends
+only on properties of real numbers—especially completeness.
+
+\clearpage
+
+% ======================================================
+\begin{heading}
+Bounded Functions on Closed Intervals
+\end{heading}
+
+\begin{definition}[Bounded Function]
+A function $f:[a,b]\to\mathbb{R}$ is called \textbf{bounded} if there exists $M>0$ such that
+\[
+|f(x)|\le M \quad \text{for all } x\in[a,b].
+\]
+\end{definition}
+
+Boundedness is not optional.
+If $f$ is unbounded on any subinterval, then no finite rectangular approximation is possible.
+
+\vspace{100pt}
+
+\begin{theorem}
+Every continuous function on a closed interval $[a,b]$ is bounded.
+\end{theorem}
+
+This is a direct consequence of compactness and the Extreme Value Theorem.
+
+\clearpage
+
+% ======================================================
+\begin{heading}
+Partitions of an Interval
+\end{heading}
+
+\begin{definition}[Partition]
+A \textbf{partition} $P$ of $[a,b]$ is a finite ordered set
+\[
+P=\{x_0,x_1,\dots,x_n\}
+\]
+such that
+\[
+a=x_0<x_1<\cdots<x_n=b.
+\]
+\end{definition}
+
+Each partition induces subintervals $[x_{i-1},x_i]$.
+
+\clearpage
+
+\begin{definition}[Norm (Mesh)]
+The \textbf{norm} of a partition $P$ is
+\[
+\|P\|=\max_{1\le i\le n}(x_i-x_{i-1}).
+\]
+\end{definition}
+
+A small norm corresponds to a fine partition.
+In the limit, we want $\|P\|\to 0$.
+
+\clearpage
+
+% ======================================================
+\begin{heading}
+Supremum and Infimum on Subintervals
+\end{heading}
+
+\begin{definition}
+Let $f$ be bounded function on $[a,b]$ and let $[x_{i-1},x_i]$ be a subinterval of the interval. Define
+\[M_i=\sup\{f(x):x\in[x_{i-1},x_i]\}.\]
+\[m_i=\inf\{f(x):x\in[x_{i-1},x_i]\}.\]
+\end{definition}
+
+These quantities always exist because:
+\begin{itemize}
+\item $f$ is bounded,
+\item $\mathbb{R}$ is complete.
+\end{itemize}
+
+They represent the best possible overestimate and underestimate of $f$ on each subinterval.
+
+\clearpage
+
+% ======================================================
+\begin{heading}
+Upper and Lower Sums
+\end{heading}
+
+\begin{definition}[Lower Sum]
+Let $f$ be bounded function on $[a,b]$ and let $P=\{x_0,x_1,\dots,x_n\}$ be a partition of $[a,b]$. Define
+\[L(f,P)=\sum_{i=1}^n m_i(x_i-x_{i-1}).\]
+\end{definition}
+
+\clearpage
+
+\begin{definition}[Upper Sum]
+Let $f$ be bounded function on $[a,b]$ and let $P=\{x_0,x_1,\dots,x_n\}$ be a partition of $[a,b]$. Define
+\[U(f,P)=\sum_{i=1}^n M_i(x_i-x_{i-1}).\]
+\end{definition}
+
+\clearpage
+
+\begin{theorem}
+For any partition $P$,
+\[
+L(f,P)\le U(f,P).
+\]
+\end{theorem}
+
+Geometrically:
+\begin{itemize}
+\item Lower sums inscribe rectangles below the graph,
+\item Upper sums circumscribe rectangles above the graph.
+\end{itemize}
+
+\clearpage
+
+% ======================================================
+\begin{heading}
+Refinement and Monotonicity of Sums
+\end{heading}
+
+\begin{definition}[Refinement]
+A partition $Q$ is a refinement of $P$ if $P\subseteq Q$.
+\end{definition}
+
+\clearpage
+
+\begin{theorem}
+If $Q$ refines $P$, then
+\[
+L(f,P)\le L(f,Q)\le U(f,Q)\le U(f,P).
+\]
+\end{theorem}
+
+Thus:
+\begin{itemize}
+\item lower sums increase under refinement,
+\item upper sums decrease under refinement.
+\end{itemize}
+
+This squeezing behavior is the key ton integrability
+
+\clearpage
+
+% ======================================================
+\begin{heading}
+Upper and Lower Integrals
+\end{heading}
+
+Instead of taking limits of sums, Riemann used infima and suprema.
+
+\begin{definition}[Upper Integral]
+\[
+\overline{\int_a^b} f
+=\inf\{U(f,P):P\text{ partition of }[a,b]\}.
+\]
+\end{definition}
+
+\clearpage
+
+\begin{definition}[Lower Integral]
+\[
+\underline{\int_a^b} f
+=\sup\{L(f,P):P\text{ partition of }[a,b]\}.
+\]
+\end{definition}
+
+\clearpage
+
+\begin{theorem}
+For every bounded function,
+\[
+\underline{\int_a^b} f\le \overline{\int_a^b} f.
+\]
+\end{theorem}
+
+\clearpage
+
+% ======================================================
+\begin{heading}
+Riemann Integrability
+\end{heading}
+
+\begin{definition}[Riemann Integrable]
+A bounded function $f:[a,b]\to\mathbb{R}$ is \textbf{Riemann integrable} if
+\[
+\underline{\int_a^b} f=\overline{\int_a^b} f.
+\]
+The common value is denoted
+\[
+\int_a^b f(x)\,dx.
+\]
+\end{definition}
+
+\clearpage
+
+\begin{theorem}[Cauchy Criterion]
+$f$ is Riemann integrable if and only if for every $\varepsilon>0$
+there exists a partition $P$ such that
+\[
+U(f,P)-L(f,P)<\varepsilon.
+\]
+\end{theorem}
+
+This theorem is the practical test for integrability.
+
+\clearpage
+
+% ======================================================
+\begin{heading}
+Continuity Implies Integrability
+\end{heading}
+
+\begin{theorem}
+If $f$ is continuous on $[a,b]$, then $f$ is Riemann integrable.
+\end{theorem}
+
+\clearpage
+
+% ======================================================
+\begin{heading}
+Functions with Discontinuities
+\end{heading}
+
+Not all integrable functions are continuous.
+
+\begin{problem}
+Define
+\[
+f(x)=
+\begin{cases}
+1, & x\neq 1,\\
+0, & x=1.
+\end{cases}
+\]
+Then $f$ is Riemann integrable on $[0,2]$ and
+\[
+\int_0^2 f(x)\,dx=2.
+\]
+\end{problem}
+
+A finite number of discontinuities does not affect area.
+
+\clearpage
+
+% ======================================================
+\begin{heading}
+A Pathological Counterexample
+\end{heading}
+
+\begin{definition}[Dirichlet Function]
+\[
+f(x)=
+\begin{cases}
+1, & x\in\mathbb{Q},\\
+0, & x\notin\mathbb{Q}.
+\end{cases}
+\]
+\end{definition}
+
+\begin{theorem}
+The Dirichlet function is not Riemann integrable on $[0,1]$.
+\end{theorem}
+
+
+\clearpage
+
+% ======================================================
+\begin{heading}
+Lebesgue's Criterion (Advanced Real Analysis)
+\end{heading}
+
+\begin{theorem}[Lebesgue Criterion]
+A bounded function is Riemann integrable
+if and only if its set of discontinuities has measure zero.
+\end{theorem}
+
+This theorem precisely describes the power and limitation of Riemann integration.
+
+
+\EndPage
+\end{document}
