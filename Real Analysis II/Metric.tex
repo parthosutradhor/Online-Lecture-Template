@@ -1,0 +1,1294 @@
+\documentclass[11pt]{article}
+
+%================================================
+% Packages
+%================================================
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{mathrsfs}
+
+%================================================
+% Theorem environments
+%================================================
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{exercise}[theorem]{Exercise}
+
+%================================================
+% Shortcuts
+%================================================
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\Int}{\operatorname{Int}}
+\newcommand{\Cl}{\operatorname{Cl}}
+\newcommand{\Bd}{\partial}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\diam}{\operatorname{diam}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\norm}[1]{\left\lVert #1\right\rVert}
+\newcommand{\set}[1]{\left\{#1\right\}}
+
+\title{Metric Spaces: Complete Lecture Notes\\
+(Definitions, Examples, Theorems, and Detailed Proofs)}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+%================================================
+\section{Preliminaries: Sets and Functions}
+%================================================
+
+\begin{definition}[Function, image, preimage]
+Let $X,Y$ be sets. A \emph{function} $f:X\to Y$ assigns to each $x\in X$ a unique element $f(x)\in Y$.
+For $A\subset X$, the \emph{image} of $A$ is
+\[
+f(A):=\{f(x):x\in A\}\subset Y.
+\]
+For $B\subset Y$, the \emph{preimage} of $B$ is
+\[
+f^{-1}(B):=\{x\in X: f(x)\in B\}\subset X.
+\]
+\end{definition}
+
+\begin{lemma}[Preimage rules]
+Let $f:X\to Y$ and $\{B_\alpha\}_{\alpha\in I}\subset \mathcal P(Y)$. Then:
+\[
+f^{-1}\!\Big(\bigcup_{\alpha\in I} B_\alpha\Big)=\bigcup_{\alpha\in I} f^{-1}(B_\alpha),\qquad
+f^{-1}\!\Big(\bigcap_{\alpha\in I} B_\alpha\Big)=\bigcap_{\alpha\in I} f^{-1}(B_\alpha),
+\]
+and for any $B\subset Y$,
+\[
+f^{-1}(Y\setminus B)=X\setminus f^{-1}(B).
+\]
+\end{lemma}
+
+\begin{proof}
+We prove the union identity; the others are similar.
+
+Let $x\in f^{-1}(\cup_\alpha B_\alpha)$. Then $f(x)\in\cup_\alpha B_\alpha$, so $f(x)\in B_{\alpha_0}$ for some $\alpha_0$.
+Thus $x\in f^{-1}(B_{\alpha_0})\subset \cup_\alpha f^{-1}(B_\alpha)$.
+
+Conversely, if $x\in \cup_\alpha f^{-1}(B_\alpha)$, then $x\in f^{-1}(B_{\alpha_0})$ for some $\alpha_0$, i.e. $f(x)\in B_{\alpha_0}\subset\cup_\alpha B_\alpha$.
+Hence $x\in f^{-1}(\cup_\alpha B_\alpha)$.
+\end{proof}
+
+%================================================
+\section{Lecture 1: Metrics and Metric Spaces}
+%================================================
+
+\begin{definition}[Metric and metric space]
+A \emph{metric} on a nonempty set $X$ is a function $d:X\times X\to[0,\infty)$ such that for all $x,y,z\in X$:
+\begin{enumerate}[label=\textbf{(M\arabic*)}]
+\item $d(x,y)=0 \iff x=y$ \quad (identity of indiscernibles),
+\item $d(x,y)=d(y,x)$ \quad (symmetry),
+\item $d(x,z)\le d(x,y)+d(y,z)$ \quad (triangle inequality).
+\end{enumerate}
+Then $(X,d)$ is called a \emph{metric space}.
+\end{definition}
+
+\begin{remark}
+From the axioms, we always have $d(x,y)\ge 0$ and $d(x,x)=0$.
+\end{remark}
+
+\subsection{Examples of metrics}
+
+\begin{example}[Usual metric on $\R$]
+On $\R$, $d(x,y)=|x-y|$ is a metric.
+\end{example}
+
+\begin{proof}
+(M1) $|x-y|=0\iff x=y$. (M2) $|x-y|=|y-x|$. (M3) triangle inequality for absolute value:
+\[
+|x-z|=|(x-y)+(y-z)|\le |x-y|+|y-z|.
+\]
+\end{proof}
+
+\begin{example}[Discrete metric]
+On any set $X$ define
+\[
+d_{\mathrm{disc}}(x,y)=
+\begin{cases}
+0, & x=y,\\
+1, & x\ne y.
+\end{cases}
+\]
+Then $d_{\mathrm{disc}}$ is a metric.
+\end{example}
+
+\begin{proof}
+(M1) holds by definition. (M2) is immediate. For (M3), if $x=z$ then $d(x,z)=0\le d(x,y)+d(y,z)$.
+If $x\ne z$, then $d(x,z)=1$; at least one of $x\ne y$ or $y\ne z$ must hold, so $d(x,y)+d(y,z)\ge 1$.
+\end{proof}
+
+\begin{example}[Metrics from norms]
+Let $V$ be a vector space and $\norm{\cdot}$ a norm on $V$ (satisfying positivity, homogeneity, triangle inequality).
+Then $d(x,y):=\norm{x-y}$ defines a metric on $V$.
+\end{example}
+
+\begin{proof}
+(M1) $\norm{x-y}=0\iff x-y=0\iff x=y$. (M2) $\norm{x-y}=\norm{-(y-x)}=\norm{y-x}$. (M3)
+\[
+\norm{x-z}=\norm{(x-y)+(y-z)}\le \norm{x-y}+\norm{y-z}.
+\]
+\end{proof}
+
+%================================================
+\subsection{Basic inequalities in metric spaces}
+%================================================
+
+\begin{lemma}[Reverse triangle inequality]
+For all $x,y,z\in X$,
+\[
+|d(x,z)-d(y,z)|\le d(x,y).
+\]
+\end{lemma}
+
+\begin{proof}
+By triangle inequality,
+\[
+d(x,z)\le d(x,y)+d(y,z)\quad \Rightarrow \quad d(x,z)-d(y,z)\le d(x,y).
+\]
+Swapping $x$ and $y$ yields
+\[
+d(y,z)-d(x,z)\le d(y,x)=d(x,y).
+\]
+Thus $|d(x,z)-d(y,z)|\le d(x,y)$.
+\end{proof}
+
+\begin{theorem}[Two-point inequality for distances]
+For all $x,y,p,q\in X$,
+\[
+|d(x,y)-d(p,q)|\le d(x,p)+d(y,q).
+\]
+\end{theorem}
+
+\begin{proof}
+Apply triangle inequality in two steps:
+\[
+d(x,y)\le d(x,p)+d(p,q)+d(q,y)=d(p,q)+d(x,p)+d(y,q),
+\]
+so $d(x,y)-d(p,q)\le d(x,p)+d(y,q)$.
+Swap $(x,y)$ and $(p,q)$ to get $d(p,q)-d(x,y)\le d(x,p)+d(y,q)$.
+Combine to obtain the absolute value inequality.
+\end{proof}
+
+\subsection{Constructing new metrics}
+
+\begin{definition}[Equivalent metrics]
+Two metrics $d$ and $\rho$ on $X$ are \emph{topologically equivalent} if they generate the same open sets (equivalently, the same notion of convergence).
+A sufficient condition is \emph{bi-Lipschitz equivalence}:
+\[
+\exists c,C>0\ \text{such that}\ c\,d(x,y)\le \rho(x,y)\le C\,d(x,y)\ \ \forall x,y.
+\]
+\end{definition}
+
+\begin{theorem}[Bounded transform of a metric]
+Let $(X,d)$ be a metric space and define
+\[
+\tilde d(x,y)=\frac{d(x,y)}{1+d(x,y)}.
+\]
+Then $\tilde d$ is a metric on $X$ and $0\le \tilde d(x,y)<1$ for all $x,y$.
+\end{theorem}
+
+\begin{proof}
+Clearly $0\le \tilde d<1$. Symmetry and $\tilde d(x,y)=0\iff d(x,y)=0\iff x=y$ are immediate.
+
+For triangle inequality, set $a=d(x,y)$, $b=d(y,z)$, $c=d(x,z)$ so $c\le a+b$.
+It suffices to prove the numeric inequality for all $a,b\ge 0$:
+\[
+\frac{a+b}{1+a+b}\le \frac{a}{1+a}+\frac{b}{1+b}.
+\]
+Let
+\[
+\Phi(a,b):=\frac{a}{1+a}+\frac{b}{1+b}-\frac{a+b}{1+a+b}.
+\]
+Rewrite each fraction as $1-\frac{1}{1+a}$ etc.:
+\[
+\Phi(a,b)=\Big(1-\frac{1}{1+a}\Big)+\Big(1-\frac{1}{1+b}\Big)-\Big(1-\frac{1}{1+a+b}\Big)
+=1-\frac{1}{1+a}-\frac{1}{1+b}+\frac{1}{1+a+b}.
+\]
+Thus $\Phi(a,b)\ge 0$ is equivalent to
+\[
+\frac{1}{1+a}+\frac{1}{1+b}\ge 1+\frac{1}{1+a+b}.
+\]
+Multiply both sides by the positive number $(1+a)(1+b)(1+a+b)$:
+\begin{align*}
+(1+b)(1+a+b)+(1+a)(1+a+b) &\ge (1+a)(1+b)(1+a+b)+(1+a)(1+b).
+\end{align*}
+Expand the left:
+\[
+(1+a+b)(2+a+b)= (1+a+b)(a+b+2).
+\]
+Expand the right:
+\[
+(1+a)(1+b)(1+a+b)+(1+a)(1+b)=(1+a)(1+b)\big((1+a+b)+1\big)=(1+a)(1+b)(a+b+2).
+\]
+So the inequality becomes
+\[
+(1+a+b)(a+b+2)\ge (1+a)(1+b)(a+b+2).
+\]
+Cancel $(a+b+2)>0$ to get $1+a+b\ge (1+a)(1+b)=1+a+b+ab$, i.e. $0\ge ab$.
+But $a,b\ge0$, so $ab\ge0$ and therefore equality forces $ab=0$; in general we get
+\[
+1+a+b \le 1+a+b+ab,
+\]
+so after rearranging we see $\Phi(a,b)=\frac{ab}{(1+a)(1+b)(1+a+b)}\ge 0$.
+Hence
+\[
+\frac{c}{1+c}\le \frac{a+b}{1+a+b}\le \frac{a}{1+a}+\frac{b}{1+b},
+\]
+which is exactly $\tilde d(x,z)\le \tilde d(x,y)+\tilde d(y,z)$.
+\end{proof}
+
+\begin{theorem}[Pullback metric along an injection]
+Let $(X,d)$ be a metric space and let $a:Y\to X$ be injective. Define
+\[
+d_Y(y_1,y_2):=d(a(y_1),a(y_2)).
+\]
+Then $d_Y$ is a metric on $Y$.
+\end{theorem}
+
+\begin{proof}
+Nonnegativity and symmetry follow from $d$.
+Triangle inequality:
+\[
+d_Y(y_1,y_3)=d(a(y_1),a(y_3))\le d(a(y_1),a(y_2))+d(a(y_2),a(y_3))=d_Y(y_1,y_2)+d_Y(y_2,y_3).
+\]
+If $d_Y(y_1,y_2)=0$, then $d(a(y_1),a(y_2))=0$ so $a(y_1)=a(y_2)$; injectivity implies $y_1=y_2$.
+\end{proof}
+
+\begin{example}[A useful non-example: pseudo-metric]
+If we drop (M1) and only require $d(x,x)=0$, symmetry, triangle inequality, then we get a \emph{pseudometric}.
+For example, on $X=\R^2$ define $d((x,y),(x',y')):=|x-x'|$. Then distinct points with same $x$-coordinate have distance $0$.
+\end{example}
+
+%================================================
+\section{Lecture 2: Standard Metric Spaces}
+%================================================
+
+\subsection{Metrics on $\R^n$ and comparison of norms}
+
+\begin{definition}[Sup metric on $\R^n$]
+On $\R^n$ define
+\[
+d_\infty(x,y):=\max_{1\le i\le n}|x_i-y_i|.
+\]
+\end{definition}
+
+\begin{theorem}[Sup metric is a metric]
+$d_\infty$ is a metric on $\R^n$.
+\end{theorem}
+
+\begin{proof}
+(M1) If $d_\infty(x,y)=0$, then $\max_i|x_i-y_i|=0$, hence each $|x_i-y_i|=0$, so $x=y$.
+(M2) follows since $|x_i-y_i|=|y_i-x_i|$.
+(M3) For each $i$,
+\[
+|x_i-z_i|\le |x_i-y_i|+|y_i-z_i|\le d_\infty(x,y)+d_\infty(y,z).
+\]
+Taking maximum over $i$ gives $d_\infty(x,z)\le d_\infty(x,y)+d_\infty(y,z)$.
+\end{proof}
+
+\begin{theorem}[Comparison with Euclidean metric]
+Let $d_2(x,y)=\sqrt{\sum_{i=1}^n (x_i-y_i)^2}$. Then for all $x,y\in\R^n$,
+\[
+d_\infty(x,y)\le d_2(x,y)\le \sqrt{n}\,d_\infty(x,y).
+\]
+\end{theorem}
+
+\begin{proof}
+Let $M=d_\infty(x,y)=\max_i|x_i-y_i|$.
+Then at least one coordinate achieves the max, so
+\[
+d_2(x,y)^2=\sum_{i=1}^n (x_i-y_i)^2\ge \max_i (x_i-y_i)^2=M^2,
+\]
+hence $d_\infty(x,y)=M\le d_2(x,y)$.
+Also each $|x_i-y_i|\le M$, so
+\[
+d_2(x,y)^2=\sum_{i=1}^n (x_i-y_i)^2\le \sum_{i=1}^n M^2=nM^2,
+\]
+hence $d_2(x,y)\le \sqrt{n}\,d_\infty(x,y)$.
+\end{proof}
+
+\begin{corollary}[Same open sets, same convergence on $\R^n$]
+The metrics $d_2$ and $d_\infty$ generate the same open sets on $\R^n$.
+\end{corollary}
+
+\begin{proof}
+The comparison inequalities show $d_2$ and $d_\infty$ are bi-Lipschitz equivalent, hence yield the same topology.
+Concretely: for any $x$ and $r>0$,
+\[
+B_{d_2}(x,r)\subset B_{d_\infty}(x,r)\subset B_{d_2}(x,\sqrt n\,r),
+\]
+so a set is open in one metric iff open in the other.
+\end{proof}
+
+\subsection{Sequence spaces $\ell_p$}
+
+\begin{definition}[$\ell_p$]
+For $1\le p<\infty$ define
+\[
+\ell_p:=\set{x=(x_n)_{n\ge1}:\ \sum_{n=1}^\infty |x_n|^p<\infty}.
+\]
+Define $\norm{x}_p:=\big(\sum_{n=1}^\infty |x_n|^p\big)^{1/p}$.
+\end{definition}
+
+\begin{definition}[Distance on $\ell_p$]
+For $x,y\in\ell_p$, define
+\[
+d_p(x,y):=\norm{x-y}_p=\Big(\sum_{n=1}^\infty |x_n-y_n|^p\Big)^{1/p}.
+\]
+\end{definition}
+
+\subsubsection{H\"older and Minkowski (with proofs)}
+
+\begin{theorem}[H\"older's inequality for finite sums]
+Let $1<p<\infty$ and let $q$ satisfy $\frac1p+\frac1q=1$. For any real numbers $a_i,b_i$ ($i=1,\dots,m$),
+\[
+\sum_{i=1}^m |a_i b_i|\le \Big(\sum_{i=1}^m |a_i|^p\Big)^{1/p}\Big(\sum_{i=1}^m |b_i|^q\Big)^{1/q}.
+\]
+\end{theorem}
+
+\begin{proof}
+If either side is $0$, done. Assume $\sum |a_i|^p>0$ and $\sum |b_i|^q>0$. Define
+\[
+A:=\Big(\sum_{i=1}^m |a_i|^p\Big)^{1/p},\qquad B:=\Big(\sum_{i=1}^m |b_i|^q\Big)^{1/q},
+\]
+and set $\alpha_i:=|a_i|/A$, $\beta_i:=|b_i|/B$. Then $\sum \alpha_i^p=1$ and $\sum \beta_i^q=1$.
+
+We use Young's inequality: for $u,v\ge0$,
+\[
+uv\le \frac{u^p}{p}+\frac{v^q}{q}.
+\]
+(Proof: consider $\phi(u)=\frac{u^p}{p}-u v+\frac{v^q}{q}$; its minimum occurs at $u=v^{q-1}$ and equals $0$.)
+
+Apply Young to $u=\alpha_i$, $v=\beta_i$:
+\[
+\alpha_i\beta_i\le \frac{\alpha_i^p}{p}+\frac{\beta_i^q}{q}.
+\]
+Sum over $i$:
+\[
+\sum_{i=1}^m \alpha_i\beta_i\le \frac1p\sum \alpha_i^p+\frac1q\sum \beta_i^q=\frac1p\cdot 1+\frac1q\cdot 1=1.
+\]
+Now multiply by $AB$:
+\[
+\sum_{i=1}^m |a_i b_i|=AB\sum \alpha_i\beta_i\le AB,
+\]
+which is exactly H\"older.
+\end{proof}
+
+\begin{theorem}[Minkowski inequality for finite sums]
+Let $1\le p<\infty$. For real numbers $u_i,v_i$ ($i=1,\dots,m$),
+\[
+\Big(\sum_{i=1}^m |u_i+v_i|^p\Big)^{1/p}\le
+\Big(\sum_{i=1}^m |u_i|^p\Big)^{1/p}+
+\Big(\sum_{i=1}^m |v_i|^p\Big)^{1/p}.
+\]
+\end{theorem}
+
+\begin{proof}
+For $p=1$ it is the ordinary triangle inequality for sums. Assume $1<p<\infty$ and let $q$ be conjugate to $p$.
+
+Let $s_i:=|u_i+v_i|$ and $S:=\big(\sum s_i^p\big)^{1/p}$. If $S=0$, then all $s_i=0$ and the inequality holds.
+Assume $S>0$. Then
+\[
+S^p=\sum s_i^p=\sum s_i^{p-1}\, s_i=\sum s_i^{p-1}\,|u_i+v_i|
+\le \sum s_i^{p-1}|u_i|+\sum s_i^{p-1}|v_i|.
+\]
+Apply H\"older to the first sum with sequences $(s_i^{p-1})$ and $(|u_i|)$:
+\[
+\sum s_i^{p-1}|u_i|\le \Big(\sum (s_i^{p-1})^q\Big)^{1/q}\Big(\sum |u_i|^p\Big)^{1/p}.
+\]
+But $(p-1)q=p$ (since $q=\frac{p}{p-1}$), so
+\[
+\sum (s_i^{p-1})^q=\sum s_i^{(p-1)q}=\sum s_i^p=S^p.
+\]
+Hence $\big(\sum (s_i^{p-1})^q\big)^{1/q}=(S^p)^{1/q}=S^{p/q}=S^{p-1}$ (because $p/q=p-1$).
+Thus
+\[
+\sum s_i^{p-1}|u_i|\le S^{p-1}\Big(\sum |u_i|^p\Big)^{1/p}.
+\]
+Similarly,
+\[
+\sum s_i^{p-1}|v_i|\le S^{p-1}\Big(\sum |v_i|^p\Big)^{1/p}.
+\]
+Combine:
+\[
+S^p\le S^{p-1}\Big(\sum |u_i|^p\Big)^{1/p}+S^{p-1}\Big(\sum |v_i|^p\Big)^{1/p}.
+\]
+Divide by $S^{p-1}>0$:
+\[
+S\le \Big(\sum |u_i|^p\Big)^{1/p}+\Big(\sum |v_i|^p\Big)^{1/p}.
+\]
+\end{proof}
+
+\begin{theorem}[Minkowski for series]
+If $u=(u_n)$ and $v=(v_n)$ are sequences with $\sum |u_n|^p<\infty$ and $\sum |v_n|^p<\infty$, then
+\[
+\Big(\sum_{n=1}^\infty |u_n+v_n|^p\Big)^{1/p}\le
+\Big(\sum_{n=1}^\infty |u_n|^p\Big)^{1/p}+
+\Big(\sum_{n=1}^\infty |v_n|^p\Big)^{1/p}.
+\]
+\end{theorem}
+
+\begin{proof}
+Apply finite Minkowski to partial sums:
+\[
+\Big(\sum_{n=1}^m |u_n+v_n|^p\Big)^{1/p}\le
+\Big(\sum_{n=1}^m |u_n|^p\Big)^{1/p}+
+\Big(\sum_{n=1}^m |v_n|^p\Big)^{1/p}.
+\]
+As $m\to\infty$, the right-hand side increases to $\norm{u}_p+\norm{v}_p$ and the left-hand side increases to $\norm{u+v}_p$ by monotone convergence of partial sums.
+\end{proof}
+
+\begin{theorem}[Metric property of $d_p$ on $\ell_p$]
+For $1\le p<\infty$, the function $d_p(x,y)=\norm{x-y}_p$ defines a metric on $\ell_p$.
+\end{theorem}
+
+\begin{proof}
+(M2) symmetry is clear. (M1) If $d_p(x,y)=0$, then $\sum |x_n-y_n|^p=0$ so each $|x_n-y_n|^p=0$, hence $x_n=y_n$ for all $n$.
+(M3) By Minkowski for series with $u=x-y$ and $v=y-z$, we get
+\[
+\norm{x-z}_p=\norm{(x-y)+(y-z)}_p\le \norm{x-y}_p+\norm{y-z}_p,
+\]
+i.e. $d_p(x,z)\le d_p(x,y)+d_p(y,z)$.
+\end{proof}
+
+%================================================
+\section{Lecture 3: Topology Induced by a Metric}
+%================================================
+
+\subsection{Open sets, closed sets}
+
+\begin{definition}[Open set]
+A set $G\subset X$ is \emph{open} if for every $x\in G$ there exists $r>0$ such that $B(x,r)\subset G$.
+\end{definition}
+
+\begin{definition}[Closed set]
+A set $F\subset X$ is \emph{closed} if $X\setminus F$ is open.
+\end{definition}
+
+\begin{theorem}[Unions and intersections of open sets]
+Let $(X,d)$ be a metric space.
+\begin{enumerate}[label=\textbf{(\alph*)}]
+\item Arbitrary unions of open sets are open.
+\item Finite intersections of open sets are open.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\textbf{(a)} Let $G=\cup_{\alpha\in I} G_\alpha$ with each $G_\alpha$ open. If $x\in G$, then $x\in G_{\alpha_0}$ for some $\alpha_0$.
+Since $G_{\alpha_0}$ is open, $\exists r>0$ with $B(x,r)\subset G_{\alpha_0}\subset G$. Hence $G$ is open.
+
+\textbf{(b)} Let $G=\cap_{k=1}^n G_k$ with each $G_k$ open. Fix $x\in G$. Then for each $k$ there exists $r_k>0$ with $B(x,r_k)\subset G_k$.
+Let $r:=\min\{r_1,\dots,r_n\}>0$. Then $B(x,r)\subset B(x,r_k)\subset G_k$ for all $k$, hence $B(x,r)\subset \cap_{k=1}^n G_k=G$.
+So $G$ is open.
+\end{proof}
+
+\begin{example}[Infinite intersections need not be open]
+In $(\R,|\cdot|)$, each $G_n=(-1/n,1/n)$ is open, but
+\[
+\bigcap_{n=1}^\infty (-1/n,1/n)=\{0\},
+\]
+which is not open in $\R$.
+\end{example}
+
+\begin{theorem}[Closed sets: unions/intersections]
+\begin{enumerate}[label=\textbf{(\alph*)}]
+\item Arbitrary intersections of closed sets are closed.
+\item Finite unions of closed sets are closed.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Use complements and the previous theorem, together with De Morgan's laws:
+\[
+X\setminus \Big(\bigcap_\alpha F_\alpha\Big)=\bigcup_\alpha (X\setminus F_\alpha),\qquad
+X\setminus (F_1\cup F_2)= (X\setminus F_1)\cap (X\setminus F_2).
+\]
+\end{proof}
+
+\subsection{Closure, interior, boundary}
+
+\begin{definition}[Interior]
+For $A\subset X$, the \emph{interior} $\Int(A)$ is the set of all points $x\in A$ for which some ball $B(x,r)$ lies in $A$.
+\end{definition}
+
+\begin{definition}[Closure via limit points of balls]
+For $A\subset X$, the \emph{closure} $\ol A$ is the set of all $x\in X$ such that every ball around $x$ meets $A$:
+\[
+x\in\ol A \iff \forall r>0,\ B(x,r)\cap A\neq \varnothing.
+\]
+\end{definition}
+
+\begin{proof}[Why this equals the intersection-of-closed-sets definition]
+Let $\mathcal F$ be the family of all closed sets containing $A$ and let $C=\cap_{F\in\mathcal F} F$.
+If $x\notin C$, then there exists a closed $F\supset A$ with $x\notin F$, so $x\in X\setminus F$, which is open.
+Hence there is $r>0$ with $B(x,r)\subset X\setminus F$, so $B(x,r)\cap A=\varnothing$ (since $A\subset F$).
+Conversely, if $B(x,r)\cap A=\varnothing$ for some $r$, then $X\setminus B(x,r)$ is closed and contains $A$ but not $x$,
+hence $x\notin C$.
+Thus $x\in C$ iff every ball around $x$ meets $A$.
+\end{proof}
+
+\begin{definition}[Boundary]
+For $A\subset X$, the \emph{boundary} is
+\[
+\Bd A := \ol A\setminus \Int(A).
+\]
+\end{definition}
+
+\begin{definition}[Limit point and derived set]
+A point $x\in X$ is a \emph{limit point} (or \emph{accumulation point}) of $A$ if every ball around $x$ meets $A\setminus\{x\}$.
+The set of all limit points is the \emph{derived set} $A'$.
+\end{definition}
+
+\begin{proposition}[Basic relations]
+For any $A\subset X$:
+\begin{enumerate}[label=\textbf{(\alph*)}]
+\item $\Int(A)\subset A\subset \ol A$.
+\item $A$ is open $\iff A=\Int(A)$.
+\item $A$ is closed $\iff A=\ol A$.
+\item $\Bd A$ is closed.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\textbf{(a)} If $x\in\Int(A)$ then $x\in A$ by definition. If $x\in A$, then every ball around $x$ meets $A$ (it contains $x$),
+so $x\in\ol A$.
+
+\textbf{(b)} If $A$ is open, every $x\in A$ has a ball contained in $A$, so $x\in\Int(A)$ and $A\subset\Int(A)$.
+Together with $\Int(A)\subset A$ gives equality.
+Conversely, if $A=\Int(A)$ then every $x\in A$ is an interior point, so $A$ is open.
+
+\textbf{(c)} If $A$ is closed and $A\subset \ol A$, but $\ol A$ is the \emph{smallest} closed set containing $A$, hence $\ol A\subset A$ and equality holds.
+Conversely, if $A=\ol A$, then $A$ equals a closure and is therefore closed.
+
+\textbf{(d)} Since $\ol A$ is closed and $\Int(A)$ is open, its complement $X\setminus\Int(A)$ is closed.
+Then $\Bd A=\ol A\cap (X\setminus\Int(A))$ is intersection of closed sets, hence closed.
+\end{proof}
+
+\begin{theorem}[Closure of a union]
+For all $A,B\subset X$,
+\[
+\ol{A\cup B}=\ol A\cup \ol B.
+\]
+\end{theorem}
+
+\begin{proof}
+First, $A\subset \ol A$ and $B\subset \ol B$ implies $A\cup B\subset \ol A\cup \ol B$.
+The right side is closed (finite union of closed sets), so it contains the smallest closed set containing $A\cup B$, namely $\ol{A\cup B}$:
+\[
+\ol{A\cup B}\subset \ol A\cup \ol B.
+\]
+Conversely, since $A\subset A\cup B$, by monotonicity of closure we have $\ol A\subset \ol{A\cup B}$; similarly $\ol B\subset \ol{A\cup B}$.
+Thus $\ol A\cup \ol B\subset \ol{A\cup B}$.
+\end{proof}
+
+\begin{theorem}[Open sets are unions of balls]
+A subset $G\subset X$ is open iff it can be written as a union of open balls.
+\end{theorem}
+
+\begin{proof}
+If $G$ is open, for each $x\in G$ choose $r_x>0$ with $B(x,r_x)\subset G$.
+Then clearly $G=\cup_{x\in G} B(x,r_x)$.
+Conversely, each ball is open, and arbitrary unions of open sets are open.
+\end{proof}
+
+\begin{theorem}[Closed balls are closed]
+For $x\in X$ and $r\ge0$, the closed ball $\overline{B}(x,r)=\{y:d(x,y)\le r\}$ is closed.
+\end{theorem}
+
+\begin{proof}
+Let $y\notin \overline{B}(x,r)$, so $d(x,y)>r$. Set $\eta:=d(x,y)-r>0$.
+If $d(y,z)<\eta$, then by triangle inequality,
+\[
+d(x,z)\ge d(x,y)-d(y,z)>d(x,y)-\eta=r,
+\]
+so $z\notin \overline{B}(x,r)$. Therefore $B(y,\eta)\subset X\setminus \overline{B}(x,r)$, so the complement is open and $\overline{B}(x,r)$ is closed.
+\end{proof}
+
+%================================================
+\section{Lecture 4: Density and Examples in $\R$ and $\R^2$}
+%================================================
+
+\begin{definition}[Dense subset]
+A subset $A\subset X$ is \emph{dense} in $X$ if $\ol A=X$.
+Equivalently: every nonempty open set in $X$ intersects $A$.
+\end{definition}
+
+\begin{theorem}[$\Q$ is dense in $\R$]
+In $(\R,|\cdot|)$, the rationals $\Q$ are dense.
+\end{theorem}
+
+\begin{proof}
+Let $(a,b)$ be any nonempty open interval. Choose $n\in\N$ with $\frac1n<b-a$.
+Let $k=\lceil an\rceil$ (smallest integer $\ge an$). Then $\frac{k}{n}\ge a$ and
+\[
+\frac{k}{n}<a+\frac1n<b.
+\]
+Hence $\frac{k}{n}\in (a,b)\cap \Q$, proving density.
+\end{proof}
+
+\begin{theorem}[$\Q^2$ is dense in $\R^2$]
+Let $A=\{(p,q):p,q\in\Q\}\subset\R^2$ with the Euclidean metric. Then $A$ is dense in $\R^2$.
+\end{theorem}
+
+\begin{proof}
+Fix $(x,y)\in\R^2$ and $\eps>0$. Choose rationals $p,q$ such that
+$|p-x|<\eps/\sqrt2$ and $|q-y|<\eps/\sqrt2$ (density of $\Q$ in $\R$).
+Then
+\[
+\sqrt{(p-x)^2+(q-y)^2}<\sqrt{\eps^2/2+\eps^2/2}=\eps,
+\]
+so every ball around $(x,y)$ meets $A$.
+\end{proof}
+
+\begin{example}[Compute interior/closure/boundary in $\R$]
+Let $A=(1,2]\cup(3,4)\subset\R$.
+Then
+\[
+\Int(A)=(1,2)\cup(3,4),\qquad \ol A=[1,2]\cup[3,4],\qquad \Bd A=\{1,2,3,4\}.
+\]
+Also $A'=[1,2]\cup[3,4]$.
+\end{example}
+
+\begin{proof}
+Interior points are those not at the ``one-sided'' endpoints. Closure adds endpoints.
+Boundary is closure minus interior. Every point in the closed intervals is a limit point because every neighborhood contains infinitely many points of the interval portion of $A$ distinct from the point.
+\end{proof}
+
+\begin{theorem}[Interior of unions (and strictness)]
+For all $A,B\subset X$,
+\[
+\Int(A)\cup \Int(B)\subset \Int(A\cup B),
+\]
+and equality can fail.
+\end{theorem}
+
+\begin{proof}
+If $x\in\Int(A)$, then $\exists r>0$ with $B(x,r)\subset A\subset A\cup B$, hence $x\in\Int(A\cup B)$.
+Same for $\Int(B)$, so the inclusion holds.
+
+For strictness in $\R$, take $A=\Q$ and $B=\R\setminus\Q$.
+Then $\Int(A)=\Int(B)=\varnothing$ (every interval contains both rationals and irrationals), but $A\cup B=\R$, hence $\Int(A\cup B)=\R$.
+\end{proof}
+
+%================================================
+\section{Lecture 5: Sequences, Limits, and Cauchy Sequences}
+%================================================
+
+\subsection{Definitions}
+
+\begin{definition}[Convergence of sequences]
+A sequence $(x_n)$ in $(X,d)$ \emph{converges} to $x\in X$, written $x_n\to x$, if
+\[
+\forall \eps>0\ \exists N\ \text{such that}\ n\ge N\Rightarrow d(x_n,x)<\eps.
+\]
+\end{definition}
+
+\begin{definition}[Cauchy sequence]
+A sequence $(x_n)$ is \emph{Cauchy} if
+\[
+\forall \eps>0\ \exists N\ \text{such that}\ m,n\ge N\Rightarrow d(x_m,x_n)<\eps.
+\]
+\end{definition}
+
+\begin{lemma}[Uniqueness of limits]
+If $x_n\to x$ and $x_n\to y$ in a metric space, then $x=y$.
+\end{lemma}
+
+\begin{proof}
+Assume $x\ne y$. Let $\eta:=d(x,y)>0$. Choose $N_1$ such that $d(x_n,x)<\eta/3$ for $n\ge N_1$ and
+$N_2$ such that $d(x_n,y)<\eta/3$ for $n\ge N_2$. For $n\ge \max\{N_1,N_2\}$,
+\[
+d(x,y)\le d(x,x_n)+d(x_n,y)<\eta/3+\eta/3=2\eta/3,
+\]
+contradiction. Hence $x=y$.
+\end{proof}
+
+\begin{theorem}[Convergent $\Rightarrow$ Cauchy]
+Every convergent sequence in a metric space is Cauchy.
+\end{theorem}
+
+\begin{proof}
+Assume $x_n\to x$. Fix $\eps>0$ and choose $N$ such that $d(x_n,x)<\eps/2$ for $n\ge N$.
+Then for $m,n\ge N$,
+\[
+d(x_m,x_n)\le d(x_m,x)+d(x,x_n)<\eps/2+\eps/2=\eps.
+\]
+\end{proof}
+
+\begin{theorem}[Continuity of the distance function along sequences]
+If $x_n\to x$ and $y_n\to y$ in $(X,d)$, then
+\[
+d(x_n,y_n)\to d(x,y).
+\]
+\end{theorem}
+
+\begin{proof}
+Use the two-point inequality:
+\[
+|d(x_n,y_n)-d(x,y)|\le d(x_n,x)+d(y_n,y)\xrightarrow[n\to\infty]{}0.
+\]
+\end{proof}
+
+\begin{example}[A Cauchy sequence in $\Q$ that does not converge in $\Q$]
+In $(\Q,|\cdot|)$, the sequence $a_n=\left(1+\frac1n\right)^n$ is Cauchy but does not converge in $\Q$.
+\end{example}
+
+\begin{proof}
+In $\R$, $a_n\to e$. Hence $(a_n)$ is Cauchy in $\R$. The metric on $\Q$ is the restriction of $|\cdot|$, so the Cauchy condition is the same; thus $(a_n)$ is Cauchy in $\Q$.
+If it converged in $\Q$ to $q$, it would converge in $\R$ to $q$ by uniqueness of limits; but the real limit is $e\notin\Q$.
+\end{proof}
+
+%================================================
+\section{Lecture 6: Completeness}
+%================================================
+
+\begin{definition}[Complete metric space]
+A metric space $(X,d)$ is \emph{complete} if every Cauchy sequence in $X$ converges to a point of $X$.
+\end{definition}
+
+\begin{example}[Incomplete metric space]
+$(\Q,|\cdot|)$ is not complete (previous example).
+\end{example}
+
+\subsection{Completeness of $\ell_p$ (full proof)}
+
+\begin{theorem}[$\ell_p$ is complete]
+For $1\le p<\infty$, the metric space $(\ell_p,d_p)$ is complete.
+\end{theorem}
+
+\begin{proof}
+Let $(x^{(k)})_{k\ge1}$ be a Cauchy sequence in $\ell_p$, where $x^{(k)}=(x^{(k)}_n)_{n\ge1}$.
+We prove there exists $x\in\ell_p$ such that $d_p(x^{(k)},x)\to 0$.
+
+\medskip\noindent
+\textbf{Step 1: coordinatewise convergence.}
+Fix $n\in\N$. For any $k,m$,
+\[
+|x^{(k)}_n-x^{(m)}_n|^p \le \sum_{j=1}^\infty |x^{(k)}_j-x^{(m)}_j|^p = d_p(x^{(k)},x^{(m)})^p.
+\]
+Since $(x^{(k)})$ is Cauchy, the right-hand side $\to 0$ as $k,m\to\infty$, so $(x^{(k)}_n)_k$ is Cauchy in $\R$.
+Therefore it converges to some real number $x_n$. Define $x=(x_n)_{n\ge1}$.
+
+\medskip\noindent
+\textbf{Step 2: show $x\in\ell_p$.}
+Because $(x^{(k)})$ is Cauchy, it is bounded in $\ell_p$-norm.
+Indeed, choose $K$ such that $d_p(x^{(k)},x^{(K)})\le 1$ for all $k\ge K$.
+Then for $k\ge K$,
+\[
+\norm{x^{(k)}}_p \le \norm{x^{(K)}}_p + \norm{x^{(k)}-x^{(K)}}_p \le \norm{x^{(K)}}_p+1=:M.
+\]
+So $\norm{x^{(k)}}_p^p=\sum_{n=1}^\infty |x^{(k)}_n|^p\le M^p$ for all $k\ge K$.
+
+Fix $N$. By coordinatewise convergence $x^{(k)}_n\to x_n$ for each $n\le N$.
+Hence for each fixed $N$,
+\[
+\sum_{n=1}^N |x_n|^p
+=\sum_{n=1}^N \lim_{k\to\infty} |x^{(k)}_n|^p
+=\lim_{k\to\infty}\sum_{n=1}^N |x^{(k)}_n|^p
+\le \limsup_{k\to\infty}\sum_{n=1}^\infty |x^{(k)}_n|^p
+\le M^p.
+\]
+The sequence of partial sums $\sum_{n=1}^N |x_n|^p$ is increasing in $N$ and bounded above by $M^p$, hence converges to a finite limit:
+\[
+\sum_{n=1}^\infty |x_n|^p<\infty.
+\]
+Thus $x\in\ell_p$.
+
+\medskip\noindent
+\textbf{Step 3: show $x^{(k)}\to x$ in $\ell_p$.}
+Fix $\eps>0$. Choose $K$ such that $d_p(x^{(k)},x^{(m)})<\eps$ for all $k,m\ge K$.
+Fix $k\ge K$. For each $N$,
+\[
+\Big(\sum_{n=1}^N |x^{(k)}_n-x_n|^p\Big)^{1/p}
+=\Big(\sum_{n=1}^N \lim_{m\to\infty}|x^{(k)}_n-x^{(m)}_n|^p\Big)^{1/p}
+=\lim_{m\to\infty}\Big(\sum_{n=1}^N |x^{(k)}_n-x^{(m)}_n|^p\Big)^{1/p}.
+\]
+(The last equality uses continuity of finite sums and $t\mapsto t^{1/p}$.)
+Now for every $m\ge K$,
+\[
+\Big(\sum_{n=1}^N |x^{(k)}_n-x^{(m)}_n|^p\Big)^{1/p}
+\le \Big(\sum_{n=1}^\infty |x^{(k)}_n-x^{(m)}_n|^p\Big)^{1/p}
+=d_p(x^{(k)},x^{(m)})<\eps.
+\]
+Taking $m\to\infty$ yields
+\[
+\Big(\sum_{n=1}^N |x^{(k)}_n-x_n|^p\Big)^{1/p}\le \eps\quad\text{for all }N.
+\]
+Letting $N\to\infty$ (monotone convergence of partial sums) gives $d_p(x^{(k)},x)\le \eps$ for all $k\ge K$.
+Therefore $x^{(k)}\to x$, proving completeness.
+\end{proof}
+
+\subsection{Closed subsets and completeness}
+
+\begin{theorem}[Closed subspace of a complete space is complete]
+Let $(X,d)$ be complete and let $Y\subset X$ be closed (with the subspace metric). Then $Y$ is complete.
+\end{theorem}
+
+\begin{proof}
+Let $(y_n)$ be Cauchy in $Y$. Then it is Cauchy in $X$ (same distances), so by completeness of $X$ it converges to some $x\in X$.
+Since $Y$ is closed and $y_n\in Y$ with $y_n\to x$, we must have $x\in Y$.
+Thus $(y_n)$ converges in $Y$.
+\end{proof}
+
+\begin{theorem}[Complete subspace of a metric space is closed (in a complete ambient space)]
+Let $(X,d)$ be complete and $Y\subset X$. If $Y$ is complete (with subspace metric), then $Y$ is closed in $X$.
+\end{theorem}
+
+\begin{proof}
+Take $x\in\ol Y$. Then there exists a sequence $(y_n)\subset Y$ with $y_n\to x$ in $X$.
+Every convergent sequence is Cauchy, so $(y_n)$ is Cauchy in $Y$. Completeness of $Y$ implies $y_n\to y$ for some $y\in Y$.
+But limits are unique in $X$, so $x=y\in Y$. Hence $\ol Y\subset Y$, so $Y$ is closed.
+\end{proof}
+
+\begin{corollary}[Closed $\iff$ complete subspace (inside a complete space)]
+If $(X,d)$ is complete, then for any $Y\subset X$,
+\[
+Y\text{ is closed in }X \iff Y\text{ is complete (subspace metric)}.
+\]
+\end{corollary}
+
+%================================================
+\section{Lecture 7: Continuity and Uniform Continuity}
+%================================================
+
+\subsection{Continuity}
+
+\begin{definition}[Continuity at a point]
+Let $(X,d_X)$, $(Y,d_Y)$ be metric spaces and $f:X\to Y$.
+We say $f$ is \emph{continuous at $x_0\in X$} if
+\[
+\forall \eps>0\ \exists \delta>0\ \text{such that}\ d_X(x,x_0)<\delta\Rightarrow d_Y(f(x),f(x_0))<\eps.
+\]
+We say $f$ is \emph{continuous on $X$} if it is continuous at every $x_0\in X$.
+\end{definition}
+
+\begin{theorem}[Sequential characterization of continuity]
+$f$ is continuous at $x_0$ iff for every sequence $x_n\to x_0$ we have $f(x_n)\to f(x_0)$.
+\end{theorem}
+
+\begin{proof}
+($\Rightarrow$) Fix $\eps>0$ and let $\delta$ be given by continuity at $x_0$.
+Since $x_n\to x_0$, there exists $N$ such that $n\ge N\Rightarrow d_X(x_n,x_0)<\delta$.
+Then for $n\ge N$, $d_Y(f(x_n),f(x_0))<\eps$, so $f(x_n)\to f(x_0)$.
+
+($\Leftarrow$) Contrapositive. Assume $f$ is not continuous at $x_0$.
+Then $\exists \eps_0>0$ such that for all $\delta>0$ there exists $x$ with $d_X(x,x_0)<\delta$ but $d_Y(f(x),f(x_0))\ge \eps_0$.
+Choose $x_n$ with $\delta=1/n$. Then $x_n\to x_0$ but $f(x_n)$ does not converge to $f(x_0)$ (distance $\ge\eps_0$ infinitely often).
+This contradicts the sequential property. Hence $f$ must be continuous at $x_0$.
+\end{proof}
+
+\begin{theorem}[Open set preimage criterion]
+$f:X\to Y$ is continuous on $X$ iff for every open $G\subset Y$, the preimage $f^{-1}(G)$ is open in $X$.
+\end{theorem}
+
+\begin{proof}
+($\Rightarrow$) Let $G\subset Y$ be open and $x\in f^{-1}(G)$. Then $f(x)\in G$, so there exists $\eps>0$ with
+$B_Y(f(x),\eps)\subset G$. By continuity at $x$, there exists $\delta>0$ such that
+$d_X(x',x)<\delta\Rightarrow d_Y(f(x'),f(x))<\eps$, hence $f(x')\in B_Y(f(x),\eps)\subset G$.
+So $x'\in f^{-1}(G)$ whenever $d_X(x',x)<\delta$, i.e. $B_X(x,\delta)\subset f^{-1}(G)$.
+Thus $f^{-1}(G)$ is open.
+
+($\Leftarrow$) Fix $x_0\in X$ and $\eps>0$. The ball $B_Y(f(x_0),\eps)$ is open in $Y$.
+Hence $U:=f^{-1}(B_Y(f(x_0),\eps))$ is open in $X$ and contains $x_0$.
+So there exists $\delta>0$ with $B_X(x_0,\delta)\subset U$.
+Therefore if $d_X(x,x_0)<\delta$, then $x\in U$ so $f(x)\in B_Y(f(x_0),\eps)$, i.e. $d_Y(f(x),f(x_0))<\eps$.
+Thus $f$ is continuous at $x_0$.
+\end{proof}
+
+\begin{example}[Every function from a discrete metric space is continuous]
+If $(X,d_{\mathrm{disc}})$ is discrete and $f:X\to Y$ is any function, then $f$ is continuous.
+\end{example}
+
+\begin{proof}
+In a discrete metric space, every subset is open: for any $A\subset X$ and any $x\in A$, $B(x,1/2)=\{x\}\subset A$.
+Hence preimages of open sets are automatically open, so $f$ is continuous by the preimage criterion.
+\end{proof}
+
+\subsection{Uniform continuity}
+
+\begin{definition}[Uniform continuity]
+$f:X\to Y$ is \emph{uniformly continuous} if
+\[
+\forall \eps>0\ \exists \delta>0\ \text{such that}\ d_X(x,x')<\delta\Rightarrow d_Y(f(x),f(x'))<\eps
+\quad\text{for all }x,x'\in X.
+\]
+\end{definition}
+
+\begin{proposition}[Lipschitz $\Rightarrow$ uniformly continuous]
+If $\exists L\ge 0$ such that $d_Y(f(x),f(x'))\le L\,d_X(x,x')$ for all $x,x'$, then $f$ is uniformly continuous.
+\end{proposition}
+
+\begin{proof}
+Given $\eps>0$, take $\delta=\eps/L$ if $L>0$ (and any $\delta$ if $L=0$). Then $d_X(x,x')<\delta\Rightarrow d_Y(f(x),f(x'))<\eps$.
+\end{proof}
+
+\begin{theorem}[Uniform continuity sends Cauchy sequences to Cauchy sequences]
+If $f:X\to Y$ is uniformly continuous and $(x_n)$ is Cauchy in $X$, then $(f(x_n))$ is Cauchy in $Y$.
+\end{theorem}
+
+\begin{proof}
+Let $\eps>0$ and choose $\delta>0$ given by uniform continuity.
+Since $(x_n)$ is Cauchy, there exists $N$ such that $m,n\ge N\Rightarrow d_X(x_m,x_n)<\delta$.
+Then for $m,n\ge N$ we have $d_Y(f(x_m),f(x_n))<\eps$.
+Thus $(f(x_n))$ is Cauchy.
+\end{proof}
+
+\begin{theorem}[Distance to a set is 1-Lipschitz]
+Let $A\subset X$ be nonempty and define $g(x)=\dist(x,A):=\inf_{a\in A} d(x,a)$.
+Then for all $x,y\in X$,
+\[
+|g(x)-g(y)|\le d(x,y).
+\]
+In particular $g$ is uniformly continuous.
+\end{theorem}
+
+\begin{proof}
+Fix $x,y$. For any $a\in A$, triangle inequality gives $d(x,a)\le d(x,y)+d(y,a)$.
+Taking infimum over $a\in A$ yields
+\[
+g(x)=\inf_{a\in A} d(x,a)\le d(x,y)+\inf_{a\in A} d(y,a)=d(x,y)+g(y).
+\]
+So $g(x)-g(y)\le d(x,y)$. Swapping $x,y$ gives $g(y)-g(x)\le d(x,y)$.
+Therefore $|g(x)-g(y)|\le d(x,y)$.
+\end{proof}
+
+\begin{theorem}[Heine--Cantor]
+If $K\subset X$ is compact and $f:K\to Y$ is continuous, then $f$ is uniformly continuous on $K$.
+\end{theorem}
+
+\begin{proof}
+Assume $f$ is not uniformly continuous. Then $\exists \eps_0>0$ and sequences $x_n,y_n\in K$ such that
+$d_X(x_n,y_n)\to 0$ but $d_Y(f(x_n),f(y_n))\ge \eps_0$ for all $n$.
+By compactness, $(x_n)$ has a convergent subsequence $x_{n_k}\to x\in K$.
+Since $d_X(x_{n_k},y_{n_k})\to 0$, we also have $y_{n_k}\to x$.
+Continuity implies $f(x_{n_k})\to f(x)$ and $f(y_{n_k})\to f(x)$, hence $d_Y(f(x_{n_k}),f(y_{n_k}))\to 0$,
+contradicting $d_Y(f(x_{n_k}),f(y_{n_k}))\ge \eps_0$.
+\end{proof}
+
+%================================================
+\section{Lecture 8: Compactness, Total Boundedness, Sequential Compactness}
+%================================================
+
+\subsection{Compactness}
+
+\begin{definition}[Open cover and compactness]
+Let $K\subset X$. A family of open sets $\{U_\alpha\}_{\alpha\in I}$ is an \emph{open cover} of $K$ if
+\[
+K\subset \bigcup_{\alpha\in I} U_\alpha.
+\]
+The set $K$ is \emph{compact} if every open cover of $K$ has a finite subcover.
+A space $X$ is compact if $X$ is compact as a subset of itself.
+\end{definition}
+
+\begin{definition}[Sequential compactness]
+A metric space $X$ is \emph{sequentially compact} if every sequence in $X$ has a convergent subsequence.
+\end{definition}
+
+\begin{definition}[Total boundedness]
+$X$ is \emph{totally bounded} if for every $\eps>0$ there exist finitely many points $x_1,\dots,x_m\in X$ such that
+\[
+X\subset \bigcup_{i=1}^m B(x_i,\eps).
+\]
+\end{definition}
+
+\begin{theorem}[Compact $\Rightarrow$ totally bounded]
+If $X$ is compact, then $X$ is totally bounded.
+\end{theorem}
+
+\begin{proof}
+Fix $\eps>0$. The family $\{B(x,\eps)\}_{x\in X}$ is an open cover of $X$.
+By compactness, choose a finite subcover $X\subset\cup_{i=1}^m B(x_i,\eps)$.
+\end{proof}
+
+\begin{theorem}[Compact $\Rightarrow$ sequentially compact (detailed)]
+If $X$ is compact metric space, then $X$ is sequentially compact.
+\end{theorem}
+
+\begin{proof}
+Let $(x_n)$ be a sequence in $X$. We will build a convergent subsequence.
+
+By compactness $\Rightarrow$ totally bounded, cover $X$ by finitely many balls of radius $1$.
+At least one of these balls contains infinitely many terms of the sequence (pigeonhole principle).
+Choose a subsequence $(x^{(1)}_n)$ of $(x_n)$ contained entirely in some ball $B_1$ of radius $1$.
+
+Now cover $B_1$ (hence $X$) by finitely many balls of radius $1/2$.
+One of them contains infinitely many terms of $(x^{(1)}_n)$; choose a further subsequence $(x^{(2)}_n)$ contained in a ball $B_2$ of radius $1/2$.
+
+Continue inductively: having chosen a subsequence $(x^{(k)}_n)$ contained in a ball $B_k$ of radius $2^{-(k-1)}$,
+cover $B_k$ by finitely many balls of radius $2^{-k}$ and choose a subsequence $(x^{(k+1)}_n)$ contained in one such ball $B_{k+1}$.
+
+Thus we obtain nested subsequences
+\[
+(x_n) \supset (x^{(1)}_n)\supset (x^{(2)}_n)\supset \cdots
+\]
+and nested balls $B_1\supset B_2\supset \cdots$ with $\operatorname{radius}(B_k)=2^{-(k-1)}$ and $(x^{(k)}_n)\subset B_k$.
+
+Define the diagonal subsequence $y_k:=x^{(k)}_k$ (the $k$-th term of the $k$-th subsequence).
+Then for $m,n\ge k$, both $y_m$ and $y_n$ lie in $B_k$, so
+\[
+d(y_m,y_n)\le \diam(B_k)\le 2\cdot 2^{-(k-1)}=2^{-(k-2)}\xrightarrow[k\to\infty]{}0.
+\]
+Hence $(y_k)$ is Cauchy.
+
+It remains to show $(y_k)$ converges. In a compact metric space, every Cauchy sequence converges:
+since $X$ is sequentially compact implies complete, but we can prove directly:
+the sequence $(y_k)$ has a convergent subsequence (by compactness again), and a Cauchy sequence with a convergent subsequence must converge to the same limit.
+Indeed, let $y_{k_j}\to y$. Fix $\eps>0$.
+Choose $K$ such that $m,n\ge K\Rightarrow d(y_m,y_n)<\eps/2$ (Cauchy).
+Also choose $j$ such that $k_j\ge K$ and $d(y_{k_j},y)<\eps/2$.
+Then for any $n\ge K$,
+\[
+d(y_n,y)\le d(y_n,y_{k_j})+d(y_{k_j},y)<\eps/2+\eps/2=\eps,
+\]
+so $y_n\to y$.
+Thus $(y_k)$ converges, hence $(x_n)$ has a convergent subsequence.
+\end{proof}
+
+\begin{theorem}[Compact sets are closed and bounded]
+If $K\subset X$ is compact, then $K$ is closed and bounded.
+\end{theorem}
+
+\begin{proof}
+\textbf{Bounded:} Fix $x_0\in X$. The open balls $\{B(x_0,n)\}_{n\in\N}$ cover $K$ because for each $x\in K$, $d(x,x_0)<n$ for some $n$ (take $n>\!d(x,x_0)$).
+By compactness, $K\subset B(x_0,N)$ for some $N$, so $K$ is bounded.
+
+\textbf{Closed:} Let $(x_n)\subset K$ with $x_n\to x$ in $X$. By compactness, $(x_n)$ has a convergent subsequence $x_{n_k}\to y\in K$.
+But $x_{n_k}\to x$ as well (subsequence of a convergent sequence).
+By uniqueness of limits, $x=y\in K$. Hence $K$ is closed.
+\end{proof}
+
+\begin{theorem}[Closed subset of compact is compact]
+If $K$ is compact and $F\subset K$ is closed (in the subspace topology), then $F$ is compact.
+\end{theorem}
+
+\begin{proof}
+Let $\{U_\alpha\}$ be an open cover of $F$ (each $U_\alpha$ open in $K$, hence $U_\alpha=K\cap V_\alpha$ with $V_\alpha$ open in $X$).
+Then $\{U_\alpha\}\cup\{K\setminus F\}$ is an open cover of $K$.
+Compactness gives a finite subcover $U_{\alpha_1},\dots,U_{\alpha_m},K\setminus F$.
+Removing $K\setminus F$ leaves a finite subcover of $F$.
+\end{proof}
+
+\subsection{Sequential compactness $\Leftrightarrow$ completeness + total boundedness}
+
+\begin{theorem}[Characterization]
+For a metric space $X$, the following are equivalent:
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+\item $X$ is sequentially compact.
+\item $X$ is complete and totally bounded.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\textbf{(1)$\Rightarrow$(2):} Assume sequentially compact.
+
+\emph{Completeness:} Let $(x_n)$ be Cauchy. By sequential compactness, it has a convergent subsequence $x_{n_k}\to x$.
+We claim $x_n\to x$. Fix $\eps>0$. Choose $N$ with $m,n\ge N\Rightarrow d(x_m,x_n)<\eps/2$ (Cauchy).
+Choose $k$ so that $n_k\ge N$ and $d(x_{n_k},x)<\eps/2$.
+Then for $n\ge N$,
+\[
+d(x_n,x)\le d(x_n,x_{n_k})+d(x_{n_k},x)<\eps/2+\eps/2=\eps.
+\]
+So $x_n\to x$ and $X$ is complete.
+
+\emph{Total boundedness:} Suppose $X$ is not totally bounded. Then $\exists \eps>0$ such that no finite union of $\eps$-balls covers $X$.
+Construct a sequence $(x_n)$ inductively:
+choose $x_1\in X$. Having chosen $x_1,\dots,x_n$, since $\cup_{k=1}^n B(x_k,\eps)$ does not cover $X$,
+choose $x_{n+1}\in X\setminus \cup_{k=1}^n B(x_k,\eps)$.
+Then for $m\ne n$, we have $d(x_m,x_n)\ge \eps$.
+Such a sequence cannot have a Cauchy subsequence, hence cannot have a convergent subsequence, contradicting sequential compactness.
+Thus $X$ is totally bounded.
+
+\textbf{(2)$\Rightarrow$(1):} Assume $X$ is complete and totally bounded.
+Let $(x_n)$ be any sequence. We build a Cauchy subsequence using total boundedness.
+
+Cover $X$ by finitely many balls of radius $1$. One ball contains infinitely many $x_n$; choose a subsequence inside it.
+Cover that ball by finitely many balls of radius $1/2$; choose a further subsequence inside one such ball.
+Continue to get nested subsequences with diameters going to $0$ exactly as in the compact $\Rightarrow$ sequentially compact proof.
+The diagonal subsequence is Cauchy. By completeness it converges.
+Hence every sequence has a convergent subsequence, so $X$ is sequentially compact.
+\end{proof}
+
+%================================================
+\section{Lecture 9: Separability}
+%================================================
+
+\begin{definition}[Separable metric space]
+A metric space $X$ is \emph{separable} if it has a countable dense subset.
+\end{definition}
+
+\begin{theorem}[Totally bounded $\Rightarrow$ separable]
+Every totally bounded metric space is separable.
+\end{theorem}
+
+\begin{proof}
+For each $n\in\N$, cover $X$ by finitely many balls of radius $1/n$:
+\[
+X\subset \bigcup_{i=1}^{m_n} B(x_{n,i},1/n).
+\]
+Let $D=\{x_{n,i}:n\in\N,\ 1\le i\le m_n\}$. This is countable (countable union of finite sets).
+Given $x\in X$ and $\eps>0$, choose $n$ with $1/n<\eps$.
+Then $x\in B(x_{n,i},1/n)$ for some $i$, so there is $d\in D$ with $d(x,d)<\eps$.
+Thus $D$ is dense in $X$ and $X$ is separable.
+\end{proof}
+
+\begin{example}[$\R\setminus\Q$ is separable]
+The set of irrationals $\R\setminus\Q$ is separable.
+\end{example}
+
+\begin{proof}
+Define
+\[
+D:=\Big\{q+\frac{\sqrt{2}}{n}: q\in\Q,\ n\in\N\Big\}\subset \R\setminus\Q.
+\]
+It is countable. Let $x\in\R\setminus\Q$ and $\eps>0$.
+Choose $n$ with $\sqrt2/n<\eps/2$. Choose $q\in\Q$ with $|q-x|<\eps/2$.
+Then $d=q+\sqrt2/n\in D$ and
+\[
+|d-x|\le |q-x|+\sqrt2/n<\eps/2+\eps/2=\eps.
+\]
+Hence $D$ is dense in $\R\setminus\Q$.
+\end{proof}
+
+%================================================
+\section{Lecture 10: Banach Fixed Point Theorem}
+%================================================
+
+\begin{definition}[Contraction mapping]
+A function $T:(X,d)\to (X,d)$ is a \emph{contraction} if there exists $c\in(0,1)$ such that
+\[
+d(Tx,Ty)\le c\,d(x,y)\quad\forall x,y\in X.
+\]
+\end{definition}
+
+\begin{theorem}[Banach contraction principle (complete proof)]
+If $(X,d)$ is complete and $T:X\to X$ is a contraction, then:
+\begin{enumerate}[label=\textbf{(\alph*)}]
+\item $T$ has a unique fixed point $x^*\in X$ (i.e. $Tx^*=x^*$).
+\item For any $x_0\in X$, the iteration $x_{n+1}=T x_n$ converges to $x^*$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Fix $x_0\in X$ and define $x_{n+1}=Tx_n$.
+
+\textbf{Step 1: estimate successive differences.}
+By contraction,
+\[
+d(x_{n+1},x_n)=d(Tx_n,Tx_{n-1})\le c\,d(x_n,x_{n-1}).
+\]
+Iterating,
+\[
+d(x_{n+1},x_n)\le c^n d(x_1,x_0).
+\]
+
+\textbf{Step 2: show $(x_n)$ is Cauchy.}
+For $m>n$,
+\begin{align*}
+d(x_m,x_n)
+&\le \sum_{k=n}^{m-1} d(x_{k+1},x_k) \\
+&\le \sum_{k=n}^{m-1} c^k d(x_1,x_0)
+\le d(x_1,x_0)\sum_{k=n}^{\infty} c^k
+= d(x_1,x_0)\frac{c^n}{1-c}.
+\end{align*}
+As $n\to\infty$, the right-hand side $\to 0$, so $(x_n)$ is Cauchy.
+
+\textbf{Step 3: existence of fixed point.}
+Since $X$ is complete, there exists $x^*\in X$ with $x_n\to x^*$.
+We show $Tx^*=x^*$. Note that $T$ is Lipschitz, hence continuous:
+\[
+d(Tx,Ty)\le c\,d(x,y)\Rightarrow x_n\to x \implies Tx_n\to Tx.
+\]
+Thus
+\[
+Tx^*=T(\lim x_n)=\lim Tx_n=\lim x_{n+1}=x^*.
+\]
+
+\textbf{Step 4: uniqueness.}
+If $Tx=x$ and $Ty=y$, then
+\[
+d(x,y)=d(Tx,Ty)\le c\,d(x,y).
+\]
+Since $0<c<1$, we get $(1-c)d(x,y)\le 0$, so $d(x,y)=0$ and $x=y$.
+
+\textbf{Step 5: convergence to the fixed point.}
+We already proved $x_n\to x^*$, so the iteration converges to the unique fixed point.
+\end{proof}
+
+\begin{remark}[Why completeness matters]
+If $X$ is not complete, a contraction may fail to have a fixed point in $X$ because the Cauchy iteration may converge in a completion but not inside $X$.
+\end{remark}
+
+%================================================
+\section{Lecture 11: Cantor Intersection and Perfect Sets (optional enrichment)}
+%================================================
+
+\begin{definition}[Diameter]
+For $A\subset X$, define the \emph{diameter}
+\[
+\diam(A):=\sup\{d(x,y):x,y\in A\}\in[0,\infty].
+\]
+\end{definition}
+
+\begin{theorem}[Cantor intersection theorem]
+Let $(X,d)$ be complete and let $F_1\supset F_2\supset \cdots$ be nonempty closed sets with $\diam(F_n)\to 0$.
+Then $\bigcap_{n=1}^\infty F_n$ consists of exactly one point.
+\end{theorem}
+
+\begin{proof}
+Pick $x_n\in F_n$. For $m>n$, we have $x_m,x_n\in F_n$, so
+\[
+d(x_m,x_n)\le \diam(F_n)\xrightarrow[n\to\infty]{}0.
+\]
+Thus $(x_n)$ is Cauchy. Completeness gives $x_n\to x\in X$.
+
+Fix $n$. Then for all $m\ge n$, $x_m\in F_n$. Since $F_n$ is closed, it contains the limit $x$.
+Hence $x\in \cap_n F_n$, so the intersection is nonempty.
+
+If $y\in\cap_n F_n$, then $x,y\in F_n$ for every $n$, so $d(x,y)\le \diam(F_n)\to 0$, hence $x=y$.
+\end{proof}
+
+\begin{definition}[Perfect set]
+A set $P\subset X$ is \emph{perfect} if it is closed and every point of $P$ is a limit point of $P$.
+\end{definition}
+
+%================================================
+\section{Appendix: A Quick Checklist of Core Results}
+%================================================
+
+\begin{remark}
+For a complete ``Metric Space Notes'' file, the following are core pillars (all proved above):
+\begin{itemize}
+\item Metric axioms; reverse triangle inequality; two-point inequality.
+\item Open sets, closed sets; balls; closure, interior, boundary; algebraic laws.
+\item Sequences: convergence, uniqueness of limit, Cauchy, convergent $\Rightarrow$ Cauchy.
+\item Completeness: definition; $\Q$ incomplete; $\ell_p$ complete; closed subspace $\iff$ complete (inside complete space).
+\item Continuity: $\eps$--$\delta$, sequential criterion, open-preimage criterion.
+\item Uniform continuity: definition; Lipschitz; preserves Cauchy; Heine--Cantor on compact sets.
+\item Compactness: open-cover definition; compact $\Rightarrow$ totally bounded; compact $\Rightarrow$ sequentially compact; compact $\Rightarrow$ closed and bounded.
+\item Sequential compactness $\Leftrightarrow$ completeness + total boundedness.
+\item Total bounded $\Rightarrow$ separable.
+\item Banach contraction principle.
+\end{itemize}
+\end{remark}
+
+\end{document}
