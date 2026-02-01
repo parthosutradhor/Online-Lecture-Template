@@ -1,0 +1,406 @@
+% ===============================
+% Worksheet / Manual Template
+% ===============================
+\documentclass[12pt, a4paper]{article}
+
+% ===============================
+% Metadata
+% ===============================
+\newcommand*{\CourseCode}{MAT321}
+\newcommand*{\CourseTitle}{Real Analysis II}
+\newcommand*{\Chapter}{Metric in $\mathbb{R}^n$, $\mathbb{C}^n$ and Function Spaces}
+\newcommand*{\Topics}{Metric, pseudo-metric and Examples}
+\newcommand*{\DocDate}{February 01, 2026}
+
+\include{header}
+
+% ==========================================
+% Document
+% ==========================================
+\begin{document}
+\FrontPage
+\Large
+
+\begin{heading}
+    Motivation of Metric
+\end{heading}
+
+\clearpage
+
+\begin{heading}
+    Metric Space
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Metric Space]
+    A \textbf{metric space} is a pair $(X,d)$ where $X\neq\varnothing$ and
+    $d:X\times X\to\mathbb{R}$ satisfies, for all $x,y,z\in X$:
+    \begin{enumerate}[label=(M\arabic*)]
+    \item $d(x,y)\ge 0$;
+    \item $d(x,y)=0 \iff x=y$;
+    \item $d(x,y)=d(y,x)$;
+    \item $d(x,z)\le d(x,y)+d(y,z)$.
+    \end{enumerate}
+    Here $d$ is called a \textbf{metric} on $X$.
+\end{definition}
+
+\clearpage
+
+\begin{definition}[Pseudo-Metric Space]
+    A \textbf{pseudo-metric space} is a pair $(X,d)$ where $X\neq\varnothing$ and
+    $d:X\times X\to\mathbb{R}$ satisfies, for all $x,y,z\in X$:
+    \begin{enumerate}[label=(PM\arabic*)]
+    \item $d(x,y)\ge 0$;
+    \item $d(x,y)=d(y,x)$;
+    \item $d(x,z)\le d(x,y)+d(y,z)$.
+    \end{enumerate}
+    Here $d$ is called a \textbf{pseudo-metric} on $X$.
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+    Metric on Real Line
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Euclidean Metric on Real Line]
+    Show that $d:\mathbb{R}\times\mathbb{R}\to\mathbb{R}$ defined as
+    \[
+        d(x,y)=|x-y|
+    \]
+    is a metric on $\mathbb{R}$.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Another Metric on Real Line]
+    Show that $d:\mathbb{R}\times\mathbb{R}\to\mathbb{R}$ defined as
+    \[
+        d(x,y)=3|x-y|
+    \]
+    is a metric on $\mathbb{R}$.
+\end{theorem}
+
+\clearpage
+
+\begin{problem}
+    Show that $d:\mathbb{R}\times\mathbb{R}\to\mathbb{R}$ defined as
+    \[
+        d(x,y)=|x-2y|
+    \]
+    is a not metric on $\mathbb{R}$.
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+    Show that $d:\mathbb{R}\times\mathbb{R}\to\mathbb{R}$ defined as
+    \[
+        d(x,y)=(x-y)^2
+    \]
+    is a not metric on $\mathbb{R}$.
+\end{problem}
+
+\clearpage
+
+\begin{theorem}
+    Show that $d:\mathbb{R}\times\mathbb{R}\to\mathbb{R}$ defined as
+    \[
+        d(x,y)=\sqrt{|x-y|}
+    \]
+    is a metric on $\mathbb{R}$.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Metric on $\mathbb{R}^2$
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Standard Euclidean Metric on $\mathbb{R}^2$]
+    The metric space $\mathbb{R}^2$, called the \emph{Euclidean plane}, is obtained by
+    taking the set of ordered pairs of real numbers,
+    \[
+    x=(\xi_1,\xi_2), \qquad y=(\eta_1,\eta_2),
+    \]
+    and defining the \emph{Euclidean metric} by
+    \[
+    d(x,y)=\sqrt{(\xi_1-\eta_1)^2+(\xi_2-\eta_2)^2}
+    \]
+    Show that $d$ is a metric on $\mathbb{R}^2$.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Taxicab Metric on $\mathbb{R}^2$]
+    The metric space $\mathbb{R}^2$, called the \emph{Euclidean plane}, is obtained by
+    taking the set of ordered pairs of real numbers,
+    \[
+    x=(\xi_1,\xi_2), \qquad y=(\eta_1,\eta_2),
+    \]
+    and defining the \emph{Euclidean metric} by
+    \[
+    d(x,y)=|\xi_1-\eta_1|+|\xi_2-\eta_2|
+    \]
+    Show that $d$ is a metric on $\mathbb{R}^2$.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[$d_p$ Metric on $\mathbb{R}^2$]
+    The metric space $\mathbb{R}^2$, called the \emph{Euclidean plane}, is obtained by
+    taking the set of ordered pairs of real numbers,
+    \[
+    x=(\xi_1,\xi_2), \qquad y=(\eta_1,\eta_2),
+    \]
+    and defining the \emph{Euclidean metric} by
+    \[
+    d_p(x,y)=\left(|\xi_1-\eta_1|^p+|\xi_2-\eta_2|^p\right)^{\frac{1}{p}} \qquad (p\ge 1).
+    \]
+    Show that $d_p$ is a metric on $\mathbb{R}^2$.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[$d_{\infty}$ Metric on $\mathbb{R}^2$]
+    The metric space $\mathbb{R}^2$, called the \emph{Euclidean plane}, is obtained by
+    taking the set of ordered pairs of real numbers,
+    \[
+    x=(\xi_1,\xi_2), \qquad y=(\eta_1,\eta_2),
+    \]
+    and defining the \emph{Euclidean metric} by
+    \[
+    d_\infty(x,y)=\max\{|\xi_1-\eta_1|,|\xi_2-\eta_2|\}.
+    \]
+    Show that $d_{\infty}$ is a metric on $\mathbb{R}^2$.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Pseudo-Metric on $\mathbb{R}^2$
+\end{heading}
+
+\vspace{10pt}
+
+\begin{problem}[Pseudo-Metric on $\mathbb{R}^2$]
+    The pseudo-metric on $\mathbb{R}^2$, is obtained by
+    taking the set of ordered pairs of real numbers,
+    \[
+    x=(\xi_1,\xi_2), \qquad y=(\eta_1,\eta_2),
+    \]
+    and defining the \emph{Pseudo-Metric} by
+    \[
+    d(x,y)=|\xi_1-\eta_1|.
+    \]
+    Show that $d$ is a pseudo-metric on $\mathbb{R}^2$.
+\end{problem}
+
+\clearpage
+
+\clearpage
+
+\begin{heading}
+    Metric Space $\mathbb{R}^n$
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Standard Euclidean Metric in $\mathbb{R}^n$]
+    The metric space $\mathbb{R}^n$ is obtained by taking the set of ordered n-tuples of
+    real numbers,
+    \[
+    x=(\xi_1,\xi_2,\ldots,\xi_n), \qquad y=(\eta_1,\eta_2,\ldots,\eta_n),
+    \]
+    and defining the \emph{Euclidean metric} by
+    \[
+    d(x,y)=\left(\sum_{i=1}^{n}|\xi_i-\eta_i|^2\right)^{\frac{1}{2}} 
+    \]
+    Show that $d$ is a metric in $\mathbb{R}^n$.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[$d_p$ Metric in $\mathbb{R}^n$]
+    The metric space $\mathbb{R}^n$ is obtained by taking the set of ordered n-tuples of
+    real numbers,
+    \[
+    x=(\xi_1,\xi_2,\ldots,\xi_n), \qquad y=(\eta_1,\eta_2,\ldots,\eta_n),
+    \]
+    and defining the \emph{Euclidean metric} by
+    \[
+    d_p(x,y)=\left(\sum_{i=1}^{n}|\xi_i-\eta_i|^p\right)^{\frac{1}{p}} \qquad (p\ge 1).
+    \]
+    Show that $d_p$ is a metric in $\mathbb{R}^n$.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[$d_{\infty}$ Metric in $\mathbb{R}^n$]
+    The metric space $\mathbb{R}^n$ is obtained by taking the set of ordered n-tuples of
+    real numbers,
+    \[
+    x=(\xi_1,\xi_2,\ldots,\xi_n), \qquad y=(\eta_1,\eta_2,\ldots,\eta_n),
+    \]
+    and defining the \emph{Euclidean metric} by
+    \[
+    d_\infty(x,y)=\max\{|\xi_1-\eta_1|,|\xi_2-\eta_2|,\ldots,|\xi_n-\eta_n|\}.
+    \]
+    Show that $d_{\infty}$ is a metric in $\mathbb{R}^n$.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}
+Prove that the function $d_{\infty} : \mathbb{R}^n \times \mathbb{R}^n \to \mathbb{R}$
+defined by
+\[
+d'(x,y)=\max_{1\le i\le n}|x_i-y_i|\]
+where
+\(x=(x_1,x_2,\dots,x_n),\;
+y=(y_1,y_2,\dots,y_n)\in\mathbb{R}^n,
+\)
+is a metric on $\mathbb{R}^n$. Also prove that
+\[
+d_{\infty}(x,y)\le d(x,y)\le \sqrt{n}\,d_{\infty}(x,y),
+\qquad \forall\, x,y\in\mathbb{R}^n,
+\]
+where $d$ denotes the standard Euclidean metric on $\mathbb{R}^n$.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Metric Space $\mathbb{C}$
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Standard metric on $\mathbb{C}$]
+Prove that the function
+\(
+d : \mathbb{C} \times \mathbb{C} \to \mathbb{R}
+\)
+defined by
+\begin{equation}
+d(z_1,z_2)=|z_1-z_2|
+\qquad \forall\, z_1,z_2\in\mathbb{C},
+\end{equation}
+forms a metric on $\mathbb{C}$.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[A metric on $\mathbb{C}$]
+Prove that the function
+\(
+d : \mathbb{C} \times \mathbb{C} \to \mathbb{R}
+\)
+defined by
+\begin{equation}
+d(z_1,z_2)=\frac{|z_1-z_2|}{\sqrt{1+|z_1|^2}\sqrt{1+|z_2|^2}},
+\qquad \forall\, z_1,z_2\in\mathbb{C},
+\end{equation}
+forms a metric on $\mathbb{C}$.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Metric Space $\mathbb{C}^n$
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Metric on $\mathbb{C}^n$]
+Prove that the function
+\(d : \mathbb{C}^n \times \mathbb{C}^n \to \mathbb{R}\)
+defined by
+\[
+d(z,w)=\sqrt{\sum_{k=1}^{n}|z_k-w_k|^2}\]
+where
+\( z=(z_1,z_2,\dots,z_n),\;
+w=(w_1,w_2,\dots,w_n)\in\mathbb{C}^n,
+\)
+forms a metric on $\mathbb{C}^n$.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Function  Space $C[a,b]$
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Max Metric on $C[a,b]$]
+Prove that the function
+\(d : C[a,b] \times C[a,b] \to \mathbb{R}\)
+defined by
+\[d(f,g)=\max_{x\in[a,b]}|f(x)-g(x)|\]
+where   \(f,g\in C[a,b],\)
+forms a metric on $C[a,b]$.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Integral Metric on $C[a,b]$]
+Prove that the function
+\(d : C[a,b] \times C[a,b] \to \mathbb{R}\)
+defined by
+\[d(f,g)=\int_{a}^{b}|f(x)-g(x)|\,dx\]
+where   \(f,g\in C[a,b],\)
+forms a metric on $C[a,b]$.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Space of Bounded Functions $B(A)$
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Supremum Metric on $B(A)$]
+Prove that the function
+\(d : B(A) \times B(A) \to \mathbb{R}\)
+defined by
+\[d(f,g)=\sup_{x\in A}|f(x)-g(x)|\]
+where   \(f,g\in B(A),\)
+forms a metric on $B(A)$.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Hamming Distance
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Hamming Distance]
+Prove that the function
+\(d : X^n \times X^n \to \mathbb{R}\)
+defined by
+\[d(x,y)=\sum_{i=1}^{n}\delta(x_i,y_i)\]
+where
+\[\delta(a,b)=\begin{cases}
+0, & \text{if } a=b;\\
+1, & \text{if } a\ne b,
+\end{cases}\]
+and \(x=(x_1,x_2,\dots,x_n),\;
+y=(y_1,y_2,\dots,y_n)\in X^n,\)
+forms a metric on $X^n$.
+\end{theorem}
+
+
+
+
+
+\EndPage
+\end{document}
