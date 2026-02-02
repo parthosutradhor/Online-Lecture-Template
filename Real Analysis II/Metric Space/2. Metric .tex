@@ -1,0 +1,264 @@
+% ===============================
+% Worksheet / Manual Template
+% ===============================
+\documentclass[12pt, a4paper]{article}
+
+% ===============================
+% Metadata
+% ===============================
+\newcommand*{\CourseCode}{MAT321}
+\newcommand*{\CourseTitle}{Real Analysis II}
+\newcommand*{\Chapter}{General Metric Space}
+\newcommand*{\Topics}{Properties of Metric, Modified Metric, NS, IPS}
+\newcommand*{\DocDate}{February 03, 2026}
+
+\include{header}
+
+% ==========================================
+% Document
+% ==========================================
+\begin{document}
+\FrontPage
+\Large
+
+\begin{heading}
+    Motivation of Metric
+\end{heading}
+
+\clearpage
+
+\begin{heading}
+    Metric Space
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Metric Space]
+    A \textbf{metric space} is a pair $(X,d)$ where $X\neq\varnothing$ and
+    $d:X\times X\to\mathbb{R}$ satisfies, for all $x,y,z\in X$:
+    \begin{enumerate}[label=(M\arabic*)]
+    \item $d(x,y)\ge 0$;
+    \item $d(x,y)=0 \iff x=y$;
+    \item $d(x,y)=d(y,x)$;
+    \item $d(x,z)\le d(x,y)+d(y,z)$.
+    \end{enumerate}
+    Here $d$ is called a \textbf{metric} on $X$.
+\end{definition}
+
+\clearpage
+
+\begin{definition}[Pseudo-Metric Space]
+    A \textbf{pseudo-metric space} is a pair $(X,d)$ where $X\neq\varnothing$ and
+    $d:X\times X\to\mathbb{R}$ satisfies, for all $x,y,z\in X$:
+    \begin{enumerate}[label=(PM\arabic*)]
+    \item $d(x,y)\ge 0$;
+    \item $d(x,y)=d(y,x)$;
+    \item $d(x,z)\le d(x,y)+d(y,z)$.
+    \end{enumerate}
+    Here $d$ is called a \textbf{pseudo-metric} on $X$.
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+    Inequalities in Metric Spaces
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Reverse Triangle Inequality]
+    Let $(X,d)$ be a metric space. Show that for all $x,y,z\in X$,
+    \[
+        |d(x,z)-d(y,z)|\le d(x,y).
+    \]
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Two-point inequality for distances]
+    Let $(X,d)$ be a metric space. Show that for all $x,y,z,w\in X$,
+    \[
+        |d(x,y)-d(z,w)|\le d(x,z)+d(y,w).
+    \]
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Discrete Metric Space
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Discrete Metric]
+    Let $X$ be a non-empty set. Define $d:X\times X\to\mathbb{R}$ as
+    \[
+        d(x,y)=\begin{cases}
+            0, & \text{if } x=y;\\
+            1, & \text{if } x\ne y.
+        \end{cases}
+    \]
+    Show that $d$ is a metric on $X$.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Modified Metrices
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[ Metric via a Fixed Point ]
+Let $(X,d)$ be a metric space and let $x_0\in X$. Define a function
+$\delta : X\times X \to \mathbb{R}$ by
+\[
+\delta(x,y)=
+\begin{cases}
+d(x,x_0)+d(x_0,y), & \text{if } x\neq y,\\[4pt]
+0, & \text{if } x=y.
+\end{cases}
+\]
+Show whether $\delta$ is a metric on $X$ or not.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Bounded Transform of a Metric]
+    Let $(X,d)$ be a metric space. Define $d':X\times X\to\mathbb{R}$ as
+    \[
+        d'(x,y)=\frac{d(x,y)}{1+d(x,y)}.
+    \]
+    Show that $d'$ is a metric on $X$.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Metric via Truncation]
+    Let $(X,d)$ be a metric space. Define $d':X\times X\to\mathbb{R}$ as
+    \[
+        d'(x,y)=\min\{1,d(x,y)\}.
+    \]
+    Show that $d'$ is a metric on $X$.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Pullback Metric along an Injection
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Pullback metric along an Injection]
+    Let $(Y,d)$ be a metric space and let $\alpha:X\to Y$ be an injection. Define
+    $d':X\times X\to\mathbb{R}$ as
+    \[    d'(x,y)=d(\alpha(x),\alpha(y)).\]
+    Show that $d'$ is a metric on $X$.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Motivation of Norm
+\end{heading}
+
+\clearpage
+
+\begin{heading}
+    Normed Space
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Normed Space]
+    A \textbf{normed space} is a pair $(X,\|\cdot\|)$ where $X$ is a vector space
+    over $\mathbb{R}$ (or $\mathbb{C}$) and
+    $\|\cdot\|:X\to\mathbb{R}$ satisfies, for all $x,y\in X$ and $\alpha\in\mathbb{R}$
+    (or $\mathbb{C}$):
+    \begin{enumerate}[label=(N\arabic*)]
+    \item $\|x\|\ge 0$;
+    \item $\|x\|=0 \iff x=0$;
+    \item $\|\alpha x\|=|\alpha|\|x\|$;
+    \item $\|x+y\|\le \|x\|+\|y\|$.
+    \end{enumerate}
+    Here $\|\cdot\|$ is called a \textbf{norm} on $X$.
+\end{definition}
+
+\clearpage
+
+\begin{theorem}[Metric Induced by a Norm]
+    Let $(X,\|\cdot\|)$ be a normed space. Define $d:X\times X\to\mathbb{R}$ as
+    \[
+        d(x,y)=\|x-y\|.
+    \]
+    Show that $d$ is a metric on $X$.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Motivation of Inner Product
+\end{heading}
+
+\clearpage
+
+\begin{heading}
+    Inner Product Space
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Inner Product Space]
+    An \textbf{inner product space} is a pair $(X,\langle\cdot,\cdot\rangle)$ where
+    $X$ is a vector space over $\mathbb{R}$ (or $\mathbb{C}$) and
+    $\langle\cdot,\cdot\rangle:X\times X\to\mathbb{R}$ (or $\mathbb{C}$) satisfies,
+    for all $x,y,z\in X$ and $\alpha\in\mathbb{R}$ (or $\mathbb{C}$):
+    \begin{enumerate}[label=(IP\arabic*)]
+    \item $\langle x,x\rangle\ge 0$;
+    \item $\langle x,x\rangle=0 \iff x=0$;
+    \item $\langle x,y\rangle=\overline{\langle y,x\rangle}$;
+    \item $\langle \alpha x+ \beta y,z\rangle=\alpha\langle x,z\rangle+ \beta \langle y,z\rangle$.
+    \end{enumerate}
+    Here $\langle\cdot,\cdot\rangle$ is called an \textbf{inner product} on $X$.
+\end{definition}
+
+\clearpage
+
+\begin{theorem}[Norm Induced by an Inner Product]
+    Let $(X,\langle\cdot,\cdot\rangle)$ be an inner product space. Define
+    $\|\cdot\|:X\to\mathbb{R}$ as
+    \[
+        \|x\|=\sqrt{\langle x,x\rangle}.
+    \]
+    Show that $\|\cdot\|$ is a norm on $X$.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Metric Induced by an Inner Product]
+    Let $(X,\langle\cdot,\cdot\rangle)$ be an inner product space. Define
+    $d:X\times X\to\mathbb{R}$ as
+    \[
+        d(x,y)=\|x-y\|=\sqrt{\langle x-y,x-y\rangle}.
+    \]
+    Show that $d$ is a metric on $X$.
+    
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Cauchy-Schwarz Inequality]
+    Let $(X,\langle\cdot,\cdot\rangle)$ be an inner product space. Show that for all
+    $x,y\in X$,
+    \[
+        |\langle x,y\rangle|\le \sqrt{\langle x,x\rangle}\sqrt{\langle y,y\rangle}.
+    \]
+\end{theorem}
+
+
+
+
+
+\EndPage
+\end{document}
