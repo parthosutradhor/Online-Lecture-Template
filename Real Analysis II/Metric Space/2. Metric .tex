@@ -40,22 +40,9 @@
     \item $d(x,y)\ge 0$;
     \item $d(x,y)=0 \iff x=y$;
     \item $d(x,y)=d(y,x)$;
-    \item $d(x,z)\le d(x,y)+d(y,z)$.
+    \item $d(x,y)\le d(x,z)+d(z,y)$.
     \end{enumerate}
     Here $d$ is called a \textbf{metric} on $X$.
-\end{definition}
-
-\clearpage
-
-\begin{definition}[Pseudo-Metric Space]
-    A \textbf{pseudo-metric space} is a pair $(X,d)$ where $X\neq\varnothing$ and
-    $d:X\times X\to\mathbb{R}$ satisfies, for all $x,y,z\in X$:
-    \begin{enumerate}[label=(PM\arabic*)]
-    \item $d(x,y)\ge 0$;
-    \item $d(x,y)=d(y,x)$;
-    \item $d(x,z)\le d(x,y)+d(y,z)$.
-    \end{enumerate}
-    Here $d$ is called a \textbf{pseudo-metric} on $X$.
 \end{definition}
 
 \clearpage
@@ -156,6 +143,24 @@ Show whether $\delta$ is a metric on $X$ or not.
     \[    d'(x,y)=d(\alpha(x),\alpha(y)).\]
     Show that $d'$ is a metric on $X$.
 \end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Isometric Spaces
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Isometric Spaces]
+    Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces. They are said to be
+    \textbf{isometric} if there exists a bijection $\alpha:X\to Y$ such that for
+    all $x_1,x_2\in X$,
+    \[
+        d_Y(\alpha(x_1),\alpha(x_2))=d_X(x_1,x_2).
+    \]
+    Here $\alpha$ is called an \textbf{isometry} from $X$ to $Y$.
+\end{definition}
 
 \clearpage
 
