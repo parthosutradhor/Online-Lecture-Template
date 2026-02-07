@@ -1,0 +1,422 @@
+% ===============================
+% Worksheet / Manual Template
+% ===============================
+\documentclass[12pt, a4paper]{article}
+
+% ===============================
+% Metadata
+% ===============================
+\newcommand*{\CourseCode}{MAT321}
+\newcommand*{\CourseTitle}{Real Analysis II}
+\newcommand*{\Chapter}{Metric in $\mathbb{R}^n$ and $\ell^p$ Space}
+\newcommand*{\Topics}{Hölder’s Inequality, Minkowski's Inequality}
+\newcommand*{\DocDate}{February 08, 2026}
+
+\include{header}
+
+% ==========================================
+% Document
+% ==========================================
+\begin{document}
+\FrontPage
+\Large
+
+\begin{heading}
+    Metric Space
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Metric Space]
+    A \textbf{metric space} is a pair $(X,d)$ where $X\neq\varnothing$ and
+    $d:X\times X\to\mathbb{R}$ satisfies, for all $x,y,z\in X$:
+    \begin{enumerate}[label=(M\arabic*)]
+    \item $d(x,y)\ge 0$;
+    \item $d(x,y)=0 \iff x=y$;
+    \item $d(x,y)=d(y,x)$;
+    \item $d(x,z)\le d(x,y)+d(y,z)$.
+    \end{enumerate}
+    Here $d$ is called a \textbf{metric} on $X$.
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+    Normed Linear Space
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Normed Linear Space]
+    A \textbf{normed linear space} is a pair $(X,\|\cdot\|)$ where $X$ is a vector space
+    over $\mathbb{R}$ (or $\mathbb{C}$) and
+    $\|\cdot\|:X\to\mathbb{R}$ satisfies, for all $x,y\in X$ and $\alpha\in\mathbb{R}$
+    (or $\mathbb{C}$):
+    \begin{enumerate}[label=(N\arabic*)]
+    \item $\|x\|\ge 0$;
+    \item $\|x\|=0 \iff x=0$;
+    \item $\|\alpha x\|=|\alpha|\|x\|$;
+    \item $\|x+y\|\le \|x\|+\|y\|$.
+    \end{enumerate}
+    Here $\|\cdot\|$ is called a \textbf{norm} on $X$.
+\end{definition}
+
+\vspace{100pt}
+
+\begin{theorem}[Metric Induced by a Norm]
+    Let $(X,\|\cdot\|)$ be a normed space. Define $d:X\times X\to\mathbb{R}$ as
+    \[
+        d(x,y)=\|x-y\|.
+    \]
+    Show that $d$ is a metric on $X$.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Norm and Metric on Real Line
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Euclidean Norm on Real Line]
+    Show that $\|\cdot\|:\mathbb{R}\to\mathbb{R}$ defined as $\|x\|=|x|$ is a norm on $\mathbb{R}$.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Euclidean Metric on Real Line]
+    Show that $d:\mathbb{R}\times\mathbb{R}\to\mathbb{R}$ defined as
+    \[
+        d(x,y)=|x-y|
+    \]
+    is a metric on $\mathbb{R}$.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Norm and Metric on $\mathbb{R}^2$
+\end{heading}
+
+\begin{theorem}[Standard Euclidean Norm on $\mathbb{R}^2$]
+    The metric space $\mathbb{R}^2$, called the \emph{Euclidean plane}, is obtained by
+    taking a ordered pairs of real numbers,
+    \(
+    x=(x_1,x_2)
+    \)
+    and defining the \emph{Euclidean norm} by
+    \[
+    \|x\|=\sqrt{x_1^2+x_2^2}.
+    \]
+    Show that $\|\cdot\|$ is a norm on $\mathbb{R}^2$.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Standard Euclidean Metric on $\mathbb{R}^2$]
+    The metric space $\mathbb{R}^2$, called the \emph{Euclidean plane}, is obtained by
+    taking the set of ordered pairs of real numbers,
+    \[
+    x=(x_1,x_2), \qquad y=(y_1,y_2),
+    \]
+    and defining the \emph{Euclidean metric} by
+    \[
+    d(x,y)=\sqrt{(x_1-y_1)^2+(x_2-y_2)^2}.
+    \]
+    Show that $d$ is a metric on $\mathbb{R}^2$.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Norm and Metric Space $\mathbb{R}^n$
+\end{heading}
+
+\begin{theorem}[Standard Euclidean Norm in $\mathbb{R}^n$]
+    The metric space $\mathbb{R}^n$ is obtained by taking a ordered n-tuples of
+    real numbers,
+    \[
+    x=(x_1,x_2,\ldots,x_n),
+    \]
+    and defining the \emph{Euclidean norm} by
+    \[
+    \|x\|=\sqrt{x_1^2+x_2^2+\cdots+x_n^2}.
+    \]
+    Show that $\|\cdot\|$ is a norm in $\mathbb{R}^n$.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Standard Euclidean Metric in $\mathbb{R}^n$]
+    The metric space $\mathbb{R}^n$ is obtained by taking the set of ordered n-tuples of
+    real numbers,
+    \[
+    x=(x_1,x_2,\ldots,x_n), \qquad y=(y_1,y_2,\ldots,y_n),
+    \]
+    and defining the \emph{Euclidean metric} by
+    \[
+    d(x,y)=\sqrt{(x_1-y_1)^2+(x_2-y_2)^2+\cdots+(x_n-y_n)^2}.
+    \]    
+    Show that $d$ is a metric in $\mathbb{R}^n$.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Sequence Spaces $\ell^p$
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Sequence Spaces $\ell^p$]
+    For $1\le p<\infty$, the \textbf{sequence space} $\ell^p$ is defined as
+    \[
+        \ell^p=\left\{x=(x_1, x_2, x_3, \dots):\sum_{n=1}^\infty|x_n|^p<\infty\right\}.
+    \]
+    Define \[\|x\|_p=\left(\sum_{n=1}^\infty|x_n|^p\right)^{\frac{1}{p}}, \quad x\in\ell^p.\]
+    Show that $(\ell^p,\|\cdot\|_p)$ is a normed linear space.
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+    Hölder's Inequality
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Hölder's Inequality]
+Let $x=\{x_i\}\in \ell^p$ and $y=\{y_i\}\in \ell^q$ be sequences of real numbers,
+where $p>1$ and $q$ is the conjugate exponent of $p$, that is,
+\[
+\frac{1}{p}+\frac{1}{q}=1.
+\]
+Then H\"older's inequality states that
+\[
+\sum_{i=1}^{\infty} |x_i y_i|
+\le
+\left(\sum_{j=1}^{\infty} |x_j|^p\right)^{\!1/p}
+\left(\sum_{k=1}^{\infty} |y_k|^q\right)^{\!1/q}.
+\]
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Minkowski's Inequality
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Minkowski's Inequality]
+Let $x=\{x_i\}\in \ell^p$ and $y=\{y_i\}\in \ell^p$ be two sequences of real numbers,
+where $p\ge 1$ is a real number. Then Minkowski's inequality states that
+\[
+\left(\sum_{i=1}^{\infty} |x_i + y_i|^p \right)^{\!1/p}
+\le
+\left(\sum_{j=1}^{\infty} |x_j|^p \right)^{\!1/p}
++
+\left(\sum_{k=1}^{\infty} |y_k|^p \right)^{\!1/p}.
+\]
+in other words, \[\|x+y\|_p\le \|x\|_p+\|y\|_p.\]
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Metric in $\ell^p$ Space
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Metric Induced by $\ell^p$ Norm]
+    Let $(\ell^p,\|\cdot\|_p)$ be a normed space. Define $d:\ell^p\times \ell^p\to\mathbb{R}$ as
+    \[
+        d(x,y)=\|x-y\|_p=\left(\sum_{n=1}^\infty|x_n-y_n|^p\right)^{\!1/p}.
+    \]
+    Show that $d$ is a metric on $\ell^p$.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    The $\ell^\infty$ Space
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[$\ell^\infty$ Space]
+    The \textbf{sequence space} $\ell^\infty$ is defined as
+    \[
+        \ell^\infty=\left\{x=(x_1, x_2, x_3, \dots):\sup_{n\in\mathbb{N}}|x_n|<\infty\right\}.
+    \]
+    Define \[\|x\|_\infty=\sup_{n\in\mathbb{N}}|x_n|, \quad x\in\ell^\infty.\]
+    Show that $(\ell^\infty,\|\cdot\|_\infty)$ is a normed linear space.
+\end{definition}
+
+\clearpage
+
+\begin{theorem}[Minkowski's Inequality in $\ell^\infty$ Space]
+Let $x=\{x_i\}\in \ell^\infty$ and $y=\{y_i\}\in \ell^\infty$ be two sequences of real numbers. Then Minkowski's inequality states that
+\[\|x+y\|_\infty\le \|x\|_\infty+\
+|y\|_\infty.\]
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Metric Induced by $\ell^\infty$ Norm
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Metric Induced by $\ell^\infty$ Norm]
+    Let $(\ell^\infty,\|\cdot\|_\infty)$ be a normed space. Define $d:\ell^\infty\times \ell^\infty\to\mathbb{R}$ as
+    \[
+        d(x,y)=\|x-y\|_\infty=\sup_{n\in\mathbb{N}}|x_n-y_n|.
+    \]
+    Show that $d$ is a metric on $\ell^\infty$.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Metric on $\mathbb{R}^2$
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Standard Euclidean Metric on $\mathbb{R}^2$]
+    The metric space $\mathbb{R}^2$, called the \emph{Euclidean plane}, is obtained by
+    taking the set of ordered pairs of real numbers,
+    \[
+    x=(x_1,x_2), \qquad y=(y_1,y_2),
+    \]
+    and defining the \emph{Euclidean metric} by
+    \[
+    d(x,y)=\sqrt{(x_1-y_1)^2+(x_2-y_2)^2}.
+    \]
+    Show that $d$ is a metric on $\mathbb{R}^2$.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Taxicab Metric on $\mathbb{R}^2$]
+    The metric space $\mathbb{R}^2$, called the \emph{Euclidean plane}, is obtained by
+    taking the set of ordered pairs of real numbers,
+    \[
+    x=(x_1,x_2), \qquad y=(y_1,y_2),
+    \]
+    and defining the \emph{Euclidean metric} by
+    \[
+    d(x,y)=|x_1-y_1|+|x_2-y_2|.
+    \]
+    Show that $d$ is a metric on $\mathbb{R}^2$.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[$d_p$ Metric on $\mathbb{R}^2$]
+    The metric space $\mathbb{R}^2$, called the \emph{Euclidean plane}, is obtained by
+    taking the set of ordered pairs of real numbers,
+    \[
+    x=(x_1,x_2), \qquad y=(y_1,y_2),
+    \]
+    and defining the \emph{Euclidean metric} by
+    \[
+    d_p(x,y)=\left(|x_1-y_1|^p+|x_2-y_2|^p\right)^{\frac{1}{p}} \qquad (p\ge 1).
+    \]
+
+    Show that $d_p$ is a metric on $\mathbb{R}^2$.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[$d_{\infty}$ Metric on $\mathbb{R}^2$]
+    The metric space $\mathbb{R}^2$, called the \emph{Euclidean plane}, is obtained by
+    taking the set of ordered pairs of real numbers,
+    \[
+    x=(x_1,x_2), \qquad y=(y_1,y_2),
+    \]
+    and defining the \emph{Euclidean metric} by
+    \[
+    d_\infty(x,y)=\max\{|x_1-y_1|,|x_2-y_2|\}.
+    \]
+    Show that $d_{\infty}$ is a metric on $\mathbb{R}^2$.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Metric Space $\mathbb{R}^n$
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Standard Euclidean Metric in $\mathbb{R}^n$]
+    The metric space $\mathbb{R}^n$ is obtained by taking the set of ordered n-tuples of
+    real numbers,
+    \[
+    x=(x_1,x_2,\ldots,x_n), \qquad y=(y_1,y_2,\ldots,y_n),
+    \]
+    and defining the \emph{Euclidean metric} by
+    \[
+    d(x,y)=\sqrt{(x_1-y_1)^2+(x_2-y_2)^2+\cdots+(x_n-y_n)^2}.
+    \]    
+    Show that $d$ is a metric in $\mathbb{R}^n$.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[$d_p$ Metric in $\mathbb{R}^n$]
+    The metric space $\mathbb{R}^n$ is obtained by taking the set of ordered n-tuples of
+    real numbers,
+    \[
+    x=(\xi_1,\xi_2,\ldots,\xi_n), \qquad y=(\eta_1,\eta_2,\ldots,\eta_n),
+    \]
+    and defining the \emph{Euclidean metric} by
+    \[
+    d_p(x,y)=\left(\sum_{i=1}^{n}|\xi_i-\eta_i|^p\right)^{\frac{1}{p}} \qquad (p\ge 1).
+    \]
+    Show that $d_p$ is a metric in $\mathbb{R}^n$.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[$d_{\infty}$ Metric in $\mathbb{R}^n$]
+    The metric space $\mathbb{R}^n$ is obtained by taking the set of ordered n-tuples of
+    real numbers,
+    \[
+    x=(\xi_1,\xi_2,\ldots,\xi_n), \qquad y=(\eta_1,\eta_2,\ldots,\eta_n),
+    \]
+    and defining the \emph{Euclidean metric} by
+    \[
+    d_\infty(x,y)=\max\{|\xi_1-\eta_1|,|\xi_2-\eta_2|,\ldots,|\xi_n-\eta_n|\}.
+    \]
+    Show that $d_{\infty}$ is a metric in $\mathbb{R}^n$.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}
+Prove that the function $d_{\infty} : \mathbb{R}^n \times \mathbb{R}^n \to \mathbb{R}$
+defined by
+\[
+d'(x,y)=\max_{1\le i\le n}|x_i-y_i|\]
+where
+\(x=(x_1,x_2,\dots,x_n),\;
+y=(y_1,y_2,\dots,y_n)\in\mathbb{R}^n,
+\)
+is a metric on $\mathbb{R}^n$. Also prove that
+\[
+d_{\infty}(x,y)\le d(x,y)\le \sqrt{n}\,d_{\infty}(x,y),
+\qquad \forall\, x,y\in\mathbb{R}^n,
+\]
+where $d$ denotes the standard Euclidean metric on $\mathbb{R}^n$.
+\end{theorem}
+
+\clearpage
+
+\EndPage
+\end{document}

@@ -47,6 +47,67 @@
 
 \clearpage
 
+\clearpage
+
+\begin{definition}[Pseudo-Metric Space]
+    A \textbf{pseudo-metric space} is a pair $(X,d)$ where $X\neq\varnothing$ and
+    $d:X\times X\to\mathbb{R}$ satisfies, for all $x,y,z\in X$:
+    \begin{enumerate}[label=(PM\arabic*)]
+    \item $d(x,y)\ge 0$;
+    \item $d(x,y)=d(y,x)$;
+    \item $d(x,z)\le d(x,y)+d(y,z)$.
+    \end{enumerate}
+    Here $d$ is called a \textbf{pseudo-metric} on $X$.
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+    Metric on Real Line
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Euclidean Metric on Real Line]
+    Show that $d:\mathbb{R}\times\mathbb{R}\to\mathbb{R}$ defined as
+    \[
+        d(x,y)=|x-y|
+    \]
+    is a metric on $\mathbb{R}$.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Another Metric on Real Line]
+    Show that $d:\mathbb{R}\times\mathbb{R}\to\mathbb{R}$ defined as
+    \[
+        d(x,y)=3|x-y|
+    \]
+    is a metric on $\mathbb{R}$.
+\end{theorem}
+
+\clearpage
+
+\begin{problem}
+    Show that $d:\mathbb{R}\times\mathbb{R}\to\mathbb{R}$ defined as
+    \[
+        d(x,y)=|x-2y|
+    \]
+    is a not metric on $\mathbb{R}$.
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+    Show that $d:\mathbb{R}\times\mathbb{R}\to\mathbb{R}$ defined as
+    \[
+        d(x,y)=(x-y)^2
+    \]
+    is a not metric on $\mathbb{R}$.
+\end{problem}
+
+\clearpage
+
 \begin{heading}
     Inequalities in Metric Spaces
 \end{heading}

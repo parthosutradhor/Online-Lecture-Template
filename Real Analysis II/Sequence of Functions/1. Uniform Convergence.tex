@@ -1,0 +1,463 @@
+% ===============================
+% Worksheet / Manual Template
+% ===============================
+\documentclass[12pt, a4paper]{article}
+
+% ===============================
+% Metadata
+% ===============================
+\newcommand*{\CourseCode}{MAT321}
+\newcommand*{\CourseTitle}{Real Analysis II}
+\newcommand*{\Chapter}{Uniform Convergence}
+\newcommand*{\Topics}{Poinwise and Uniform Convergence, \\Cauchy Criterion and Test for Uniform Convergence}
+\newcommand*{\DocDate}{February 07, 2026}
+
+\include{header}
+
+% ==========================================
+% Document
+% ==========================================
+\begin{document}
+\FrontPage
+\Large
+
+\begin{heading}
+    Convergence of Sequence in Real Numbers
+\end{heading}
+
+\vspace{10pt}
+
+
+\begin{definition}[Convergence of a Sequence]
+	A sequence $\{a_n\}$ is said to \textbf{converge} to a real number $a$ if for every real number $\varepsilon > 0,$ there exists a natural number $N \in \N$ such that for all $n \geq N,$ the terms of the sequence satisfy the inequality 
+	\[
+	|a_n - a| < \varepsilon.
+	\]
+	If such a number $a$ exists, it is called the \textbf{limit} of the sequence, and we write
+	\[
+	\lim a_n = a \quad \text{or} \quad a_n \to a \text{ as } n \to \infty.
+	\]
+\end{definition}
+
+\vspace{30pt}
+
+\begin{definition}[Cauchy Criterion for Convergence]
+    A sequence $\{a_n\}$ is said to satisfy the \textbf{Cauchy criterion} if for every real number $\varepsilon > 0,$ there exists a natural number $N \in \N$ such that for all $m, n \geq N,$ the terms of the sequence satisfy the inequality 
+    \[
+    |a_n - a_m| < \varepsilon.
+    \]
+    Note: A sequence that satisfies the Cauchy criterion is called a \textbf{Cauchy sequence}. In the real numbers, every Cauchy sequence converges to a limit, and every convergent sequence is a Cauchy sequence.
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+    Limit and Continuity of a function
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Limit of a Function]
+    Let $f:A\to\R$ be a function defined on a subset $A$ of the real numbers, and let $c$ be a limit point of $A$. We say that the \textbf{limit} of $f(x)$ as $x$ approaches $c$ is equal to $L$, and we write
+\[
+\lim_{x \to c} f(x) = L,
+\]
+if for every $\varepsilon > 0$, there exists a $\delta > 0$ such that for all $x \in A$ with $0 < |x - c| < \delta$, we have
+\[
+|f(x) - L| < \varepsilon.
+\]
+\end{definition}
+
+\vspace{30pt}
+
+\begin{definition}[Continuity of a Function]
+    A function $f:A\to\R$ is said to be \textbf{continuous} at a point $c \in A$ if
+\[
+\lim_{x \to c} f(x) = f(c).
+\]
+In other words, $f$ is continuous at $c$ if for every $\varepsilon > 0$, there exists a $\delta > 0$ such that for all $x \in A$ with $|x - c| < \delta$, we have
+\[
+|f(x) - f(c)| < \varepsilon.
+\]
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+    Sequence and Series of Functions and their Convergence
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Sequence of Functions]
+    A \textbf{sequence of functions} is a collection of functions $\{f_n\}$ where each function $f_n$ is defined on a common domain $D$. Each function in the sequence is indexed by a natural number $n$, and we can write the sequence as
+    \[
+    f_1, f_2, f_3, \ldots, f_n, \ldots
+    \]
+    
+\end{definition}
+
+\vspace{100pt}
+
+\begin{definition}[Series of Functions]
+    A \textbf{series of functions} is an infinite sum of functions, typically expressed as
+    \[
+    \sum_{n=1}^{\infty} f_n(x),
+    \]
+    where each $f_n$ is a function defined on a common domain $D$. The series converges at a point $x$ if the sequence of partial sums
+    \[
+    S_N(x) = \sum_{n=1}^{N} f_n(x)
+    \]
+    converges as $N \to \infty$.
+    
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+    Poinwise Convergence
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Pointwise Convergence of a Sequence of Functions]
+    A sequence of functions $\{f_n\}$ defined on a domain $D$ is said to \textbf{converge pointwise} to a function $f$ on $D$ if for \textbf{every $x \in D$} and for every $\varepsilon > 0$, there exists a natural number $N \in \N$ (which may depend on $x$ and $\varepsilon$) such that for all $n \geq N$, the following inequality holds:
+    \[
+    |f_n(x) - f(x)| < \varepsilon.
+    \]
+    In this case, we write
+    \[
+    \lim_{n \to \infty} f_n(x) = f(x) \quad \text{for all } x \in D.
+    \] 
+\end{definition}
+
+\vspace{150pt}
+
+\begin{definition}[Pointwise Convergence of Series of Functions]
+    A series of functions $\sum_{n=1}^{\infty} f_n$ defined on a domain $D$ is said to \textbf{converge pointwise} to a function $F$ on $D$ if for \textbf{every $x \in D$} the sequence of partial sums
+    \[
+    S_N(x) = \sum_{n=1}^{N} f_n(x)
+    \]
+converges pointwise to $F(x)$ as $N \to \infty$.
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+    Some Problems on Pointwise Convergence
+\end{heading}
+
+\begin{problem}[Pointwise Limit of Continuous Functions]
+    Define a sequence of functions $\{f_n\}$ on $[0,1]$ by
+    \[
+    f_n(x) = x^n.
+    \]
+    \begin{enumerate}
+        \item Find the pointwise limit $f(x)$ of $\{f_n\}$ on $[0,1]$.
+        \item Show that each $f_n$ is continuous on $[0,1]$.
+        \item Show that the limit function $f$ is not continuous on $[0,1]$.
+    \end{enumerate}
+\end{problem}
+
+\clearpage
+
+\begin{problem}[Pointwise Convergent Series with Discontinuous Sum]
+For $n\in\mathbb{N}$, define $f_n:\R\to\mathbb{R}$ by
+\[
+f_n(x)=\frac{x^2}{(1+x^2)^n}.
+\]
+
+Consider the series of functions
+\[
+\sum_{n=0}^{\infty} f_n(x).
+\]
+
+\begin{enumerate}
+\item Show that each $f_n$ is continuous on $[0,1]$.
+\item Show that for each $x\in[0,1)$, the series converges and find its sum.
+\item Show that the sum function is not continuous on $[0,1]$.
+\end{enumerate}
+\end{problem}
+
+\clearpage
+
+\begin{problem}[Pointwise Limit of Differentiable Functions]
+Define $f_n:[-1,1]\to\mathbb{R}$ by
+\[
+f_n(x) = x^{1+\frac{1}{2n-1}}.
+\]
+\begin{enumerate}
+\item Show that $f_n(x)\to |x|$ pointwise on $[-1,1]$.
+\item Show that each $f_n$ is differentiable on $[-1,1]$.
+\item Show that the limit function $f(x)=|x|$ is not differentiable at $x=0$.
+\end{enumerate}
+\end{problem}
+
+\clearpage
+
+\begin{problem}[Interchanging Limit and Derivative]
+Define $f_n:\mathbb{R}\to\mathbb{R}$ by
+\[
+f_n(x)=\frac{\sin(nx)}{\sqrt{n}}.
+\]
+\begin{enumerate}
+\item Show that $f_n(x)\to 0$ for all $x\in\mathbb{R}$.
+\item Compute $f_n'(x)$.
+\item Conclude that
+\[
+\left(\lim_{n\to\infty} f_n\right)' \neq \lim_{n\to\infty} f_n'.
+\]
+\end{enumerate}
+\end{problem}
+
+
+\clearpage
+
+\begin{problem}[Interchanging Limit and Integral]
+Define $f_n:[0,1]\to\mathbb{R}$ by
+\[
+f_n(x)=nx(1-x^2)^n.
+\]
+\begin{enumerate}
+\item Show that $f_n(x)\to 0$ for every $x\in[0,1]$.
+\item Compute $\displaystyle \int_0^1 f_n(x)\,dx$.
+\item Conclude that
+\[
+\lim_{n\to\infty}\int_0^1 f_n(x)\,dx \ne \int_0^1 \lim_{n\to\infty} f_n(x)\,dx.
+\]
+\end{enumerate}
+\end{problem}
+
+\clearpage
+
+\begin{problem}[Interchanging Sum and Integral]
+Define $f_n:[0,1]\to\mathbb{R}$ by
+\[
+f_n(x)=
+\begin{cases}
+n^2x, & 0\le x\le \frac{1}{n},\\
+n^2\!\left(\frac{2}{n}-x\right), & \frac{1}{n}<x\le \frac{2}{n},\\
+0, & \frac{2}{n}<x\le 1.
+\end{cases}
+\]
+Show that $\sum f_n(x)$ converges pointwise on $[0,1]$, but
+\[
+\int_0^1 \sum_{n=1}^\infty f_n(x)\,dx
+\neq
+\sum_{n=1}^\infty \int_0^1 f_n(x)\,dx.
+\]
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+    Uniform Convergence
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Uniform Convergence of a Sequence of Functions]
+    A sequence of functions $\{f_n\}$ defined on a domain $D$ is said to \textbf{converge uniformly} to a function $f$ on $D$ if for every $\varepsilon > 0$, there exists a natural number $N \in \N$ such that for all $n \geq N$ and for all $x \in D$, the following inequality holds:
+    \[
+    |f_n(x) - f(x)| < \varepsilon.
+    \]
+    In this case, we write
+    \[
+    f_n \to f \text{ uniformly on } D.
+    \]
+    \textbf{Note:} In uniform convergence, the choice of $N$ depends only on $\varepsilon$ and not on $x$, which is a stronger condition than pointwise convergence.
+\end{definition}
+
+\vspace{100pt}
+
+\begin{definition}[Uniform Convergence of Series of Functions]
+    A series of functions $\sum_{n=1}^{\infty} f_n$ defined on a domain $D$ is said to \textbf{converge uniformly} to a function $F$ on $D$ if the sequence of partial sums
+    \[
+    S_N(x) = \sum_{n=1}^{N} f_n(x)
+    \]
+converges uniformly to $F(x)$ as $N \to \infty$.
+\end{definition}
+
+\clearpage
+
+\begin{problem}
+    Test whether the sequence of functions $\{f_n\}$ defined by
+    \[
+    f_n(x) = \frac{\sin(nx)}{\sqrt{n}}
+    \]
+    converges uniformly on the interval $[0,2\pi]$.    
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+    Test whether the sequence of functions $\{f_n\}$ defined by
+    \[
+    f_n(x) = \frac{x}{1+nx^2}
+    \]
+    converges uniformly on the interval $[0,1]$.    
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+Show that the sequence of functions $\{f_n\}$ defined by
+\[
+f_n(x)=x^n
+\]
+is uniformly convergent on $[0,k]$ for every $0<k<1$, but converges only pointwise on $[0,1]$.
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+Show that the sequence of functions $\{f_n\}$ defined by
+\[
+f_n(x)=\frac{1}{x+n}
+\]
+is uniformly convergent on any interval $[0,b]$, where $b>0$.
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+    Show that $f_n(x)=\tan^{-1}(nx)$ is uniformly convergent on $[a,b]$ for $a>0$,
+but not uniformly convergent on $[0,b]$.    
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+    Cauchy Criterion for Uniform Convergence
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Cauchy Criterion for Uniform Convergence]
+    A sequence of functions $\{f_n\}$ defined on a domain $D$ is said to satisfy the \textbf{Cauchy criterion for uniform convergence} if for every $\varepsilon > 0$, there exists a natural number $N \in \N$ such that for all $m, n \geq N$ and for all $x \in D$, the following inequality holds:
+    \[
+    |f_n(x) - f_m(x)| < \varepsilon.
+    \]
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Cauchy Criterion for Uniform Convergence of Series]
+    A series of functions $\sum_{n=1}^{\infty} f_n$ defined on a domain $D$ is said to satisfy the \textbf{Cauchy criterion for uniform convergence} if for every $\varepsilon > 0$, there exists a natural number $N \in \N$ such that for all $m > n \geq N$ and for all $x \in D$, the following inequality holds:
+    \[
+    \left|f_{n+1}(x) + f_{n+2}(x) + f_{n+3}(x) + \dots + f_{m}(x)\right| < \varepsilon.
+    \]
+    
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Test for Uniform Convergence of Sequence of Functions
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Uniform Convergence via Supremum Norm]
+Let $\{f_n\}$ be a sequence of functions defined on a set $D$, and let $f:D\to\mathbb{R}$
+be a function. For each $n$, define
+\[
+M_n=\sup_{x\in D}\,|f_n(x)-f(x)|.
+\]
+Then $f_n\to f$ uniformly on $D$ if and only if
+\[
+M_n \xrightarrow[n\to\infty]{} 0.
+\]
+\end{theorem}
+
+\begin{problem}[Remark]
+The assumption that $f_n\to f$ pointwise is not needed: if $M_n\to 0$, then
+$f_n\to f$ automatically (indeed, uniformly).
+\end{problem}
+
+
+\clearpage
+
+\begin{problem}
+Consider the sequence of functions $f_n:\R\to\mathbb{R}$, $n\ge 1$, defined by
+\[
+f_n(x)=\frac{x}{nx^2+1}, \qquad x\in\R.
+\]
+Does $\{f_n\}$ have a uniform limit on $\R$? Justify your answer.
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+Consider the sequence of functions $f_n:(0,1)\to\mathbb{R}$, $n\ge 1$, defined by
+\[
+f_n(x)=\frac{nx}{nx^2+1}, \qquad 0<x<1.
+\]
+Does $\{f_n\}$ have a uniform limit on $(0,1)$? Justify your answer.
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+Show that the sequence of functions $\{f_n\}$ defined on $[0,1]$ by
+\[
+f_n(x)=
+\begin{cases}
+nx, & 0\le x \le \dfrac{1}{n},\\[6pt]
+\dfrac{1}{n}, & \dfrac{1}{n} < x \le 1,
+\end{cases}
+\]
+is not uniformly convergent on $[0,1]$.
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+Let $\{f_n\}$ be a sequence of functions defined on $[0,\infty)$ by
+\[
+f_n(x)=nxe^{-nx^2}, \qquad x\ge 0.
+\]
+Does $\{f_n\}$ have a uniform limit on $[0,\infty)$? Justify your answer.
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+    Test for Uniform Convergence of Series of Functions
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Weierstrass M-Test for Series of Functions]
+Let $\{f_n\}$ be a sequence of functions defined on a set $D$.
+Assume there exists a sequence of real numbers $\{M_n\}$ with $M_n\ge 0$ such that
+\[
+|f_n(x)|\le M_n \quad \text{for all } x\in D \text{ and all } n.
+\]
+If the numerical series $\sum_{n=1}^{\infty} M_n$ converges, then the function series
+\[
+\sum_{n=1}^{\infty} f_n(x)
+\]
+converges uniformly on $D$ (also absolutely on $D$).
+\end{theorem}
+
+\begin{problem}[Remark]
+The converse is false in general: uniform convergence of $\sum f_n$ does not imply
+that $\sum \sup_{x\in D}|f_n(x)|$ converges.
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+Show that the series of functions
+\[
+\sum_{n=1}^{\infty} \frac{\sin\!\left(x^{2}+n^{2}x\right)}{n(n+1)}
+\]
+is uniformly convergent for all real numbers $x$.
+\end{problem}
+
+\clearpage
+
+
+\EndPage
+\end{document}

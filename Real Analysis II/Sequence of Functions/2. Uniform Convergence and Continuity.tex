@@ -1,0 +1,228 @@
+% ===============================
+% Worksheet / Manual Template
+% ===============================
+\documentclass[12pt, a4paper]{article}
+
+% ===============================
+% Metadata
+% ===============================
+\newcommand*{\CourseCode}{MAT321}
+\newcommand*{\CourseTitle}{Real Analysis II}
+\newcommand*{\Chapter}{Uniform Convergence and Continuity}
+\newcommand*{\Topics}{Property of Uniform Convergence, Continuity of Limit Function}
+\newcommand*{\DocDate}{February 07, 2026}
+
+\include{header}
+
+% ==========================================
+% Document
+% ==========================================
+\begin{document}
+\FrontPage
+\Large
+
+\begin{heading}
+    Convergence of Sequence in Real Numbers
+\end{heading}
+
+\vspace{10pt}
+
+
+\begin{definition}[Convergence of a Sequence]
+	A sequence $\{a_n\}$ is said to \textbf{converge} to a real number $a$ if for every real number $\varepsilon > 0,$ there exists a natural number $N \in \N$ such that for all $n \geq N,$ the terms of the sequence satisfy the inequality 
+	\[
+	|a_n - a| < \varepsilon.
+	\]
+	If such a number $a$ exists, it is called the \textbf{limit} of the sequence, and we write
+	\[
+	\lim a_n = a \quad \text{or} \quad a_n \to a \text{ as } n \to \infty.
+	\]
+\end{definition}
+
+\vspace{30pt}
+
+\begin{definition}[Cauchy Criterion for Convergence]
+    A sequence $\{a_n\}$ is said to satisfy the \textbf{Cauchy criterion} if for every real number $\varepsilon > 0,$ there exists a natural number $N \in \N$ such that for all $m, n \geq N,$ the terms of the sequence satisfy the inequality 
+    \[
+    |a_n - a_m| < \varepsilon.
+    \]
+    Note: A sequence that satisfies the Cauchy criterion is called a \textbf{Cauchy sequence}. In the real numbers, every Cauchy sequence converges to a limit, and every convergent sequence is a Cauchy sequence.
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+    Limit and Continuity of a function
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Limit of a Function]
+    Let $f:A\to\R$ be a function defined on a subset $A$ of the real numbers, and let $c$ be a limit point of $A$. We say that the \textbf{limit} of $f(x)$ as $x$ approaches $c$ is equal to $L$, and we write
+\[
+\lim_{x \to c} f(x) = L,
+\]
+if for every $\varepsilon > 0$, there exists a $\delta > 0$ such that for all $x \in A$ with $0 < |x - c| < \delta$, we have
+\[
+|f(x) - L| < \varepsilon.
+\]
+\end{definition}
+
+\vspace{30pt}
+
+\begin{definition}[Continuity of a Function]
+    A function $f:A\to\R$ is said to be \textbf{continuous} at a point $c \in A$ if
+\[
+\lim_{x \to c} f(x) = f(c).
+\]
+In other words, $f$ is continuous at $c$ if for every $\varepsilon > 0$, there exists a $\delta > 0$ such that for all $x \in A$ with $|x - c| < \delta$, we have
+\[
+|f(x) - f(c)| < \varepsilon.
+\]
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+    Poinwise Convergence and Uniform Convergence
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Pointwise Convergence]
+    A sequence of functions $\{f_n\}$ defined on a domain $D$ is said to \textbf{converge pointwise} to a function $f$ on $D$ if for \textbf{every $x \in D$} and for every $\varepsilon > 0$, there exists a natural number $N \in \N$ (which may depend on $x$ and $\varepsilon$) such that for all $n \geq N$, the following inequality holds:
+    \[
+    |f_n(x) - f(x)| < \varepsilon.
+    \]
+    In this case, we write
+    \[
+    \lim_{n \to \infty} f_n(x) = f(x) \quad \text{for all } x \in D.
+    \] 
+\end{definition}
+
+\vspace{10pt}
+
+\begin{definition}[Uniform Convergence]
+    A sequence of functions $\{f_n\}$ defined on a domain $D$ is said to \textbf{converge uniformly} to a function $f$ on $D$ if for every $\varepsilon > 0$, there exists a natural number $N \in \N$ such that for all $n \geq N$ and for all $x \in D$, the following inequality holds:
+    \[
+    |f_n(x) - f(x)| < \varepsilon.
+    \]
+    In this case, we write
+    \[
+    f_n \to f \text{ uniformly on } D.
+    \]
+    \textbf{Note:} In uniform convergence, the choice of $N$ depends only on $\varepsilon$ and not on $x$, which is a stronger condition than pointwise convergence.
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+    Uniform Convergence implies Pointwise Convergence
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}
+    If a sequence of functions $\{f_n\}$ converges uniformly to a function $f$ on a domain $D$, then it also converges pointwise to $f$ on $D$.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Uniform Limit of Continuous Functions is Continuous
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}
+    Let $\{f_n\}$ be a sequence of functions defined on a domain $D$, and suppose that each $f_n$ is continuous at a point $c \in D$. If $\{f_n\}$ converges uniformly to a function $f$ on $D$, then $f$ is also continuous at the point $c$.
+\end{theorem}
+
+\clearpage
+
+\begin{problem}
+    Show that $f_n(x)=x^n$ is not uniformly convergent on $[0, 1]$. 
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+    Interchange of Limits under Uniform Convergence
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Interchange of Limits for Sequence]
+Let $\{f_n\}$ be a sequence of functions that converges uniformly to a function
+$f$ on a set $D\subset\mathbb{R}$, and let $x_0$ be a limit point of $D$.
+Suppose that for each $n=1,2,3,\dots$,
+\[
+\lim_{x\to x_0} f_n(x) = a_n
+\]
+exists. Then:
+\begin{enumerate}
+\item the sequence $\{a_n\}$ converges, and
+\item 
+\[
+\lim_{x\to x_0} f(x) = \lim_{n\to\infty} a_n.
+\]
+\end{enumerate}
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Interchange of Limits for Series]
+Let $D\subset\mathbb{R}$ and let $\sum_{n=1}^{\infty} f_n$ be a series of functions
+defined on $D$ whose partial sums
+\[
+S_N(x)=\sum_{n=1}^{N} f_n(x)
+\]
+converge uniformly on $D$ to a function $f:D\to\mathbb{R}$.
+Let $x_0$ be a limit point of $D$.
+Assume that for each $n=1,2,3,\dots$ the limit
+\[
+\lim_{\substack{x\to x_0\\ x\in D}} f_n(x)=a_n
+\]
+exists. Then:
+\begin{enumerate}
+\item the numerical series $\displaystyle \sum_{n=1}^{\infty} a_n$ converges, and
+\item
+\[
+\lim_{\substack{x\to x_0\\ x\in D}} f(x)=\sum_{n=1}^{\infty} a_n.
+\]
+\end{enumerate}
+\end{theorem}
+
+
+
+\clearpage
+
+\begin{heading}
+    When Pointwise Convergence is Uniform Convergence
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Dini's Theorem]
+Let $K$ be compact, and $f_n:K\to\mathbb{R}$ continuous. Suppose $f_n\to f$ pointwise on $K$,
+$f$ is continuous, and the convergence is monotone (either $f_n\uparrow f$ or $f_n\downarrow f$ pointwise).
+Then $f_n\to f$ uniformly on $K$.
+\end{theorem}
+
+\clearpage
+
+\begin{problem}
+    Show that $f_n(x)=\tan^{-1}(nx)$ is uniformly convergent on $[a,b]$ for $a>0$,
+but not uniformly convergent on $[0,b]$.    
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+    Let $x\ge 0$ and define $f_1(x)=\sqrt{x}$, $f_{n+1}(x)=\sqrt{x+f_n(x)}$.
+Discuss uniform convergence on (i) $[a,b]$ with $0<a<b$ and (ii) $[0,1]$.
+\end{problem}
+
+
+\EndPage
+\end{document}
