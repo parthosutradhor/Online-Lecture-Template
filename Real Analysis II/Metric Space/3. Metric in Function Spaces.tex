@@ -1,0 +1,267 @@
+% ===============================
+% Worksheet / Manual Template
+% ===============================
+\documentclass[12pt, a4paper]{article}
+
+% ===============================
+% Metadata
+% ===============================
+\newcommand*{\CourseCode}{MAT321}
+\newcommand*{\CourseTitle}{Real Analysis II}
+\newcommand*{\Chapter}{Metric in Function Spaces}
+\newcommand*{\Topics}{Norms and Metrics in $C[a,b]$, $B(A)$, $L^p(E)$, and $L^\infty(E)$}
+\newcommand*{\DocDate}{February 08, 2026}
+
+\include{header}
+
+% ==========================================
+% Document
+% ==========================================
+\begin{document}
+\FrontPage
+\Large
+
+\begin{heading}
+    Metric Space
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Metric Space]
+    A \textbf{metric space} is a pair $(X,d)$ where $X\neq\varnothing$ and
+    $d:X\times X\to\mathbb{R}$ satisfies, for all $x,y,z\in X$:
+    \begin{enumerate}[label=(M\arabic*)]
+    \item $d(x,y)\ge 0$;
+    \item $d(x,y)=0 \iff x=y$;
+    \item $d(x,y)=d(y,x)$;
+    \item $d(x,z)\le d(x,y)+d(y,z)$.
+    \end{enumerate}
+    Here $d$ is called a \textbf{metric} on $X$.
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+    Normed Linear Space
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Normed Linear Space]
+    A \textbf{normed linear space} is a pair $(X,\|\cdot\|)$ where $X$ is a vector space
+    over $\mathbb{R}$ (or $\mathbb{C}$) and
+    $\|\cdot\|:X\to\mathbb{R}$ satisfies, for all $x,y\in X$ and $\alpha\in\mathbb{R}$
+    (or $\mathbb{C}$):
+    \begin{enumerate}[label=(N\arabic*)]
+    \item $\|x\|\ge 0$;
+    \item $\|x\|=0 \iff x=0$;
+    \item $\|\alpha x\|=|\alpha|\|x\|$;
+    \item $\|x+y\|\le \|x\|+\|y\|$.
+    \end{enumerate}
+    Here $\|\cdot\|$ is called a \textbf{norm} on $X$.
+\end{definition}
+
+\vspace{100pt}
+
+\begin{theorem}[Metric Induced by a Norm]
+    Let $(X,\|\cdot\|)$ be a normed space. Define $d:X\times X\to\mathbb{R}$ as
+    \[
+        d(x,y)=\|x-y\|.
+    \]
+    Show that $d$ is a metric on $X$.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Funtion Spaces
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Space of Continuous Functions $C[a,b]$]
+    Let $a,b\in\mathbb{R}$ with $a<b$. The \textbf{function space} $C[a,b]$ is the set
+    of all continuous functions defined on the closed interval $[a,b]$.
+\end{definition}
+
+\vspace{100pt}
+
+\begin{definition}[Space of Bounded Functions $B(A)$]
+    Let $A$ be a non-empty set. The \textbf{function space} $B(A)$ is the set of all
+    bounded functions defined on $A$.
+\end{definition}
+
+
+\clearpage
+
+\begin{heading}
+    Norm and Metric in $C[a,b]$
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Max Norm in $C[a,b]$]
+    Let $a,b\in\mathbb{R}$ with $a<b$. Define $\|\cdot\|_\infty:C[a,b]\to\mathbb{R}$ as
+    \[
+        \|f\|=\max_{x\in[a,b]} |f(x)|.
+    \]
+    Show that $\|\cdot\|$ is a norm on $C[a,b]$.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Max Metric in $C[a,b]$]
+    Let $a,b\in\mathbb{R}$ with $a<b$. Define $d:C[a,b]\times C[a,b]\to\mathbb{R}$ as
+    \[
+        d(f,g)=\max_{x\in[a,b]} |f(x)-g(x)|.
+    \]
+    Show that $d_1$ is a metric on $C[a,b]$.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Integral Norm in $C[a,b]$]
+    Let $a,b\in\mathbb{R}$ with $a<b$. Define $\|\cdot\|:C[a,b]\to\mathbb{R}$ as
+    \[
+        \|f\|=\int_a^b |f(x)|\,dx.
+    \]
+    Show that $\|\cdot\|$ is a norm on $C[a,b]$.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Integral Metric in $C[a,b]$]
+    Let $a,b\in\mathbb{R}$ with $a<b$. Define $d:C[a,b]\times C[a,b]\to\mathbb{R}$ as
+    \[
+        d(f,g)=\int_a^b |f(x)-g(x)|\,dx.
+    \]
+    Show that $d$ is a metric on $C[a,b]$.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Norm and Metric in $B(A)$
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Supremum Norm in $B(A)$]
+    Let $A$ be a non-empty set. Define $\|\cdot\|_\infty:B(A)\to\mathbb{R}$ as
+    \[
+        \|f\|_\infty=\sup_{x\in A} |f(x)|.
+    \]
+    Show that $\|\cdot\|_\infty$ is a norm on $B(A)$.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Supremum Metric in $B(A)$]
+    Let $A$ be a non-empty set. Define $d_\infty:B(A)\times B(A)\to\mathbb{R}$ as
+    \[
+        d_\infty(f,g)=\sup_{x\in A} |f(x)-g(x)|.
+    \]
+    Show that $d_\infty$ is a metric on $B(A)$.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Problems with the Supremum and Integral Norm/Metric
+\end{heading}
+
+\clearpage
+
+\begin{heading}
+    Measure of a Set (Informal)
+\end{heading}
+
+\clearpage
+
+\begin{heading}
+    Lebesgue Integral (Informal)
+\end{heading}
+
+\clearpage
+
+\begin{heading}
+    What is $L^p$ Space?
+\end{heading}
+
+\begin{definition}[Formal Definition of $L^p(E)$]
+    Let $E\subseteq\mathbb{R}$ be a measurable set and $1\le p<\infty$. The \textbf{function
+    space} $L^p(E)$ is the set of all equivalence classes of measurable functions $f:E\to\mathbb{R}$ such that
+    \[
+        \int_E |f(x)|^p\,dx<\infty.
+    \]
+    Here two functions $f$ and $g$ are said to be \textbf{equivalent} if $f(x)=g(x)$ for almost every $x\in E$.    
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+    Norm and Metric in $L^p(E)$
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[$L^p$ Norm in $L^p(E)$]
+    Let $E\subseteq\mathbb{R}$ be a measurable set and $1\le p<\infty$. Define $\|\cdot\|_p:L^p(E)\to\mathbb{R}$ as
+    \[
+        \|f\|_p=\left(\int_E |f(x)|^p\,dx\right)^{1/p}.
+    \]
+    Show that $\|\cdot\|_p$ is a norm on $L^p(E)$.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[$L^p$ Metric in $L^p(E)$]
+    Let $E\subseteq\mathbb{R}$ be a measurable set and $1\le p<\infty$. Define $d_p:L^p(E)\times L^p(E)\to\mathbb{R}$ as
+    \[
+        d_p(f,g)=\left(\int_E |f(x)-g(x)|^p\,dx\right)^{1/p}.
+    \]
+    Show that $d_p$ is a metric on $L^p(E)$.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    The $L^\infty$ Space
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[$L^\infty(E)$]
+    Let $E\subseteq\mathbb{R}$ be a measurable set. The \textbf{function space} $L^\infty(E)$ is the set of all equivalence classes of measurable functions $f:E\to\mathbb{R}$ such that
+    \[
+        \esssup_{x\in E} |f(x)|<\infty.
+    \]
+    Here two functions $f$ and $g$ are said to be \textbf{equivalent} if $f(x)=g(x)$ for almost every $x\in E$.
+\end{definition}
+
+\clearpage
+
+\begin{theorem}[$L^\infty$ Norm in $L^\infty(E)$]
+    Let $E\subseteq\mathbb{R}$ be a measurable set. Define $\|\cdot\|_\infty:L^\infty(E)\to\mathbb{R}$ as
+    \[
+        \|f\|_\infty=\esssup_{x\in E} |f(x)|.
+    \]
+    Show that $\|\cdot\|_\infty$ is a norm on $L^\infty(E)$.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[$L^\infty$ Metric in $L^\infty(E)$]
+    Let $E\subseteq\mathbb{R}$ be a measurable set. Define $d_\infty:L^\infty(E)\times L^\infty(E)\to\mathbb{R}$ as
+    \[
+        d_\infty(f,g)=\esssup_{x\in E} |f(x)-g(x)|.
+    \]
+    Show that $d_\infty$ is a metric on $L^\infty(E)$.
+\end{theorem}
+
+
+
+\clearpage
+
+\EndPage
+\end{document}
