@@ -8,9 +8,9 @@
 % ===============================
 \newcommand*{\CourseCode}{MAT321}
 \newcommand*{\CourseTitle}{Real Analysis II}
-\newcommand*{\Chapter}{Uniform Convergence and Continuity}
-\newcommand*{\Topics}{Property of Uniform Convergence, Continuity of Limit Function}
-\newcommand*{\DocDate}{February 07, 2026}
+\newcommand*{\Chapter}{Theorems on Uniform Convergence}
+\newcommand*{\Topics}{Continuity, Integration, Differentiation}
+\newcommand*{\DocDate}{February 11, 2026}
 
 \include{header}
 
@@ -222,6 +222,164 @@ but not uniformly convergent on $[0,b]$.
     Let $x\ge 0$ and define $f_1(x)=\sqrt{x}$, $f_{n+1}(x)=\sqrt{x+f_n(x)}$.
 Discuss uniform convergence on (i) $[a,b]$ with $0<a<b$ and (ii) $[0,1]$.
 \end{problem}
+
+\clearpage
+
+\begin{heading}
+    Uniform Convergence and Integration
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Uniform Convergence and Integration]
+Let $\{f_n\}$ be a sequence of functions that converges uniformly to $f$ on $[a,b]$.
+If each function $f_n$ is integrable on $[a,b]$, then $f$ is integrable on $[a,b]$,
+and the sequence
+\[
+\left\{\int_a^x f_n(t)\,dt\right\}
+\]
+converges uniformly to
+\[
+\int_a^x f(t)\,dt
+\]
+on $[a,b]$, that is,
+\[
+\int_a^x f(t)\,dt
+=
+\lim_{n\to\infty}\int_a^x f_n(t)\,dt,
+\qquad \forall x\in[a,b].
+\]
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Uniform Convergence of a Series and Integration]
+If a series $\sum_{n=1}^{\infty} f_n$ converges uniformly to $f$ on $[a,b]$, and each term
+$f_n(x)$ is integrable on $[a,b]$, then $f$ is integrable on $[a,b]$, and the series
+\[
+\sum_{n=1}^{\infty}\left(\int_a^x f_n(t)\,dt\right)
+\]
+converges uniformly to
+\[
+\int_a^x f(t)\,dt
+\]
+on $[a,b]$, that is,
+\[
+\int_a^x f(t)\,dt
+=
+\sum_{n=1}^{\infty}\left(\int_a^x f_n(t)\,dt\right),
+\qquad \forall x\in[a,b].
+\]
+\end{theorem}
+
+\clearpage
+
+\begin{problem}
+Define on $[0,1]$:
+\[
+f_n(x)=
+\begin{cases}
+n(1-nx), & 0<x<\frac{1}{n},\\
+0, & \text{otherwise}.
+\end{cases}
+\]
+Compute
+\[
+\int_0^1 f_n(x)\,dx
+\]
+and compare it with the pointwise limit of $\{f_n\}$.
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+Let
+\[
+f_n(x)=n x e^{-n x^2}
+\quad \text{on } [0,1].
+\]
+Compute
+\[
+\int_0^1 f_n(x)\,dx
+\]
+and compare it with the pointwise limit of $\{f_n\}$.
+\end{problem}
+
+
+\clearpage
+
+\begin{heading}
+    Uniform Convergence and Differentiation
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Uniform Convergence of Derivatives]
+Let $\{f_n\}$ be a sequence of functions defined on the closed interval $[a,b]$
+such that $f_n \to f$ pointwise on $[a,b]$, and assume that each $f_n$ is differentiable.
+If $\{f_n'\}$ converges uniformly on $[a,b]$ to a function $G$, then $f$ is differentiable
+on $[a,b]$ and
+\[
+f'(x)=G(x).
+\]
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Uniform Convergence of Derivatives with One-Point]
+Let $\{f_n\}$ be a sequence of differentiable functions on $[a,b]$ such that it converges
+at least at one point $x_0\in [a,b]$. If the sequence of derivatives $\{f_n'\}$ converges
+uniformly to a function $G$ on $[a,b]$, then the sequence $\{f_n\}$ converges uniformly
+on $[a,b]$ to a function $f$ and
+\[
+f'(x)=G(x).
+\]
+\end{theorem}
+
+
+\clearpage
+
+\begin{theorem}[Term-by-Term Differentiation of a Series]
+Let $\sum_{n=1}^{\infty} f_n$ be a series of differentiable functions on $[a,b]$
+such that it converges at least at one point $x_0\in [a,b]$.
+If the series of derivatives
+\[
+\sum_{n=1}^{\infty} f_n'
+\]
+converges uniformly to a function $G$ on $[a,b]$, then the given series
+\[
+\sum_{n=1}^{\infty} f_n
+\]
+converges uniformly on $[a,b]$ to a function $f$ and
+\[
+f'(x)=G(x).
+\]
+\end{theorem}
+
+\clearpage
+
+\begin{problem}
+Let
+\[
+f_n(x)=\frac{\cos(nx)}{n}\qquad (x\in\mathbb{R}).
+\]
+\begin{enumerate}
+    \item Show that $f_n\to 0$ uniformly on $\mathbb{R}$.
+    \item Find where $f_n'$ converges.
+    \item Construct a modified example where $f_n\to 0$ uniformly but $\{f_n'\}$ is unbounded.
+\end{enumerate}
+\end{problem}
+
+\clearpage
+
+\begin{problem}[Uniform Convergence and Differentiation]
+State the theorem that relates uniform convergence and differentiation for a sequence of
+functions. Hence verify the result in detail for the sequence of functions $\{f_n\}$ where
+\[
+f_n(x)=x-\frac{x^n}{n},\qquad x\in[0,1].
+\]
+\end{problem}
+
 
 
 \EndPage
