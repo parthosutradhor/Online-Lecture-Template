@@ -1,0 +1,244 @@
+% ===============================
+% Worksheet / Manual Template
+% ===============================
+\documentclass[12pt, a4paper]{article}
+
+% ===============================
+% Metadata
+% ===============================
+\newcommand*{\CourseCode}{MAT321}
+\newcommand*{\CourseTitle}{Real Analysis II}
+\newcommand*{\Chapter}{Subspaces, Separable Spaces}
+\newcommand*{\Topics}{Dense Set and Perfect Set}
+\newcommand*{\DocDate}{February 08, 2026}
+
+\include{header}
+
+% ==========================================
+% Document
+% ==========================================
+\begin{document}
+\FrontPage
+\Large
+
+
+\begin{heading}
+    Subspaces
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Subspace and Induced Metric]
+Let $(X,d)$ be a metric space and let $Y$ be a non-empty subset of $X$.
+The restriction of the metric $d$ to $Y\times Y$, denoted by $d_Y$, is a metric on $Y$
+called the \emph{induced metric}. The metric space $(Y,d_Y)$ is called a
+\emph{subspace} of $(X,d)$.
+\end{definition}
+
+\vspace{100pt}
+
+\begin{problem}[Examples of Subspaces]
+Verify that:
+\begin{enumerate}
+    \item the closed unit interval $[0,1]$ and the set of all rational numbers $\mathbb{Q}$
+    are subspaces of $\mathbb{R}$ with the usual metric;
+    \item the unit circle, the closed unit disc, and the open unit disc are subspaces of
+    the metric space $(\mathbb{C},d)$ of complex numbers;
+    \item the real line $\mathbb{R}$ itself is a subspace of the complex plane $\mathbb{C}$.
+\end{enumerate}
+\end{problem}
+
+\clearpage
+
+\begin{definition}[Open Sphere in a Subspace]
+Let $(X,d)$ be a metric space, let $Y\subseteq X$, and let $y\in Y$.
+The open sphere in the subspace $(Y,d_Y)$ centered at $y$ with radius $r>0$ is denoted by
+$S_r^{\,Y}(y)$ and is defined by
+\[
+S_r^{\,Y}(y)=\{x\in Y : d_Y(x,y)<r\}.
+\]
+\end{definition}
+
+\vspace{100pt}
+
+\begin{problem}[Relation Between Open Spheres]
+Show that for every $y\in Y$ and every $r>0$,
+\[
+S_r^{\,Y}(y)=S_r(y)\cap Y,
+\]
+where $S_r(y)$ denotes the open sphere in $(X,d)$.
+\end{problem}
+
+
+\clearpage
+
+\begin{theorem}[Open Sets in Subspaces]
+Let $(X,d)$ be a metric space and let $Y\subseteq X$. A subset $A$ of $Y$ is open in
+$(Y,d_Y)$ if and only if there exists a set $G$ open in $(X,d)$ such that
+\[
+A = G \cap Y.
+\]
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Open Sets in a Subspace vs Ambient Space]
+Show that if $Y\subseteq X$ and a subset of $Y$ is open in $(X,d)$, then it is also open in
+the subspace $(Y,d_Y)$. Show by examples that the converse need not be true.
+\end{theorem}
+
+\vspace{20pt}
+
+\begin{problem}[Open in a Subspace may Not be open in Superspace]
+Let $X=\mathbb{R}$ with the usual metric and let
+\[
+Y=[0,1].
+\]
+Then the open sphere in $(Y,d_Y)$ centered at $0$ with radius $\tfrac12$ is
+\[
+S^{\,Y}_{1/2}(0)=[0,\tfrac12),
+\]
+which is open in $Y$ but not open in $\mathbb{R}$. Note that $Y$ itself is not open in
+$\mathbb{R}$.
+\end{problem}
+
+\vspace{80pt}
+
+\begin{problem}[Example: Real Line vs Complex Plane]
+Show that an open interval of the real line is not an open subset of the complex plane
+$\mathbb{C}$ with the usual metric.
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+    Dense Sets
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Dense Set]
+A subset $A$ of a metric space $(X,d)$ is said to be \emph{dense} (or \emph{everywhere dense})
+in $X$ if the closure of $A$ is $X$, that is,
+\[
+\overline{A}=X.
+\]
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+    Nowhere Dense Sets
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Nowhere Dense Set]
+Let $A$ be a subset of a metric space $(X,d)$. The set $A$ is said to be
+\emph{nowhere dense} in $X$ if the interior of its closure is empty, that is,
+\[
+\operatorname{int}(\overline{A})=\emptyset.
+\]
+\end{definition}
+
+\vspace{10pt}
+
+\begin{problem}[Basic Properties of Nowhere Dense Sets]
+Show that:
+\begin{enumerate}
+    \item every finite subset of $X$ is nowhere dense;
+    \item every subset of a nowhere dense set is nowhere dense;
+    \item $A$ is nowhere dense in $X$ if and only if $\overline{A}$ is nowhere dense in $X$.
+\end{enumerate}
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+    Somewhere Dense Sets and Dense-in-itself Sets
+\end{heading}
+
+vspace{10pt}
+
+\begin{definition}[Somewhere Dense Set]
+A subset $A$ of $X$ is said to be \emph{somewhere dense} in $X$ if it is not nowhere dense.
+Equivalently, $A$ is somewhere dense in $X$ if and only if $\overline{A}$ contains a non-empty
+open sphere.
+\end{definition}
+
+\vspace{10pt}
+
+\begin{definition}[Dense-in-itself Set]
+A subset $A$ of a metric space $(X,d)$ is said to be \emph{dense-in-itself} if every point of
+$A$ is a limit point of $A$, that is,
+\[
+A\subseteq A'.
+\]
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+    Perfect Sets
+\end{heading}
+
+vspace{10pt}
+
+\begin{definition}[Perfect Set]
+A subset $A$ of a metric space $(X,d)$ is said to be \emph{perfect} if it is closed and
+dense-in-itself, that is,
+\[
+A=A'.
+\]
+\end{definition}
+
+vspace{10pt}
+
+\begin{problem}[Examples of Perfect Sets]
+Show that every closed interval, the empty set $\emptyset$, and the whole space $X$ are
+perfect sets.
+\end{problem}
+
+\clearpage
+
+\begin{problem}[Cantor Set is Perfect]
+Show that the Cantor set is a perfect set.
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+    Separable Metric Space
+\end{heading}
+
+\begin{definition}[Separable Metric Space]
+A metric space $(X,d)$ is said to be \emph{separable} if there exists a countable subset of $X$
+which is dense in $X$.
+\end{definition}
+
+\clearpage
+
+\begin{problem}[Euclidean Space is Separable]
+Show that the Euclidean space $\mathbb{R}^n$ is separable.
+\end{problem}
+
+\clearpage
+
+\begin{problem}[$\ell^p$ is Separable]
+Show that the metric space $\ell^p$ of all sequences $(x_n)$ of real numbers such that $\sum_{n=1}^\infty |x_n|^p<\infty$ with the metric
+\[d_p((x_n),(y_n))=\left(\sum_{n=1}^\infty |x_n-y_n|^p\right)^{1/p}\]
+is separable for every $1\leq p<\infty$.
+\end{problem}
+
+\clearpage
+
+\begin{problem}[$\ell^\infty$ is Not Separable]
+Prove that the metric space $\ell^\infty$ of all bounded sequences with the supremum metric
+is not separable.
+\end{problem}
+
+
+\clearpage
+
+\EndPage
+\end{document}

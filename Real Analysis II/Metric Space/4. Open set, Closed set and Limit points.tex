@@ -1,0 +1,562 @@
+% ===============================
+% Worksheet / Manual Template
+% ===============================
+\documentclass[12pt, a4paper]{article}
+
+% ===============================
+% Metadata
+% ===============================
+\newcommand*{\CourseCode}{MAT321}
+\newcommand*{\CourseTitle}{Real Analysis II}
+\newcommand*{\Chapter}{Topology of Metric Spaces}
+\newcommand*{\Topics}{Open sets, Limit points and Closed sets}
+\newcommand*{\DocDate}{February 08, 2026}
+
+\include{header}
+
+% ==========================================
+% Document
+% ==========================================
+\begin{document}
+\FrontPage
+\Large
+
+
+\begin{heading}
+    Open and Closed Spheres
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Open Sphere]
+Let $(X,d)$ be a metric space and let $a \in X$. For any $r>0$, the set
+\[
+S_r(a)=\{x\in X : d(x,a)<r\}
+\]
+is called an \emph{open sphere} (or \emph{open ball}) of radius $r$ centered at $a$.
+\end{definition}
+
+\vspace{200pt}
+
+\begin{definition}[Closed Sphere]
+Let $(X,d)$ be a metric space and let $a \in X$. For any $r>0$, the set
+\[
+S_r[a]=\{x\in X : d(x,a)\le r\}
+\]
+is called a \emph{closed sphere} of radius $r$ centered at $a$.
+\end{definition}
+
+\clearpage
+
+\begin{problem}[Relation Between Open and Closed Spheres]
+Show that
+\[
+S_r(a)\subseteq S_r[a]
+\]
+for every $a\in X$ and for every $r>0$.
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+    Neighbourhood of a Point
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Neighbourhood of a Point]
+Let $(X,d)$ be a metric space and let $a\in X$. A subset $N_a\subseteq X$ is called a
+\emph{neighbourhood} of the point $a$ if there exists an open sphere $S_r(a)$ centered at $a$
+such that
+\[
+S_r(a)\subseteq N_a
+\]
+for some $r>0$.
+\end{definition}
+
+\vspace{200pt}
+
+\begin{definition}[Open Neighbourhood]
+A neighbourhood $N_a$ of a point $a$ is said to be \emph{open} if $N_a$ is an open set in $X$.
+    
+\end{definition}
+
+\clearpage
+
+\begin{problem}[Open Sphere Is a Neighbourhood of Its Points]
+Show that every open sphere is a neighbourhood of each of its points.
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+    Open Set
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Open Set]
+A subset $G$ of a metric space $(X,d)$ is said to be \emph{open} in $X$ (with respect to the metric $d$)
+if $G$ is a neighbourhood of each of its points. In other words, $G$ is open if for each $a\in G$
+there exists an $r>0$ such that
+\[
+S_r(a)\subseteq G.
+\]
+\end{definition}
+
+\clearpage
+
+\begin{problem}[Illustrations of Open Sets]
+Show that each of the following subsets is open.
+
+\begin{enumerate}
+    \item The empty set $\emptyset$ and the entire space $X$ with any metric are open sets.
+
+    \item Every open sphere in a metric space $(X,d)$ is an open set.
+
+    \item Let $A=\{z\in\mathbb{C} : 1<|z|<2\}$ with the usual metric. Then $A$ is an open set.
+
+    \item Let
+    \[
+    S=\{(x,y)\in\mathbb{R}^2 : x^2+y^2<1\}
+    \]
+    with the Euclidean metric. Then $S$ is an open set.
+
+    \item Let
+    \[
+    A=\{(x,y)\in\mathbb{R}^2 : y^2<x\}
+    \]
+    with the Euclidean metric. Then $A$ is an open set.
+
+    \item Let
+    \[
+    A=\left\{f\in C[a,b] : \inf_{x\in[a,b]} f(x)>0\right\}.
+    \]
+    Then $A$ is open in $C[a,b]$ with respect to the supremum metric.
+\end{enumerate}
+\end{problem}
+
+
+\clearpage
+
+\begin{problem}[Singleton Set in $\mathbb{R}$ Is Not Open]
+Show that on the real line with the usual metric, the singleton set $\{x\}$ is not open.
+\end{problem}
+
+\vspace{250pt}
+
+\begin{problem}[Singleton Sets Under Different Metrics]
+Let $\mathbb{R}$ be the set of real numbers, $d$ the usual metric and $d'$ the discrete metric on
+the same set $\mathbb{R}$. Show that every singleton set $\{x\}$, $x\in\mathbb{R}$, is open in
+$(\mathbb{R},d')$ but not open in $(\mathbb{R},d)$.
+\end{problem}
+
+\clearpage
+
+\begin{problem}[Discrete Metric Space: Every Set Is Open]
+Show that every subset of a discrete metric space $(X,d)$ is open.
+\end{problem}
+
+\vspace{250pt}
+
+\begin{problem}[A Subset Open in a Subspace]
+Let $(X,d)$ be a metric space where $X=(0,2)$ with the usual metric. Show that the subset
+\[
+A=(0,1)
+\]
+is an open set in $X$.
+\end{problem}
+
+\clearpage
+
+\begin{theorem}[Basic Properties of Open Sets]
+In any metric space $(X,d)$,
+\begin{enumerate}
+    \item the union of an arbitrary family of open sets is open;
+    \item the intersection of a finite number of open sets is open.
+\end{enumerate}
+\end{theorem}
+
+\clearpage
+
+\begin{problem}[Intersection of Infinite Open Sets May Not Be Open]
+Show that the intersection of an infinite number of open sets in a metric space need not be
+open.
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+    Limit Point
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Limit Point]
+Let $(X,d)$ be a metric space and let $A\subseteq X$. A point $x\in X$ is called a
+\emph{limit point} (or \emph{accumulation point}) of the set $A$ if for every $r>0$,
+\[
+S_r(x)\cap (A\setminus\{x\})\neq \emptyset.
+\]
+\end{definition}
+
+\clearpage
+
+\begin{problem}[Illustrations of Limit Points and Derived Sets]
+Determine the set of limit points (derived set) in each of the following cases.
+
+\begin{enumerate}
+    \item Let $X=\mathbb{R}$ with the usual metric and let
+    \[
+    A=[0,1).
+    \]
+    Every point of $A$ is a limit point of $A$, and $1$ is also a limit point of $A$ although
+    $1\notin A$. Hence
+    \[
+    A'=[0,1].
+    \]
+
+    \item Let
+    \[
+    A=\left\{1,\frac12,\frac13,\dots\right\}
+    \]
+    with the usual metric in $\mathbb{R}$. Then $0$ is the only limit point of $A$ and
+    $0\notin A$. Hence
+    \[
+    A'=\{0\}.
+    \]
+
+    \item If $(X,d)$ is a discrete metric space, then the derived set of every subset of $X$
+    is empty, that is,
+    \[
+    A'=\emptyset \quad \text{for all } A\subseteq X.
+    \]
+
+    \item Every real number is a limit point of the set of rational numbers $\mathbb{Q}$.
+    Hence
+    \[
+    \mathbb{Q}'=\mathbb{R}.
+    \]
+
+    \item The set of integers $\mathbb{Z}$ has no limit point, that is,
+    \[
+    \mathbb{Z}'=\emptyset.
+    \]
+
+    \item Every finite subset of a metric space has no limit point.
+
+    \item Let
+    \[
+    A=\{z\in\mathbb{C} : 1<|z|<2\}
+    \]
+    with the usual metric. Then
+    \[
+    A'=\{z\in\mathbb{C} : 1\le |z|\le 2\}.
+    \]
+\end{enumerate}
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+    Closed Sets
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Closed Set]
+A subset $F$ of a metric space $(X,d)$ is said to be \emph{closed} if $F$ contains all its
+limit points.
+\end{definition}
+
+\clearpage
+
+\begin{problem}[Illustrations of Closed Sets]
+Verify the following statements concerning closed sets in metric spaces.
+
+\begin{enumerate}
+    \item The empty set $\emptyset$ and the whole space $X$ are closed sets in every metric
+    space $(X,d)$.
+
+    \item On the real line $\mathbb{R}$ with the usual metric, the set $\mathbb{N}$ of natural
+    numbers is closed.
+
+    \item The set $\mathbb{Q}$ of rational numbers is not closed in $\mathbb{R}$ with the usual
+    metric.
+
+    \item Every closed interval on the real line is a closed set.
+
+    \item Every finite subset of a metric space is closed.
+
+    \item Let
+    \[
+    A=\{f\in C[a,b]: f(a)=1\}.
+    \]
+    Then $A$ is closed in $C[a,b]$ with respect to the supremum metric.
+
+    \item The set
+    \[
+    \left\{\frac{1+i}{n}: n\in\mathbb{N}\right\}
+    \]
+    is neither open nor closed in the complex plane with respect to the usual metric.
+\end{enumerate}
+\end{problem}
+
+
+\clearpage
+
+\begin{theorem}[Characterization of Closed Sets]
+Let $(X,d)$ be a metric space. A subset $F\subseteq X$ is closed if and only if its complement
+$X\setminus F$ is open.
+\end{theorem}
+
+\clearpage
+
+\begin{problem}[Closed Sphere Is a Closed Set]
+Show that every closed sphere in a metric space $(X,d)$ is a closed set.
+\end{problem}
+
+\clearpage
+
+\begin{theorem}[Basic Properties of Closed Sets]
+In any metric space $(X,d)$,
+\begin{enumerate}
+    \item the intersection of an arbitrary family of closed sets is closed;
+    \item the union of a finite number of closed sets is closed.
+\end{enumerate}
+\end{theorem}
+
+\clearpage
+
+\begin{problem}[Union of Infinite Closed Sets May Not Be Closed]
+Show that the union of an infinite number of closed sets in a metric space need not be
+closed.
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+    Closure of a Set
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Closure]
+Let $A$ be a subset of a metric space $(X,d)$. The \emph{closure} of $A$, denoted by $\overline{A}$,
+is the set of all adherent points of $A$, that is,
+\[
+\overline{A}=A\cup A',
+\]
+where $A'$ denotes the set of all limit points of $A$.
+\end{definition}
+
+\clearpage
+
+\begin{theorem}[Properties of Closure]
+Let $(X,d)$ be a metric space and let $A,B$ be any two subsets of $X$. Then:
+\begin{enumerate}   
+    \item $\overline{A}$ is the smallest closed set containing $A$, that is,
+    \[
+    \overline{A}=\bigcap\{F : F \text{ is closed and } A\subseteq F\};
+    \]
+    
+    \item $A$ is closed if and only if $A=\overline{A}$;
+    
+    \item $A\subseteq B$ implies $\overline{A}\subseteq \overline{B}$;
+    
+    \item $\overline{A\cup B}=\overline{A}\cup \overline{B}$;
+    
+    \item $\overline{A\cap B}\subseteq \overline{A}\cap \overline{B}$.
+    \item $\overline{\overline{A}}=\overline{A}$.
+    \item $\overline{A}=(\operatorname{ext}A)^c$.
+    \item   $\overline{A}=\operatorname{int}(A^c)^c$.
+\end{enumerate}
+    
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Interior, Exterior, Frontier and Boundary Points
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Interior Point]
+Let $A$ be a subset of a metric space $(X,d)$. A point $a\in A$ is called an
+\emph{interior point} of $A$ if there exists $r>0$ such that
+\[
+a\in S_r(a)\subseteq A.
+\]
+\end{definition}
+
+\vspace{150pt}
+
+\begin{definition}[Interior of a Set]
+The set of all interior points of $A$ is called the \emph{interior} of $A$ and is denoted by
+$\operatorname{int}A$, where
+\[
+\operatorname{int}A=\{x\in A : S_r(x)\subseteq A \text{ for some } r>0\}.
+\]
+Clearly, $\operatorname{int}A$ is an open subset of $A$.
+\end{definition}
+
+\clearpage
+
+\begin{definition}[Exterior Point]
+A point $x\in X$ is called an \emph{exterior point} of $A$ if it is an interior point of the
+complement of $A$, that is, if there exists $r>0$ such that
+\[
+S_r(x)\subseteq A^c
+\quad\text{or equivalently}\quad
+S_r(x)\cap A=\emptyset.
+\]
+\end{definition}
+
+\vspace{150pt}
+
+\begin{definition}[Exterior of a Set]
+The set of all exterior points of $A$, denoted by $\operatorname{ext}A$, is called the
+\emph{exterior} of $A$. By definition,
+\[
+\operatorname{ext}A=\operatorname{int}A^c.
+\]
+Hence $\operatorname{ext}A$ is open and is the largest open set contained in $A^c$.
+Moreover,
+\[
+\operatorname{ext}A=(\overline{A})^c.
+\]
+\end{definition}
+
+\clearpage
+
+\begin{definition}[Boundary Point]
+A point $x\in X$ is called a \emph{boundary point} (or \emph{frontier point}) of $A$ if
+every open sphere centered at $x$ intersects both $A$ and its complement $A^c$, that is,
+for every $r>0$,
+\[
+S_r(x)\cap A\neq\emptyset
+\quad\text{and}\quad
+S_r(x)\cap A^c\neq\emptyset.
+\]
+\end{definition}
+
+\vspace{150pt}
+
+\begin{definition}[Boundary of a Set]
+The set of all boundary points of $A$ is called the \emph{boundary} (or \emph{frontier}) of $A$
+and is denoted by $\partial A$, where
+\[
+\partial A=\overline{A}\setminus \operatorname{int}A.
+\]
+Equivalently,
+\[
+\partial A=\overline{A}\cap \overline{A^c}.
+\]
+\end{definition}
+
+\clearpage
+
+\begin{problem}[Illustrations of Interior, Exterior, Boundary]
+Compute the interior, exterior, and boundary of the following subsets.
+
+\begin{enumerate}
+    \item Let $X=\mathbb{R}$ with the usual metric and let $A=\mathbb{Q}$. Then
+    \[
+    \operatorname{int}A=\emptyset,\qquad
+    \operatorname{ext}A=\emptyset,\qquad
+    \partial A=\mathbb{R}.
+    \]
+
+    \item Let $X=\mathbb{R}$ with the usual metric and let
+    \(
+    A=(1,2)\cup(3,4).
+    \)
+    Then
+    \[
+    \operatorname{int}A=A,
+    \]
+    \[
+    \operatorname{ext}A=(-\infty,1)\cup(2,3)\cup(4,\infty),
+    \]
+    \[
+    \partial A=\{1,2,3,4\}.
+    \]
+
+    \item If $(X,d)$ is a discrete metric space and $A\subseteq X$, then
+    \[
+    \operatorname{int}A=A,\qquad
+    \operatorname{ext}A=A^c,\qquad
+    \partial A=\emptyset.
+    \]
+
+    \item Let $X=\mathbb{N}$ with the usual metric and let $A=\{1,2,3\}$. Then
+    \[
+    \operatorname{int}A=\emptyset,\qquad
+    \operatorname{ext}A=\emptyset,\qquad
+    \partial A=\mathbb{N}.
+    \]
+\end{enumerate}
+\end{problem}
+
+\clearpage
+
+\begin{theorem}[Properties of Interior]
+Let $A$ and $B$ be any two subsets of a metric space $(X,d)$. Then:
+\begin{enumerate}
+    \item $\operatorname{int}A$ is the largest open set contained in $A$, that is,
+    \[
+    \operatorname{int}A=\bigcup\{G : G \text{ is open and } G\subseteq A\};
+    \]
+    
+    \item $A$ is open if and only if $A=\operatorname{int}A$;
+    
+    \item $A\subseteq B$ implies $\operatorname{int}A\subseteq \operatorname{int}B$;
+    
+    \item $\operatorname{int}(A\cap B)=\operatorname{int}A\cap \operatorname{int}B$;
+    
+    \item $\operatorname{int}(A\cup B)\supseteq \operatorname{int}A\cup \operatorname{int}B$.
+\end{enumerate}
+\end{theorem}
+
+
+\clearpage
+
+\begin{theorem}[Properties of Exterior of a Set]
+Let $(X,d)$ be a metric space and let $A,B$ be any two subsets of $X$. Then:
+\begin{enumerate}
+    \item $\operatorname{ext}A$ is the largest open set contained in $A^c$;
+    \item $A$ is closed if and only if $A^c=\operatorname{ext}A$;
+    \item $A\subseteq B$ implies $\operatorname{ext}B\subseteq \operatorname{ext}A$;
+    \item $\operatorname{ext}(A\cap B)\supseteq \operatorname{ext}A\cup \operatorname{ext}B$;
+    \item $\operatorname{ext}(A\cup B)=\operatorname{ext}A\cap \operatorname{ext}B$.
+\end{enumerate}
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Properties of Boundary]
+Let $(X,d)$ be a metric space, and let $A,B$ be subsets of $X$. Then:
+\begin{enumerate}
+    \item $\partial A=\overline{A}\cap \overline{A^c}
+    =\overline{A}\setminus \operatorname{int}A$;
+    
+    \item $\partial A=\emptyset$ if and only if $A$ is both open and closed;
+    
+    \item $A$ is closed if and only if $\partial A \subseteq A$;
+    
+    \item $A$ is open if and only if $\partial A \subseteq A^c$;
+    
+    \item $\partial (A\cap B)\subseteq \partial A\cup \partial B$.
+    The equality holds if $\overline{A}\cap \overline{B}=\emptyset$;
+    
+    \item $\partial(\operatorname{int}A)\subseteq \partial A$.
+\end{enumerate}
+\end{theorem}
+
+
+
+\clearpage
+
+\EndPage
+\end{document}
