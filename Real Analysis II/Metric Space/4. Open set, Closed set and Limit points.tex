@@ -36,7 +36,7 @@ S_r(a)=\{x\in X : d(x,a)<r\}
 is called an \emph{open sphere} (or \emph{open ball}) of radius $r$ centered at $a$.
 \end{definition}
 
-\vspace{200pt}
+\clearpage
 
 \begin{definition}[Closed Sphere]
 Let $(X,d)$ be a metric space and let $a \in X$. For any $r>0$, the set
@@ -46,7 +46,7 @@ S_r[a]=\{x\in X : d(x,a)\le r\}
 is called a \emph{closed sphere} of radius $r$ centered at $a$.
 \end{definition}
 
-\clearpage
+\vspace{300pt}
 
 \begin{problem}[Relation Between Open and Closed Spheres]
 Show that
@@ -75,13 +75,6 @@ for some $r>0$.
 \end{definition}
 
 \vspace{200pt}
-
-\begin{definition}[Open Neighbourhood]
-A neighbourhood $N_a$ of a point $a$ is said to be \emph{open} if $N_a$ is an open set in $X$.
-    
-\end{definition}
-
-\clearpage
 
 \begin{problem}[Open Sphere Is a Neighbourhood of Its Points]
 Show that every open sphere is a neighbourhood of each of its points.
@@ -305,7 +298,7 @@ Verify the following statements concerning closed sets in metric spaces.
 
 \clearpage
 
-\begin{theorem}[Characterization of Closed Sets]
+\begin{theorem}[Equivalent Definition of Closed Sets]
 Let $(X,d)$ be a metric space. A subset $F\subseteq X$ is closed if and only if its complement
 $X\setminus F$ is open.
 \end{theorem}
@@ -342,24 +335,62 @@ closed.
 \vspace{10pt}
 
 \begin{definition}[Closure]
-Let $A$ be a subset of a metric space $(X,d)$. The \emph{closure} of $A$, denoted by $\overline{A}$,
-is the set of all adherent points of $A$, that is,
-\[
-\overline{A}=A\cup A',
-\]
-where $A'$ denotes the set of all limit points of $A$.
+    Let $A$ be a subset of a metric space $(X,d)$. The \emph{closure} of $A$, denoted by $\overline{A}$ is the smallest closed set containing $A$, that is,
+    \[
+    \overline{A}=\bigcap\{F : F \text{ is closed and } A\subseteq F\};
+    \]
+    
 \end{definition}
+
+\clearpage
+
+\begin{theorem}[Equivalent Definition of Closure]
+Let $A$ be a subset of a metric space $(X,d)$. Then
+\[
+\overline{A}=A\cup A'.
+\]
+\end{theorem}
+
+\clearpage
+
+\begin{problem}[Illustrations of Closure]
+Determine the closure of each of the following subsets.
+\begin{enumerate}
+    \item Let $X=\mathbb{R}$ with the usual metric and let
+    \[
+    A=(0,1)\cup(1,2).
+    \]
+    Then
+    \[
+    \overline{A}=[0,2].
+    \]
+
+    \item Let $X=\mathbb{R}$ with the usual metric and let
+    \[
+    A=\left\{\frac{1}{n} : n\in\mathbb{N}\right\}.
+    \]
+    Then
+    \[
+    \overline{A}=A\cup\{0\}.
+    \]
+
+    \item If $(X,d)$ is a discrete metric space and $A\subseteq X$, then
+    \[
+    \overline{A}=A.
+    \]
+
+    \item Let $X=\mathbb{N}$ with the usual metric and let $A=\{1,2,3\}$. Then
+    \[
+    \overline{A}=A.
+    \]
+\end{enumerate}
+\end{problem}
 
 \clearpage
 
 \begin{theorem}[Properties of Closure]
 Let $(X,d)$ be a metric space and let $A,B$ be any two subsets of $X$. Then:
-\begin{enumerate}   
-    \item $\overline{A}$ is the smallest closed set containing $A$, that is,
-    \[
-    \overline{A}=\bigcap\{F : F \text{ is closed and } A\subseteq F\};
-    \]
-    
+\begin{enumerate}       
     \item $A$ is closed if and only if $A=\overline{A}$;
     
     \item $A\subseteq B$ implies $\overline{A}\subseteq \overline{B}$;
