@@ -8,7 +8,7 @@
 % ===============================
 \newcommand*{\CourseCode}{MAT321}
 \newcommand*{\CourseTitle}{Real Analysis II}
-\newcommand*{\Chapter}{Subspaces, Separable Spaces}
+\newcommand*{\Chapter}{Separable Spaces}
 \newcommand*{\Topics}{Dense Set and Perfect Set}
 \newcommand*{\DocDate}{February 08, 2026}
 
@@ -21,95 +21,6 @@
 \FrontPage
 \Large
 
-
-\begin{heading}
-    Subspaces
-\end{heading}
-
-\vspace{10pt}
-
-\begin{definition}[Subspace and Induced Metric]
-Let $(X,d)$ be a metric space and let $Y$ be a non-empty subset of $X$.
-The restriction of the metric $d$ to $Y\times Y$, denoted by $d_Y$, is a metric on $Y$
-called the \emph{induced metric}. The metric space $(Y,d_Y)$ is called a
-\emph{subspace} of $(X,d)$.
-\end{definition}
-
-\vspace{100pt}
-
-\begin{problem}[Examples of Subspaces]
-Verify that:
-\begin{enumerate}
-    \item the closed unit interval $[0,1]$ and the set of all rational numbers $\mathbb{Q}$
-    are subspaces of $\mathbb{R}$ with the usual metric;
-    \item the unit circle, the closed unit disc, and the open unit disc are subspaces of
-    the metric space $(\mathbb{C},d)$ of complex numbers;
-    \item the real line $\mathbb{R}$ itself is a subspace of the complex plane $\mathbb{C}$.
-\end{enumerate}
-\end{problem}
-
-\clearpage
-
-\begin{definition}[Open Sphere in a Subspace]
-Let $(X,d)$ be a metric space, let $Y\subseteq X$, and let $y\in Y$.
-The open sphere in the subspace $(Y,d_Y)$ centered at $y$ with radius $r>0$ is denoted by
-$S_r^{\,Y}(y)$ and is defined by
-\[
-S_r^{\,Y}(y)=\{x\in Y : d_Y(x,y)<r\}.
-\]
-\end{definition}
-
-\vspace{100pt}
-
-\begin{problem}[Relation Between Open Spheres]
-Show that for every $y\in Y$ and every $r>0$,
-\[
-S_r^{\,Y}(y)=S_r(y)\cap Y,
-\]
-where $S_r(y)$ denotes the open sphere in $(X,d)$.
-\end{problem}
-
-
-\clearpage
-
-\begin{theorem}[Open Sets in Subspaces]
-Let $(X,d)$ be a metric space and let $Y\subseteq X$. A subset $A$ of $Y$ is open in
-$(Y,d_Y)$ if and only if there exists a set $G$ open in $(X,d)$ such that
-\[
-A = G \cap Y.
-\]
-\end{theorem}
-
-\clearpage
-
-\begin{theorem}[Open Sets in a Subspace vs Ambient Space]
-Show that if $Y\subseteq X$ and a subset of $Y$ is open in $(X,d)$, then it is also open in
-the subspace $(Y,d_Y)$. Show by examples that the converse need not be true.
-\end{theorem}
-
-\vspace{20pt}
-
-\begin{problem}[Open in a Subspace may Not be open in Superspace]
-Let $X=\mathbb{R}$ with the usual metric and let
-\[
-Y=[0,1].
-\]
-Then the open sphere in $(Y,d_Y)$ centered at $0$ with radius $\tfrac12$ is
-\[
-S^{\,Y}_{1/2}(0)=[0,\tfrac12),
-\]
-which is open in $Y$ but not open in $\mathbb{R}$. Note that $Y$ itself is not open in
-$\mathbb{R}$.
-\end{problem}
-
-\vspace{80pt}
-
-\begin{problem}[Example: Real Line vs Complex Plane]
-Show that an open interval of the real line is not an open subset of the complex plane
-$\mathbb{C}$ with the usual metric.
-\end{problem}
-
-\clearpage
 
 \begin{heading}
     Dense Sets

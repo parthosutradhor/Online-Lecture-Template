@@ -1,0 +1,295 @@
+% ===============================
+% Worksheet / Manual Template
+% ===============================
+\documentclass[12pt, a4paper]{article}
+
+% ===============================
+% Metadata
+% ===============================
+\newcommand*{\CourseCode}{MAT321}
+\newcommand*{\CourseTitle}{Real Analysis II}
+\newcommand*{\Chapter}{Subspaces}
+\newcommand*{\Topics}{Interior, Exterior, Boundary and Subspaces}
+\newcommand*{\DocDate}{February 08, 2026}
+
+\include{header}
+
+% ==========================================
+% Document
+% ==========================================
+\begin{document}
+\FrontPage
+\Large
+
+\begin{heading}
+    Interior, Exterior, Frontier and Boundary Points
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Interior Point]
+Let $A$ be a subset of a metric space $(X,d)$. A point $a\in A$ is called an
+\emph{interior point} of $A$ if there exists $r>0$ such that
+\[
+a\in S_r(a)\subseteq A.
+\]
+\end{definition}
+
+\vspace{150pt}
+
+\begin{definition}[Interior of a Set]
+The set of all interior points of $A$ is called the \emph{interior} of $A$ and is denoted by
+$\operatorname{int}A$, where
+\[
+\operatorname{int}A=\{x\in A : S_r(x)\subseteq A \text{ for some } r>0\}.
+\]
+Clearly, $\operatorname{int}A$ is an open subset of $A$.
+\end{definition}
+
+\clearpage
+
+\begin{definition}[Exterior Point]
+A point $x\in X$ is called an \emph{exterior point} of $A$ if it is an interior point of the
+complement of $A$, that is, if there exists $r>0$ such that
+\[
+S_r(x)\subseteq A^c
+\quad\text{or equivalently}\quad
+S_r(x)\cap A=\emptyset.
+\]
+\end{definition}
+
+\vspace{150pt}
+
+\begin{definition}[Exterior of a Set]
+The set of all exterior points of $A$, denoted by $\operatorname{ext}A$, is called the
+\emph{exterior} of $A$. By definition,
+\[
+\operatorname{ext}A=\operatorname{int}A^c.
+\]
+Hence $\operatorname{ext}A$ is open and is the largest open set contained in $A^c$.
+Moreover,
+\[
+\operatorname{ext}A=(\overline{A})^c.
+\]
+\end{definition}
+
+\clearpage
+
+\begin{definition}[Boundary Point]
+A point $x\in X$ is called a \emph{boundary point} of $A$ if
+every open sphere centered at $x$ intersects both $A$ and its complement $A^c$, that is,
+for every $r>0$,
+\[
+S_r(x)\cap A\neq\emptyset
+\quad\text{and}\quad
+S_r(x)\cap A^c\neq\emptyset.
+\]
+\end{definition}
+
+\vspace{150pt}
+
+\begin{definition}[Boundary of a Set]
+The set of all boundary points of $A$ is called the \emph{boundary} of $A$
+and is denoted by $\partial A$, where
+\[
+\partial A=\overline{A}\setminus \operatorname{int}A.
+\]
+Equivalently,
+\[
+\partial A=\overline{A}\cap \overline{A^c}.
+\]
+\end{definition}
+
+\clearpage
+
+\begin{problem}[Illustrations of Interior, Exterior, Boundary]
+Compute the interior, exterior, and boundary of the following subsets.
+
+\begin{enumerate}
+    \item Let $X=\mathbb{R}$ with the usual metric and let $A=\mathbb{Q}$. Then
+    \[
+    \operatorname{int}A=\emptyset,\qquad
+    \operatorname{ext}A=\emptyset,\qquad
+    \partial A=\mathbb{R}.
+    \]
+
+    \item Let $X=\mathbb{R}$ with the usual metric and let
+    \(
+    A=(1,2)\cup(3,4).
+    \)
+    Then
+    \[
+    \operatorname{int}A=A,
+    \]
+    \[
+    \operatorname{ext}A=(-\infty,1)\cup(2,3)\cup(4,\infty),
+    \]
+    \[
+    \partial A=\{1,2,3,4\}.
+    \]
+
+    \item If $(X,d)$ is a discrete metric space and $A\subseteq X$, then
+    \[
+    \operatorname{int}A=A,\qquad
+    \operatorname{ext}A=A^c,\qquad
+    \partial A=\emptyset.
+    \]
+
+    \item Let $X=\mathbb{N}$ with the usual metric and let $A=\{1,2,3\}$. Then
+    \[
+    \operatorname{int}A=\emptyset,\qquad
+    \operatorname{ext}A=\emptyset,\qquad
+    \partial A=\mathbb{N}.
+    \]
+\end{enumerate}
+\end{problem}
+
+\clearpage
+
+\begin{theorem}[Properties of Interior]
+Let $A$ and $B$ be any two subsets of a metric space $(X,d)$. Then:
+\begin{enumerate}
+    \item $\operatorname{int}A$ is the largest open set contained in $A$, that is,
+    \[
+    \operatorname{int}A=\bigcup\{G : G \text{ is open and } G\subseteq A\};
+    \]
+    
+    \item $A$ is open if and only if $A=\operatorname{int}A$;
+    
+    \item $A\subseteq B$ implies $\operatorname{int}A\subseteq \operatorname{int}B$;
+    
+    \item $\operatorname{int}(A\cap B)=\operatorname{int}A\cap \operatorname{int}B$;
+    
+    \item $\operatorname{int}(A\cup B)\supseteq \operatorname{int}A\cup \operatorname{int}B$.
+\end{enumerate}
+\end{theorem}
+
+
+\clearpage
+
+\begin{theorem}[Properties of Exterior of a Set]
+Let $(X,d)$ be a metric space and let $A,B$ be any two subsets of $X$. Then:
+\begin{enumerate}
+    \item $\operatorname{ext}A$ is the largest open set contained in $A^c$;
+    \item $A$ is closed if and only if $A^c=\operatorname{ext}A$;
+    \item $A\subseteq B$ implies $\operatorname{ext}B\subseteq \operatorname{ext}A$;
+    \item $\operatorname{ext}(A\cap B)\supseteq \operatorname{ext}A\cup \operatorname{ext}B$;
+    \item $\operatorname{ext}(A\cup B)=\operatorname{ext}A\cap \operatorname{ext}B$.
+\end{enumerate}
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Properties of Boundary]
+Let $(X,d)$ be a metric space, and let $A,B$ be subsets of $X$. Then:
+\begin{enumerate}
+    \item $\partial A=\overline{A}\cap \overline{A^c}
+    =\overline{A}\setminus \operatorname{int}A$;
+    
+    \item $\partial A=\emptyset$ if and only if $A$ is both open and closed;
+    
+    \item $A$ is closed if and only if $\partial A \subseteq A$;
+    
+    \item $A$ is open if and only if $\partial A \subseteq A^c$;
+    
+    \item $\partial (A\cap B)\subseteq \partial A\cup \partial B$.
+    The equality holds if $\overline{A}\cap \overline{B}=\emptyset$;
+    
+    \item $\partial(\operatorname{int}A)\subseteq \partial A$.
+\end{enumerate}
+\end{theorem}
+
+\clearpage
+
+
+\begin{heading}
+    Subspaces
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Subspace and Induced Metric]
+Let $(X,d)$ be a metric space and let $Y$ be a non-empty subset of $X$.
+The restriction of the metric $d$ to $Y\times Y$, denoted by $d_Y$, is a metric on $Y$
+called the \emph{induced metric}. The metric space $(Y,d_Y)$ is called a
+\emph{subspace} of $(X,d)$.
+\end{definition}
+
+\vspace{100pt}
+
+\begin{problem}[Examples of Subspaces]
+Verify that:
+\begin{enumerate}
+    \item the closed unit interval $[0,1]$ and the set of all rational numbers $\mathbb{Q}$
+    are subspaces of $\mathbb{R}$ with the usual metric;
+    \item the unit circle, the closed unit disc, and the open unit disc are subspaces of
+    the metric space $(\mathbb{C},d)$ of complex numbers;
+    \item the real line $\mathbb{R}$ itself is a subspace of the complex plane $\mathbb{C}$.
+\end{enumerate}
+\end{problem}
+
+\clearpage
+
+\begin{definition}[Open Sphere in a Subspace]
+Let $(X,d)$ be a metric space, let $Y\subseteq X$, and let $y\in Y$.
+The open sphere in the subspace $(Y,d_Y)$ centered at $y$ with radius $r>0$ is denoted by
+$S_r^{\,Y}(y)$ and is defined by
+\[
+S_r^{\,Y}(y)=\{x\in Y : d_Y(x,y)<r\}.
+\]
+\end{definition}
+
+\vspace{100pt}
+
+\begin{problem}[Relation Between Open Spheres]
+Show that for every $y\in Y$ and every $r>0$,
+\[
+S_r^{\,Y}(y)=S_r(y)\cap Y,
+\]
+where $S_r(y)$ denotes the open sphere in $(X,d)$.
+\end{problem}
+
+
+\clearpage
+
+\begin{theorem}[Open Sets in Subspaces]
+Let $(X,d)$ be a metric space and let $Y\subseteq X$. A subset $A$ of $Y$ is open in
+$(Y,d_Y)$ if and only if there exists a set $G$ open in $(X,d)$ such that
+\[
+A = G \cap Y.
+\]
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Open Sets in a Subspace vs Ambient Space]
+Show that if $Y\subseteq X$ and a subset of $Y$ is open in $(X,d)$, then it is also open in
+the subspace $(Y,d_Y)$. Show by examples that the converse need not be true.
+\end{theorem}
+
+\vspace{20pt}
+
+\begin{problem}[Open in a Subspace may Not be open in Superspace]
+Let $X=\mathbb{R}$ with the usual metric and let
+\[
+Y=[0,1].
+\]
+Then the open sphere in $(Y,d_Y)$ centered at $0$ with radius $\tfrac12$ is
+\[
+S^{\,Y}_{1/2}(0)=[0,\tfrac12),
+\]
+which is open in $Y$ but not open in $\mathbb{R}$. Note that $Y$ itself is not open in
+$\mathbb{R}$.
+\end{problem}
+
+\vspace{80pt}
+
+\begin{problem}[Example: Real Line vs Complex Plane]
+Show that an open interval of the real line is not an open subset of the complex plane
+$\mathbb{C}$ with the usual metric.
+\end{problem}
+
+\clearpage
+
+\EndPage
+\end{document}
