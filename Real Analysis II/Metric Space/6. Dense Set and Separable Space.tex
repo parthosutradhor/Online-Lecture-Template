@@ -10,7 +10,7 @@
 \newcommand*{\CourseTitle}{Real Analysis II}
 \newcommand*{\Chapter}{Separable Spaces}
 \newcommand*{\Topics}{Dense Set and Perfect Set}
-\newcommand*{\DocDate}{February 16, 2026}
+\newcommand*{\DocDate}{March 01, 2026}
 
 \include{header}
 
@@ -59,7 +59,6 @@ Show that:
 \begin{enumerate}
     \item every finite subset of $X$ is nowhere dense;
     \item every subset of a nowhere dense set is nowhere dense;
-    \item $A$ is nowhere dense in $X$ if and only if $\overline{A}$ is nowhere dense in $X$.
 \end{enumerate}
 \end{problem}
 
@@ -69,7 +68,7 @@ Show that:
     Somewhere Dense Sets and Dense-in-itself Sets
 \end{heading}
 
-vspace{10pt}
+\vspace{10pt}
 
 \begin{definition}[Somewhere Dense Set]
 A subset $A$ of $X$ is said to be \emph{somewhere dense} in $X$ if it is not nowhere dense.
@@ -93,22 +92,31 @@ A\subseteq A'.
     Perfect Sets
 \end{heading}
 
-vspace{10pt}
+\vspace{10pt}
 
 \begin{definition}[Perfect Set]
-A subset $A$ of a metric space $(X,d)$ is said to be \emph{perfect} if it is closed and
-dense-in-itself, that is,
-\[
-A=A'.
-\]
+A subset $A$ of a metric space $(X,d)$ is said to be \emph{perfect} if it is closed and dense-in-itself, that is,
+\[A=\overline{A}\quad\text{and}\quad A\subseteq A'.\]
 \end{definition}
 
-vspace{10pt}
+\vspace{10pt}
+
+\begin{definition}[Other Definition of Perfect Set]
+A subset $A$ of a metric space $(X,d)$ is said to be \emph{perfect} if it is closed and has no isolated points.
+\end{definition}
+
+\vspace{10pt}
 
 \begin{problem}[Examples of Perfect Sets]
 Show that every closed interval, the empty set $\emptyset$, and the whole space $X$ are
 perfect sets.
 \end{problem}
+
+\clearpage
+
+\begin{definition}[Cantor Set]
+The Cantor set is a subset of the real line constructed by iteratively removing the middle third of each interval in the unit interval $[0,1]$.
+\end{definition}
 
 \clearpage
 
@@ -132,7 +140,7 @@ which is dense in $X$.
 \begin{problem}[Euclidean Space is Separable]
 Show that the Euclidean space $\mathbb{R}^n$ is separable.
 \end{problem}
-
+\textbf{Hint:} Consider the set of all points in $\mathbb{R}^n$ with rational coordinates as a candidate of a countable dense subset of $\mathbb{R}^n$.
 \clearpage
 
 \begin{problem}[$\ell^p$ is Separable]
@@ -140,6 +148,7 @@ Show that the metric space $\ell^p$ of all sequences $(x_n)$ of real numbers suc
 \[d_p((x_n),(y_n))=\left(\sum_{n=1}^\infty |x_n-y_n|^p\right)^{1/p}\]
 is separable for every $1\leq p<\infty$.
 \end{problem}
+\textbf{Hint:} Consider the set with finitely many non-zero rational entries as a candidate of a countable dense subset of $\ell^p$.
 
 \clearpage
 
@@ -147,6 +156,7 @@ is separable for every $1\leq p<\infty$.
 Prove that the metric space $\ell^\infty$ of all bounded sequences with the supremum metric
 is not separable.
 \end{problem}
+\textbf{Hint:} Consider the set of all sequences of $0$'s and $1$'s as a candidate of an uncountable subset of $\ell^\infty$ with pairwise distance at least $1$.
 
 
 \clearpage
