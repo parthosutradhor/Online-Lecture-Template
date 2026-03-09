@@ -1,0 +1,232 @@
+% ===============================
+% Worksheet / Manual Template
+% ===============================
+\documentclass[12pt, a4paper]{article}
+
+% ===============================
+% Metadata
+% ===============================
+\newcommand*{\CourseCode}{MAT321}
+\newcommand*{\CourseTitle}{Real Analysis II}
+\newcommand*{\Chapter}{Sequence in Metric Space}
+\newcommand*{\Topics}{Cauchy Sequence and Completeness Theorems}
+\newcommand*{\DocDate}{March 10, 2026}
+
+\include{header}
+
+% ==========================================
+% Document
+% ==========================================
+\begin{document}
+\FrontPage
+\Large
+
+
+\begin{heading}
+    Sequence in Metric Space
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Sequence in Metric Space]
+    Let $(X, d)$ be a metric space. A sequence in $X$ is a function $f: \mathbb{N} \to X$. We usually denote the sequence by $\{a_n\}$, where $a_n = f(n)$ for each $n \in \mathbb{N}$.
+\end{definition}
+
+\clearpage
+
+
+\begin{heading}
+	Convergence of a Sequence in $\R$
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Convergence of a Sequence]
+	A sequence $\{a_n\}$ is said to \textbf{converge} to a real number $a$ if for every real number $\varepsilon > 0,$ there exists a natural number $N \in \N$ such that for all $n \geq N,$ the terms of the sequence satisfy the inequality 
+	\[
+	|a_n - a| < \varepsilon.
+	\]
+	If such a number $a$ exists, it is called the \textbf{limit} of the sequence, and we write
+	\[
+	\lim a_n = a \quad \text{or} \quad a_n \to a \text{ as } n \to \infty.
+	\]
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+    Convergence of a Sequence in Metric Space
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Convergence of a Sequence in Metric Space]
+    Let $(X, d)$ be a metric space. A sequence $\{a_n\}$ in $X$ is said to \textbf{converge} to a point $x \in X$ if for every $\varepsilon > 0,$ there exists a natural number $N \in \N$ such that for all $n \geq N,$ the terms of the sequence satisfy the inequality
+    \[
+    d(a_n, x) < \varepsilon.
+    \]
+    If such a point $x$ exists, it is called the \textbf{limit} of the sequence, and we write
+    \[
+    \lim a_n = a \quad \text{or} \quad a_n \to a \text{ as } n \to \infty.
+    \]
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+    Cauchy Sequence in Metric Space
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Cauchy Sequence]
+    Let $(X, d)$ be a metric space. A sequence $\{a_n\}$ in $X$ is called a \textbf{Cauchy sequence} if for every $\varepsilon > 0,$ there exists a natural number $N \in \N$ such that for all $m, n \geq N,$ the terms of the sequence satisfy the inequality
+    \[
+    d(a_n, a_m) < \varepsilon.
+    \]
+\end{definition}
+
+\clearpage
+
+\begin{theorem}[Every Convergent Sequence is Cauchy]
+    Let $(X, d)$ be a metric space. If a sequence $\{a_n\}$ in $X$ converges to a point $x \in X,$ then $\{a_n\}$ is a Cauchy sequence.
+\end{theorem}
+
+\clearpage
+
+\clearpage
+
+\begin{theorem}[Not Every Cauchy Sequence is Convergent]
+    Let $(X, d)$ be a metric space. It is not necessarily true that every Cauchy sequence in $X$ converges to a point in $X$.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Completeness of a Metric Space
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Complete Metric Space]
+    A metric space $(X, d)$ is called \textbf{complete} if every Cauchy sequence in $X$ converges to a point in $X$.
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+    Completeness of $\R^n$
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[$\R$ is a Complete Metric Space]
+    The set of real numbers $\R$ with the usual metric $d(x, y) = |x - y|$ is a complete metric space.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[$\Q$ is not a Complete Metric Space]
+    The set of rational numbers $\Q$ with the usual metric $d(x, y) = |x - y|$ is not a complete metric space.    
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[$\R^n$ is a Complete Metric Space]
+    The set of $n$-tuples of real numbers $\R^n$ with the usual metric \[d(\mathbf{x}, \mathbf{y}) = \sqrt{\sum_{i=1}^n (x_i - y_i)^2} \quad \mathbf{x}, \mathbf{y} \in \R^n\] is a complete metric space.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Completeness of $\ell^p$ Spaces
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[$\ell^p$ is a Complete Metric Space]
+    The set of sequences $\ell^p$ with the metric \[d(\mathbf{x}, \mathbf{y}) = \left( \sum_{i=1}^\infty |x_i - y_i|^p \right)^{1/p} \quad \mathbf{x}, \mathbf{y} \in \ell^p\] is a complete metric space.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[$\ell^\infty$ is a Complete Metric Space]
+    The set of sequences $\ell^\infty$ with the metric \[d(\mathbf{x}, \mathbf{y}) = \sup_{i \in \mathbb{N}} |x_i - y_i| \quad \mathbf{x}, \mathbf{y} \in \ell^\infty\] is a complete metric space.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Completeness of Function Spaces
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Cauchy criterion for uniform convergence]
+    Let $\{f_n\}$ be a sequence of functions defined on a set $A$ and taking values in a metric space $(Y, d).$ The sequence $\{f_n\}$ converges uniformly to a function $f$ on $A$ if and only if for every $\varepsilon > 0,$ there exists a natural number $N \in \N$ such that for all $m, n \geq N$ and for all $x \in A,$ the following inequality holds:
+    \[
+    d(f_n(x), f_m(x)) < \varepsilon.
+    \]
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[$C[0,1]$ under sup metric is a Complete Metric Space]
+    Let $C[0,1]$ be the set of all continuous real-valued functions defined on the interval $[0,1].$ Define a metric $d$ on $C[0,1]$ by
+    \[
+    d(f, g) = \sup_{x \in [0,1]} |f(x) - g(x)|
+    \]
+    for all $f, g \in C[0,1].$ Show that $(C[0,1], d)$ is a complete metric space.
+\end{theorem}
+
+\clearpage
+
+\begin{problem}[$C[0,1]$ under integral metric is not Complete]
+    Let $C[0,1]$ be the set of all continuous real-valued functions defined on the interval $[0,1].$ Define a metric $d$ on $C[0,1]$ by
+    \[
+    d(f, g) = \int_0^1 |f(x) - g(x)| \, dx
+    \]
+    for all $f, g \in C[0,1].$ Show that $(C[0,1], d)$ is not a complete metric space.
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+    Completeness and Closed Sets
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Closure of a Set and Convergence of Sequences]
+    Let $(X, d)$ be a metric space and let $A$ be a subset of $X.$ A point $x \in X$ is in the closure of $A$ if and only if there exists a sequence $\{a_n\}$ in $A$ that converges to $x.$
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Closed subspace of a Complete Space is Complete]
+    Let $(X, d)$ be a complete metric space and let $(Y, d)$ be a subspace of $X.$ Then the metric space $(Y, d)$ is complete if and only if $Y$ is closed in $X.$
+\end{theorem}
+
+
+\clearpage
+
+\begin{heading}
+    Cantor's Intersection Theorem
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Cantor's Intersection Theorem]
+    Let $(X, d)$ be a complete metric space. If $\{F_n\}$ is a sequence of non-empty closed subsets of $X$ such that $F_{n+1} \subseteq F_n$ for all $n \in \N$ and $\lim_{n \to \infty} \text{diam}(F_n) = 0,$ then the intersection $\bigcap_{n=1}^{\infty} F_n$ contains exactly one point.
+\end{theorem}
+
+
+
+
+
+
+
+\clearpage
+
+\EndPage
+\end{document}
