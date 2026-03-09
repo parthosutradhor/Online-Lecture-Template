@@ -61,13 +61,13 @@
 \vspace{10pt}
 
 \begin{definition}[Convergence of a Sequence in Metric Space]
-    Let $(X, d)$ be a metric space. A sequence $\{a_n\}$ in $X$ is said to \textbf{converge} to a point $x \in X$ if for every $\varepsilon > 0,$ there exists a natural number $N \in \N$ such that for all $n \geq N,$ the terms of the sequence satisfy the inequality
+    Let $(X, d)$ be a metric space. A sequence $\{x_n\}$ in $X$ is said to \textbf{converge} to a point $x \in X$ if for every $\varepsilon > 0,$ there exists a natural number $N \in \N$ such that for all $n \geq N,$ the terms of the sequence satisfy the inequality
     \[
-    d(a_n, x) < \varepsilon.
+    d(x_n, x) < \varepsilon.
     \]
     If such a point $x$ exists, it is called the \textbf{limit} of the sequence, and we write
     \[
-    \lim a_n = a \quad \text{or} \quad a_n \to a \text{ as } n \to \infty.
+    \lim x_n = x \quad \text{or} \quad x_n \to x \text{ as } n \to \infty.
     \]
 \end{definition}
 
@@ -80,16 +80,16 @@
 \vspace{10pt}
 
 \begin{definition}[Cauchy Sequence]
-    Let $(X, d)$ be a metric space. A sequence $\{a_n\}$ in $X$ is called a \textbf{Cauchy sequence} if for every $\varepsilon > 0,$ there exists a natural number $N \in \N$ such that for all $m, n \geq N,$ the terms of the sequence satisfy the inequality
+    Let $(X, d)$ be a metric space. A sequence $\{x_n\}$ in $X$ is called a \textbf{Cauchy sequence} if for every $\varepsilon > 0,$ there exists a natural number $N \in \N$ such that for all $m, n \geq N,$ the terms of the sequence satisfy the inequality
     \[
-    d(a_n, a_m) < \varepsilon.
+    d(x_n, x_m) < \varepsilon.
     \]
 \end{definition}
 
 \clearpage
 
 \begin{theorem}[Every Convergent Sequence is Cauchy]
-    Let $(X, d)$ be a metric space. If a sequence $\{a_n\}$ in $X$ converges to a point $x \in X,$ then $\{a_n\}$ is a Cauchy sequence.
+    Let $(X, d)$ be a metric space. If a sequence $\{x_n\}$ in $X$ converges to a point $x \in X,$ then $\{x_n\}$ is a Cauchy sequence.
 \end{theorem}
 
 \clearpage
