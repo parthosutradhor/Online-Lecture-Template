@@ -103,6 +103,51 @@
 \clearpage
 
 \begin{heading}
+    Examples of Sequences in Metric Spaces
+\end{heading}
+
+\vspace{10pt}
+
+\begin{problem}
+Let
+\[
+X=\left\{0\right\}\cup\left\{\frac1n : n\in\mathbb N\right\}.
+\]
+Define two metrics on \(X\) by
+\[
+d_1(x,y)=|x-y|,
+\qquad
+d_2(x,y)=
+\begin{cases}
+0, & x=y,\\
+1, & x\ne y.
+\end{cases}
+\]
+Consider the sequence
+\[
+x_n=\frac1n.
+\]
+Show that \((x_n)\) converges in the metric space \((X,d_1)\) but does not converge in the metric space \((X,d_2)\).
+\end{problem}
+\clearpage
+
+
+\begin{problem}
+Let \(X=C[0,1]\), the space of all continuous real-valued functions on \([0,1]\). Define two metrics on \(X\) by
+\[
+d_1(f,g)=\int_0^1 |f(x)-g(x)|\,dx,
+\qquad
+d_2(f,g)=\sup_{x\in[0,1]} |f(x)-g(x)|.
+\]
+Consider the sequence of functions
+\[
+f_n(x)=x^n.
+\]
+Show that \((f_n)\) converges in the metric space \((X,d_1)\) but does not converge in the metric space \((X,d_2)\).
+\end{problem}
+\clearpage
+
+\begin{heading}
     Completeness of a Metric Space
 \end{heading}
 
@@ -124,13 +169,13 @@
     The set of real numbers $\R$ with the usual metric $d(x, y) = |x - y|$ is a complete metric space.
 \end{theorem}
 
-\clearpage
+\vspace{10pt}
 
 \begin{theorem}[$\Q$ is not a Complete Metric Space]
     The set of rational numbers $\Q$ with the usual metric $d(x, y) = |x - y|$ is not a complete metric space.    
 \end{theorem}
 
-\clearpage
+\vspace{10pt}
 
 \begin{theorem}[$\R^n$ is a Complete Metric Space]
     The set of $n$-tuples of real numbers $\R^n$ with the usual metric \[d(\mathbf{x}, \mathbf{y}) = \sqrt{\sum_{i=1}^n (x_i - y_i)^2} \quad \mathbf{x}, \mathbf{y} \in \R^n\] is a complete metric space.
@@ -148,7 +193,7 @@
     The set of sequences $\ell^p$ with the metric \[d(\mathbf{x}, \mathbf{y}) = \left( \sum_{i=1}^\infty |x_i - y_i|^p \right)^{1/p} \quad \mathbf{x}, \mathbf{y} \in \ell^p\] is a complete metric space.
 \end{theorem}
 
-\clearpage
+\vspace{10pt}
 
 \begin{theorem}[$\ell^\infty$ is a Complete Metric Space]
     The set of sequences $\ell^\infty$ with the metric \[d(\mathbf{x}, \mathbf{y}) = \sup_{i \in \mathbb{N}} |x_i - y_i| \quad \mathbf{x}, \mathbf{y} \in \ell^\infty\] is a complete metric space.
@@ -162,15 +207,6 @@
 
 \vspace{10pt}
 
-\begin{theorem}[Cauchy criterion for uniform convergence]
-    Let $\{f_n\}$ be a sequence of functions defined on a set $A$ and taking values in a metric space $(Y, d).$ The sequence $\{f_n\}$ converges uniformly to a function $f$ on $A$ if and only if for every $\varepsilon > 0,$ there exists a natural number $N \in \N$ such that for all $m, n \geq N$ and for all $x \in A,$ the following inequality holds:
-    \[
-    d(f_n(x), f_m(x)) < \varepsilon.
-    \]
-\end{theorem}
-
-\clearpage
-
 \begin{theorem}[$C[0,1]$ under sup metric is a Complete Metric Space]
     Let $C[0,1]$ be the set of all continuous real-valued functions defined on the interval $[0,1].$ Define a metric $d$ on $C[0,1]$ by
     \[
@@ -179,7 +215,7 @@
     for all $f, g \in C[0,1].$ Show that $(C[0,1], d)$ is a complete metric space.
 \end{theorem}
 
-\clearpage
+\vspace{10pt}
 
 \begin{problem}[$C[0,1]$ under integral metric is not Complete]
     Let $C[0,1]$ be the set of all continuous real-valued functions defined on the interval $[0,1].$ Define a metric $d$ on $C[0,1]$ by
