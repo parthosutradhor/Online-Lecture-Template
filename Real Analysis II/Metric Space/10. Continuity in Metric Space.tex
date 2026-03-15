@@ -1,0 +1,159 @@
+% ===============================
+% Worksheet / Manual Template
+% ===============================
+\documentclass[12pt, a4paper]{article}
+
+% ===============================
+% Metadata
+% ===============================
+\newcommand*{\CourseCode}{MAT321}
+\newcommand*{\CourseTitle}{Real Analysis II}
+\newcommand*{\Chapter}{Continuity in Metric Space}
+\newcommand*{\Topics}{Continuity, Uniform continuity, Homeomorphisms}
+\newcommand*{\DocDate}{March 13, 2026}
+
+\include{header}
+
+% ==========================================
+% Document
+% ==========================================
+\begin{document}
+\FrontPage
+\Large
+
+
+\begin{heading}
+    Continuity of Functions in Metric Spaces
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Continuity at a Point in $\R$]
+    Let $f : A \to \R$ be a function defined on a subset $A$ of $\R$, and let $c \in A$. We say that $f$ is \textbf{continuous at the point} $a$ if for every $\varepsilon > 0$, there exists a $\delta > 0$ such that 
+    
+    \[\forall x \in A \text{ and } |x - a| < \delta \implies |f(x) - f(a)| < \varepsilon.\]
+\end{definition}
+
+\vspace{100pt}
+
+\begin{definition}[Continuity at a Point in Metric Space]
+    Let $(X, d_X)$ and $(Y, d_Y)$ be metric spaces, and let $f : X \to Y$ be a function. We say that $f$ is \textbf{continuous at the point} $a \in X$ if for every $\varepsilon > 0$, there exists a $\delta > 0$ such that 
+    
+    \[\forall x \in X \text{ and } d_X(x, a) < \delta \implies d_Y(f(x), f(a)) < \varepsilon.\]
+\end{definition}
+
+\clearpage
+
+\begin{definition}[Equivalent Definition using Open Spheres]
+    Let $(X, d_X)$ and $(Y, d_Y)$ be metric spaces, and let $f : X \to Y$ be a function. We say that $f$ is \textbf{continuous at the point} $a \in X$ if for every open sphere $S_{\varepsilon}(f(a))$ in $Y$, there exists an open sphere $S_{\delta}(a)$ in $X$ such that
+    \[f(S_{\delta}(a)) \subseteq S_{\varepsilon}(f(a)).\]    
+\end{definition}
+
+\clearpage
+
+\begin{definition}[Equivalent Definition using Open Set]
+    Let $(X, d_X)$ and $(Y, d_Y)$ be metric spaces, and let $f : X \to Y$ be a function. We say that $f$ is \textbf{continuous at the point} $a \in X$ if for every open set $U$ in $Y$ containing $f(a)$, there exists an open set $V$ in $X$ containing $a$ such that
+    \[f(V) \subseteq U.\]
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+    Continuous Functions
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Continuity using Open Sets]
+    Let $(X, d_X)$ and $(Y, d_Y)$ be metric spaces, and let $f : X \to Y$ be a function. We say that $f$ is continuous at all points of $X$ i.e. \textbf{continuous} if for any open set $U$ in $Y$, the preimage $f^{-1}(U)$ is an open set in $X$.
+\end{definition}
+
+\clearpage
+
+\begin{definition}[Continuity using Closed Sets]
+    Let $(X, d_X)$ and $(Y, d_Y)$ be metric spaces, and let $f : X \to Y$ be a function. We say that $f$ is continuous at all points of $X$ i.e. \textbf{continuous} if for any closed set $C$ in $Y$, the preimage $f^{-1}(C)$ is a closed set in $X$.
+\end{definition}
+
+\clearpage
+
+
+\begin{heading}
+    Examples of Continuous Functions
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Continuity in Discrete Metric Space]
+    Let $(X, d_X)$ be a discrete metric space, and let $(Y, d_Y)$ be any metric space. Then every function $f : X \to Y$ is continuous at every point of $X$.
+\end{theorem}
+
+\vspace{200pt}
+
+\begin{theorem}[Continuity of a constant function]
+    Let $(X, d_X)$ and $(Y, d_Y)$ be metric spaces, and let $f : X \to Y$ be a constant function defined by $f(x) = c$ for all $x \in X$, where $c \in Y$ is a fixed point. Then $f$ is continuous at every point of $X$.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Continuity using Sequences
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Continuity at a Point using Sequences]
+    Let $(X, d_X)$ and $(Y, d_Y)$ be metric spaces, and let $f : X \to Y$ be a function. We say that $f$ is \textbf{continuous at the point} $a \in X$ if and only if for every sequence $(x_n)$ in $X$ that converges to $a$, the sequence $(f(x_n))$ in $Y$ converges to $f(a)$.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Uniform Continuity
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Uniform Continuity]
+    Let $(X, d_X)$ and $(Y, d_Y)$ be metric spaces, and let $f : X \to Y$ be a function. We say that $f$ is \textbf{uniformly continuous} if for every $\varepsilon > 0$, there exists a $\delta > 0$, that depends only on $\varepsilon$, such that 
+    
+    \[\forall x, y \in X \text{ and } d_X(x, y) < \delta \implies d_Y(f(x), f(y)) < \varepsilon.\]
+\end{definition}
+
+\clearpage
+
+\begin{theorem}[Cauchy sequence with uniform continuity]
+    Let $(X, d_X)$ and $(Y, d_Y)$ be metric spaces, and let $f : X \to Y$ be a uniformly continuous function. Then for every Cauchy sequence $(x_n)$ in $X$, the sequence $(f(x_n))$ in $Y$ is also a Cauchy sequence.
+\end{theorem}
+
+\clearpage
+
+\begin{problem}[Not uniform continuity with Cauchy sequence]
+    Give an example of a function $f : X \to Y$ that is continuous but not uniformly continuous, and a Cauchy sequence $(x_n)$ in $X$ such that the sequence $(f(x_n))$ is not a Cauchy sequence in $Y$.
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+    Homeomorphisms
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Homeomorphism]
+    Let $(X, d_X)$ and $(Y, d_Y)$ be metric spaces. A function $f : X \to Y$ is called a \textbf{homeomorphism} if it is a bijection and both $f$ and its inverse $f^{-1} : Y \to X$ are continuous.
+\end{definition}
+
+\vspace{10pt}
+
+\begin{definition}[Homeomorphic Spaces]
+    Let $(X, d_X)$ and $(Y, d_Y)$ be metric spaces. We say that $X$ and $Y$ are \textbf{homeomorphic} if there exists a homeomorphism $f : X \to Y$. In this case, we write $X \cong Y$.
+\end{definition}
+
+\clearpage
+
+
+
+
+
+\EndPage
+\end{document}
