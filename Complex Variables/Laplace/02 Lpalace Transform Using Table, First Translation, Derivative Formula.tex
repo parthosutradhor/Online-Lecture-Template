@@ -1,0 +1,145 @@
+% ===============================
+% Worksheet / Manual Template
+% ===============================
+\documentclass[12pt, a4paper]{article}
+
+% ===============================
+% Metadata
+% ===============================
+\newcommand*{\CourseCode}{MAT215}
+\newcommand*{\CourseTitle}{Complex Variables \& Laplace Transform}
+\newcommand*{\Chapter}{Laplace Transform Using Table}
+\newcommand*{\Topics}{Standard Table, Trigonometric Identities}
+\newcommand*{\DocDate}{April 08, 2025}
+
+\include{header.tex}
+
+% ==========================================
+% Document
+% ==========================================
+\begin{document}
+\FrontPage
+\Large
+
+\begin{heading}
+	What is Laplace Table?
+\end{heading}
+
+\clearpage
+
+\begin{heading}
+	Linearity of Laplace Transform
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}
+	Let $f(t)$ and $g(t)$ be functions such that $\mathcal{L}\{f(t)\}$ and $\mathcal{L}\{g(t)\}$ exist. Then, for any constants $c$, we have
+	\[
+	\mathcal{L}\{cf(t)\} = c\; \mathcal{L}\{f(t)\},
+	\]
+
+	\[
+	\mathcal{L}\{f(t) + g(t)\} = \mathcal{L}\{f(t)\} + \mathcal{L}\{g(t)\}.
+	\]
+\end{theorem}
+
+\clearpage	
+
+\begin{heading}
+	Laplace Transform Using Standard Table
+\end{heading}
+
+\vspace{10pt}
+
+\begin{problem}
+	Evaluate \[\mathcal{L}\{3e^{2t}\}\] using the standard table.
+\end{problem}
+
+\vspace{150pt}
+
+\begin{problem}
+	Evaluate \[\mathcal{L}\{4t^3 - e^{-t}\}\] using the standard table.
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Evaluate \[\mathcal{L}\{(t^2+1)^2\}\] using the standard table.
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Evaluate \[\mathcal{L}\{(t^2+1)^2\}\] using the standard table.
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Evaluate \[\mathcal{L}\{7\sin 2t-3\cos 2t\}\] using the standard table.
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Evaluate \[\mathcal{L}\{7\sinh 2t-3\cosh 2t\}\] using the standard table.
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+	Important Trigonometric Identities
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Compound Angle Identities]
+	\begin{align*}
+		\sin(A + B) &= \sin A \cos B + \cos A \sin B, \\
+		\sin(A - B) &= \sin A \cos B - \cos A \sin B, \\
+		\cos(A + B) &= \cos A \cos B - \sin A \sin B.\\
+		\cos(A - B) &= \cos A \cos B + \sin A \sin B.
+	\end{align*}
+\end{definition}
+
+\vspace{10pt}
+
+\begin{definition}[Product-to-Sum Identities]
+	\begin{align*}
+		2 \sin A \cos B &= \sin(A+B) + \sin(A-B), \\
+		2 \cos A \cos B &= \cos(A+B) + \cos(A-B), \\
+		2 \sin A \sin B &= \cos(A-B) - \cos(A+B).
+	\end{align*}
+\end{definition}
+
+\vspace{10pt}
+
+\begin{definition}[Negative Angle Identities]
+	\begin{align*}
+		\sin(-A) &= -\sin(A), \\
+		\cos(-A) &= \cos(A).
+	\end{align*}
+\end{definition}
+
+\clearpage
+
+\begin{problem}
+	Evaluate \[\mathcal{L}\{3\sin 7t \cos 4t\}\] using the standard table.
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Evaluate \[\mathcal{L}\{4\cos 3t \cos 5t\}\] using the standard table.
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Evaluate \[\mathcal{L}\{4\cos 3t \cos 5t\}\] using the standard table.
+\end{problem}
+
+
+\EndPage
+\end{document}
