@@ -9,8 +9,8 @@
 \newcommand*{\CourseCode}{MAT215}
 \newcommand*{\CourseTitle}{Complex Variables \& Laplace Transform}
 \newcommand*{\Chapter}{Laplace Transform Using Table}
-\newcommand*{\Topics}{Standard Table, Trigonometric Identities}
-\newcommand*{\DocDate}{April 08, 2025}
+\newcommand*{\Topics}{First Translation Theorem, Transform of $t^n f(t)$}
+\newcommand*{\DocDate}{April 15, 2025}
 
 \include{header.tex}
 
@@ -21,9 +21,21 @@
 \FrontPage
 \Large
 
+
 \begin{heading}
 	What is Laplace Table?
 \end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Laplace Transform]
+	The Laplace transform of a function $f(t)$, denoted by $\mathcal{L}\{f(t)\}$, is defined as
+	\[
+	\mathcal{L}\{f(t)\} = F(s) = \int_0^\infty e^{-st} f(t) \, dt,
+	\]
+	where $s$ is a complex number and the integral converges.
+	
+\end{definition}
 
 \clearpage
 
@@ -60,12 +72,6 @@
 
 \begin{problem}
 	Evaluate \[\mathcal{L}\{4t^3 - e^{-t}\}\] using the standard table.
-\end{problem}
-
-\clearpage
-
-\begin{problem}
-	Evaluate \[\mathcal{L}\{(t^2+1)^2\}\] using the standard table.
 \end{problem}
 
 \clearpage
@@ -137,8 +143,115 @@
 \clearpage
 
 \begin{problem}
-	Evaluate \[\mathcal{L}\{4\cos 3t \cos 5t\}\] using the standard table.
+	Evaluate \[\mathcal{L}\{4\cos 3t \cos 7t\}\] using the standard table.
 \end{problem}
+
+\clearpage
+
+\begin{heading}
+	First Translation Theorem
+\end{heading}
+
+\vspace{10pt}
+\begin{theorem}[First Translation Theorem]
+	Let $f(t)$ be a function such that $\mathcal{L}\{f(t)\}$ exists and $F(s) = \mathcal{L}\{f(t)\}$. Then, for any constant $a$, we have
+	\[
+	\mathcal{L}\{e^{at}f(t)\} = F(s-a).
+	\]
+\end{theorem}
+
+\clearpage
+
+\begin{problem}
+	Evaluate \[\mathcal{L}\{t^3	e^{5t}\}\] 
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Evaluate \[\mathcal{L}\{5e^{-3t}\sin 4t\}\] 
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Evaluate \[\mathcal{L}\{e^{-t}(3\sinh 2t-5\cosh 2t)\}\] 
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Evaluate \[\mathcal{L}\{2e^{3t} \sin 5t \sin 3t\}\] 
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Evaluate \[\mathcal{L}\{3e^{3t} \cos 5t \cos 7t\}\] 
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Evaluate \[\mathcal{L}\{4e^{3t} \sin 5t \cos 3t\}\] 
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+	Laplace Transform of the form $t^n f(t)$
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}
+	Let $f(t)$ be a function such that $\mathcal{L}\{f(t)\}$ exists and $F(s) = \mathcal{L}\{f(t)\}$. Then, for any positive integer $n$, we have
+	\[
+	\mathcal{L}\{t^n f(t)\} = (-1)^n F^{(n)}(s),
+	\]
+	where $F^{(n)}(s)$ denotes the $n$-th derivative of $F(s)$ with respect to $s$.
+\end{theorem}
+
+\clearpage
+
+\begin{problem}
+	Evaluate \[\mathcal{L}\{t^2\sin 2t\}\] 
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Evaluate \[\mathcal{L}\{t e^{-2t}\sin 3t\}\] 
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Evaluate \[\mathcal{L}\{t e^{2t}(2\sinh 3t + 5\cosh 4t)\}\] 
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Evaluate \[\mathcal{L}\{3t\sin 7t \cos 5t\}\] 
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Evaluate \[\mathcal{L}\{4t\cos 3t \cos 5t\}\] 
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Evaluate \[\mathcal{L}\{7t e^{-4t}\sin 5t \sin 3t\}\] 
+\end{problem}
+
+
+
+
+
 
 
 \EndPage
