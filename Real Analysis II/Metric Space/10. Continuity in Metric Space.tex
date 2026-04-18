@@ -10,7 +10,7 @@
 \newcommand*{\CourseTitle}{Real Analysis II}
 \newcommand*{\Chapter}{Continuity in Metric Space}
 \newcommand*{\Topics}{Continuity, Uniform continuity, Homeomorphisms}
-\newcommand*{\DocDate}{March 13, 2026}
+\newcommand*{\DocDate}{April 19, 2026}
 
 \include{header}
 
@@ -92,6 +92,94 @@
 \begin{theorem}[Continuity of a constant function]
     Let $(X, d_X)$ and $(Y, d_Y)$ be metric spaces, and let $f : X \to Y$ be a constant function defined by $f(x) = c$ for all $x \in X$, where $c \in Y$ is a fixed point. Then $f$ is continuous at every point of $X$.
 \end{theorem}
+
+\clearpage
+
+\begin{theorem}[Identity Function is Continuous]
+    Let $(X,d)$ be a metric space. Then the identity function
+    \[
+    I_X : X \to X, \qquad I_X(x)=x
+    \]
+    is continuous at every point of $X$.
+\end{theorem}
+
+\vspace{130pt}
+
+\begin{theorem}[Composition of Continuous Functions]
+    Let $(X,d_X)$, $(Y,d_Y)$, and $(Z,d_Z)$ be metric spaces. Suppose
+    \[
+    f:X\to Y \quad \text{and} \quad g:Y\to Z
+    \]
+    are continuous. Then the composition
+    \[
+    g\circ f : X \to Z
+    \]
+    is continuous.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Lipschitz Functions are Continuous]
+    Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces, and let $f:X\to Y$ be a function. Suppose there exists a constant $L>0$ such that
+    \[
+    d_Y(f(x),f(y)) \leq L\, d_X(x,y)
+    \qquad \text{for all } x,y\in X.
+    \]
+    Then $f$ is continuous on $X$.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Distance Function is Continuous]
+    Let $(X,d)$ be a metric space and fix a point $a\in X$. Define
+    \[
+    f(x)=d(x,a), \qquad x\in X.
+    \]
+    Then $f:X\to \R$ is continuous.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Norm is Continuous]
+    The function
+    \[
+    \|\cdot\| : \R^n \to \R, \qquad x\mapsto \|x\|
+    \]
+    is continuous.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Continuity in $\R^2$
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Continuity in $\R^2$]
+    Let $f : A \to \R^2$ be a function defined on a subset $A$ of $\R^2$, and let $$f(x, y) = (f_1(x, y), f_2(x, y))$$ where $f_1$ and $f_2$ are real-valued functions. Then $f$ is continuous at the point $(a, b) \in A$ if and only if both $f_1$ and $f_2$ are continuous at the point $(a, b)$.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Continuity in Complex Plane
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Continuity in Complex Plane]
+    Let $f : A \to \C$ be a function defined on a subset $A$ of $\C$, and let $z_0 = a + ib \in A$. We say that $f$ is continuous at the point $z_0$ if for every $\varepsilon > 0$, there exists a $\delta > 0$ such that
+    
+    \[\forall z \in A \text{ and } |z - z_0| < \delta \implies |f(z) - f(z_0)| < \varepsilon.\]
+\end{definition}
+
+\vspace{50pt}
+
+\begin{definition}[Continuity of Complex Functions in $\R^2$]
+    Let $f : A \to \C$ be a function defined on a subset $A$ of $\C$, and let $$f(z) = u(x, y) + iv(x, y)$$ where $z = x + iy$ and $u$ and $v$ are real-valued functions. Then $f$ is continuous at the point $z_0 = a + ib \in A$ if and only if both $u$ and $v$ are continuous at the point $(a, b)$.
+    
+\end{definition}
 
 \clearpage
 
