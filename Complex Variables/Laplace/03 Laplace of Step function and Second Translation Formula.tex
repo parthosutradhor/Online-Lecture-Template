@@ -1,0 +1,249 @@
+% ===============================
+% Worksheet / Manual Template
+% ===============================
+\documentclass[12pt, a4paper]{article}
+
+% ===============================
+% Metadata
+% ===============================
+\newcommand*{\CourseCode}{MAT215}
+\newcommand*{\CourseTitle}{Complex Variables \& Laplace Transform}
+\newcommand*{\Chapter}{Laplace Transform of Step Functions}
+\newcommand*{\Topics}{The Second Translation Formula}
+\newcommand*{\DocDate}{April 18, 2025}
+
+\include{header.tex}
+
+% ==========================================
+% Document
+% ==========================================
+\begin{document}
+\FrontPage
+\Large
+
+
+\begin{heading}
+	What is Step Function?
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[The Unit Step Function]
+	The unit step function, denoted by $u(t)$, is defined as
+	\[
+		u(t) = \begin{cases}
+			0, & t < 0, \\
+			1, & t \geq 0.
+		\end{cases}
+	\]
+\end{definition}
+
+\vspace{10pt}
+
+\begin{definition}[Shifted Unit Step Function]
+	The unit step function, denoted by $u(t-a)$, is defined as
+	\[
+		u(t-a) = \begin{cases}
+			0, & t < a, \\
+			1, & t \geq a.
+		\end{cases}
+	\]
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+	Physical Interpretation of Unit Step Function
+\end{heading}
+
+\clearpage
+
+\begin{heading}
+	The second translation formula
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Laplace Transform of $f(t) \cdot u(t-a)$]
+	If the Laplace transform of $f(t)$ exists, then the Laplace transform of $f(t) \cdot u(t-a)$ is given by
+	\[
+		\mathcal{L}\{f(t) \cdot u(t-a)\} = e^{-as}\mathcal{L}\{f(t+a)\},
+	\]
+	where $a > 0$.
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+	Important Trigonometric Identities
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Compound Angle Identities]
+	\begin{align*}
+		\sin(A + B) &= \sin A \cos B + \cos A \sin B, \\
+		\sin(A - B) &= \sin A \cos B - \cos A \sin B, \\
+		\cos(A + B) &= \cos A \cos B - \sin A \sin B.\\
+		\cos(A - B) &= \cos A \cos B + \sin A \sin B.
+	\end{align*}
+\end{definition}
+
+\vspace{10pt}
+
+\begin{definition}[Product-to-Sum Identities]
+	\begin{align*}
+		2 \sin A \cos B &= \sin(A+B) + \sin(A-B), \\
+		2 \cos A \cos B &= \cos(A+B) + \cos(A-B), \\
+		2 \sin A \sin B &= \cos(A-B) - \cos(A+B).
+	\end{align*}
+\end{definition}
+
+\vspace{10pt}
+
+\begin{definition}[Negative Angle Identities]
+	\begin{align*}
+		\sin(-A) &= -\sin(A), \\
+		\cos(-A) &= \cos(A).
+	\end{align*}
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+	How to compute $f(t+a)$?
+\end{heading}
+
+\clearpage
+
+\begin{heading}
+	Application of the second translation formula
+\end{heading}
+
+\vspace{10pt}
+
+\begin{problem}
+	Evaluate 
+	\[\mathcal{L}\{(2t-3) \ u(t-1)\}\]
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Evaluate 
+	\[\mathcal{L}\{e^{-2t} \ u(t-1)\}\]
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Evaluate 
+	\[\mathcal{L}\{t^2 e^{2t} \ u(t-2)\}\]
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Evaluate 
+	\[\mathcal{L}\{t \sin(2t) \ u(t-\pi)\}\]
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Evaluate 
+	\[\mathcal{L}\{e^{-2t} \cos t\ u(t-3\pi)\}\]
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Evaluate 
+	\[\mathcal{L}\{t e^{3t} \sin t\ u(t-\pi)\}\]
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+	Converting a piecewise function into Step function
+\end{heading}
+
+\clearpage
+
+\begin{heading}
+	Laplace Transform of Piecewise Functions
+\end{heading}
+
+\vspace{10pt}
+
+\begin{problem}
+	Find the Laplace transform of the function
+	\[
+	f(t)=
+	\begin{cases}
+	0, & 0\le t<2,\\
+	3, & 2\le t<4,\\
+	e^t, & t\ge 4.
+	\end{cases}
+	\]
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Find the Laplace transform of the function
+	\[
+	f(t)=
+	\begin{cases}
+	0, & 0\le t<\pi,\\
+	\cos t, & t\ge \pi.
+	\end{cases}
+	\]
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Find the Laplace transform of the function
+	\[
+	f(t)=
+	\begin{cases}
+	5\sin t, & 0\le t<\pi,\\
+	0, & t\ge \pi.
+	\end{cases}
+	\]
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Find the Laplace transform of the function
+	\[
+	f(t)=
+	\begin{cases}
+	0, & 0\le t<\pi,\\
+	\sin t, & \pi\le t<2\pi,\\
+	0, & t\ge 2\pi.
+	\end{cases}
+	\]
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+	Find the Laplace transform of the function
+	\[
+	f(t)=
+	\begin{cases}
+	5\sin t, & 0\le t<\pi,\\
+	-4\cos(2t), & t\ge \pi.
+	\end{cases}
+	\]
+\end{problem}
+
+\clearpage
+
+
+
+\EndPage
+\end{document}
