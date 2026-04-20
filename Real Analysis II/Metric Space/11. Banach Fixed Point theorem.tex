@@ -1,0 +1,166 @@
+% ===============================
+% Worksheet / Manual Template
+% ===============================
+\documentclass[12pt, a4paper]{article}
+
+% ===============================
+% Metadata
+% ===============================
+\newcommand*{\CourseCode}{MAT321}
+\newcommand*{\CourseTitle}{Real Analysis II}
+\newcommand*{\Chapter}{Banach Fixed Point Theorem}
+\newcommand*{\Topics}{Contraction Mapping, Banach Fixed Point Theorem, Picard-Lindelöf Theorem}
+\newcommand*{\DocDate}{April 21, 2026}
+
+\include{header}
+
+% ==========================================
+% Document
+% ==========================================
+\begin{document}
+\FrontPage
+\Large
+
+\begin{heading}
+    Motivation of Fixed Point
+\end{heading}
+
+\clearpage
+
+\begin{heading}
+    Contraction Mapping
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Contraction Mapping]
+    Let $(X, d)$ be a metric space. A function $: X \to X$ is called a \textit{contraction mapping} if there exists a constant $0 < k < 1$ such that for all $x, y \in X$,
+    \[
+        d(f(x), f(y)) \leq k \cdot d(x, y).
+    \]
+\end{definition}
+
+\clearpage
+
+\begin{problem}[Example of Contraction Mapping]
+    Consider the function $f: \mathbb{R} \to \mathbb{R}$ defined by $f(x) = \frac{1}{2}x$. Show that $f$ is a contraction mapping on $\mathbb{R}$ with the standard metric.
+\end{problem}
+
+\clearpage
+
+\begin{problem}[Another Example of Contraction Mapping]
+    Let $X = [0, 1]$ and define $f: X \to X$ by $f(x) = \frac{1}{2}x + \frac{1}{4}$. Show that $f$ is a contraction mapping on $X$.
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+    Banach Fixed Point Theorem
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Banach fixed point theorem]
+Let $(X,d)$ be a complete metric space and let $f : X \to X$ be a contraction with constant $k \in [0,1)$. Then:
+\begin{enumerate}
+    \item[(i)] $f$ has a unique fixed point $x^* \in X$;
+    
+    \item[(ii)] for every initial point $x_0 \in X$, the iteration
+    \[
+    x_{n+1} = f(x_n)
+    \]
+    converges to $x^*$.
+\end{enumerate}
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Derivative criterion for contraction on an interval]
+    Let $f: [a,b] \to \mathbb{R}$ be a differentiable function. If there exists a constant $0 < k < 1$ such that $|f'(x)| \leq k$ for all $x \in [a,b]$, then $f$ is a contraction mapping on $[a,b]$ with the standard metric.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Fixed point iteration method for solving equations
+\end{heading}
+
+\clearpage
+
+\begin{heading}
+    Solving ODEs using Banach fixed point theorem
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Equivalent integral form of ODEs]
+    Let $f: [a,b] \times \mathbb{R} \to \mathbb{R}$ be a continuous function. A function $y: [a,b] \to \mathbb{R}$ is a solution to the initial value problem
+    \[
+        y' = f(x,y), \qquad y(a) = y_0
+    \]
+    if and only if it satisfies the integral equation
+    \[
+        y(x) = y_0 + \int_a^x f(t, y(t))\, dt.
+    \]
+    
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Picard-Lindelof theorem and the ODE uniqueness theorem
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Lipschitz condition]
+    Let $f: [a,b] \times \mathbb{R} \to \mathbb{R}$ be a function. We say that $f$ satisfies a \textit{Lipschitz condition} with respect to the second variable if there exists a constant $L > 0$ such that for all $x \in [a,b]$ and all $u, v \in \mathbb{R}$,
+    \[
+        |f(x, u) - f(x, v)| \leq L |u - v|.
+    \]
+\end{definition}
+
+\clearpage
+
+\begin{theorem}[Picard--Lindelöf / local existence and uniqueness]
+Suppose $f$ is continuous on a rectangle
+\[
+R = [t_0-a, t_0+a] \times [y_0-b, y_0+b]
+\]
+and Lipschitz in $y$ there with constant $L$. Let
+\[
+M = \sup_{(t,y)\in R} |f(t,y)|,
+\qquad
+h = \min\left\{a,\frac{b}{M},\frac{1}{L}\right\}
+\]
+(with the convention $1/L=\infty$ if $L=0$). Then the IVP
+\[
+y' = f(t,y), \qquad y(t_0)=y_0
+\]
+has a unique solution on $I = [t_0-h, t_0+h]$.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Picard iteration
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Picard iteration for solving ODEs]
+    Let $f: [a,b] \times \mathbb{R} \to \mathbb{R}$ be a continuous function. The Picard iteration is defined as follows:
+    \[
+        y_0(x) = y_0, \qquad y_{n+1}(x) = y_0 + \int_a^x f(t, y_n(t))\, dt.
+    \]
+    
+\end{definition}
+
+\clearpage
+
+
+
+
+
+\EndPage
+\end{document}
