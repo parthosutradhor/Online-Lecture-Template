@@ -87,6 +87,19 @@ Let $(X,d)$ be a complete metric space and let $f : X \to X$ be a contraction wi
 
 \clearpage
 
+\begin{problem}
+    Solve the equation $x - \cos(x) = 0$ using the fixed point iteration method. Start with an initial guess $x_0 = 1$ and compute the first few iterations to approximate the solution.
+\end{problem}
+
+\clearpage
+
+
+\begin{problem}
+    Solve the equation $x^3 - x - 1 = 0$ using the fixed point iteration method. Start with an initial guess $x_0 = 1$ and compute the first few iterations to approximate the solution.
+\end{problem}
+
+\clearpage
+
 \begin{heading}
     Solving ODEs using Banach fixed point theorem
 \end{heading}
@@ -127,7 +140,11 @@ Suppose $f$ is continuous on a rectangle
 \[
 R = [t_0-a, t_0+a] \times [y_0-b, y_0+b]
 \]
-and Lipschitz in $y$ there with constant $L$. Let
+and Lipschitz in $y$ there with constant $L$ i.e. 
+\[
+|f(t, u) - f(t, v)| \leq L |u - v| \quad \text{for all } (t,u), (t,v) \in R.
+\]
+Let
 \[
 M = \sup_{(t,y)\in R} |f(t,y)|,
 \qquad
