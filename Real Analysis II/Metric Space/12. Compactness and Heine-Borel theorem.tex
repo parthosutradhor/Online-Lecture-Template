@@ -1,0 +1,170 @@
+% ===============================
+% Worksheet / Manual Template
+% ===============================
+\documentclass[12pt, a4paper]{article}
+
+% ===============================
+% Metadata
+% ===============================
+\newcommand*{\CourseCode}{MAT321}
+\newcommand*{\CourseTitle}{Real Analysis II}
+\newcommand*{\Chapter}{Compactness in Metric Spaces}
+\newcommand*{\Topics}{Heine-Borel Theorem and Extreme Value Theorem}
+\newcommand*{\DocDate}{April 24, 2026}
+
+\include{header}
+
+% ==========================================
+% Document
+% ==========================================
+\begin{document}
+\FrontPage
+\Large
+
+\begin{heading}
+    Open Cover and Subcover
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Open Cover]
+    Let $A$ be a subset of a metric space $(X, d)$. An \textit{open cover} of $A$ is a collection $\{U_\alpha\}_{\alpha \in I}$ of open subsets of $X$ such that
+    \[
+        A \subseteq \bigcup_{\alpha \in I} U_\alpha.
+    \]
+\end{definition}
+
+\clearpage
+
+\begin{definition}[Subcover]
+    A \textit{subcover} of an open cover $\{U_\alpha\}_{\alpha \in I}$ of a set $A$ is a subcollection $\{U_\alpha\}_{\alpha \in J}$, where $J \subseteq I$, such that
+    \[
+        A \subseteq \bigcup_{\alpha \in J} U_\alpha.
+    \]
+\end{definition}
+
+\clearpage
+
+\begin{definition}[Finite Subcover]
+    A \textit{finite subcover} of an open cover $\{U_\alpha\}_{\alpha \in I}$ of a set $A$ is a subcollection $\{U_\alpha\}_{\alpha \in J}$, where $J \subseteq I$ is a finite set, such that
+    \[
+        A \subseteq \bigcup_{\alpha \in J} U_\alpha.
+    \]
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+    Compactness
+\end{heading}
+
+\begin{definition}[Compactness]
+    A subset $A$ of a metric space $(X, d)$ is called \textit{compact} if every open cover of $A$ has a finite subcover. That is, if $\{U_\alpha\}_{\alpha \in I}$ is an open cover of $A$, then there exists a finite subset $J \subseteq I$ such that
+    \[
+        A \subseteq \bigcup_{\alpha \in J} U_\alpha.
+    \]
+\end{definition}
+
+\clearpage
+
+\begin{problem}
+    Show that the Real line $\mathbb{R}$ is not compact in the standard metric.
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+    Show that the closed interval $(0, 1)$ is not compact in the standard metric on $\mathbb{R}$.
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+    Show that any finite subset of real numbers is compact in the standard metric on $\mathbb{R}$.
+\end{problem}
+
+\clearpage
+
+\begin{problem}
+    Show that the closed interval $[0, 1]$ is compact in the standard metric on $\mathbb{R}$.
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+    Why Compactness is Important?
+\end{heading}
+
+\clearpage
+
+\begin{heading}
+    Boundness of Functions
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Boundedness of Continuous Functions on Compact Sets]
+    Let $(X, d)$ be a metric space and let $f : X \to \mathbb{R}$ be a continuous function. If $K \subseteq X$ is compact, then $f$ is bounded.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Some Important Theorems on Compactness
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}
+    Every closed subset of a compact metric space is compact.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}
+    Every compact subset of a metric space $(X, d)$ is closed.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}
+    Every compact subset of a metric space $(X, d)$ is bounded.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Heine-Borel Theorem
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Heine-Borel Theorem]
+    A subset of $\mathbb{R}$ is compact if and only if it is closed and bounded.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Continuous Image and Extreme Value Theorem
+\end{heading}
+
+\begin{theorem}[Continuous Image of Compact Set is Compact]
+    Let $(X, d)$ be a metric space and let $f : X \to \mathbb{R}$ be a continuous function. If $K \subseteq X$ is compact, then $f(K)$ is compact in $\mathbb{R}$.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Extreme Value Theorem
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Extreme Value Theorem]
+    Let $(X, d)$ be a metric space and let $f : X \to \mathbb{R}$ be a continuous function. If $K \subseteq X$ is compact, then $f$ attains its maximum and minimum values on $K$.
+\end{theorem}
+
+
+\EndPage
+\end{document}
