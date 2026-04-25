@@ -1,0 +1,118 @@
+% ===============================
+% Worksheet / Manual Template
+% ===============================
+\documentclass[12pt, a4paper]{article}
+
+% ===============================
+% Metadata
+% ===============================
+\newcommand*{\CourseCode}{MAT321}
+\newcommand*{\CourseTitle}{Real Analysis II}
+\newcommand*{\Chapter}{Sequential Compactness}
+\newcommand*{\Topics}{Finite Intersection Property, Bolzano-Weierstrass Property}
+\newcommand*{\DocDate}{April 25, 2026}
+
+\include{header}
+
+% ==========================================
+% Document
+% ==========================================
+\begin{document}
+\FrontPage
+\Large
+
+\begin{heading}
+    Finite Intersection Property (FIP)
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Finite Intersection Property]
+    A family of sets $\{A_\alpha\}_{\alpha \in I}$ is said to have the \textit{finite intersection property} if for every finite subset $J \subseteq I$, we have
+    \[
+        \bigcap_{\alpha \in J} A_\alpha \neq \emptyset.
+    \]
+\end{definition}
+
+\vspace{20pt}
+
+\begin{problem}[Example of FIP]
+    Consider the family of sets $\{A_n\}_{n=1}^\infty$ where $A_n = \left[-\frac{1}{n}, \frac{1}{n}\right]$. Show that this family has the finite intersection property, but the intersection of all sets in the family is empty.
+    
+\end{problem}
+
+\clearpage
+
+\begin{problem}[Example of FIP]
+    Consider the family of sets $\{A_n\}_{n=1}^\infty$ where $A_n = \left[n, \infty\right)$. Show that this family has the finite intersection property, but the intersection of all sets in the family is empty.
+    
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+    Compactness and Finite-Intersection Property
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Compactness and FIP]
+    A subset $K$ of a metric space is compact if and only if for every family of closed subsets $\{F_\alpha\}_{\alpha \in I}$ of $K$ with the finite intersection property, we have
+    \[
+        \bigcap_{\alpha \in I} F_\alpha \neq \emptyset.
+    \]
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Sequential Compactness and Bolzano-Weierstrass Property
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Sequential Compactness]
+    A subset $K$ of a metric space is said to be \textit{sequentially compact} if every sequence in $K$ has a convergent subsequence whose limit is in $K$.
+\end{definition}
+
+\clearpage
+
+\begin{definition}[Bolzano-Weierstrass Property]
+    A subset $K$ of a metric space is sequentially compact if and only if every infinite subset of $K$ has a limit point in $K$.
+\end{definition}
+
+\clearpage
+
+\begin{theorem}[Sequential Compactness and B-W Property]
+    A subset $K$ of a metric space is sequentially compact if and only if it has the Bolzano-Weierstrass property.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Compactness and Sequential Compactness
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Compactness implies Sequential Compactness]
+    Every compact metric space is sequentially compact.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Sequential Compactness implies Compactness]
+    Every sequentially compact metric space is compact.
+\end{theorem}
+
+\clearpage
+
+\begin{problem}[Remark on Compactness and Sequential Compactness]
+    In general, compactness and sequential compactness are not equivalent in arbitrary topological spaces. However, in metric spaces, they coincide. Provide an example of a topological space where compactness does not imply sequential compactness.
+\end{problem}
+
+
+
+
+\EndPage
+\end{document}

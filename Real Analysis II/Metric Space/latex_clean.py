@@ -25,7 +25,7 @@ from typing import Iterable
 
 # Common LaTeX build artifacts (safe to delete)
 LATEX_JUNK_EXTENSIONS = {
-    ".aux", ".log", ".toc", ".out", ".lof", ".lot",
+    ".aux", ".log", ".toc", ".out", ".lof", ".lot", ".gz",
     ".bbl", ".bcf", ".blg", ".run.xml",
     ".fls", ".fdb_latexmk", ".synctex.gz",
     ".nav", ".snm", ".vrb",
