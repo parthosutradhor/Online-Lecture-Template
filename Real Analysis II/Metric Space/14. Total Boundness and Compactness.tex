@@ -1,0 +1,161 @@
+% ===============================
+% Worksheet / Manual Template
+% ===============================
+\documentclass[12pt, a4paper]{article}
+
+% ===============================
+% Metadata
+% ===============================
+\newcommand*{\CourseCode}{MAT321}
+\newcommand*{\CourseTitle}{Real Analysis II}
+\newcommand*{\Chapter}{Total Boundness and Compactness}
+\newcommand*{\Topics}{$\epsilon$-net and Total Boundness}
+\newcommand*{\DocDate}{April 25, 2026}
+
+\include{header}
+
+% ==========================================
+% Document
+% ==========================================
+\begin{document}
+\FrontPage
+\Large
+
+\begin{heading}
+    $\epsilon$-net and Total Boundness
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[$\epsilon$-net]
+    Let $(X, d)$ be a metric space and $\epsilon > 0$. A subset $N \subseteq X$ is called an \textit{$\epsilon$-net} for $X$ if for every point $x \in X$, there exists a point $n \in N$ such that $d(x, n) < \epsilon$. In other words, the collection of open balls $\{B(n, \epsilon) : n \in N\}$ covers the entire space $X$.
+\end{definition}
+
+\clearpage
+
+\begin{problem}[Example of $\epsilon$-net]
+    Show that the set $Z = \{-3, -2, -1, 0, 1, 2, 3\}$ is a $1$-net for $\mathbb{R}$.
+\end{problem}
+
+\vspace{200pt}
+
+\begin{problem}[Example of $\epsilon$-net]
+    The set $B=\{B(m, n) : m, n \in \mathbb{Z}\}$ is a $\sqrt{2}$-net for $\mathbb{R}^2$.
+\end{problem}
+
+\clearpage
+
+\begin{definition}[Total Boundness]
+    A metric space $(X, d)$ is said to be \textit{totally bounded} if for every $\epsilon > 0$, there exists a finite $\epsilon$-net for $X$. In other words, for any given $\epsilon > 0$, we can find a finite set of points in $X$ such that the open balls centered at those points with radius $\epsilon$ cover the entire space $X$.
+\end{definition}
+
+\vspace{300pt} 
+
+\begin{problem}[Example of Total Boundness]
+    The interval $[0, 1]$ is totally bounded.
+\end{problem}
+
+\clearpage
+
+\begin{problem}[Example of Total Boundness]
+    The set $\mathbb{R}$ is not totally bounded.
+\end{problem}
+
+\vspace{140pt} 
+
+\begin{problem}[Example of Total Boundness]
+    The infinite discrete space $\mathbb{N}$ with the discrete metric is not totally bounded.
+\end{problem}
+
+\vspace{140pt} 
+
+\begin{problem}[Example of Total Boundness]
+    The infinite-dimensional space $\ell^2$ is not totally bounded.
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+    Separability and Compactness
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Totally Boundness and Separability]
+    Every totally bounded metric space is separable.
+\end{theorem}
+
+\vspace{200pt}
+
+\begin{theorem}[Compactness and Separability]
+    Every compact metric space is separable.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Total Boundness and Compactness
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Total Boundness and Cauchy Subsequences]
+    A metric space $(X, d)$ is totally bounded if and only if every sequence in $X$ contains a Cauchy subsequence.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Sequential Compactness and Total Boundness]
+    A metric space $(X, d)$ is sequentially compact if and only if it is complete and totally bounded.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Lebesgue number and Lebesgue Covering Lemma
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Lebesgue Number]
+    Let $\{G_\alpha : \alpha \in \Lambda\}$ be an open cover of a metric space $(X,d)$. A real number $\lambda > 0$ is said to be a \emph{Lebesgue number} for the open cover $\{G_\alpha\}$ if for each subset $A$ of $X$ with $d(A) < \lambda$, there is at least one set $G_\alpha$ which contains $A$. \\In other words, any subset of $X$ that is "small enough" (in terms of diameter) can be entirely contained within one of the sets in the cover $\mathcal{U}$.
+\end{definition}
+
+\clearpage
+
+\begin{theorem}[Lebesgue Covering Lemma]
+    Every open cover of a sequentially compact metric space has a Lebesgue number.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Sequential Compactness and Compactness
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[In MS, Sequential Compactness $\iff$ Compactness]
+    A metric space $(X, d)$ is sequentially compact if and only if it is compact.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Equivalent Characterizations of Compactness
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Equivalent Characterizations of Compactness]
+    For a metric space $(X, d)$, the following statements are equivalent:
+    \begin{enumerate}
+        \item $X$ is compact.
+        \item $X$ is sequentially compact.
+        \item $X$ is complete and totally bounded.
+        \item Bolzano-Weierstrass property
+    \end{enumerate}
+\end{theorem}
+
+\EndPage
+\end{document}
