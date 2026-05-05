@@ -1,0 +1,278 @@
+% ===============================
+% Worksheet / Manual Template
+% ===============================
+\documentclass[12pt, a4paper]{article}
+
+% ===============================
+% Metadata
+% ===============================
+\newcommand*{\CourseCode}{MAT321}
+\newcommand*{\CourseTitle}{Real Analysis II}
+\newcommand*{\Chapter}{Connectedness}
+\newcommand*{\Topics}{Separated Sets, Connected Sets, Components}
+\newcommand*{\DocDate}{May 05, 2026}
+
+\include{header}
+
+% ==========================================
+% Document
+% ==========================================
+\begin{document}
+\FrontPage
+\Large
+
+\begin{heading}
+    Separated Sets
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Separated Sets]
+    Let \(X\) be a metric space. Two subsets \(A, B \subseteq X\) are said to be \textit{separated} if
+    \[
+        \overline{A} \cap B = \emptyset \quad \text{and} \quad A \cap \overline{B} = \emptyset.
+    \]
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+    Connected and Disconnected Sets
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Connected Sets]
+    A subset \(A \subseteq X\) of a metric space \(X\) is said to be \textit{connected} if it cannot be expressed as the union of two non-empty, separated subsets.
+\end{definition}
+
+\vspace{200pt}
+
+\begin{definition}[Disconnected Sets]
+    A subset \(A \subseteq X\) of a metric space \(X\) is said to be \textit{disconnected} if it can be expressed as the union of two non-empty, separated subsets.
+\end{definition}
+
+\clearpage
+
+\begin{theorem}[Disconnected Space and Clopen Sets]
+    A metric space \(X\) is disconnected if and only if there exists a non-empty, proper subset \(U \subset X\) such that \(U\) is both open and closed in the topology on \(X\).
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Disconnected Sets and Clopen Sets]
+    A subset \(A \subseteq X\) of a metric space \(X\) is disconnected if and only if there exists a non-empty, proper subset \(U \subset A\) such that \(U\) is both open and closed in the subspace topology on \(A\).
+\end{theorem}
+
+\vspace{10pt}
+
+\textbf{Proof:}
+
+\textbf{($\Rightarrow$)}  Suppose \(A\) is disconnected.  Then there exist non-empty separated sets \(B\) and \(C\) such that \(A = B \cup C\).  We will show that \(B\) is a non-empty proper subset of \(A\) that is both open and closed in the subspace topology on \(A\).  Since \(B\) and \(C\) are separated, we have \(\overline{B} \cap C = \emptyset\) and \(B \cap \overline{C} = \emptyset\).  This implies that \(B\) is closed in \(A\) because \(\overline{B} \cap C = \emptyset\) means that \(\overline{B} \subseteq A \setminus C\), and \(B\) is open in \(A\) because \(B \cap \overline{C} = \emptyset\) means that \(B \subseteq A \setminus \overline{C}\).  Thus \(B\) is a non-empty proper subset of \(A\) that is both open and closed in the subspace topology on \(A\).
+
+\textbf{($\Leftarrow$)}  Conversely, suppose there exists a non-empty proper subset \(U \subset A\) that is both open and closed in the subspace topology on \(A\).  We will show that \(A\) is disconnected.  Since \(U\) is open in \(A\), there exists an open set \(V\) in \(X\) such that \(U = V \cap A\).  Since \(U\) is closed in \(A\), we have \(\overline{U} \cap A = U\).  Let \(W = A \setminus U\).  Then \(W\) is non-empty because \(U\) is a proper subset of \(A\).  We will show that \(U\) and \(W\) are separated.  First, we have
+\[
+\overline{U} \cap W = (\overline{U} \cap A) \cap W = U \cap W = \emptyset.
+\]
+Next, we have
+\[
+U \cap \overline{W} = U \cap (A \setminus U) = \emptyset.
+\]
+Thus \(U\) and \(W\) are separated, and \(A = U \cup W\) is a union of two non-empty separated subsets.  Therefore \(A\) is disconnected.
+
+\clearpage
+
+\begin{problem}[Example of a non-trivial Disconnected Set]
+    Consider the subset of \(\mathbb{R}^2\) defined by
+    \[
+        S = \left\{ \left(x, \sin\left(\frac{1}{x}\right)\right) : x \neq 0 \right\}.
+    \]
+    Show that \(S\) is disconnected.
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+    Connectedness and Continuous Functions
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Continuous Image of Connected Set]
+    If \(f: X \to Y\) is a continuous function between metric spaces and \(A \subseteq X\) is connected, then \(f(A)\) is connected in \(Y\).
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Union of Connected Sets
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Union of two Connected Sets]
+    The union of two connected sets, having non-empty intersection, is connected.
+\end{theorem}
+
+\vspace{10pt}
+
+\textbf{Proof:}  Let \(A\) and \(B\) be two connected sets such that \(A\cap B\neq \emptyset\).  We will show that \(A\cup B\) is connected.
+Suppose, for contradiction, that \(A\cup B\) is disconnected.  Then
+\[
+A\cup B=U\cup V,
+\]
+where \(U\) and \(V\) are non-empty separated subsets.
+
+Since \(A\) is connected, it cannot meet both \(U\) and \(V\).  Indeed, if both \(A\cap U\) and \(A\cap V\) were non-empty, then
+\[
+A=(A\cap U)\cup(A\cap V)
+\]
+would express \(A\) as a union of two non-empty separated subsets, because separatedness is inherited by subsets.  Hence \(A\subset U\) or \(A\subset V\).  Similarly, \(B\subset U\) or \(B\subset V\).
+
+Choose a point \(p\in A\cap B\).  The point \(p\) lies in exactly one of \(U\) and \(V\), since separated sets are disjoint.  If \(p\in U\), then the connectedness argument forces both \(A\subset U\) and \(B\subset U\).  Thus \(A\cup B\subset U\), so \(V\) is empty, a contradiction.  The case \(p\in V\) is identical.  Therefore \(A\cup B\) is connected.
+
+\clearpage
+
+\begin{theorem}[Arbitrary Union of Connected Sets]
+    Arbitrary union of connected sets, having non-empty intersection, is connected.
+\end{theorem}
+
+\vspace{10pt}
+
+\textbf{Proof:}  Let \(\{A_\alpha\}_{\alpha\in I}\) be a family of connected sets such that \(\bigcap_{\alpha\in I} A_\alpha\neq \emptyset\).  We will show that \(\bigcup_{\alpha\in I} A_\alpha\) is connected.
+
+Suppose, for contradiction, that \(A=U\cup V\) is a separation.  Since \(p\in A\), either \(p\in U\) or \(p\in V\).  Assume \(p\in U\); the other case is symmetric.
+
+For each \(\alpha\), the set \(A_{\alpha}\) is connected and contains \(p\in U\).  If \(A_{\alpha}\) met \(V\), then
+\[
+A_{\alpha}=(A_{\alpha}\cap U)\cup(A_{\alpha}\cap V)
+\]
+would be a separation of \(A_{\alpha}\), because both parts would be non-empty and separated.  This is impossible.  Hence \(A_{\alpha}\subset U\) for every \(\alpha\).  Therefore
+\[
+A=\bigcup_{\alpha\in\Lambda}A_{\alpha}\subset U,
+\]
+so \(V=\varnothing\), contradicting the assumption that \(V\) is non-empty.  Thus \(A\) is connected.
+
+\clearpage
+
+\begin{heading}
+    Connectedness Examples
+\end{heading}
+
+\vspace{10pt}
+
+\begin{problem}[Connectedness of Topologist Sine Curve]
+    The \textit{topologist sine curve} is the subset of \(\mathbb{R}^2\) defined by
+    \[
+        T = \left\{ \left(x, \sin\left(\frac{1}{x}\right)\right) : x > 0 \right\} \cup \{(0, y) : -1 \leq y \leq 1\}.
+    \]
+    Show that \(T\) is connected.
+\end{problem}
+
+\clearpage
+
+\begin{theorem}
+    A non-empty subset $X$ of \(\mathbb{R}\) (with usual metric) is connected if and only if $X$ is an interval or a singleton.
+\end{theorem}
+
+\vspace{10pt}
+
+\textbf{Proof:}
+
+A singleton is connected because it cannot be written as the union of two non-empty disjoint sets.
+
+Now let \(I\subset\R\) be an interval with at least two points.  Suppose, for contradiction, that \(I\) is disconnected.  By the clopen characterization, there is a non-empty proper subset \(U\subset I\) which is both open and closed in the subspace topology on \(I\).  Choose
+\[
+u\in U,
+\qquad
+v\in I\setminus U.
+\]
+If necessary, interchange the names of \(u\) and \(v\), or replace the following argument by its mirror image, so assume \(u<v\).
+
+Because \(I\) is an interval, \([u,v]\subset I\).  Consider
+\[
+E=U\cap [u,v].
+\]
+Then \(E\) is non-empty, because \(u\in E\), and \(E\) is bounded above by \(v\).  Let
+\[
+c=\sup E.
+\]
+Then \(u\le c\le v\).
+
+Since \(U\) is closed in \(I\), and points of \(E\) can be chosen arbitrarily close to \(c\) from below, we get \(c\in U\).  Since \(v\notin U\), it follows that \(c<v\).
+
+Because \(U\) is open in \(I\), there exists \(\varepsilon>0\) such that
+\[
+(c-\varepsilon,c+\varepsilon)\cap I\subset U.
+\]
+Choose a number \(t\) with
+\[
+c<t<\min\{v,c+\varepsilon\}.
+\]
+This is possible because \(c<v\).  Since \([u,v]\subset I\), we have \(t\in I\), and the displayed inclusion gives \(t\in U\).  Also \(t\in[u,v]\), so \(t\in E\).  But \(t>c=\sup E\), a contradiction.
+
+Therefore no such non-empty proper clopen subset \(U\) exists, and \(I\) is connected.
+
+\vspace{50pt}
+    
+\begin{theorem}
+    The Real line \(\mathbb{R}\) is connected.
+\end{theorem}
+
+\vspace{10pt}
+
+\textbf{Proof:}  The real line is an interval, so it is connected by the previous theorem.
+
+\clearpage
+
+\begin{heading}
+    Generalized Intermediate Value Theorem
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Generalized Intermediate Value Theorem]
+    Let \(X\) be a connected metric space and \(f: X \to \mathbb{R}\) be a continuous function. If \(f(x_1) < c < f(x_2)\) for some \(x_1, x_2 \in X\) and \(c \in \mathbb{R}\), then there exists some \(x \in X\) such that \(f(x) = c\).
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Components of a Metric Space
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Component]
+    Let \(X\) be a metric space. A \textit{component} of \(X\) is a maximal connected subset of \(X\). In other words, a component is a connected subset of \(X\) that is not properly contained in any other connected subset of \(X\).
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+    Properties of Components
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Properties of Components]
+    Let \(X\) be a metric space and let \(\{C_\alpha\}_{\alpha \in A}\) be the collection of all components of \(X\). Then:
+    \begin{enumerate}
+        \item Components are closed sets.
+        \item Components need not be open sets.
+        \item Components of a metric space are either identical or pairwise disjoint.
+        \item The union of all components of \(X\) is \(X\) itself, i.e., \(\bigcup_{\alpha \in A} C_\alpha = X\).
+        \item Each component is a connected subset of \(X\).
+        \item If \(X\) is connected, then \(X\) itself is the only component of \(X\).
+    \end{enumerate}
+\end{theorem}
+
+\clearpage
+
+\begin{problem}[Components of $\mathbb{Q}$]
+    Find the components of the metric space $(\mathbb{Q}, d)$, where $d$ is the usual metric on $\mathbb{R}$.
+\end{problem}
+
+
+\EndPage
+\end{document}
