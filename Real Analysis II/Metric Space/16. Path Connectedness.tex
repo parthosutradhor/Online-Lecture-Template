@@ -1,0 +1,813 @@
+% ===============================
+% Worksheet / Manual Template
+% ===============================
+\documentclass[12pt, a4paper]{article}
+
+% ===============================
+% Metadata
+% ===============================
+\newcommand*{\CourseCode}{MAT321}
+\newcommand*{\CourseTitle}{Real Analysis II}
+\newcommand*{\Chapter}{Path Connectedness and Components}
+\newcommand*{\Topics}{Connected vs Path Connected, Totally Disconnected Spaces}
+\newcommand*{\DocDate}{May 07, 2026}
+
+\include{header}
+
+% ==========================================
+% Document
+% ==========================================
+\begin{document}
+\FrontPage
+\Large
+
+\begin{heading}
+    Motivation
+\end{heading}
+
+\clearpage
+
+\begin{heading}
+    Paths in Metric Spaces
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Path]
+Let $X$ be a metric space and let $a,b\in X$. A \textit{path from $a$ to $b$ in $X$} is a continuous function
+\[
+    \gamma:[0,1]\to X
+\]
+such that
+\[
+    \gamma(0)=a
+    \qquad\text{and}\qquad
+    \gamma(1)=b.
+\]
+The points $a$ and $b$ are called the \textit{initial point} and \textit{terminal point} of the path.
+\end{definition}
+
+\vfill
+
+\begin{problem}[Remark]
+The interval $[0,1]$ is used only as a convenient parameter interval. A path is not just the image $\gamma([0,1])$; it is the continuous parametrization $\gamma$ together with the direction from $a$ to $b$.
+\end{problem}
+
+\clearpage
+
+\begin{problem}[Straight-line path in $\R^n$]
+Let $a,b\in\R^n$. Define
+\[
+    \gamma(t)=(1-t)a+tb,
+    \qquad 0\leq t\leq 1.
+\]
+Then $\gamma$ is continuous, $\gamma(0)=a$, and $\gamma(1)=b$. Hence $\gamma$ is a path from $a$ to $b$ in $\R^n$.
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+    Path Connected Sets
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Path Connected Set]
+Let $X$ be a metric space. A subset $A\subseteq X$ is said to be \textit{path connected} if for every pair of points $a,b\in A$, there exists a continuous function
+\[
+    \gamma:[0,1]\to A
+\]
+such that
+\[
+    \gamma(0)=a,
+    \qquad
+    \gamma(1)=b.
+\]
+\end{definition}
+
+\vspace{250pt}
+
+\begin{problem}[Intervals are path connected]
+Every interval $I\subseteq\R$ is path connected. If $a,b\in I$, define
+\[
+    \gamma(t)=(1-t)a+tb.
+\]
+Since $I$ is an interval, every point between $a$ and $b$ belongs to $I$. Hence $\gamma([0,1])\subseteq I$, and $\gamma$ is a path from $a$ to $b$ inside $I$.
+\end{problem}
+
+\clearpage
+
+\begin{definition}[Convex subsets of $\R^n$]
+A subset $C\subseteq\R^n$ is called convex if
+\[
+    (1-t)x+ty\in C
+    \qquad\text{for all }x,y\in C\text{ and }0\leq t\leq 1.
+\]
+Every convex set is path connected by the straight-line path.
+\end{definition}
+
+\vspace{150pt}
+
+\begin{theorem}[Generalized Intermediate Value Theorem in Convex Sets]
+Let \(X\) be a convex path-connected metric space, and let
+\(
+f:X\to \mathbb{R}
+\)
+be a continuous function. Suppose that for some \(x_1,x_2\in X\) and
+\(K\in\mathbb{R}\),
+\(
+f(x_1)<k<f(x_2).
+\)
+Then there exists a point \(x\) on the line segment joining \(x_1\) and
+\(x_2\) such that
+\[
+f(x)=k.
+\]
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Path Connected Implies Connected
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Path connected $\Rightarrow$ connected]
+Every path connected subset of a metric space is connected.
+\end{theorem}
+
+\textbf{Proof.}
+Let $A$ be a path connected subset of a metric space $X$. Suppose, for contradiction, that $A$ is disconnected. Then there exist non-empty separated subsets $U$ and $V$ such that
+\[
+    A=U\cup V.
+\]
+Choose $u\in U$ and $v\in V$. Since $A$ is path connected, there exists a path
+\[
+    \gamma:[0,1]\to A
+\]
+such that $\gamma(0)=u$ and $\gamma(1)=v$.
+
+The set $[0,1]$ is connected, and $\gamma$ is continuous. Therefore $\gamma([0,1])$ is connected. But
+\[
+    \gamma([0,1])
+    =\big(\gamma([0,1])\cap U\big)\cup\big(\gamma([0,1])\cap V\big),
+\]
+and both parts are non-empty because $u\in U$ and $v\in V$.
+Moreover, since $U$ and $V$ are separated in $A$, their intersections with $\gamma([0,1])$ are separated in $\gamma([0,1])$. This gives a separation of $\gamma([0,1])$, contradicting its connectedness.
+
+Hence $A$ is connected. \hfill $\square$
+
+\begin{problem}[Converse?]
+The converse is false. There exist connected sets that are not path connected. The most important problem for us is the topologist sine curve.
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+    A Useful Tool: Pasting Paths
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Joining two paths]
+Let $X$ be a metric space. Suppose $\gamma_1:[0,1]\to X$ is a path from $a$ to $b$ and $\gamma_2:[0,1]\to X$ is a path from $b$ to $c$. Define
+\[
+\gamma(t)=
+\begin{cases}
+\gamma_1(2t), & 0\leq t\leq \frac12,\\[4pt]
+\gamma_2(2t-1), & \frac12\leq t\leq 1.
+\end{cases}
+\]
+Then $\gamma$ is a path from $a$ to $c$.
+\end{theorem}
+
+\textbf{Proof.}
+Clearly $\gamma(0)=\gamma_1(0)=a$ and $\gamma(1)=\gamma_2(1)=c$. The only point at which continuity needs checking is $t=\frac12$.
+
+At $t=\frac12$, the left-hand formula gives
+\[
+    \gamma_1(1)=b,
+\]
+and the right-hand formula gives
+\[
+    \gamma_2(0)=b.
+\]
+Thus the two pieces agree at $t=\frac12$. By the pasting lemma for continuous functions, $\gamma$ is continuous on $[0,1]$. Hence $\gamma$ is a path from $a$ to $c$. \hfill $\square$
+
+\begin{problem}
+This theorem says that if $a$ can be joined to $b$, and $b$ can be joined to $c$, then $a$ can be joined to $c$.
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+    Union of Path Connected Sets
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Union of two path connected sets]
+Let $A$ and $B$ be path connected subsets of a metric space $X$. If
+\[
+    A\cap B\neq\emptyset,
+\]
+then $A\cup B$ is path connected.
+\end{theorem}
+
+\textbf{Proof.}
+Choose a point $p\in A\cap B$. Let $x,y\in A\cup B$. We must show that $x$ and $y$ can be joined by a path in $A\cup B$.
+
+If $x\in A$, then because $A$ is path connected, there is a path in $A$ from $x$ to $p$. If $x\in B$, then because $B$ is path connected, there is a path in $B$ from $x$ to $p$. In either case, there is a path in $A\cup B$ from $x$ to $p$.
+
+Similarly, there is a path in $A\cup B$ from $p$ to $y$. Joining these two paths gives a path from $x$ to $y$ in $A\cup B$. Therefore $A\cup B$ is path connected. \hfill $\square$
+
+\begin{theorem}[Arbitrary union of path connected sets]
+Let $\{A_\alpha\}_{\alpha\in I}$ be a family of path connected subsets of a metric space $X$. If
+\[
+    \bigcap_{\alpha\in I}A_\alpha\neq\emptyset,
+\]
+then
+\[
+    \bigcup_{\alpha\in I}A_\alpha
+\]
+is path connected.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Topologist Sine Curve
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Topologist sine curve]
+Let
+\[
+    G=\left\{\left(x,\sin\frac1x\right):x>0\right\}
+\]
+and
+\[
+    V=\{(0,y):-1\leq y\leq 1\}.
+\]
+The set
+\[
+    T=G\cup V
+\]
+is called the \textit{topologist sine curve}.
+\end{definition}
+
+\clearpage
+
+\begin{theorem}[The topologist sine curve is connected]
+The set $T=G\cup V$ is connected.
+\end{theorem}
+
+\textbf{Proof.}
+Define $f:(0,\infty)\to\R^2$ by
+\[
+    f(x)=\left(x,\sin\frac1x\right).
+\]
+The interval $(0,\infty)$ is connected and $f$ is continuous. Hence
+\[
+    G=f((0,\infty))
+\]
+is connected.
+
+Now observe that the closure of $G$ in $\R^2$ is
+\[
+    \overline{G}=G\cup \{(0,y):-1\leq y\leq 1\}=T.
+\]
+The closure of a connected set is connected. Therefore $T$ is connected. \hfill $\square$
+
+\clearpage
+
+\begin{heading}
+    Connected but Not Path Connected
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Topologist sine curve is not path connected]
+The topologist sine curve
+\[
+    T=\left\{\left(x,\sin\frac1x\right):x>0\right\}\cup\{(0,y):-1\leq y\leq 1\}
+\]
+is connected but not path connected.
+\end{theorem}
+
+\textbf{Proof.}
+We already proved that $T$ is connected. We show that it is not path connected.
+
+Let
+\[
+    G=\left\{\left(x,\sin\frac1x\right):x>0\right\},
+    \qquad
+    V=\{(0,y):-1\leq y\leq 1\}.
+\]
+Suppose, for contradiction, that there is a path $\gamma:[0,1]\to T$ from a point of $V$ to a point of $G$. Write
+\[
+    \gamma(t)=(x(t),y(t)).
+\]
+The coordinate functions $x(t)$ and $y(t)$ are continuous.
+
+Let
+\[
+    a=\sup\{t\in[0,1]:x(t)=0\}.
+\]
+Then $x(a)=0$, so $\gamma(a)\in V$, and for $t>a$ sufficiently close to $a$, the path must lie in $G$. Hence
+\[
+    y(t)=\sin\frac{1}{x(t)}
+\]
+for those $t>a$.
+
+Since the path reaches a point of $G$, the function $x(t)$ takes positive values after $a$. By continuity, $x(t)$ takes arbitrarily small positive values as $t\to a^+$. Choose sequences $s_n,r_n\downarrow 0$ such that
+\[
+    \sin\frac1{s_n}=1,
+    \qquad
+    \sin\frac1{r_n}=-1.
+\]
+For each $n$, there exist $t_n,u_n>a$ with
+\[
+    x(t_n)=s_n,
+    \qquad
+    x(u_n)=r_n.
+\]
+Moreover $t_n\to a$ and $u_n\to a$. Therefore
+\[
+    y(t_n)=1,
+    \qquad
+    y(u_n)=-1.
+\]
+This contradicts the continuity of $y(t)$ at $a$, because a continuous function cannot have two different limiting values along sequences approaching the same point.
+
+Thus no path can join a point of $V$ to a point of $G$. Therefore $T$ is not path connected. \hfill $\square$
+
+\clearpage
+
+\begin{heading}
+    Path Components
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Path component]
+Let $X$ be a metric space and let $x\in X$. The \textit{path component of $x$} is the set of all points of $X$ that can be joined to $x$ by a path in $X$:
+\[
+    P_x=\{y\in X: \text{there exists a path in }X\text{ from }x\text{ to }y\}.
+\]
+A \textit{path component of $X$} is any such set $P_x$.
+\end{definition}
+
+\begin{problem}
+A path component is the largest path connected piece of $X$ that contains the point $x$.
+\end{problem}
+
+\begin{problem}
+For
+\[
+    X=(0,1)\cup(2,3),
+\]
+the path components are $(0,1)$ and $(2,3)$.
+\end{problem}
+
+\begin{problem}
+For $X=\R^n$, there is only one path component, namely $\R^n$ itself.
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+    Properties of Path Components
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Path components partition the space]
+Let $X$ be a metric space. Then the path components of $X$ are either identical or pairwise disjoint, and their union is all of $X$.
+\end{theorem}
+
+\textbf{Proof.}
+Every point $x\in X$ belongs to its own path component $P_x$, because the constant path $\gamma(t)=x$ joins $x$ to itself. Hence the union of all path components is $X$.
+
+Now suppose $P_x\cap P_y\neq\emptyset$. Choose $z\in P_x\cap P_y$. Then there is a path from $x$ to $z$ and a path from $y$ to $z$. Reversing the second path gives a path from $z$ to $y$. Joining paths gives a path from $x$ to $y$.
+
+Now if $w\in P_x$, then $w$ can be joined to $x$, and $x$ can be joined to $y$. Hence $w$ can be joined to $y$, so $w\in P_y$. Thus $P_x\subseteq P_y$. Similarly $P_y\subseteq P_x$. Therefore $P_x=P_y$.
+
+So path components are either identical or disjoint. \hfill $\square$
+
+\begin{theorem}[Maximality]
+Each path component of $X$ is a maximal path connected subset of $X$.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Connected Components vs Path Components
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Connected component]
+A \textit{connected component} of $X$ is a maximal connected subset of $X$.
+\end{definition}
+
+\begin{definition}[Path component]
+A \textit{path component} of $X$ is a maximal path connected subset of $X$.
+\end{definition}
+
+\begin{theorem}[Path components lie inside connected components]
+Every path component of a metric space $X$ is contained in a connected component of $X$.
+\end{theorem}
+
+\textbf{Proof.}
+Every path component is path connected. Hence it is connected. Since connected components are maximal connected subsets, a connected set must lie inside the connected component containing any one of its points. Therefore every path component is contained in a connected component. \hfill $\square$
+
+\begin{problem}
+Connected components may be larger than path components. They are equal in many familiar spaces, but not in all metric spaces.
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+    Comparing Components: problems
+\end{heading}
+
+\vspace{10pt}
+
+\begin{problem}[$\R^n$]
+The space $\R^n$ is path connected, hence connected. Therefore it has exactly one connected component and exactly one path component:
+\[
+    \R^n.
+\]
+\end{problem}
+
+\begin{problem}[$(0,1)\cup(2,3)$]
+The set
+\[
+    X=(0,1)\cup(2,3)
+\]
+has two connected components and two path components:
+\[
+    (0,1),\qquad (2,3).
+\]
+Here connected components and path components are the same.
+\end{problem}
+
+\clearpage
+
+\begin{problem}[Topologist sine curve]
+For the topologist sine curve
+\[
+    T=G\cup V,
+\]
+where
+\[
+    G=\left\{\left(x,\sin\frac1x\right):x>0\right\},
+    \qquad
+    V=\{(0,y):-1\leq y\leq 1\},
+\]
+there is one connected component, namely $T$ itself. But there are two path components:
+\[
+    G
+    \qquad\text{and}\qquad
+    V.
+\]
+Thus connected components and path components can be different.
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+    Totally Disconnected Spaces
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Totally disconnected space]
+A metric space $X$ is called \textit{totally disconnected} if every connected component of $X$ is a singleton set.
+\end{definition}
+
+Equivalently, $X$ is totally disconnected if whenever $x,y\in X$ with $x\neq y$, there is no connected subset of $X$ containing both $x$ and $y$.
+
+\begin{problem}
+Totally disconnected does not mean that the space has no limit points. For problem, $\Q$ is totally disconnected, but every rational number is a limit point of $\Q$.
+\end{problem}
+
+\begin{problem}[A finite metric space]
+Every finite metric space with the discrete metric is totally disconnected, because every singleton is open and closed.
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+    Components of $\mathbb{Q}$
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[$\Q$ is totally disconnected]
+The metric space $(\Q,d)$, with the usual metric inherited from $\R$, is totally disconnected. Hence the components of $\Q$ are precisely the singleton sets
+\[
+    \{q\},\qquad q\in\Q.
+\]
+\end{theorem}
+
+\textbf{Proof.}
+Let $C$ be a connected subset of $\Q$. We show that $C$ has at most one point.
+
+Suppose, for contradiction, that $C$ contains two distinct rational numbers $p<q$. Since irrational numbers are dense in $\R$, choose an irrational number $\alpha$ such that
+\[
+    p<\alpha<q.
+\]
+Define
+\[
+    U=C\cap(-\infty,\alpha),
+    \qquad
+    V=C\cap(\alpha,\infty).
+\]
+Then $U$ and $V$ are non-empty, because $p\in U$ and $q\in V$. Also
+\[
+    C=U\cup V,
+    \qquad
+    U\cap V=\emptyset.
+\]
+Moreover, $U$ and $V$ are separated in $C$, because the cut point $\alpha$ is not rational and hence does not belong to $\Q$.
+Thus $C$ is disconnected, which is a contradiction.
+
+Therefore every connected subset of $\Q$ contains at most one point. Hence every connected component of $\Q$ is a singleton. \hfill $\square$
+
+\clearpage
+
+\begin{heading}
+    Components of $\mathbb{R}\setminus\mathbb{Q}$
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[The irrationals are totally disconnected]
+The metric space $\R\setminus\Q$, with the usual metric inherited from $\R$, is totally disconnected.
+\end{theorem}
+
+\textbf{Proof.}
+Let $C$ be a connected subset of $\R\setminus\Q$. Suppose that $C$ contains two distinct irrational numbers $a<b$.
+
+Since rational numbers are dense in $\R$, choose a rational number $r$ such that
+\[
+    a<r<b.
+\]
+Define
+\[
+    U=C\cap(-\infty,r),
+    \qquad
+    V=C\cap(r,
+    \infty).
+\]
+Then $U$ and $V$ are non-empty, disjoint, and their union is $C$. Since $r\notin \R\setminus\Q$, the sets $U$ and $V$ form a separation of $C$. Therefore $C$ is disconnected, a contradiction.
+
+Thus every connected subset of $\R\setminus\Q$ has at most one point. Hence the components of $\R\setminus\Q$ are singleton sets. \hfill $\square$
+
+\begin{problem}
+Both $\Q$ and $\R\setminus\Q$ are dense in $\R$, and both are totally disconnected. Density and connectedness are very different ideas.
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+    Totally Disconnected vs Discrete
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Discrete metric space]
+A metric space $X$ is called \textit{discrete} if every singleton set $\{x\}$ is open in $X$.
+\end{definition}
+
+\begin{theorem}[Discrete implies totally disconnected]
+Every discrete metric space is totally disconnected.
+\end{theorem}
+
+\textbf{Proof.}
+Let $X$ be discrete. Suppose $C\subseteq X$ contains two distinct points $a$ and $b$. Since $\{a\}$ is open and closed in $X$, the set
+\[
+    C\cap\{a\}=\{a\}
+\]
+is a non-empty proper clopen subset of $C$. Therefore $C$ is disconnected. Hence no connected subset of $X$ can contain more than one point. So $X$ is totally disconnected. \hfill $\square$
+
+\begin{problem}[Converse is false]
+A totally disconnected space need not be discrete. The space $\Q$ is totally disconnected, but it is not discrete under the usual metric. Indeed, every open ball around a rational number contains infinitely many rational numbers.
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+    The Cantor Set
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Cantor set]
+The Cantor set $\mathcal{C}$ is obtained from $[0,1]$ by repeatedly removing open middle thirds:
+\[
+[0,1]
+\supset
+\left[0,\frac13\right]\cup\left[\frac23,1\right]
+\supset \cdots.
+\]
+Equivalently,
+\[
+    \mathcal{C}=\bigcap_{n=0}^{\infty} C_n,
+\]
+where $C_n$ is the union of the closed intervals remaining after the $n$-th step.
+\end{definition}
+
+\begin{theorem}[Cantor set is totally disconnected]
+The Cantor set $\mathcal{C}$ is totally disconnected.
+\end{theorem}
+
+\textbf{Proof Sketch.}
+Let $x,y\in\mathcal{C}$ with $x<y$. During the construction of the Cantor set, some removed middle-third interval separates $x$ from $y$. That is, there exists an open interval $(a,b)$ removed at some finite stage such that
+\[
+    x<a<b<y.
+\]
+Then
+\[
+    \mathcal{C}\cap(-\infty,a]
+    \qquad\text{and}\qquad
+    \mathcal{C}\cap[b,\infty)
+\]
+separate $x$ and $y$ inside $\mathcal{C}$. Therefore no connected subset of $\mathcal{C}$ can contain two distinct points. Hence every component of $\mathcal{C}$ is a singleton. \hfill $\square$
+
+\begin{problem}
+The Cantor set is compact, uncountable, and has no isolated points, but it is still totally disconnected. This makes it one of the most important problems in real analysis and topology.
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+    Local Path Connectedness
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Locally path connected]
+A metric space $X$ is called \textit{locally path connected} if for every point $x\in X$ and every open set $U$ containing $x$, there exists an open path connected set $V$ such that
+\[
+    x\in V\subseteq U.
+\]
+\end{definition}
+
+\begin{definition}[Locally connected]
+A metric space $X$ is called \textit{locally connected} if for every point $x\in X$ and every open set $U$ containing $x$, there exists an open connected set $V$ such that
+\[
+    x\in V\subseteq U.
+\]
+\end{definition}
+
+\begin{problem}
+Local connectedness describes the small neighborhoods around each point. It is possible for a space to be connected but fail to be locally connected.
+\end{problem}
+
+\begin{problem}
+Every open subset of $\R^n$ is locally path connected. Around any point, choose a sufficiently small open ball contained in the given open set. Open balls in $\R^n$ are path connected.
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+    When Components and Path Components Agree
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Locally path connected spaces]
+If $X$ is locally path connected, then the path components of $X$ are open. Moreover, in a locally path connected space, connected components and path components are the same.
+\end{theorem}
+
+\textbf{Proof Sketch.}
+Let $P$ be a path component of $X$ and let $x\in P$. Since $X$ is locally path connected, there exists an open path connected neighborhood $V$ of $x$. Since $V$ is path connected and contains $x$, every point of $V$ is path connected to $x$. Thus
+\[
+    V\subseteq P.
+\]
+So every point of $P$ has an open neighborhood contained in $P$. Hence $P$ is open.
+
+Now let $C$ be a connected component of $X$. Since path components are open and partition $X$, if $C$ met two different path components, then those open path components would give a separation of $C$. This is impossible because $C$ is connected. Hence $C$ is contained in one path component. But every path component is connected, so maximality gives equality. \hfill $\square$
+
+\begin{problem}
+This theorem explains why in familiar spaces such as open subsets of $\R^n$, connected components and path components usually coincide.
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+    Worked Problems
+\end{heading}
+
+\vspace{10pt}
+
+\begin{problem}[Components of a sequence with its limit]
+Let
+\[
+    X=\left\{0\right\}\cup\left\{\frac1n:n\in\N\right\}\subset\R.
+\]
+Find the connected components and path components of $X$.
+\end{problem}
+
+We claim that every component is a singleton.
+
+Let $a,b\in X$ with $a<b$. Choose a real number $c$ such that $a<c<b$ and $c\notin X$. Then
+\[
+    X\cap(-\infty,c)
+    \qquad\text{and}\qquad
+    X\cap(c,\infty)
+\]
+separate $a$ and $b$ inside $X$. Hence no connected subset of $X$ contains two distinct points. Therefore all connected components are singletons.
+
+Since every path connected set is connected, the path components are also singletons.
+
+\clearpage
+
+\begin{heading}
+    More Worked Problems
+\end{heading}
+
+\vspace{10pt}
+
+\begin{problem}[A union of coordinate axes]
+Let
+\[
+    X=\{(x,0):x\in\R\}\cup\{(0,y):y\in\R\}\subset\R^2.
+\]
+Show that $X$ is path connected.
+\end{problem}
+
+Let $p,q\in X$. We show that $p$ and $q$ can be joined by a path in $X$.
+
+The origin $(0,0)$ belongs to both axes. If $p$ lies on the $x$-axis, then the straight-line segment from $p$ to $(0,0)$ lies on the $x$-axis. If $p$ lies on the $y$-axis, then the straight-line segment from $p$ to $(0,0)$ lies on the $y$-axis. Thus $p$ can be joined to the origin by a path in $X$.
+
+Similarly, the origin can be joined to $q$ by a path in $X$. Joining the two paths gives a path from $p$ to $q$ in $X$. Therefore $X$ is path connected.
+
+\begin{problem}[Punctured plane]
+Show that $\R^2\setminus\{(0,0)\}$ is path connected.
+\end{problem}
+
+Given two points in the punctured plane, one can join the first point to a point on a large circle centered at the origin, move along the circle, and then join to the second point. This path avoids the origin. Hence $\R^2\setminus\{(0,0)\}$ is path connected.
+
+\clearpage
+
+\begin{heading}
+    Practice Problems
+\end{heading}
+
+\vspace{10pt}
+
+\begin{problem}
+Show that every star-shaped subset of $\R^n$ is path connected. A set $A\subseteq\R^n$ is star-shaped if there exists $p\in A$ such that for every $x\in A$, the line segment from $p$ to $x$ is contained in $A$.
+\end{problem}
+
+\begin{problem}
+Find the connected components and path components of
+\[
+    X=(0,1)\cup\{2\}\cup(3,4).
+\]
+\end{problem}
+
+\begin{problem}
+Show that if $A$ is path connected and $f:A\to Y$ is continuous, then $f(A)$ is path connected.
+\end{problem}
+
+\begin{problem}
+Let $A\subseteq\R$. Prove that $A$ is path connected if and only if $A$ is an interval or a singleton.
+\end{problem}
+
+\begin{problem}
+Give an problem of a connected metric space that is not path connected.
+\end{problem}
+
+\begin{problem}
+Give an problem of a totally disconnected space that is not discrete.
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+    Summary
+\end{heading}
+
+\vspace{10pt}
+
+\begin{enumerate}[label=\arabic*.]
+    \item A path from $a$ to $b$ is a continuous function $\gamma:[0,1]\to X$ with $\gamma(0)=a$ and $\gamma(1)=b$.
+    \item A space is path connected if every two points can be joined by a path.
+    \item Path connectedness implies connectedness.
+    \item Connectedness does not imply path connectedness. The topologist sine curve is the standard problem.
+    \item Path components are maximal path connected subsets and partition the space.
+    \item Every path component is contained in a connected component.
+    \item In locally path connected spaces, connected components and path components agree.
+    \item A space is totally disconnected if all connected components are singletons.
+    \item $\Q$, $\R\setminus\Q$, and the Cantor set are important totally disconnected spaces.
+\end{enumerate}
+
+\EndPage
+\end{document}
