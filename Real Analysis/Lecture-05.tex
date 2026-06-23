@@ -10,7 +10,7 @@
 \newcommand*{\CourseTitle}{Real Analysis}
 \newcommand*{\Chapter}{Cardinality of Sets}
 \newcommand*{\Topics}{Countable and Uncountable Sets, Continuum Hypothesis}
-\newcommand*{\DocDate}{October 21, 2025}
+\newcommand*{\DocDate}{June 23, 2026}
 
 \newcommand{\ReferenceList}{%
 \begin{enumerate}[leftmargin=2em, label={[\arabic{*}]}]
@@ -320,6 +320,12 @@ enhanced, frame empty, interior style={left color=HeadL!95!black, right color=He
 	Often denoted as \(A \sim B\) to indicate that sets \(A\) and \(B\) have the same cardinality.
 \end{definition}
 
+\vfill
+
+\begin{tcolorbox}[colback=ProbBack, colframe=ProbMain]
+	Note: The relation $\sim$ between two sets is an equivalence relation, since it is reflexive, symmetric, and transitive.
+\end{tcolorbox}
+
 \clearpage
 
 \begin{problem}
@@ -423,12 +429,6 @@ enhanced, frame empty, interior style={left color=HeadL!95!black, right color=He
 
 \clearpage
 
-\begin{problem}
-	For any real numbers \(a\) and \(b\) with \(a < b\), the open interval \((a, b)\)and the closed interval \([a, b]\) are uncountable.
-\end{problem}
-
-\clearpage
-
 \begin{heading}
 	Theorems on Countability
 \end{heading}
@@ -470,19 +470,6 @@ enhanced, frame empty, interior style={left color=HeadL!95!black, right color=He
 \clearpage
 
 \begin{heading}
-	The Schröder–Bernstein Theorem
-\end{heading}
-
-\vspace{10pt}
-
-\begin{theorem}[Schröder–Bernstein Theorem]
-	Let \(A\) and \(B\) be two sets. If there exist injective functions \(f: A \to B\) and \(g: B \to A\), then there exists a bijective function \(h: A \to B\). In other words, if \(\card(A) \leq \card(B)\) and \(\card(B) \leq \card(A)\), then \(\card(A) = \card(B)\).	
-\end{theorem}
-
-
-\clearpage
-
-\begin{heading}
 	Cardinal Numbers
 \end{heading}
 
@@ -504,7 +491,7 @@ enhanced, frame empty, interior style={left color=HeadL!95!black, right color=He
 
 \vspace{10pt}
 
-\begin{definition}[Ordering of Cardinal Numbers]
+\begin{definition}[Ordering of Cardinal Numbers (Using Injections)]
 	For any sets $A$ and $B$:
 	\begin{enumerate}
 		\item $\card(A) \le \card(B)$ if and only if there exists an injective function $f : A \to B$.
@@ -512,6 +499,41 @@ enhanced, frame empty, interior style={left color=HeadL!95!black, right color=He
 		\item $\card(A) < \card(B)$ if and only if $\card(A) \le \card(B)$ but $A \not\sim B$.
 	\end{enumerate}
 \end{definition}
+
+\clearpage
+
+\begin{definition}[Ordering of Cardinal Numbers (Using Surjections)]
+	For any sets $A$ and $B$:
+	\begin{enumerate}
+		\item $\card(A) \le \card(B)$ if and only if there exists a surjective function $f : B \to A$.
+		\item $\card(A) = \card(B)$ if and only if there exists a bijective function $f : A \to B$.
+		\item $\card(A) < \card(B)$ if and only if $\card(A) \le \card(B)$ but $A \not\sim B$.
+	\end{enumerate}
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+	The Schröder–Bernstein Theorem
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Schröder–Bernstein Theorem]
+	Let \(A\) and \(B\) be two sets. If there exist injective functions \(f: A \to B\) and \(g: B \to A\), then there exists a bijective function \(h: A \to B\). In other words, if \(\card(A) \leq \card(B)\) and \(\card(B) \leq \card(A)\), then \(\card(A) = \card(B)\).	
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Schröder–Bernstein Theorem (Using Surjections)]
+	Let \(A\) and \(B\) be two sets. If there exist surjective functions \(f: A \to B\) and \(g: B \to A\), then there exists a bijective function \(h: A \to B\). In other words, if \(\card(B) \leq \card(A)\) and \(\card(A) \leq \card(B)\), then \(\card(A) = \card(B)\).	
+\end{theorem}
+
+\clearpage
+
+\begin{problem}
+	For any real numbers \(a\) and \(b\) with \(a < b\), the open interval \((a, b)\)and the closed interval \([a, b]\) are uncountable.
+\end{problem}
 
 \clearpage
 
