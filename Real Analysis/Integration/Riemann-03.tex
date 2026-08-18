@@ -1,0 +1,157 @@
+% ===============================
+% MAT221 -- Real Analysis
+% Riemann Integral
+% ===============================
+
+\documentclass[12pt,a4paper]{article}
+
+% ===============================
+% Metadata
+% ===============================
+\newcommand*{\CourseCode}{MAT221}
+\newcommand*{\CourseTitle}{Real Analysis}
+\newcommand*{\Chapter}{Riemann Integrability}
+\newcommand*{\Topics}{Integrating Functions with Discontinuities}
+\newcommand*{\DocDate}{August 18, 2026}
+
+% ===============================
+% Header
+% ===============================
+\input{header}
+
+% ===============================
+% Document
+% ===============================
+\begin{document}
+
+\FrontPage
+\Large
+
+\begin{heading}
+    Continuous Functions are Riemann Integrable
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Continuous Functions are Riemann Integrable]
+    Let $f$ be a continuous function on a closed interval $[a,b]$. Then $f$ is Riemann integrable on $[a,b]$.
+\end{theorem}
+
+\clearpage\begin{heading}
+    Monotone Functions are Riemann Integrable
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Monotone Functions are Riemann Integrable]
+    Let $f$ be a monotone function on a closed interval $[a,b]$. Then $f$ is Riemann integrable on $[a,b]$.
+\end{theorem}
+
+\clearpage
+
+
+\begin{heading}
+    Discontinuous Function May Not Be Riemann Integrable
+\end{heading}
+
+\vspace{10pt}
+
+\begin{problem}[Dirichlet Function]
+    Let $f$ be the Dirichlet function defined on the interval $[0,1]$ by
+    \[
+        f(x) = 
+        \begin{cases}
+            1, & \text{if } x \in \mathbb{Q},\\
+            0, & \text{if } x \notin  \mathbb{Q}.
+        \end{cases}
+    \]
+    Show that $f$ is not Riemann integrable on $[0,1]$.
+    
+\end{problem}
+
+\clearpage
+
+\begin{heading}
+    Some Discontinuous Functions are Riemann Integrable
+\end{heading}
+
+
+\begin{theorem}[Discontinuity at one endpoint]
+    Let $f$ be the function defined on the interval $[0,1]$ by
+    \[
+        f(x) = 
+        \begin{cases}
+            1, & \text{if } 0 < x < 1,\\
+            0, & \text{if } x = 1.
+        \end{cases}
+    \]
+    Show that $f$ is Riemann integrable on $[0,1]$ and compute its integral.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Discontinuity at a point]
+    Let $f$ be the function defined on the interval $[0,2]$ by
+    \[
+        f(x) = 
+        \begin{cases}
+            1, & \text{if } x \ne 1,\\
+            0, & \text{if } x = 1.
+        \end{cases}
+    \]
+    Show that $f$ is Riemann integrable on $[0,2]$ and compute its integral.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Changing the value of a function at a point]
+    Assume $f: [a,b] \to \mathbb{R}$ is Riemann integrable on $[a,b]$. Show that if one value of $f$ is changed at a single point $c \in [a,b]$, then the new function is also Riemann integrable on $[a,b]$ and the value of the integral does not change.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Functions with Finite Number of Discontinuities
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}
+    Let $f$ be a bounded function on a closed interval $[a,b]$ that has only a finite number of discontinuities. Then $f$ is Riemann integrable on $[a,b]$.
+    
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Changing value at finite number of points]
+    Assume $f: [a,b] \to \mathbb{R}$ is Riemann integrable on $[a,b]$. Show that if one value of $f$ is changed at a finite number of points in $[a,b]$, then the new function is also Riemann integrable on $[a,b]$ and the value of the integral does not change.
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Functions with Countable Number of Discontinuities
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}
+    Let $f$ be a bounded function on a closed interval $[a,b]$ that has only a countable number of discontinuities. Then $f$ is Riemann integrable on $[a,b]$.
+    
+\end{theorem}
+
+\clearpage
+
+\begin{problem}[Changing value at countable number of points]
+    Assume $f: [a,b] \to \mathbb{R}$ is Riemann integrable on $[a,b]$. Show that if one value of $f$ is changed at a countable number of points in $[a,b]$, then the new function may not be Riemann integrable on $[a,b]$.
+\end{problem}
+
+
+
+
+
+
+
+\EndPage
+
+\end{document}
