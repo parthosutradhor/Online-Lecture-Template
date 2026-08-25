@@ -1,0 +1,186 @@
+% ===============================
+% MAT221 -- Real Analysis
+% Riemann Integral
+% ===============================
+
+\documentclass[12pt,a4paper]{article}
+
+% ===============================
+% Metadata
+% ===============================
+\newcommand*{\CourseCode}{MAT221}
+\newcommand*{\CourseTitle}{Real Analysis}
+\newcommand*{\Chapter}{Properties of the Riemann Integral}
+\newcommand*{\Topics}{ 
+    Algebraic Properties, 
+    Order Properties, 
+    Additivity Property and Uniform Convergence in Riemann Integral
+}
+\newcommand*{\DocDate}{August 25, 2026}
+
+% ===============================
+% Header
+% ===============================
+\input{header}
+
+% ===============================
+% Document
+% ===============================
+\begin{document}
+
+\FrontPage
+\Large
+
+\begin{heading}
+    Cauchy Criterion for Riemann Integrability
+\end{heading}
+
+\vspace{10pt}
+
+\begin{definition}[Riemann integrable function]
+    A function $f$ is said to be Riemann integrable on the interval $[a,b]$ if for every $\epsilon > 0$, there exists a partition $P$ of $[a,b]$ such that
+    \[
+        U(f,P) - L(f,P) < \epsilon,
+    \]
+    where $U(f,P)$ and $L(f,P)$ are the upper and lower sums of $f$ with respect to the partition $P$, respectively.
+    
+\end{definition}
+
+\clearpage
+
+\begin{heading}
+    Algebraic Properties of the Riemann Integral
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Scalar multiplication]
+    Let $f$ be Riemann integrable functions on the interval $[a,b]$ and $k \in \mathbb{R}$. Then, $kf$ is Riemann integrable on $[a,b]$, and
+    \[
+        \int_a^b kf = k \int_a^b f.
+    \]
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Sum of integrable functions]
+    Let $f$ and $g$ be Riemann integrable functions on the interval $[a,b]$. Then, $f+g$ is Riemann integrable on $[a,b]$, and
+    \[
+        \int_a^b (f + g) = \int_a^b f + \int_a^b g.
+    \]
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Other algebraic properties]
+    Let $f$ and $g$ be Riemann integrable functions on the interval $[a,b]$. Then, the following properties hold:
+    \begin{enumerate}
+        \item $f-g$ is Riemann integrable on $[a,b]$, and
+        \[
+            \int_a^b (f - g) = \int_a^b f - \int_a^b g.
+        \]
+        \item $fg$ is Riemann integrable on $[a,b]$.
+        \item If $f(x) \neq 0$ for all $x \in [a,b]$, then $\frac{1}{f}$ is Riemann integrable on $[a,b]$.
+        \item  If $g(x) \neq 0$ for all $x \in [a,b]$, then $\frac{f}{g}$ is Riemann integrable on $[a,b]$.
+    \end{enumerate} 
+\end{theorem}
+    
+
+\clearpage
+
+\begin{heading}
+    Order Properties of the Riemann Integral
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Non-negativity]
+    Let $f$ be a Riemann integrable function on the interval $[a,b]$. If $f(x) \geq 0$ for all $x \in [a,b]$, then
+    \[
+        \int_a^b f \geq 0.
+    \]
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Order preservation]
+    Let $f$ and $g$ be Riemann integrable functions on the interval $[a,b]$. If $f(x) \leq g(x)$ for all $x \in [a,b]$, then
+    \[
+        \int_a^b f \leq \int_a^b g.
+    \]
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Absolute value]
+    Let $f$ be a Riemann integrable function on the interval $[a,b]$. Then, $|f|$ is Riemann integrable on $[a,b]$, and
+    \[
+        \left| \int_a^b f \right| \leq \int_a^b |f|.
+    \]
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Additivity of the Riemann Integral
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Additivity]
+    Let $f$ be a Riemann integrable function on the interval $[a,b]$ and $c \in (a,b)$. Then,
+    \[
+        \int_a^b f = \int_a^c f + \int_c^b f.
+    \]
+\end{theorem}
+
+\begin{heading}
+    Reversal of the limits of integration
+\end{heading}
+
+\begin{definition}[Integral from $b$ to $a$]
+    For a Riemann integrable function $f$ on the interval $[a,b]$, the integral of $f$ from $b$ to $a$ is defined as
+    \[
+        \int_b^a f = - \int_a^b f .
+    \]
+\end{definition}
+
+\vspace{100pt}
+
+\begin{definition}[Integral over a point]
+    For a Riemann integrable function $f$ on the interval $[a,b]$, the integral of $f$ over a point is defined as
+    \[
+        \int_a^a f = 0.
+    \]
+\end{definition}
+
+
+\clearpage
+
+\begin{heading}
+    Uniform Convergence and the Riemann Integral
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Uniform convergence and the Riemann integral]
+    Let $\{f_n\}$ be a sequence of Riemann integrable functions on the interval $[a,b]$ that converges uniformly to a function $f$. Then, $f$ is Riemann integrable on $[a,b]$, and
+    \[
+        \lim_{n \to \infty} \int_a^b f_n = \int_a^b f.
+    \]
+    In other words,
+    \[
+        \lim_{n \to \infty} \int_a^b f_n = \int_a^b \lim_{n \to \infty} f_n.
+    \]
+\end{theorem}
+
+
+
+
+
+
+
+
+\EndPage
+
+\end{document}
