@@ -10,8 +10,8 @@
 % ===============================
 \newcommand*{\CourseCode}{MAT221}
 \newcommand*{\CourseTitle}{Real Analysis}
-\newcommand*{\Chapter}{Fundamentals of Calculus}
-\newcommand*{\Topics}{History of Calculus, Fundamental Theorem of Calculus}
+\newcommand*{\Chapter}{Fundamental Theorems of Calculus}
+\newcommand*{\Topics}{FTC-1, FTC-2, Average Value Theorem}
 \newcommand*{\DocDate}{August 30, 2026}
 
 % ===============================
@@ -42,23 +42,30 @@
 \vspace{10pt}
 
 \begin{theorem}[Fundamental Theorem of Calculus Part 1]
-    Let $f$ be a continuous real-valued function defined on a closed interval $[a,b]$. Define the function $F$ on $[a,b]$ by
-    \[
-        F(x) = \int_a^x f(t) \, dt.
-    \]
-    Then, $F$ is continuous on $[a,b]$, differentiable on $(a,b)$, and
-    \[
-        F'(x) = f(x) \quad \text{for all } x \in (a,b).
-    \]
+    Let \(f:[a,b]\to\mathbb{R}\) be integrable, and define
+\[
+F(x)=\int_a^x f(t)\,dt \quad \text{for all } x\in[a,b].
+\]
+
+Then \(F\) is continuous on \([a,b]\). If \(f\) is continuous at some point
+\(c\in[a,b]\), then \(F\) is differentiable at \(c\) and
+\[
+F'(c)=f(c).
+\]
 \end{theorem}
 
 \clearpage
 
 \begin{theorem}[Fundamental Theorem of Calculus Part 2]
-    Let $f$ be a real-valued function defined on a closed interval $[a,b]$ that is Riemann integrable. If $F$ is any antiderivative of $f$ on $[a,b]$, then
-    \[
-        \int_a^b f(x) \, dx = F(b) - F(a).
-    \]
+    If \(f:[a,b]\to\mathbb{R}\) is integrable, and
+\(F:[a,b]\to\mathbb{R}\) satisfies
+\[
+F'(x)=f(x) \quad \text{for all } x\in[a,b],
+\]
+then
+\[
+\int_a^b f = F(b)-F(a).
+\]
 \end{theorem}
 
 \clearpage
@@ -104,21 +111,11 @@ F(x)=\int_{-1}^{x} f(t)\,dt.
 
 \clearpage
 
-\begin{theorem}
-The hypothesis in FTC-1 that
-\[
-F'(x)=f(x)
-\]
-for all \(x\in[a,b]\) is slightly stronger than it needs to be. Carefully read the proof and state exactly what needs to be assumed with regard to the relationship between \(f\) and \(F\) for the proof to be valid.
-\end{theorem}
-
-\clearpage
-
 \begin{theorem}[Average Value Theorem]
 If \(g\) is continuous on \([a,b]\), show that there exists a point
-\[
+\(
 c\in(a,b)
-\]
+\)
 such that
 \[
 g(c)=\frac{1}{b-a}\int_a^b g(x)\,dx.
@@ -141,6 +138,30 @@ and define
 H(x)=\int_0^x h(t)\,dt.
 \]
 Show that even though \(h\) is not continuous at \(x=1\), \(H(x)\) is still differentiable at \(x=1\).
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}
+The hypothesis in FTC-2 that
+\[
+F'(x)=f(x)
+\]
+for all \(x\in[a,b]\) is slightly stronger than it needs to be. Carefully read the proof and state exactly what needs to be assumed with regard to the relationship between \(f\) and \(F\) for the proof to be valid.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Updated Fundamental Theorem of Calculus Part 2]
+    If \(f:[a,b]\to\mathbb{R}\) is integrable, and
+\(F:[a,b]\to\mathbb{R}\) satisfies
+\[
+F'(x)=f(x) \quad \text{for all } x\in(a,b),
+\]
+then
+\[
+\int_a^b f = F(b)-F(a).
+\]
 \end{theorem}
 
 
