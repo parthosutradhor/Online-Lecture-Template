@@ -1,0 +1,150 @@
+% ===============================
+% MAT221 -- Real Analysis
+% Riemann Integral
+% ===============================
+
+\documentclass[12pt,a4paper]{article}
+
+% ===============================
+% Metadata
+% ===============================
+\newcommand*{\CourseCode}{MAT221}
+\newcommand*{\CourseTitle}{Real Analysis}
+\newcommand*{\Chapter}{Fundamentals of Calculus}
+\newcommand*{\Topics}{History of Calculus, Fundamental Theorem of Calculus}
+\newcommand*{\DocDate}{August 30, 2026}
+
+% ===============================
+% Header
+% ===============================
+\input{header}
+
+% ===============================
+% Document
+% ===============================
+\begin{document}
+
+\FrontPage
+\Large
+
+\begin{heading}
+    History of Calculus
+\end{heading}
+
+\vspace{10pt}
+
+\clearpage
+
+\begin{heading}
+    Fundamental Theorem of Calculus
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}[Fundamental Theorem of Calculus Part 1]
+    Let $f$ be a continuous real-valued function defined on a closed interval $[a,b]$. Define the function $F$ on $[a,b]$ by
+    \[
+        F(x) = \int_a^x f(t) \, dt.
+    \]
+    Then, $F$ is continuous on $[a,b]$, differentiable on $(a,b)$, and
+    \[
+        F'(x) = f(x) \quad \text{for all } x \in (a,b).
+    \]
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Fundamental Theorem of Calculus Part 2]
+    Let $f$ be a real-valued function defined on a closed interval $[a,b]$ that is Riemann integrable. If $F$ is any antiderivative of $f$ on $[a,b]$, then
+    \[
+        \int_a^b f(x) \, dx = F(b) - F(a).
+    \]
+\end{theorem}
+
+\clearpage
+
+\begin{heading}
+    Some Consequences of the Fundamental Theorem of Calculus
+\end{heading}
+
+\vspace{10pt}
+
+\begin{theorem}
+We have seen that not every derivative is continuous, but explain how we at least know that every continuous function is a derivative.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}
+Let
+\[
+f(x)=|x|
+\]
+and define
+\[
+F(x)=\int_{-1}^{x} f(t)\,dt.
+\]
+
+\begin{enumerate}
+    \item Find a formula for \(F(x)\) for all \(x\). Where is \(F\) continuous? Where is \(F\) differentiable? Where does
+    \[
+    F'(x)=f(x)?
+    \]
+
+    \item Repeat part (1) for the function
+    \[
+    f(x)=
+    \begin{cases}
+        1, & \text{if } x<0,\\
+        2, & \text{if } x\ge 0.
+    \end{cases}
+    \]
+\end{enumerate}
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}
+The hypothesis in FTC-1 that
+\[
+F'(x)=f(x)
+\]
+for all \(x\in[a,b]\) is slightly stronger than it needs to be. Carefully read the proof and state exactly what needs to be assumed with regard to the relationship between \(f\) and \(F\) for the proof to be valid.
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[Average Value Theorem]
+If \(g\) is continuous on \([a,b]\), show that there exists a point
+\[
+c\in(a,b)
+\]
+such that
+\[
+g(c)=\frac{1}{b-a}\int_a^b g(x)\,dx.
+\]
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}
+Let
+\[
+h(x)=
+\begin{cases}
+1, & \text{if } x<1 \text{ or } x>1,\\
+0, & \text{if } x=1,
+\end{cases}
+\]
+and define
+\[
+H(x)=\int_0^x h(t)\,dt.
+\]
+Show that even though \(h\) is not continuous at \(x=1\), \(H(x)\) is still differentiable at \(x=1\).
+\end{theorem}
+
+
+
+\EndPage
+
+\end{document}
