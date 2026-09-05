@@ -32,10 +32,11 @@
     Sets of Measure Zero
 \end{heading}
 
-\vspace{10pt}
+\clearpage
 
 \begin{theorem}
-    A set $A \subseteq \mathbb{R}$ is said to be of measure zero if for every $\epsilon > 0$, there exists a countable collection of open intervals $\{U_n\}_{n=1}^{\infty}$ such that $A \subseteq \bigcup_{n=1}^{\infty} U_n$ and $\sum_{n=1}^{\infty} |U_n| < \epsilon$, where $|U_n|$ denotes the length of the interval $U_n$.
+    A set $A \subseteq \mathbb{R}$ is said to be of measure zero if for every $\epsilon > 0$, there exists a countable collection of open intervals $\{U_n\}_{n=1}^{\infty}$ such that
+    \[A \subseteq \bigcup_{n=1}^{\infty} U_n \text{ and }\sum_{n=1}^{\infty} \mu(U_n) < \epsilon,\] where $\mu(U_n)$ denotes the measure of the interval $U_n$.
 \end{theorem}
 
 \clearpage
@@ -50,9 +51,24 @@
     Continuity and Oscillation
 \end{heading}
 
-\vspace{10pt}
+\begin{definition}[Oscillation of a Function]
+    Let $f: [a, b] \to \mathbb{R}$ be a bounded function. The oscillation of $f$ at a point $x_0 \in [a, b]$ is defined as
+    \[
+    \omega_f(x_0)
+    =
+    \inf_{\delta>0}
+    \left(
+    \sup_{|x-x_0|<\delta} f(x)
+    -
+    \inf_{|x-x_0|<\delta} f(x)
+    \right).
+    \]
+    
+\end{definition}
 
-\begin{theorem}[Continuity and Oscillation]
+\clearpage
+
+\begin{theorem}
     Let $f: [a, b] \to \mathbb{R}$ be a bounded function. Then $f$ is continuous at a point $x_0 \in [a, b]$ if and only if the oscillation of $f$ at $x_0$ is zero, i.e., $\omega_f(x_0) = 0$, where \[
     \omega_f(x_0)
     =
